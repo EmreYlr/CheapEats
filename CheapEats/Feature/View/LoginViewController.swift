@@ -18,19 +18,19 @@ final class LoginViewController: UIViewController {
 }
 extension LoginViewController: LoginViewModelOutputProtocol {
     func startLoading() {
-        <#code#>
+        print("startLoading")
     }
     
     func stopLoading() {
-        <#code#>
+        print("stopLoading")
     }
     
     func update() {
-        <#code#>
+        print("update")
     }
     
     func error() {
-        <#code#>
+        print("error")
     }
     
     
