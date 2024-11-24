@@ -396,7 +396,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="942" height="710"/>
+        <image name="Logo" width="1024" height="1024"/>
         <namedColor name="BGColor">
             <color red="0.99599999189376831" green="0.98000001907348633" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
