@@ -7,23 +7,29 @@
 
 import UIKit
 
-class PassResViewController: UIViewController {
-
+final class PassResViewController: UIViewController {
+    //MARK: -Variables
+    @IBOutlet weak var emailLayer: UITextField!
+    var passResViewModel: PassResViewModelProtocol = PassResViewModel()
+    @IBOutlet weak var passResButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        passResViewModel.delegate = self
+        passResButton.layer.cornerRadius = 10
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func passResButtonClicked(_ sender: Any) {
+        guard let email = emailLayer.text else { return }
+        passResViewModel.resetPassword(email: email)
     }
-    */
+}
 
+extension PassResViewController: PassResViewModelOutputProtocol {
+    func update() {
+        print("update")
+    }
+    
+    func error() {
+        print("error")
+    }
 }
