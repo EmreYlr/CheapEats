@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C36C1B0C2CF657A3007A96B4 /* OrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C1B0A2CF657A3007A96B4 /* OrderCollectionViewCell.swift */; };
+		C36C1B0D2CF657A3007A96B4 /* OrderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36C1B0B2CF657A3007A96B4 /* OrderCollectionViewCell.xib */; };
 		C36D3EA12CF34534008FE62B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EA02CF34534008FE62B /* AppDelegate.swift */; };
 		C36D3EA32CF34534008FE62B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EA22CF34534008FE62B /* SceneDelegate.swift */; };
 		C36D3EA52CF34534008FE62B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EA42CF34534008FE62B /* HomeViewController.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C36C1B0A2CF657A3007A96B4 /* OrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCollectionViewCell.swift; sourceTree = "<group>"; };
+		C36C1B0B2CF657A3007A96B4 /* OrderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderCollectionViewCell.xib; sourceTree = "<group>"; };
 		C36D3E9D2CF34534008FE62B /* CheapEats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheapEats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36D3EA02CF34534008FE62B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C36D3EA22CF34534008FE62B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				C36D3EF82CF36251008FE62B /* RegisterViewController.swift */,
 				C36D3EC42CF353E3008FE62B /* LoginViewController.swift */,
 				C36D3EA42CF34534008FE62B /* HomeViewController.swift */,
+				C36C1B0A2CF657A3007A96B4 /* OrderCollectionViewCell.swift */,
+				C36C1B0B2CF657A3007A96B4 /* OrderCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -228,6 +234,7 @@
 				C36D3ECE2CF356ED008FE62B /* GoogleService-Info.plist in Resources */,
 				C36D3EAD2CF34535008FE62B /* Base in Resources */,
 				C36D3EA82CF34534008FE62B /* Base in Resources */,
+				C36C1B0D2CF657A3007A96B4 /* OrderCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +252,7 @@
 				C36D3EFC2CF36267008FE62B /* RegisterViewModel.swift in Sources */,
 				C37B42562CF4E41500A03C4D /* NetworkLayer.swift in Sources */,
 				C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */,
+				C36C1B0C2CF657A3007A96B4 /* OrderCollectionViewCell.swift in Sources */,
 				C36D3EA32CF34534008FE62B /* SceneDelegate.swift in Sources */,
 				C36D3EC52CF353E3008FE62B /* LoginViewController.swift in Sources */,
 				C36D3F022CF3629E008FE62B /* PassResViewModel.swift in Sources */,
