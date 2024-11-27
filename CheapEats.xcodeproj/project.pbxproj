@@ -30,6 +30,7 @@
 		C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EFE2CF36286008FE62B /* PassResViewController.swift */; };
 		C36D3F022CF3629E008FE62B /* PassResViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3F012CF3629E008FE62B /* PassResViewModel.swift */; };
 		C37B42562CF4E41500A03C4D /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B42552CF4E41500A03C4D /* NetworkLayer.swift */; };
+		C3FDC2C42CF7A5F0001BD056 /* CollectionView+HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDC2C32CF7A5F0001BD056 /* CollectionView+HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		C36D3EFE2CF36286008FE62B /* PassResViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassResViewController.swift; sourceTree = "<group>"; };
 		C36D3F012CF3629E008FE62B /* PassResViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassResViewModel.swift; sourceTree = "<group>"; };
 		C37B42552CF4E41500A03C4D /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		C3FDC2C32CF7A5F0001BD056 /* CollectionView+HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+HomeViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,12 +133,11 @@
 		C36D3EB72CF34AD7008FE62B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C3FDC2C22CF7A5B7001BD056 /* SubView */,
+				C3FDC2C72CF7A6CA001BD056 /* Home */,
 				C36D3EFE2CF36286008FE62B /* PassResViewController.swift */,
 				C36D3EF82CF36251008FE62B /* RegisterViewController.swift */,
 				C36D3EC42CF353E3008FE62B /* LoginViewController.swift */,
-				C36D3EA42CF34534008FE62B /* HomeViewController.swift */,
-				C36C1B0A2CF657A3007A96B4 /* OrderCollectionViewCell.swift */,
-				C36C1B0B2CF657A3007A96B4 /* OrderCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -158,6 +159,24 @@
 				C37B42552CF4E41500A03C4D /* NetworkLayer.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		C3FDC2C22CF7A5B7001BD056 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				C36C1B0A2CF657A3007A96B4 /* OrderCollectionViewCell.swift */,
+				C36C1B0B2CF657A3007A96B4 /* OrderCollectionViewCell.xib */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		C3FDC2C72CF7A6CA001BD056 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C36D3EA42CF34534008FE62B /* HomeViewController.swift */,
+				C3FDC2C32CF7A5F0001BD056 /* CollectionView+HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +270,7 @@
 				C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */,
 				C36D3EFC2CF36267008FE62B /* RegisterViewModel.swift in Sources */,
 				C37B42562CF4E41500A03C4D /* NetworkLayer.swift in Sources */,
+				C3FDC2C42CF7A5F0001BD056 /* CollectionView+HomeViewController.swift in Sources */,
 				C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */,
 				C36C1B0C2CF657A3007A96B4 /* OrderCollectionViewCell.swift in Sources */,
 				C36D3EA32CF34534008FE62B /* SceneDelegate.swift in Sources */,
