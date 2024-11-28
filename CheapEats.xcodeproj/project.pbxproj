@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C32CBEF82CF89C990016F444 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEF72CF89C990016F444 /* UIView+Extension.swift */; };
+		C32CBEFA2CF8A2110016F444 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEF92CF8A2110016F444 /* Users.swift */; };
+		C32CBEFC2CF8AB880016F444 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEFB2CF8AB880016F444 /* UserManager.swift */; };
 		C36C1B0C2CF657A3007A96B4 /* OrderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36C1B0A2CF657A3007A96B4 /* OrderCollectionViewCell.swift */; };
 		C36C1B0D2CF657A3007A96B4 /* OrderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C36C1B0B2CF657A3007A96B4 /* OrderCollectionViewCell.xib */; };
 		C36D3EA12CF34534008FE62B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EA02CF34534008FE62B /* AppDelegate.swift */; };
@@ -34,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C32CBEF72CF89C990016F444 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C32CBEF92CF8A2110016F444 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		C32CBEFB2CF8AB880016F444 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		C36C1B0A2CF657A3007A96B4 /* OrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCollectionViewCell.swift; sourceTree = "<group>"; };
 		C36C1B0B2CF657A3007A96B4 /* OrderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderCollectionViewCell.xib; sourceTree = "<group>"; };
 		C36D3E9D2CF34534008FE62B /* CheapEats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheapEats.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C32CBEF62CF89C860016F444 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C32CBEF72CF89C990016F444 /* UIView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C36D3E942CF34534008FE62B = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +129,7 @@
 		C36D3EB52CF34A7B008FE62B /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				C32CBEF62CF89C860016F444 /* Extension */,
 				C37B42542CF4E3F800A03C4D /* NetworkLayer */,
 				C36D3EB62CF34ACF008FE62B /* Model */,
 				C36D3EB72CF34AD7008FE62B /* View */,
@@ -126,6 +141,8 @@
 		C36D3EB62CF34ACF008FE62B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C32CBEF92CF8A2110016F444 /* Users.swift */,
+				C32CBEFB2CF8AB880016F444 /* UserManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -270,8 +287,11 @@
 				C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */,
 				C36D3EFC2CF36267008FE62B /* RegisterViewModel.swift in Sources */,
 				C37B42562CF4E41500A03C4D /* NetworkLayer.swift in Sources */,
+				C32CBEFC2CF8AB880016F444 /* UserManager.swift in Sources */,
 				C3FDC2C42CF7A5F0001BD056 /* CollectionView+HomeViewController.swift in Sources */,
 				C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */,
+				C32CBEFA2CF8A2110016F444 /* Users.swift in Sources */,
+				C32CBEF82CF89C990016F444 /* UIView+Extension.swift in Sources */,
 				C36C1B0C2CF657A3007A96B4 /* OrderCollectionViewCell.swift in Sources */,
 				C36D3EA32CF34534008FE62B /* SceneDelegate.swift in Sources */,
 				C36D3EC52CF353E3008FE62B /* LoginViewController.swift in Sources */,

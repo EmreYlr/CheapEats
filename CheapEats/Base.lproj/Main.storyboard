@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xY8-fg-I0a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PCE-QY-hl2">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -460,6 +461,51 @@
             </objects>
             <point key="canvasLocation" x="3559.5419847328244" y="3.5211267605633805"/>
         </scene>
+        <!--Map-->
+        <scene sceneID="dAz-WL-H6a">
+            <objects>
+                <navigationController id="TBJ-9L-qD8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map" id="ksI-qu-qau"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="maB-D0-ljk">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Qei-vS-6qw" kind="relationship" relationship="rootViewController" id="gLF-DF-i7U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NeZ-7M-cUx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2633" y="754"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Xd3-yE-ypb">
+            <objects>
+                <viewController id="Qei-vS-6qw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f7d-2h-Wkw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVo-4H-Ifa">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1Nj-4T-OLY"/>
+                        <color key="backgroundColor" name="BGColor"/>
+                        <constraints>
+                            <constraint firstItem="ZVo-4H-Ifa" firstAttribute="leading" secondItem="1Nj-4T-OLY" secondAttribute="leading" id="4FN-Mf-22o"/>
+                            <constraint firstItem="ZVo-4H-Ifa" firstAttribute="top" secondItem="1Nj-4T-OLY" secondAttribute="top" id="GLB-Xb-Q7L"/>
+                            <constraint firstItem="1Nj-4T-OLY" firstAttribute="bottom" secondItem="ZVo-4H-Ifa" secondAttribute="bottom" id="M6I-1j-Pss"/>
+                            <constraint firstItem="1Nj-4T-OLY" firstAttribute="trailing" secondItem="ZVo-4H-Ifa" secondAttribute="trailing" id="fyn-sf-NHm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OTT-eu-3kD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bAW-Wj-5wH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3560" y="754"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="CtS-PW-aPg">
             <objects>
@@ -563,7 +609,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="UWS-DO-IW7">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xY8-fg-I0a" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="xY8-fg-I0a" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kdu-zm-Vjn">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -573,6 +619,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="OQF-ZN-A0b" kind="relationship" relationship="viewControllers" id="872-O7-jQ5"/>
+                        <segue destination="TBJ-9L-qD8" kind="relationship" relationship="viewControllers" id="WLS-QO-Sf0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eto-us-9h1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -602,6 +649,7 @@
     <resources>
         <image name="Logo" width="1024" height="1024"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="map" catalog="system" width="128" height="112"/>
         <namedColor name="BGColor">
             <color red="0.99599999189376831" green="0.98000001907348633" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

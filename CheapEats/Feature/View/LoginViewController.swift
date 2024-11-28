@@ -16,6 +16,8 @@ final class LoginViewController: UIViewController {
     var loginViewModel : LoginViewModelProtocol = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailLayer.text = "yeleremre@hotmail.com"
+        passwordLayer.text = "123456"
         loginViewModel.delegate = self
         loginButton.layer.cornerRadius = 10
         
@@ -35,10 +37,10 @@ extension LoginViewController: LoginViewModelOutputProtocol {
     }
     
     func update() {
-        print("update")
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-//        navigationController?.pushViewController(homeVC, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarVC = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.pushViewController(tabBarVC, animated: true)
     }
     
     func error() {

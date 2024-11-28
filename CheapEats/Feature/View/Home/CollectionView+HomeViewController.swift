@@ -18,6 +18,7 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! OrderCollectionViewCell
         cell.imageView.image = UIImage(named: "testImage")
         cell.imageView?.roundCorners(corners: [.topLeft, .topRight], radius: 10)
+        cell.imageView.layer.opacity = 0.8
         cell.detailView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10)
         return cell
     }
@@ -35,13 +36,4 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         return 10
     }
    
-}
-
-extension UIView {
-    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-        let mask = CAShapeLayer()
-        mask.path = path.cgPath
-        layer.mask = mask
-    }
 }

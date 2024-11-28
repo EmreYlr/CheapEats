@@ -18,7 +18,6 @@ protocol HomeViewModelOutputProtocol: AnyObject{
 
 final class HomeViewModel {
     weak var delegate: HomeViewModelOutputProtocol?
-    
 }
 
 extension HomeViewModel: HomeViewModelProtocol { }

@@ -33,6 +33,7 @@ final class NetworkManager {
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 if let user = result?.user {
                     let userInfo: [String: Any] = [
+                        "uid": user.uid,
                         "firstName": firstName,
                         "lastName": lastName,
                         "email": email,
@@ -73,6 +74,18 @@ final class NetworkManager {
             } else {
                 completion(.success(()))
             }
+        }
+    }
+    
+    func getUserInfo(uid: String, completion: @escaping (Users?) -> Void) {
+        let userRef = db.collection("users").document(uid)
+        userRef.getDocument { document, _ in
+            guard let document = document, document.exists, let data = document.data(), let user = Users(data: data) else {
+                completion(nil)
+                return
+            }
+            UserManager.shared.user = user
+            completion(user)
         }
     }
     
