@@ -12,6 +12,8 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var emailLayer: UITextField!
     @IBOutlet weak var passwordLayer: UITextField!
     
+    @IBOutlet weak var waitView: UIView!
+    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loginButton: UIButton!
     var loginViewModel : LoginViewModelProtocol = LoginViewModel()
     override func viewDidLoad() {
@@ -20,6 +22,7 @@ final class LoginViewController: UIViewController {
         passwordLayer.text = "123456"
         loginViewModel.delegate = self
         loginButton.layer.cornerRadius = 10
+        loadIndicator.color = UIColor(named: "ButtonColor")
         
     }
     @IBAction func loginButtonClicked(_ sender: Any) {
@@ -29,22 +32,32 @@ final class LoginViewController: UIViewController {
 }
 extension LoginViewController: LoginViewModelOutputProtocol {
     func startLoading() {
-        print("startLoading")
+        waitView.isHidden = false
+        waitView.layer.opacity = 0.5
+        loadIndicator.isHidden = false
+        loadIndicator.startAnimating()
+        loginButton.isEnabled = false
     }
     
     func stopLoading() {
-        print("stopLoading")
+        waitView.isHidden = true
+        waitView.layer.opacity = 0
+        loadIndicator.isHidden = true
+        loadIndicator.stopAnimating()
+        loginButton.isEnabled = true
     }
     
     func update() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabBarVC = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         navigationController?.navigationBar.isHidden = true
+        stopLoading()
         navigationController?.pushViewController(tabBarVC, animated: true)
     }
     
     func error() {
         print("error")
+        stopLoading()
     }
     
     

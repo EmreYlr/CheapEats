@@ -15,7 +15,6 @@ protocol LoginViewModelProtocol {
 
 protocol LoginViewModelOutputProtocol: AnyObject {
     func startLoading()
-    func stopLoading()
     func update()
     func error()
 }
@@ -31,14 +30,14 @@ final class LoginViewModel {
             case .success:
                 guard let userUID = getCurrentUser()?.uid else{
                     self.delegate?.error()
-                    self.delegate?.stopLoading()
+                    //self.delegate?.stopLoading()
                     return
                 }
                 self.getUserInfo(uid: userUID)
             case .failure:
                 self.delegate?.error()
             }
-            self.delegate?.stopLoading()
+            //self.delegate?.stopLoading()
         }
     }
     

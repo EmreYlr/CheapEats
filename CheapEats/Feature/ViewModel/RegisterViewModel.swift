@@ -32,7 +32,6 @@ final class RegisterViewModel {
             case .failure:
                 self.delegate?.error()
             }
-            self.delegate?.stopLoading()
         }
     }
 }

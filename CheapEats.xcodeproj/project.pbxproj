@@ -33,6 +33,11 @@
 		C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EFE2CF36286008FE62B /* PassResViewController.swift */; };
 		C36D3F022CF3629E008FE62B /* PassResViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3F012CF3629E008FE62B /* PassResViewModel.swift */; };
 		C37B42562CF4E41500A03C4D /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B42552CF4E41500A03C4D /* NetworkLayer.swift */; };
+		C3B21C882CF9EAF8005878F9 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C872CF9EAF8005878F9 /* MoreViewController.swift */; };
+		C3B21C8A2CF9EB02005878F9 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C892CF9EB02005878F9 /* MoreViewModel.swift */; };
+		C3B21C8E2CF9ECCA005878F9 /* MoreViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */; };
+		C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C8F2CF9ED3B005878F9 /* FoodTableViewCell.swift */; };
+		C3B21C922CF9ED3B005878F9 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */; };
 		C3FDC2C42CF7A5F0001BD056 /* CollectionView+HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDC2C32CF7A5F0001BD056 /* CollectionView+HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +64,11 @@
 		C36D3EFE2CF36286008FE62B /* PassResViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassResViewController.swift; sourceTree = "<group>"; };
 		C36D3F012CF3629E008FE62B /* PassResViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassResViewModel.swift; sourceTree = "<group>"; };
 		C37B42552CF4E41500A03C4D /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		C3B21C872CF9EAF8005878F9 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		C3B21C892CF9EB02005878F9 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
+		C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreViewController+TableView.swift"; sourceTree = "<group>"; };
+		C3B21C8F2CF9ED3B005878F9 /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
+		C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
 		C3FDC2C32CF7A5F0001BD056 /* CollectionView+HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+HomeViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +162,7 @@
 			children = (
 				C3FDC2C22CF7A5B7001BD056 /* SubView */,
 				C3FDC2C72CF7A6CA001BD056 /* Home */,
+				C3B21C8C2CF9EC98005878F9 /* More */,
 				C36D3EFE2CF36286008FE62B /* PassResViewController.swift */,
 				C36D3EF82CF36251008FE62B /* RegisterViewController.swift */,
 				C36D3EC42CF353E3008FE62B /* LoginViewController.swift */,
@@ -166,6 +177,7 @@
 				C36D3EFB2CF36267008FE62B /* RegisterViewModel.swift */,
 				C36D3EC82CF3540B008FE62B /* LoginViewModel.swift */,
 				C36D3EC12CF34C4A008FE62B /* HomeViewModel.swift */,
+				C3B21C892CF9EB02005878F9 /* MoreViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -178,11 +190,22 @@
 			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
+		C3B21C8C2CF9EC98005878F9 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				C3B21C872CF9EAF8005878F9 /* MoreViewController.swift */,
+				C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		C3FDC2C22CF7A5B7001BD056 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
 				C36C1B0A2CF657A3007A96B4 /* OrderCollectionViewCell.swift */,
 				C36C1B0B2CF657A3007A96B4 /* OrderCollectionViewCell.xib */,
+				C3B21C8F2CF9ED3B005878F9 /* FoodTableViewCell.swift */,
+				C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -271,6 +294,7 @@
 				C36D3EAD2CF34535008FE62B /* Base in Resources */,
 				C36D3EA82CF34534008FE62B /* Base in Resources */,
 				C36C1B0D2CF657A3007A96B4 /* OrderCollectionViewCell.xib in Resources */,
+				C3B21C922CF9ED3B005878F9 /* FoodTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,14 +311,18 @@
 				C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */,
 				C36D3EFC2CF36267008FE62B /* RegisterViewModel.swift in Sources */,
 				C37B42562CF4E41500A03C4D /* NetworkLayer.swift in Sources */,
+				C3B21C882CF9EAF8005878F9 /* MoreViewController.swift in Sources */,
 				C32CBEFC2CF8AB880016F444 /* UserManager.swift in Sources */,
 				C3FDC2C42CF7A5F0001BD056 /* CollectionView+HomeViewController.swift in Sources */,
+				C3B21C8A2CF9EB02005878F9 /* MoreViewModel.swift in Sources */,
 				C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */,
 				C32CBEFA2CF8A2110016F444 /* Users.swift in Sources */,
+				C3B21C8E2CF9ECCA005878F9 /* MoreViewController+TableView.swift in Sources */,
 				C32CBEF82CF89C990016F444 /* UIView+Extension.swift in Sources */,
 				C36C1B0C2CF657A3007A96B4 /* OrderCollectionViewCell.swift in Sources */,
 				C36D3EA32CF34534008FE62B /* SceneDelegate.swift in Sources */,
 				C36D3EC52CF353E3008FE62B /* LoginViewController.swift in Sources */,
+				C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */,
 				C36D3F022CF3629E008FE62B /* PassResViewModel.swift in Sources */,
 				C36D3EC22CF34C4A008FE62B /* HomeViewModel.swift in Sources */,
 			);

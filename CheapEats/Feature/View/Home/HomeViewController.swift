@@ -15,6 +15,7 @@ final class HomeViewController: UIViewController{
     @IBOutlet weak var recommendedMoreButton: UIButton!
     @IBOutlet weak var recommendedCollectionView: UICollectionView!
     var homeViewModel : HomeViewModelProtocol = HomeViewModel()
+    let SB = UIStoryboard(name: "Main", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,7 @@ final class HomeViewController: UIViewController{
         initLoad()
         collectionViewLayoutSettings()
         endlingViewLayoutSettings()
-        
-        
+        //TODO:
         if let user = UserManager.shared.user {
             helloLabel.text = "Hello, \(user.firstName)"
         }
@@ -64,11 +64,13 @@ final class HomeViewController: UIViewController{
     }
     
     @IBAction func endlingMoreButtonClicked(_ sender: Any) {
-        
+        let moreVC = SB.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
+        navigationController?.pushViewController(moreVC, animated: true)
     }
     
     @IBAction func recommendedMoreButtonClicked(_ sender: Any) {
-        
+        let moreVC = SB.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
+        navigationController?.pushViewController(moreVC, animated: true)
         
     }
 }
