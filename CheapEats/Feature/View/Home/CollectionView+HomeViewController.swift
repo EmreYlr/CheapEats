@@ -17,9 +17,6 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! OrderCollectionViewCell
         cell.imageView.image = UIImage(named: "testImage")
-        cell.imageView?.roundCorners(corners: [.topLeft, .topRight], radius: 10)
-        cell.imageView.layer.opacity = 0.8
-        cell.detailView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 0.5)
         return cell
     }
     
@@ -29,11 +26,34 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         return CGSize(width: width, height: height)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Tapped")
+        let SB = UIStoryboard(name: "Main", bundle: nil)
+        let detailVC = SB.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
-   
+    
+    func collectionViewLayoutSettings() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        endlingCollectionView.collectionViewLayout = layout
+        endlingCollectionView.isPagingEnabled = false
+        endlingCollectionView.showsHorizontalScrollIndicator = false
+        endlingCollectionView.backgroundColor = .BG
+        endlingCollectionView.layer.cornerRadius = 10
+    }
+    
+    func endlingViewLayoutSettings() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        recommendedCollectionView.collectionViewLayout = layout
+        recommendedCollectionView.isPagingEnabled = false
+        recommendedCollectionView.showsHorizontalScrollIndicator = false
+        recommendedCollectionView.backgroundColor = .BG
+        recommendedCollectionView.layer.cornerRadius = 10
+    }
 }

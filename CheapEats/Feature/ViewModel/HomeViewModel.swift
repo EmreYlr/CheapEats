@@ -9,6 +9,7 @@ import Foundation
 
 protocol HomeViewModelProtocol {
     var delegate: HomeViewModelOutputProtocol? { get set }
+    var user: Users? { get set }
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject{
@@ -18,6 +19,10 @@ protocol HomeViewModelOutputProtocol: AnyObject{
 
 final class HomeViewModel {
     weak var delegate: HomeViewModelOutputProtocol?
+    var user: Users?
+    init() {
+        self.user = UserManager.shared.user
+    }
 }
 
 extension HomeViewModel: HomeViewModelProtocol { }

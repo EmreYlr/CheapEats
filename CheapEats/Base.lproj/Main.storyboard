@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -494,6 +495,7 @@
                         <outlet property="recommendedCollectionView" destination="LAS-5s-ChE" id="2hD-3R-EX3"/>
                         <outlet property="recommendedMoreButton" destination="uhY-pU-SHn" id="NFi-zZ-TdR"/>
                         <segue destination="3Wv-96-n5M" kind="show" identifier="seque" id="San-lI-vej"/>
+                        <segue destination="Kv2-hv-gA4" kind="show" identifier="detailSeque" id="1UV-Rt-qrR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -509,27 +511,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nnf-Z6-O46">
-                                <rect key="frame" x="15" y="118" width="363" height="651"/>
+                                <rect key="frame" x="25" y="159" width="343" height="610"/>
                                 <color key="backgroundColor" name="BGColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="hZK-v6-8Ak">
+                                <rect key="frame" x="15" y="103" width="362" height="56"/>
+                                <color key="backgroundColor" name="BGColor"/>
+                                <color key="barTintColor" name="BGColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3Wv-96-n5M" id="nRT-v1-PkU"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Tb7-yC-Yxr"/>
                         <color key="backgroundColor" name="BGColor"/>
                         <constraints>
                             <constraint firstItem="Tb7-yC-Yxr" firstAttribute="bottom" secondItem="nnf-Z6-O46" secondAttribute="bottom" id="1CH-t6-JU2"/>
-                            <constraint firstItem="nnf-Z6-O46" firstAttribute="leading" secondItem="Tb7-yC-Yxr" secondAttribute="leading" constant="15" id="XQi-D1-zEy"/>
-                            <constraint firstItem="Tb7-yC-Yxr" firstAttribute="trailing" secondItem="nnf-Z6-O46" secondAttribute="trailing" constant="15" id="p3d-0V-2Fd"/>
-                            <constraint firstItem="nnf-Z6-O46" firstAttribute="top" secondItem="Tb7-yC-Yxr" secondAttribute="top" constant="15" id="yfo-XV-QXG"/>
+                            <constraint firstItem="hZK-v6-8Ak" firstAttribute="top" secondItem="Tb7-yC-Yxr" secondAttribute="top" id="AWs-Aq-va1"/>
+                            <constraint firstItem="Tb7-yC-Yxr" firstAttribute="trailing" secondItem="hZK-v6-8Ak" secondAttribute="trailing" constant="16" id="QbG-az-FVO"/>
+                            <constraint firstItem="nnf-Z6-O46" firstAttribute="top" secondItem="hZK-v6-8Ak" secondAttribute="bottom" id="Sdx-Bo-33o"/>
+                            <constraint firstItem="nnf-Z6-O46" firstAttribute="leading" secondItem="Tb7-yC-Yxr" secondAttribute="leading" constant="25" id="XQi-D1-zEy"/>
+                            <constraint firstItem="hZK-v6-8Ak" firstAttribute="leading" secondItem="Tb7-yC-Yxr" secondAttribute="leading" constant="15" id="lF9-wZ-bJS"/>
+                            <constraint firstItem="Tb7-yC-Yxr" firstAttribute="trailing" secondItem="nnf-Z6-O46" secondAttribute="trailing" constant="25" id="p3d-0V-2Fd"/>
+                            <constraint firstItem="nnf-Z6-O46" firstAttribute="top" secondItem="hZK-v6-8Ak" secondAttribute="bottom" id="yfo-XV-QXG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="More" id="eqX-5K-Wex"/>
+                    <navigationItem key="navigationItem" title="More" customizationIdentifier="" id="eqX-5K-Wex">
+                        <barButtonItem key="rightBarButtonItem" landscapeImage="slider.horizontal.3" catalog="system" id="bYw-Cu-fDe">
+                            <imageReference key="image" image="slider.horizontal.3" catalog="system" symbolScale="large" variableValue="0.80000000000000004"/>
+                            <color key="tintColor" name="ButtonColor"/>
+                            <connections>
+                                <action selector="filterButtonClicked:" destination="3Wv-96-n5M" id="KA6-K4-i1s"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="filterButton" destination="bYw-Cu-fDe" id="jgw-ym-G4l"/>
+                        <outlet property="searchBar" destination="hZK-v6-8Ak" id="6l5-sg-QVs"/>
                         <outlet property="tableView" destination="nnf-Z6-O46" id="Bvu-AC-uty"/>
+                        <segue destination="Kv2-hv-gA4" kind="show" identifier="detailSeque" id="hu9-7u-W9h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anB-hn-NkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4476" y="4"/>
+            <point key="canvasLocation" x="4713.740458015267" y="-261.26760563380282"/>
         </scene>
         <!--Map-->
         <scene sceneID="dAz-WL-H6a">
@@ -708,6 +734,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mGh-bE-rAr">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="ButtonColor"/>
+                        <color key="barTintColor" name="ButtonColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -718,11 +746,31 @@
             </objects>
             <point key="canvasLocation" x="2632.8244274809158" y="3.5211267605633805"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="T7l-zU-Dst">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="Kv2-hv-gA4" customClass="DetailViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R6f-WO-1yH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lTe-sA-7t5"/>
+                        <color key="backgroundColor" name="BGColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qgc-t2-nps"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oaQ-aa-MNl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4714" y="546"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hu9-7u-W9h"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="1024" height="1024"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="map" catalog="system" width="128" height="112"/>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <namedColor name="BGColor">
             <color red="0.99599999189376831" green="0.98000001907348633" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

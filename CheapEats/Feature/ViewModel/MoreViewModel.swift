@@ -12,7 +12,8 @@ protocol MoreViewModelProtocol {
 }
 
 protocol MoreViewModelOutputProtocol: AnyObject {
-    
+    func update()
+    func error()
 }
 
 final class MoreViewModel {

@@ -24,13 +24,12 @@ final class HomeViewController: UIViewController{
         initLoad()
         collectionViewLayoutSettings()
         endlingViewLayoutSettings()
-        //TODO:
-        if let user = UserManager.shared.user {
-            helloLabel.text = "Hello, \(user.firstName)"
-        }
     }
     
     private func initLoad(){
+        if let user = homeViewModel.user {
+            helloLabel.text = "Hello, \(user.firstName)"
+        }
         endlingCollectionView.dataSource = self
         endlingCollectionView.delegate = self
         endlingCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
@@ -39,42 +38,24 @@ final class HomeViewController: UIViewController{
         recommendedCollectionView.delegate = self
         recommendedCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         recommendedCollectionView.register(UINib(nibName: "OrderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
-    }
-    
-    
-    private func collectionViewLayoutSettings() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        endlingCollectionView.collectionViewLayout = layout
-        endlingCollectionView.isPagingEnabled = false
-        endlingCollectionView.showsHorizontalScrollIndicator = false
-        endlingCollectionView.backgroundColor = .BG
-        endlingCollectionView.layer.cornerRadius = 10
-    }
-    private func endlingViewLayoutSettings() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        recommendedCollectionView.collectionViewLayout = layout
-        recommendedCollectionView.isPagingEnabled = false
-        recommendedCollectionView.showsHorizontalScrollIndicator = false
-        recommendedCollectionView.backgroundColor = .BG
-        recommendedCollectionView.layer.cornerRadius = 10
-    }
-    
+    }    
+}
+//MARK: -Button Actions
+extension HomeViewController {
     @IBAction func endlingMoreButtonClicked(_ sender: Any) {
         let moreVC = SB.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
+        moreVC.navigationItem.title = "Son Eklenenler"
         navigationController?.pushViewController(moreVC, animated: true)
     }
     
     @IBAction func recommendedMoreButtonClicked(_ sender: Any) {
         let moreVC = SB.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
+        moreVC.navigationItem.title = "Önerilenler"
         navigationController?.pushViewController(moreVC, animated: true)
         
     }
 }
-
+//MARK: -Output Protocol
 extension HomeViewController : HomeViewModelOutputProtocol {
     func update() {
         print("Update")
