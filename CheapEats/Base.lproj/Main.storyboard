@@ -561,7 +561,7 @@
         <scene sceneID="dAz-WL-H6a">
             <objects>
                 <navigationController id="TBJ-9L-qD8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map" id="ksI-qu-qau"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map.fill" id="ksI-qu-qau"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="maB-D0-ljk">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -729,7 +729,7 @@
         <scene sceneID="vBH-H7-RtD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OQF-ZN-A0b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" selectedImage="house.fill" id="3L5-iS-ARf"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="3L5-iS-ARf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mGh-bE-rAr">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -768,8 +768,10 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="1024" height="1024"/>
+        <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="map" catalog="system" width="128" height="112"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <namedColor name="BGColor">
             <color red="0.99599999189376831" green="0.98000001907348633" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
