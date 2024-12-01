@@ -41,6 +41,8 @@
 		C3B21C8E2CF9ECCA005878F9 /* MoreViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */; };
 		C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C8F2CF9ED3B005878F9 /* FoodTableViewCell.swift */; };
 		C3B21C922CF9ED3B005878F9 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */; };
+		C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDD12CFCFE820045DEDE /* LineView.swift */; };
+		C3C6FDD62CFD05A60045DEDE /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDD52CFD05A60045DEDE /* FilterViewController.swift */; };
 		C3FDC2C42CF7A5F0001BD056 /* CollectionView+HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDC2C32CF7A5F0001BD056 /* CollectionView+HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreViewController+TableView.swift"; sourceTree = "<group>"; };
 		C3B21C8F2CF9ED3B005878F9 /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
+		C3C6FDD12CFCFE820045DEDE /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		C3C6FDD52CFD05A60045DEDE /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		C3FDC2C32CF7A5F0001BD056 /* CollectionView+HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+HomeViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +149,7 @@
 		C36D3EB52CF34A7B008FE62B /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				C3C6FDD92CFD07060045DEDE /* Design */,
 				C32CBEF62CF89C860016F444 /* Extension */,
 				C37B42542CF4E3F800A03C4D /* NetworkLayer */,
 				C36D3EB62CF34ACF008FE62B /* Model */,
@@ -204,8 +209,17 @@
 				C3B21C872CF9EAF8005878F9 /* MoreViewController.swift */,
 				C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */,
 				C301F7772CFA6542000E7B99 /* MoreViewController+Search.swift */,
+				C3C6FDD52CFD05A60045DEDE /* FilterViewController.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		C3C6FDD92CFD07060045DEDE /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				C3C6FDD12CFCFE820045DEDE /* LineView.swift */,
+			);
+			path = Design;
 			sourceTree = "<group>";
 		};
 		C3FDC2C22CF7A5B7001BD056 /* SubView */ = {
@@ -334,6 +348,8 @@
 				C36C1B0C2CF657A3007A96B4 /* OrderCollectionViewCell.swift in Sources */,
 				C36D3EA32CF34534008FE62B /* SceneDelegate.swift in Sources */,
 				C36D3EC52CF353E3008FE62B /* LoginViewController.swift in Sources */,
+				C3C6FDD62CFD05A60045DEDE /* FilterViewController.swift in Sources */,
+				C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */,
 				C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */,
 				C36D3F022CF3629E008FE62B /* PassResViewModel.swift in Sources */,
 				C36D3EC22CF34C4A008FE62B /* HomeViewModel.swift in Sources */,

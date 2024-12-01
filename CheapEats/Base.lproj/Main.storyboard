@@ -543,6 +543,7 @@
                             <color key="tintColor" name="ButtonColor"/>
                             <connections>
                                 <action selector="filterButtonClicked:" destination="3Wv-96-n5M" id="KA6-K4-i1s"/>
+                                <segue destination="dco-cR-H8G" kind="show" id="y6S-AL-dhV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -556,6 +557,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anB-hn-NkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4713.740458015267" y="-261.26760563380282"/>
+        </scene>
+        <!--Filter-->
+        <scene sceneID="oo6-h2-Qik">
+            <objects>
+                <viewController id="dco-cR-H8G" customClass="FilterViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PAt-vv-xHq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4c-3f-3gi" customClass="LineView" customModule="CheapEats" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="108" width="393" height="100"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="i7n-D4-2fw">
+                                        <rect key="frame" x="10" y="59" width="373" height="32"/>
+                                        <color key="backgroundColor" name="TextWhiteColor"/>
+                                        <segments>
+                                            <segment title="Tümü" width="60"/>
+                                            <segment title="100TL ve altı" width="95"/>
+                                            <segment title="150TL ve altı"/>
+                                            <segment title="200TL ve altı"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="TitleColor"/>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimum Yemek Tutarı" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDi-Jx-8e1">
+                                        <rect key="frame" x="10" y="10" width="186" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="i7n-D4-2fw" secondAttribute="bottom" constant="10" id="16l-cr-a6A"/>
+                                    <constraint firstItem="vDi-Jx-8e1" firstAttribute="top" secondItem="C4c-3f-3gi" secondAttribute="top" constant="10" id="6o2-vS-1yk"/>
+                                    <constraint firstItem="vDi-Jx-8e1" firstAttribute="leading" secondItem="C4c-3f-3gi" secondAttribute="leading" constant="10" id="GxT-W0-fYb"/>
+                                    <constraint firstAttribute="trailing" secondItem="i7n-D4-2fw" secondAttribute="trailing" constant="10" id="dd5-nd-LJd"/>
+                                    <constraint firstItem="i7n-D4-2fw" firstAttribute="leading" secondItem="C4c-3f-3gi" secondAttribute="leading" constant="10" id="j5W-5q-eHx"/>
+                                    <constraint firstAttribute="height" constant="100" id="mfy-eu-Hze"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBc-hY-YCP" customClass="LineView" customModule="CheapEats" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="228" width="393" height="100"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZMW-5j-13g">
+                                        <rect key="frame" x="10" y="59" width="373" height="32"/>
+                                        <color key="backgroundColor" name="TextWhiteColor"/>
+                                        <segments>
+                                            <segment title="Tümü" width="60"/>
+                                            <segment title="0.5 km ve altı" width="95"/>
+                                            <segment title="1 km ve altı"/>
+                                            <segment title="2 km ve altı"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="TitleColor"/>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restorant Uzaklığı" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8x-Rk-IVK">
+                                        <rect key="frame" x="10" y="10" width="149" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="1Jp-dx-lLW"/>
+                                    <constraint firstItem="ZMW-5j-13g" firstAttribute="leading" secondItem="hBc-hY-YCP" secondAttribute="leading" constant="10" id="8S4-tm-BoZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZMW-5j-13g" secondAttribute="trailing" constant="10" id="CKl-h5-ARM"/>
+                                    <constraint firstItem="I8x-Rk-IVK" firstAttribute="leading" secondItem="hBc-hY-YCP" secondAttribute="leading" constant="10" id="SE8-hb-jyM"/>
+                                    <constraint firstItem="I8x-Rk-IVK" firstAttribute="top" secondItem="hBc-hY-YCP" secondAttribute="top" constant="10" id="fZx-kt-Ex5"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZMW-5j-13g" secondAttribute="bottom" constant="10" id="kT2-3y-IVp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lOR-b6-wzW"/>
+                        <color key="backgroundColor" name="BGColor"/>
+                        <constraints>
+                            <constraint firstItem="C4c-3f-3gi" firstAttribute="leading" secondItem="lOR-b6-wzW" secondAttribute="leading" id="3nS-Jy-rcB"/>
+                            <constraint firstItem="hBc-hY-YCP" firstAttribute="trailing" secondItem="lOR-b6-wzW" secondAttribute="trailing" id="WhB-3M-nVd"/>
+                            <constraint firstItem="hBc-hY-YCP" firstAttribute="leading" secondItem="lOR-b6-wzW" secondAttribute="leading" id="bt7-tU-G70"/>
+                            <constraint firstItem="C4c-3f-3gi" firstAttribute="top" secondItem="lOR-b6-wzW" secondAttribute="top" constant="5" id="fyO-vs-40P"/>
+                            <constraint firstItem="hBc-hY-YCP" firstAttribute="top" secondItem="C4c-3f-3gi" secondAttribute="bottom" constant="20" id="gkc-uc-tcm"/>
+                            <constraint firstItem="C4c-3f-3gi" firstAttribute="trailing" secondItem="lOR-b6-wzW" secondAttribute="trailing" id="ol0-Fl-a29"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filter" id="Ci3-oH-OZ2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mza-Dg-Xnn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5826.7175572519081" y="-276.05633802816902"/>
         </scene>
         <!--Map-->
         <scene sceneID="dAz-WL-H6a">
@@ -746,7 +835,7 @@
             </objects>
             <point key="canvasLocation" x="2632.8244274809158" y="3.5211267605633805"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Detail-->
         <scene sceneID="T7l-zU-Dst">
             <objects>
                 <viewController storyboardIdentifier="DetailViewController" id="Kv2-hv-gA4" customClass="DetailViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
@@ -756,7 +845,7 @@
                         <viewLayoutGuide key="safeArea" id="lTe-sA-7t5"/>
                         <color key="backgroundColor" name="BGColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Qgc-t2-nps"/>
+                    <navigationItem key="navigationItem" title="Detail" id="Qgc-t2-nps"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaQ-aa-MNl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -787,6 +876,9 @@
         </namedColor>
         <namedColor name="TextWhiteColor">
             <color red="0.98799997568130493" green="0.98799997568130493" blue="0.98799997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TitleColor">
+            <color red="0.54100000858306885" green="0.6589999794960022" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
