@@ -15,19 +15,26 @@ final class FilterViewController: UIViewController {
     @IBOutlet weak var applyButton: UIButton!
     @IBOutlet weak var minMealPriceSegment: UISegmentedControl!
     @IBOutlet weak var distanceSegment: UISegmentedControl!
-    
+    weak var delegate: FilterViewModelOutputProtocol?
     var filterViewModel: FilterViewModelProtocol = FilterViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        filterViewModel.delegate = self
         buttonView.roundCorners(corners: [.allCorners], radius: 10)
         applyButton.roundCorners(corners: [.allCorners], radius: 10)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if filterViewModel.selectedMealTypes.isEmpty {
+            filterSelectedLabel.text = "Tümü"
+        } else {
+            filterSelectedLabel.text = filterViewModel.selectedMealTypes.joined(separator: ", ")
+        }
+        minMealPriceSegment.selectedSegmentIndex = filterViewModel.selectedMinMealPrice
+        distanceSegment.selectedSegmentIndex = filterViewModel.selectedDistance
         tabBarController?.tabBar.isHidden = true
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = false
     }
@@ -48,17 +55,21 @@ final class FilterViewController: UIViewController {
     
     @IBAction func minMealPriceSegmentChanged(_ sender: UISegmentedControl) {
         print(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "Tümü")
+        filterViewModel.selectedMinMealPrice = sender.selectedSegmentIndex
     }
-
+    
+    
+    
     @IBAction func distanceSegmentChanged(_ sender: UISegmentedControl) {
         print(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "Tümü")
+        filterViewModel.selectedDistance = sender.selectedSegmentIndex
+        
     }
     
     @IBAction func applyButtonClicked(_ sender: Any) {
-        filterViewModel.applyFilter()
+        delegate?.didApplyFilter(selectedMealTypes: filterViewModel.selectedMealTypes, minMealPrice: filterViewModel.selectedMinMealPrice, distance: filterViewModel.selectedDistance)
+        navigationController?.popViewController(animated: true)
     }
-    
-    
 }
 
 extension FilterViewController: BottomSheetViewModelDelegate {
@@ -70,11 +81,5 @@ extension FilterViewController: BottomSheetViewModelDelegate {
         }else{
             filterSelectedLabel.text = filterViewModel.selectedMealTypes.joined(separator: ", ")
         }
-    }
-}
-
-extension FilterViewController: FilterViewModelOutputProtocol {
-    func didApplyFilter() {
-        navigationController?.popViewController(animated: true)
     }
 }

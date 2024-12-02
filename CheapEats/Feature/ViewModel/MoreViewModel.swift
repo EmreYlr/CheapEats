@@ -9,6 +9,11 @@ import Foundation
 
 protocol MoreViewModelProtocol {
     var delegate: MoreViewModelOutputProtocol? { get set }
+    var selectedMealTypes: [String] { get set }
+    var selectedMinMealPrice: Int { get set }
+    var selectedDistance: Int { get set }
+    func emptyCheckSelectedItem(filterVC: FilterViewController)
+    func applyFilterItem(selectedMealTypes: [String], minMealPrice: Int, distance: Int)
 }
 
 protocol MoreViewModelOutputProtocol: AnyObject {
@@ -16,8 +21,25 @@ protocol MoreViewModelOutputProtocol: AnyObject {
     func error()
 }
 
+
 final class MoreViewModel {
     weak var delegate: MoreViewModelOutputProtocol?
+    var selectedMealTypes: [String] = []
+    var selectedMinMealPrice: Int = 0
+    var selectedDistance: Int = 0
+    
+    func emptyCheckSelectedItem(filterVC: FilterViewController) {
+        filterVC.filterViewModel.selectedMealTypes = selectedMealTypes
+        filterVC.filterViewModel.selectedMinMealPrice = selectedMinMealPrice
+        filterVC.filterViewModel.selectedDistance = selectedDistance
+    }
+    
+    func applyFilterItem(selectedMealTypes: [String], minMealPrice: Int, distance: Int) {
+        self.selectedMealTypes = selectedMealTypes
+        self.selectedMinMealPrice = minMealPrice
+        self.selectedDistance = distance
+        delegate?.update()
+    }
 }
 
 extension MoreViewModel: MoreViewModelProtocol { }

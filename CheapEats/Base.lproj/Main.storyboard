@@ -543,7 +543,6 @@
                             <color key="tintColor" name="ButtonColor"/>
                             <connections>
                                 <action selector="filterButtonClicked:" destination="3Wv-96-n5M" id="KA6-K4-i1s"/>
-                                <segue destination="dco-cR-H8G" kind="show" id="y6S-AL-dhV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -552,6 +551,7 @@
                         <outlet property="searchBar" destination="hZK-v6-8Ak" id="6l5-sg-QVs"/>
                         <outlet property="tableView" destination="nnf-Z6-O46" id="Bvu-AC-uty"/>
                         <segue destination="Kv2-hv-gA4" kind="show" identifier="detailSeque" id="hu9-7u-W9h"/>
+                        <segue destination="dco-cR-H8G" kind="show" id="n3V-Gh-sUw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anB-hn-NkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -561,7 +561,7 @@
         <!--Filter-->
         <scene sceneID="oo6-h2-Qik">
             <objects>
-                <viewController id="dco-cR-H8G" customClass="FilterViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilterViewController" id="dco-cR-H8G" customClass="FilterViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PAt-vv-xHq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
