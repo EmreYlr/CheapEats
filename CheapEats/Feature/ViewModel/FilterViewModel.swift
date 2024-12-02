@@ -12,6 +12,7 @@ protocol FilterViewModelProtocol {
     var selectedMealTypes: [String] { get set }
     var selectedMinMealPrice: Int { get set }
     var selectedDistance: Int { get set }
+    func clearFilters()
     func emptyCheckSelectedItem(bottomSheetVC: BottomSheetViewController)
 }
 
@@ -24,13 +25,19 @@ final class FilterViewModel {
     var selectedMealTypes: [String] = []
     var selectedMinMealPrice: Int = 0
     var selectedDistance: Int = 0
-
+    
     func emptyCheckSelectedItem(bottomSheetVC: BottomSheetViewController) {
         if selectedMealTypes.isEmpty {
             bottomSheetVC.bottomSheetViewModel.selectedOptions = []
         } else {
             bottomSheetVC.bottomSheetViewModel.selectedOptions = selectedMealTypes
         }
+    }
+    
+    func clearFilters() {
+        selectedMealTypes = []
+        selectedMinMealPrice = 0
+        selectedDistance = 0
     }
 }
 

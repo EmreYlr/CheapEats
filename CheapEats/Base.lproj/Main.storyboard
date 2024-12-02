@@ -551,7 +551,7 @@
                         <outlet property="searchBar" destination="hZK-v6-8Ak" id="6l5-sg-QVs"/>
                         <outlet property="tableView" destination="nnf-Z6-O46" id="Bvu-AC-uty"/>
                         <segue destination="Kv2-hv-gA4" kind="show" identifier="detailSeque" id="hu9-7u-W9h"/>
-                        <segue destination="dco-cR-H8G" kind="show" id="n3V-Gh-sUw"/>
+                        <segue destination="dco-cR-H8G" kind="show" identifier="filterSeque" id="n3V-Gh-sUw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="anB-hn-NkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -588,7 +588,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tümü" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENB-CD-lWZ">
                                         <rect key="frame" x="127.66666666666669" y="20" width="230" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="230" id="VmO-Pj-Rts"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="VmO-Pj-Rts"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="TitleColor"/>
@@ -602,6 +602,7 @@
                                     <constraint firstItem="FKq-dm-Nku" firstAttribute="leading" secondItem="L3Y-g3-ZEM" secondAttribute="leading" id="Il3-SX-MLG"/>
                                     <constraint firstItem="OzO-qS-ZbA" firstAttribute="leading" secondItem="ENB-CD-lWZ" secondAttribute="trailing" constant="3" id="NYu-mb-umk"/>
                                     <constraint firstAttribute="bottom" secondItem="OzO-qS-ZbA" secondAttribute="bottom" constant="22" id="RKZ-NI-Fge"/>
+                                    <constraint firstItem="ENB-CD-lWZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L3Y-g3-ZEM" secondAttribute="leading" constant="20" symbolic="YES" id="XGo-hG-6vn"/>
                                     <constraint firstAttribute="height" constant="60" id="bx6-mZ-d5v"/>
                                     <constraint firstAttribute="trailing" secondItem="OzO-qS-ZbA" secondAttribute="trailing" constant="15" id="cRq-xK-QDe"/>
                                     <constraint firstItem="ENB-CD-lWZ" firstAttribute="top" secondItem="L3Y-g3-ZEM" secondAttribute="top" constant="20" id="g0J-en-txL"/>

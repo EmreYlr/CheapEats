@@ -21,7 +21,6 @@ protocol MoreViewModelOutputProtocol: AnyObject {
     func error()
 }
 
-
 final class MoreViewModel {
     weak var delegate: MoreViewModelOutputProtocol?
     var selectedMealTypes: [String] = []

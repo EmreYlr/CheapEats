@@ -20,6 +20,7 @@ final class FilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBarSettings()
         buttonView.roundCorners(corners: [.allCorners], radius: 10)
         applyButton.roundCorners(corners: [.allCorners], radius: 10)
     }
@@ -52,14 +53,17 @@ final class FilterViewController: UIViewController {
         }
         
     }
+    func navigationBarSettings() {
+        let clearButton = UIBarButtonItem(title: "Temizle", style: .plain, target: self, action: #selector(clearButtonTapped))
+        clearButton.tintColor = UIColor(named: "ButtonColor")
+        navigationItem.rightBarButtonItem = clearButton
+    }
     
     @IBAction func minMealPriceSegmentChanged(_ sender: UISegmentedControl) {
         print(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "Tümü")
         filterViewModel.selectedMinMealPrice = sender.selectedSegmentIndex
     }
-    
-    
-    
+
     @IBAction func distanceSegmentChanged(_ sender: UISegmentedControl) {
         print(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "Tümü")
         filterViewModel.selectedDistance = sender.selectedSegmentIndex
@@ -69,6 +73,13 @@ final class FilterViewController: UIViewController {
     @IBAction func applyButtonClicked(_ sender: Any) {
         delegate?.didApplyFilter(selectedMealTypes: filterViewModel.selectedMealTypes, minMealPrice: filterViewModel.selectedMinMealPrice, distance: filterViewModel.selectedDistance)
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func clearButtonTapped() {
+        filterViewModel.clearFilters()
+        filterSelectedLabel.text = "Tümü"
+        minMealPriceSegment.selectedSegmentIndex = 0
+        distanceSegment.selectedSegmentIndex = 0
     }
 }
 
