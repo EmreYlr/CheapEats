@@ -19,7 +19,6 @@ final class HomeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Hello World")
         homeViewModel.delegate = self
         initLoad()
         collectionViewLayoutSettings()

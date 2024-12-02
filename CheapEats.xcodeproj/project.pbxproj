@@ -43,6 +43,10 @@
 		C3B21C922CF9ED3B005878F9 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */; };
 		C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDD12CFCFE820045DEDE /* LineView.swift */; };
 		C3C6FDD62CFD05A60045DEDE /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDD52CFD05A60045DEDE /* FilterViewController.swift */; };
+		C3C6FDDB2CFDE56E0045DEDE /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDDA2CFDE56E0045DEDE /* BottomSheetViewController.swift */; };
+		C3C6FDDE2CFE19A20045DEDE /* BottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDDD2CFE19A20045DEDE /* BottomSheetViewModel.swift */; };
+		C3C6FDE12CFE1A220045DEDE /* BottomSheetViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDE02CFE1A220045DEDE /* BottomSheetViewController+TableView.swift */; };
+		C3C6FDE42CFE25A00045DEDE /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDE32CFE25A00045DEDE /* FilterViewModel.swift */; };
 		C3FDC2C42CF7A5F0001BD056 /* CollectionView+HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDC2C32CF7A5F0001BD056 /* CollectionView+HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +83,10 @@
 		C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
 		C3C6FDD12CFCFE820045DEDE /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		C3C6FDD52CFD05A60045DEDE /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		C3C6FDDA2CFDE56E0045DEDE /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		C3C6FDDD2CFE19A20045DEDE /* BottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewModel.swift; sourceTree = "<group>"; };
+		C3C6FDE02CFE1A220045DEDE /* BottomSheetViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomSheetViewController+TableView.swift"; sourceTree = "<group>"; };
+		C3C6FDE32CFE25A00045DEDE /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		C3FDC2C32CF7A5F0001BD056 /* CollectionView+HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+HomeViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,11 +180,9 @@
 			isa = PBXGroup;
 			children = (
 				C3FDC2C22CF7A5B7001BD056 /* SubView */,
+				C3C6FDE22CFE1F4A0045DEDE /* FirstScreen */,
 				C3FDC2C72CF7A6CA001BD056 /* Home */,
 				C3B21C8C2CF9EC98005878F9 /* More */,
-				C36D3EFE2CF36286008FE62B /* PassResViewController.swift */,
-				C36D3EF82CF36251008FE62B /* RegisterViewController.swift */,
-				C36D3EC42CF353E3008FE62B /* LoginViewController.swift */,
 				C3986A052CFA60640085521A /* DetailViewController.swift */,
 			);
 			path = View;
@@ -191,6 +197,8 @@
 				C36D3EC12CF34C4A008FE62B /* HomeViewModel.swift */,
 				C3B21C892CF9EB02005878F9 /* MoreViewModel.swift */,
 				C301F7752CFA60AC000E7B99 /* DetailViewModel.swift */,
+				C3C6FDE32CFE25A00045DEDE /* FilterViewModel.swift */,
+				C3C6FDDD2CFE19A20045DEDE /* BottomSheetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -206,10 +214,10 @@
 		C3B21C8C2CF9EC98005878F9 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				C3C6FDDF2CFE1A020045DEDE /* Filter */,
 				C3B21C872CF9EAF8005878F9 /* MoreViewController.swift */,
 				C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */,
 				C301F7772CFA6542000E7B99 /* MoreViewController+Search.swift */,
-				C3C6FDD52CFD05A60045DEDE /* FilterViewController.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -220,6 +228,26 @@
 				C3C6FDD12CFCFE820045DEDE /* LineView.swift */,
 			);
 			path = Design;
+			sourceTree = "<group>";
+		};
+		C3C6FDDF2CFE1A020045DEDE /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				C3C6FDD52CFD05A60045DEDE /* FilterViewController.swift */,
+				C3C6FDDA2CFDE56E0045DEDE /* BottomSheetViewController.swift */,
+				C3C6FDE02CFE1A220045DEDE /* BottomSheetViewController+TableView.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		C3C6FDE22CFE1F4A0045DEDE /* FirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C36D3EFE2CF36286008FE62B /* PassResViewController.swift */,
+				C36D3EF82CF36251008FE62B /* RegisterViewController.swift */,
+				C36D3EC42CF353E3008FE62B /* LoginViewController.swift */,
+			);
+			path = FirstScreen;
 			sourceTree = "<group>";
 		};
 		C3FDC2C22CF7A5B7001BD056 /* SubView */ = {
@@ -332,6 +360,7 @@
 				C36D3EA12CF34534008FE62B /* AppDelegate.swift in Sources */,
 				C36D3EF92CF36251008FE62B /* RegisterViewController.swift in Sources */,
 				C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */,
+				C3C6FDDE2CFE19A20045DEDE /* BottomSheetViewModel.swift in Sources */,
 				C36D3EFC2CF36267008FE62B /* RegisterViewModel.swift in Sources */,
 				C37B42562CF4E41500A03C4D /* NetworkLayer.swift in Sources */,
 				C3986A062CFA60640085521A /* DetailViewController.swift in Sources */,
@@ -349,10 +378,13 @@
 				C36D3EA32CF34534008FE62B /* SceneDelegate.swift in Sources */,
 				C36D3EC52CF353E3008FE62B /* LoginViewController.swift in Sources */,
 				C3C6FDD62CFD05A60045DEDE /* FilterViewController.swift in Sources */,
+				C3C6FDE42CFE25A00045DEDE /* FilterViewModel.swift in Sources */,
 				C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */,
+				C3C6FDE12CFE1A220045DEDE /* BottomSheetViewController+TableView.swift in Sources */,
 				C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */,
 				C36D3F022CF3629E008FE62B /* PassResViewModel.swift in Sources */,
 				C36D3EC22CF34C4A008FE62B /* HomeViewModel.swift in Sources */,
+				C3C6FDDB2CFDE56E0045DEDE /* BottomSheetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
