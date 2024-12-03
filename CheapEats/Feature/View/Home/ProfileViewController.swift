@@ -16,7 +16,6 @@ final class ProfileViewController: UIViewController{
     @IBOutlet var ContentView: UIView!
     @IBOutlet weak var phoneBackView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
-    
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var epostaLbl: UILabel!
     @IBOutlet weak var phoneLbl: UILabel!
@@ -24,7 +23,6 @@ final class ProfileViewController: UIViewController{
     @IBOutlet weak var editProfile: UIButton!
     @IBOutlet weak var exitLbl: UIButton!
     @IBOutlet weak var saveButton: UIButton!
-    
     @IBOutlet weak var emailBackView: UIView!
     override func viewDidLoad() {
     super.viewDidLoad()

@@ -13,7 +13,6 @@ final class OrdersDetailViewController: UIViewController{
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var orderNumberLbl: UILabel!
     @IBOutlet weak var paymentDetailView: UIView!
     @IBOutlet weak var oldholdsLbl: UILabel!
     @IBOutlet weak var discountLbl: UILabel!
@@ -31,8 +30,7 @@ final class OrdersDetailViewController: UIViewController{
     }
     
     private func initScreen() {
-        orderNumberLbl.roundCorners(corners: [.topRight, .bottomRight], radius: 10, borderColor: UIColor(named: "BG"), borderWidth: 2)
-        orderNo.roundCorners(corners: [.topLeft, .bottomLeft], radius: 10, borderColor: UIColor(named: "BG"), borderWidth: 2)
+        orderNo.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "BG"), borderWidth: 2)
         detailImageView.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 2)
         paymentDetailView.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 2)
         orderDetailView.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 2)
