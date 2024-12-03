@@ -13,6 +13,9 @@ final class ProfileViewController: UIViewController{
     
     //MARK: -Variables
     
+    @IBOutlet weak var ProfileBackView: UIView!
+    
+    
     @IBOutlet var ContentView: UIView!
     @IBOutlet weak var phoneBackView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -31,7 +34,7 @@ final class ProfileViewController: UIViewController{
 }
     //MARK: -Func
 private func initScreen() {
-   // emailBackView.roundCorners(corners: [.allCorners], radius: 13, borderColor: UIColor(named: "TitleColor"), borderWidth: 1)
+    ProfileBackView.roundCorners(corners: [.topRight,.bottomLeft], radius: 30, borderColor: UIColor(named: "TitleColor"), borderWidth: 4)
   ContentView.roundCorners(corners: [.allCorners], radius: 15, borderColor: UIColor(named: "TitleColor"), borderWidth: 2)
    // phoneBackView.roundCorners(corners: [.allCorners], radius: 13, borderColor: UIColor(named: "TitleColor"), borderWidth: 1)
     epostaLbl.roundCorners(corners: [.allCorners], radius: 5, borderColor: UIColor(named: "TitleColor"), borderWidth: 1)
