@@ -28,6 +28,9 @@ final class BottomSheetViewController: UIViewController {
         clearButton.tintColor = UIColor(named: "ButtonColor")
         navigationItem.rightBarButtonItem = clearButton
         navigationItem.title = "Yemek Türleri"
+        let cancelButton = UIBarButtonItem(title: "İptal", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        cancelButton.tintColor = UIColor(named: "CutColor")
+        navigationItem.leftBarButtonItem = cancelButton
         navigationBar.setItems([navigationItem], animated: false)
     }
     
@@ -44,6 +47,10 @@ final class BottomSheetViewController: UIViewController {
     
     @objc private func clearButtonTapped() {
         bottomSheetViewModel.clearSelection(tableView: tableView)
+    }
+    
+    @objc private func cancelButtonTapped() {
+        dismiss(animated: true)
     }
 }
 
