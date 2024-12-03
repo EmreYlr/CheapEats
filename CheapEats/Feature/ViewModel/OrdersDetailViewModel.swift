@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol OrdersDetailViewModelProtocol{
+protocol OrdersDetailViewModelProtocol {
     var delegate: OrdersDetailViewModelOutputProtocol? { get set}
 }
 
-protocol OrdersDetailViewModelOutputProtocol: AnyObject{
+protocol OrdersDetailViewModelOutputProtocol: AnyObject {
     func update()
     func error()
 }
@@ -19,4 +19,5 @@ protocol OrdersDetailViewModelOutputProtocol: AnyObject{
 final class OrdersDetailViewModel {
     weak var delegate: OrdersDetailViewModelOutputProtocol?
 }
+
 extension OrdersDetailViewModel: OrdersDetailViewModelProtocol {}
