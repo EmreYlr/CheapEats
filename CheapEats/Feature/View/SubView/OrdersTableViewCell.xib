@@ -19,15 +19,19 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xKE-JO-6X9">
                         <rect key="frame" x="5" y="5" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="40n-6B-LtC"/>
+                            <constraint firstAttribute="width" constant="80" id="GcS-1i-r7A"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gps-qR-Wws">
-                        <rect key="frame" x="98" y="5" width="118.33333333333331" height="20.333333333333332"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gps-qR-Wws">
+                        <rect key="frame" x="98" y="6.9999999999999982" width="215" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="food Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZU-DN-yiu">
-                        <rect key="frame" x="98" y="30" width="84" height="21"/>
+                        <rect key="frame" x="98" y="36.333333333333336" width="84" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +43,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21/04/2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GZ-0I-raq">
-                        <rect key="frame" x="98" y="67.666666666666671" width="65" height="14.333333333333329"/>
+                        <rect key="frame" x="98" y="61.333333333333336" width="65" height="14.333333333333336"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" name="SecondTextColor"/>
                         <nil key="highlightedColor"/>
@@ -51,20 +55,20 @@
                 </subviews>
                 <color key="backgroundColor" name="BGColor"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="khj-sW-nEA" secondAttribute="trailing" constant="98" id="0rf-J1-1K1"/>
-                    <constraint firstItem="gps-qR-Wws" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="2ac-vu-iR1"/>
                     <constraint firstAttribute="trailing" secondItem="9ff-zw-fUC" secondAttribute="trailing" constant="16" id="2p5-Y9-fU4"/>
+                    <constraint firstItem="gps-qR-Wws" firstAttribute="leading" secondItem="xKE-JO-6X9" secondAttribute="trailing" constant="13" id="3Fa-xu-uxa"/>
                     <constraint firstAttribute="bottom" secondItem="khj-sW-nEA" secondAttribute="bottom" constant="8" id="9eY-O4-LlD"/>
                     <constraint firstAttribute="bottom" secondItem="9ff-zw-fUC" secondAttribute="bottom" constant="10" id="IN6-Ds-u4W"/>
-                    <constraint firstAttribute="bottom" secondItem="5GZ-0I-raq" secondAttribute="bottom" constant="8" id="Q20-73-zEl"/>
-                    <constraint firstItem="OZU-DN-yiu" firstAttribute="leading" secondItem="xKE-JO-6X9" secondAttribute="trailing" constant="13" id="TNR-DF-N2u"/>
-                    <constraint firstItem="OZU-DN-yiu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="98" id="WK4-4a-gdC"/>
+                    <constraint firstItem="5GZ-0I-raq" firstAttribute="leading" secondItem="xKE-JO-6X9" secondAttribute="trailing" constant="13" id="XN5-Wu-ALQ"/>
+                    <constraint firstItem="gps-qR-Wws" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="ZuN-7N-KxO"/>
                     <constraint firstAttribute="bottom" secondItem="xKE-JO-6X9" secondAttribute="bottom" constant="5" id="cgb-B1-f2s"/>
+                    <constraint firstAttribute="trailing" secondItem="gps-qR-Wws" secondAttribute="trailing" constant="3" id="fSe-1i-MWB"/>
+                    <constraint firstItem="OZU-DN-yiu" firstAttribute="top" secondItem="gps-qR-Wws" secondAttribute="bottom" constant="9" id="g04-7F-u4t"/>
                     <constraint firstItem="xKE-JO-6X9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="gu3-N5-kzx"/>
-                    <constraint firstItem="5GZ-0I-raq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="98" id="keJ-bz-YXT"/>
-                    <constraint firstItem="OZU-DN-yiu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="luC-LT-3nf"/>
-                    <constraint firstItem="gps-qR-Wws" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="98" id="sOE-WB-Hp9"/>
+                    <constraint firstItem="5GZ-0I-raq" firstAttribute="top" secondItem="OZU-DN-yiu" secondAttribute="bottom" constant="4" id="uvX-d3-Lnp"/>
+                    <constraint firstItem="9ff-zw-fUC" firstAttribute="leading" secondItem="khj-sW-nEA" secondAttribute="trailing" constant="1" id="v87-PJ-Fga"/>
                     <constraint firstItem="xKE-JO-6X9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="wad-Dg-PhQ"/>
+                    <constraint firstItem="OZU-DN-yiu" firstAttribute="leading" secondItem="xKE-JO-6X9" secondAttribute="trailing" constant="13" id="yPE-lb-R9U"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
