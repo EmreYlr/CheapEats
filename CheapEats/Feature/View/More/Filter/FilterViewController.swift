@@ -21,8 +21,10 @@ final class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarSettings()
-        buttonView.roundCorners(corners: [.allCorners], radius: 10)
-        applyButton.roundCorners(corners: [.allCorners], radius: 10)
+        minMealPriceSegment.layer.shadowOpacity = 0
+        distanceSegment.layer.shadowOpacity = 0
+        configureView(buttonView, cornerRadius: 10)
+        configureView(applyButton, cornerRadius: 10)
     }
     
     override func viewWillAppear(_ animated: Bool) {

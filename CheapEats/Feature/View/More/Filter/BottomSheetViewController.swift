@@ -20,7 +20,7 @@ final class BottomSheetViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         bottomSheetViewModel.delegate = self
-        applyButton.roundCorners(corners: [.allCorners], radius: 10)
+        configureView(applyButton, cornerRadius: 10)
     }
     
     func setupNavigationBar() {

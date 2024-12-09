@@ -23,10 +23,15 @@ class OrdersTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.backgroundColor = .textWhite
-      contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 10))
-            ordersImageView.layer.cornerRadius = 10
-        contentView.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 2)
-        ordersImageView.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "BG"), borderWidth: 0)
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 10))
+        ordersImageView.layer.cornerRadius = 10
+        contentView.layer.cornerRadius = 10
+        contentView.layer.borderColor = UIColor(named: "ButtonColor")?.cgColor
+        contentView.layer.borderWidth = 1
+        ordersImageView.layer.cornerRadius = 10
+        ordersImageView.layer.borderColor = UIColor(named: "BG")?.cgColor
+        ordersImageView.layer.borderWidth = 1
+        
     }
  
 }

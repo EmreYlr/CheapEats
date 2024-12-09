@@ -21,24 +21,24 @@ final class OrdersDetailViewController: UIViewController{
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var orderNo: UILabel!
     
-    private let orderDetailViewModel: OrdersDetailViewModelProtocol = OrdersDetailViewModel()
+    private let orderDetailViewModel: OrdersViewModelProtocol = OrdersViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         print("OrdersDetailViewController ")
         initScreen()
         
     }
-    
     private func initScreen() {
-        orderNo.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "BG"), borderWidth: 2)
-        detailImageView.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 2)
-        paymentDetailView.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 2)
-        orderDetailView.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 2)
+        configureView(orderNo, cornerRadius: 10, borderColor: UIColor(named: "BG"), borderWidth: 1)
+        configureView(detailImageView, cornerRadius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
+        configureView(paymentDetailView, cornerRadius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
+        configureView(orderDetailView, cornerRadius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
     }
-
+    
+    
 }
 
-extension OrdersDetailViewController: OrdersDetailViewModelOutputProtocol {
+extension OrdersDetailViewController: OrdersViewModelOutputProtocol {
     func update() {
         print("update")
     }
