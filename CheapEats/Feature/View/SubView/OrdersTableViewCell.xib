@@ -56,11 +56,20 @@
                             <constraint firstAttribute="width" constant="15" id="zIv-6I-gu6"/>
                         </constraints>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MT7-oe-Uh6">
+                        <rect key="frame" x="286" y="8.9999999999999982" width="20" height="16.333333333333329"/>
+                        <color key="tintColor" name="ButtonColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="5IQ-AL-ksr"/>
+                            <constraint firstAttribute="height" constant="20" id="Z1n-hT-Msa"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" name="BGColor"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="9ff-zw-fUC" secondAttribute="trailing" constant="10" id="2p5-Y9-fU4"/>
                     <constraint firstItem="gps-qR-Wws" firstAttribute="leading" secondItem="xKE-JO-6X9" secondAttribute="trailing" constant="10" id="3Fa-xu-uxa"/>
+                    <constraint firstItem="MT7-oe-Uh6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="EzJ-bB-e1d"/>
                     <constraint firstAttribute="bottom" secondItem="9ff-zw-fUC" secondAttribute="bottom" constant="8" id="IN6-Ds-u4W"/>
                     <constraint firstAttribute="bottom" secondItem="khj-sW-nEA" secondAttribute="bottom" constant="8" id="MD8-mG-s2u"/>
                     <constraint firstAttribute="bottom" secondItem="5GZ-0I-raq" secondAttribute="bottom" constant="8" id="VgP-Yd-gNN"/>
@@ -70,6 +79,7 @@
                     <constraint firstAttribute="trailing" secondItem="gps-qR-Wws" secondAttribute="trailing" constant="3" id="fSe-1i-MWB"/>
                     <constraint firstItem="OZU-DN-yiu" firstAttribute="top" secondItem="gps-qR-Wws" secondAttribute="bottom" constant="5" id="g04-7F-u4t"/>
                     <constraint firstItem="xKE-JO-6X9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="gu3-N5-kzx"/>
+                    <constraint firstAttribute="trailing" secondItem="MT7-oe-Uh6" secondAttribute="trailing" constant="10" id="hqg-JU-q2R"/>
                     <constraint firstItem="9ff-zw-fUC" firstAttribute="leading" secondItem="khj-sW-nEA" secondAttribute="trailing" id="t9w-He-Txo"/>
                     <constraint firstItem="xKE-JO-6X9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="wad-Dg-PhQ"/>
                     <constraint firstItem="OZU-DN-yiu" firstAttribute="leading" secondItem="xKE-JO-6X9" secondAttribute="trailing" constant="10" id="yPE-lb-R9U"/>
@@ -88,6 +98,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="BGColor">
             <color red="0.99599999189376831" green="0.98000001907348633" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

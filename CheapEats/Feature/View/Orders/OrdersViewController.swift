@@ -18,6 +18,7 @@ final class OrdersViewController: UIViewController {
     func initTableView() {
         ordersTableView.delegate = self
         ordersTableView.dataSource = self
+        ordersTableView.separatorStyle = .none
         ordersTableView.register(UINib(nibName: "OrdersTableViewCell", bundle: nil), forCellReuseIdentifier: "ordersCell")
         ordersTableView.layer.cornerRadius = 10
         
