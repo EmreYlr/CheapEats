@@ -28,6 +28,4 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
         let detailVC = SB.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         navigationController?.pushViewController(detailVC, animated: true)
     }
-    
-    
 }

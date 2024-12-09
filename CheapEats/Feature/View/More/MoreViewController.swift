@@ -9,17 +9,16 @@ import UIKit
 
 final class MoreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var moreViewModel : MoreViewModelProtocol = MoreViewModel()
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var filterButton: UIBarButtonItem!
+    var moreViewModel : MoreViewModelProtocol = MoreViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         moreViewModel.delegate = self
         initTableView()
         initSearchController()
         print("More")
-        
     }
     
     func initTableView() {
@@ -37,10 +36,15 @@ final class MoreViewController: UIViewController {
     }
     
     @IBAction func filterButtonClicked(_ sender: Any) {
-        print("Filter")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let filterVC = storyboard.instantiateViewController(withIdentifier: "FilterViewController") as? FilterViewController {
+            filterVC.delegate = self
+            moreViewModel.emptyCheckSelectedItem(filterVC: filterVC)
+            navigationController?.pushViewController(filterVC, animated: true)
+        }
     }
 }
-
+//MARK: -MoreViewModelOutputProtocol
 extension MoreViewController: MoreViewModelOutputProtocol {
     func update() {
         print("Update")
@@ -50,3 +54,14 @@ extension MoreViewController: MoreViewModelOutputProtocol {
         print("Error")
     }
 }
+//MARK: -FilterViewModelOutputProtocol
+extension MoreViewController: FilterViewModelOutputProtocol {
+    func didApplyFilter(selectedMealTypes: [String], minMealPrice: Int, distance: Int) {
+        moreViewModel.applyFilterItem(selectedMealTypes: selectedMealTypes, minMealPrice: minMealPrice, distance: distance)
+        print("Filter Applied")
+        print(selectedMealTypes)
+        print(minMealPrice)
+        print(distance)
+    }
+}
+
