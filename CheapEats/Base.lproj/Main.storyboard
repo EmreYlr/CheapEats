@@ -764,7 +764,7 @@
             </objects>
             <point key="canvasLocation" x="4714" y="546"/>
         </scene>
-        <!--Orders View Controller-->
+        <!--Orders-->
         <scene sceneID="SQv-NI-S9g">
             <objects>
                 <viewController id="ZMW-3z-pfT" customClass="OrdersViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
@@ -786,7 +786,7 @@
                             <constraint firstItem="b2G-rt-hha" firstAttribute="top" secondItem="HUU-yK-aXB" secondAttribute="top" id="mWZ-qA-kdx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="gk4-Sf-nuH"/>
+                    <navigationItem key="navigationItem" title="Orders" id="gk4-Sf-nuH"/>
                     <connections>
                         <outlet property="ordersTableView" destination="b2G-rt-hha" id="UAu-mY-TBW"/>
                         <segue destination="L01-TI-z3F" kind="show" identifier="orderDetailSegue" id="cS9-Yr-n5b"/>
@@ -835,7 +835,7 @@
                                         <color key="textColor" name="BGColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tSo-h0-rIB">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testImage" translatesAutoresizingMaskIntoConstraints="NO" id="tSo-h0-rIB">
                                         <rect key="frame" x="48" y="24" width="260" height="145"/>
                                         <color key="backgroundColor" name="TitleColor"/>
                                         <constraints>
@@ -891,7 +891,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rH9-g7-MvK">
-                                        <rect key="frame" x="8" y="52" width="67.666666666666671" height="21"/>
+                                        <rect key="frame" x="8" y="51" width="67.666666666666671" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="TextBlackColor"/>
                                         <nil key="highlightedColor"/>
@@ -903,7 +903,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ir-aF-NVt">
-                                        <rect key="frame" x="8" y="79.333333333333258" width="98.333333333333329" height="21"/>
+                                        <rect key="frame" x="8" y="80" width="98.333333333333329" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="TextBlackColor"/>
                                         <nil key="highlightedColor"/>
@@ -921,7 +921,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 TL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFb-Gi-uhs">
-                                        <rect key="frame" x="269" y="52" width="44.333333333333314" height="21"/>
+                                        <rect key="frame" x="276.66666666666669" y="51" width="44.333333333333314" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" name="CutColor"/>
                                         <nil key="highlightedColor"/>
@@ -936,7 +936,7 @@
                                 <color key="backgroundColor" red="0.97682522819999995" green="0.96168414820000003" blue="0.94229588070000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="jlT-pz-lnA" firstAttribute="top" secondItem="Xr6-Fz-MWC" secondAttribute="top" constant="22" id="4EB-Hy-SLo"/>
-                                    <constraint firstItem="sgB-Tu-yCA" firstAttribute="top" secondItem="yFb-Gi-uhs" secondAttribute="bottom" constant="7" id="8Zm-0J-LBL"/>
+                                    <constraint firstItem="sgB-Tu-yCA" firstAttribute="top" secondItem="yFb-Gi-uhs" secondAttribute="bottom" constant="8" id="8Zm-0J-LBL"/>
                                     <constraint firstItem="rH9-g7-MvK" firstAttribute="leading" secondItem="Xr6-Fz-MWC" secondAttribute="leading" constant="8" id="BWe-f8-llg"/>
                                     <constraint firstAttribute="trailing" secondItem="sgB-Tu-yCA" secondAttribute="trailing" constant="40" id="Csu-9v-91c"/>
                                     <constraint firstItem="Y06-wa-jQq" firstAttribute="top" secondItem="JIL-u8-2pg" secondAttribute="bottom" constant="8.6699999999999999" id="I8l-B3-Qrq"/>
@@ -947,14 +947,13 @@
                                     <constraint firstAttribute="trailing" secondItem="jlT-pz-lnA" secondAttribute="trailing" constant="40" id="bya-3A-mJk"/>
                                     <constraint firstItem="7Ir-aF-NVt" firstAttribute="leading" secondItem="Xr6-Fz-MWC" secondAttribute="leading" constant="8" id="c27-oz-JkB"/>
                                     <constraint firstItem="Y06-wa-jQq" firstAttribute="leading" secondItem="Xr6-Fz-MWC" secondAttribute="leading" constant="8" id="cOx-c1-SCp"/>
-                                    <constraint firstItem="yFb-Gi-uhs" firstAttribute="top" secondItem="jlT-pz-lnA" secondAttribute="bottom" constant="9" id="iiv-2b-3sE"/>
-                                    <constraint firstItem="7Ir-aF-NVt" firstAttribute="top" secondItem="rH9-g7-MvK" secondAttribute="bottom" constant="6.3300000000000001" id="lb7-GL-Ghi"/>
+                                    <constraint firstItem="yFb-Gi-uhs" firstAttribute="top" secondItem="jlT-pz-lnA" secondAttribute="bottom" constant="8" id="iiv-2b-3sE"/>
+                                    <constraint firstItem="7Ir-aF-NVt" firstAttribute="top" secondItem="rH9-g7-MvK" secondAttribute="bottom" constant="8" id="lb7-GL-Ghi"/>
                                     <constraint firstItem="W88-yj-Z1C" firstAttribute="top" secondItem="JIL-u8-2pg" secondAttribute="bottom" constant="8.6699999999999999" id="p61-0c-ONA"/>
                                     <constraint firstItem="gvD-oW-qbU" firstAttribute="top" secondItem="Xr6-Fz-MWC" secondAttribute="top" constant="22" id="qSx-VV-BiW"/>
                                     <constraint firstItem="gvD-oW-qbU" firstAttribute="leading" secondItem="Xr6-Fz-MWC" secondAttribute="leading" constant="8" id="seZ-lu-XPG"/>
-                                    <constraint firstItem="rH9-g7-MvK" firstAttribute="top" secondItem="gvD-oW-qbU" secondAttribute="bottom" constant="9" id="vlh-bm-PSe"/>
-                                    <constraint firstAttribute="trailing" secondItem="yFb-Gi-uhs" secondAttribute="trailing" constant="47.670000000000002" id="xHe-Ga-UaY"/>
-                                    <constraint firstItem="JIL-u8-2pg" firstAttribute="top" secondItem="7Ir-aF-NVt" secondAttribute="bottom" constant="8.6699999999999999" id="xTA-tF-pi6"/>
+                                    <constraint firstItem="rH9-g7-MvK" firstAttribute="top" secondItem="gvD-oW-qbU" secondAttribute="bottom" constant="8" id="vlh-bm-PSe"/>
+                                    <constraint firstAttribute="trailing" secondItem="yFb-Gi-uhs" secondAttribute="trailing" constant="40" id="xHe-Ga-UaY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -994,11 +993,11 @@
             </objects>
             <point key="canvasLocation" x="4456" y="1477"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="wFc-nb-cLz">
             <objects>
                 <navigationController id="z8P-wk-eX4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="person" catalog="system" selectedImage="person.fill" id="WJp-xZ-CZa"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person.fill" id="WJp-xZ-CZa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xdk-uR-9xq">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1011,7 +1010,7 @@
             </objects>
             <point key="canvasLocation" x="2680" y="2199"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="E2o-wT-sSj">
             <objects>
                 <viewController id="DSe-21-tiw" customClass="ProfileViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
@@ -1207,8 +1206,8 @@
                                     <constraint firstItem="SZn-IM-htw" firstAttribute="top" secondItem="ebH-Ob-1Cl" secondAttribute="top" constant="19" id="iv6-P9-CVb"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9E-7n-QLF">
-                                <rect key="frame" x="16" y="113" width="361" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9E-7n-QLF">
+                                <rect key="frame" x="24" y="113" width="353" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
@@ -1234,11 +1233,11 @@
                             <constraint firstItem="Hlt-A6-gzp" firstAttribute="leading" secondItem="byI-CF-1N5" secondAttribute="leading" constant="16" id="ezP-wq-NyO"/>
                             <constraint firstItem="14w-PV-FHE" firstAttribute="leading" secondItem="byI-CF-1N5" secondAttribute="leading" constant="16" id="hPM-2a-dBX"/>
                             <constraint firstItem="byI-CF-1N5" firstAttribute="trailing" secondItem="INx-Eq-LcH" secondAttribute="trailing" constant="16" id="kVO-VA-EYA"/>
-                            <constraint firstItem="y9E-7n-QLF" firstAttribute="leading" secondItem="byI-CF-1N5" secondAttribute="leading" constant="16" id="yfR-vs-5TT"/>
+                            <constraint firstItem="y9E-7n-QLF" firstAttribute="leading" secondItem="byI-CF-1N5" secondAttribute="leading" constant="24" id="yfR-vs-5TT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Zt4-nB-bVD"/>
-                    <navigationItem key="navigationItem" id="mYs-Mn-9oG"/>
+                    <navigationItem key="navigationItem" title="Profile" id="mYs-Mn-9oG"/>
                     <connections>
                         <outlet property="ContentView" destination="P5u-MD-uKl" id="EhJ-mR-jNn"/>
                         <outlet property="ProfileBackView" destination="INx-Eq-LcH" id="0hd-nb-d4M"/>
@@ -1258,11 +1257,11 @@
             </objects>
             <point key="canvasLocation" x="3560" y="2199"/>
         </scene>
-        <!--Item-->
+        <!--Orders-->
         <scene sceneID="efC-Am-9jx">
             <objects>
                 <navigationController id="Phe-DP-CuW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="basket" catalog="system" selectedImage="basket.fill" id="Ffi-O7-acp"/>
+                    <tabBarItem key="tabBarItem" title="Orders" image="fork.knife" catalog="system" selectedImage="fork.knife" id="Ffi-O7-acp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dhi-lC-jwq">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1283,9 +1282,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="1024" height="1024"/>
-        <image name="basket" catalog="system" width="128" height="108"/>
-        <image name="basket.fill" catalog="system" width="128" height="108"/>
         <image name="envelope" catalog="system" width="128" height="85"/>
+        <image name="fork.knife" catalog="system" width="94" height="128"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="map" catalog="system" width="128" height="112"/>
@@ -1296,6 +1294,7 @@
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <image name="square.and.pencil" catalog="system" width="128" height="121"/>
+        <image name="testImage" width="640" height="359"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
