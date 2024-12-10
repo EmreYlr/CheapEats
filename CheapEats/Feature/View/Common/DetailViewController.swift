@@ -10,7 +10,6 @@ import MapKit
 
 final class DetailViewController: UIViewController {
     //MARK: -Variables
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var foodView: UIView!
@@ -27,6 +26,10 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var descriptonLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var payView: UIView!
+    @IBOutlet weak var newPriceLabel: UILabel!
+    @IBOutlet weak var oldPriceLabel: UILabel!
+    @IBOutlet weak var confirmButton: UIButton!
     
     var detailViewModel: DetailViewModelProtocol = DetailViewModel()
     
@@ -48,7 +51,20 @@ final class DetailViewController: UIViewController {
         timeView.layer.cornerRadius = 5
         deliveryView.layer.cornerRadius = 5
         mapView.layer.cornerRadius = 10
+        configureView(confirmButton, cornerRadius: 10)
+        configureView(payView, cornerRadius: 10, borderColor: .button, borderWidth: 2)
         descriptonLabel.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries."
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    @IBAction func confirmButtonClicked(_ sender: UIButton) {
     }
     
 }
