@@ -32,8 +32,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 KM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pv-wm-zIB">
-                                <rect key="frame" x="281.66666666666669" y="12" width="29.333333333333314" height="14.333333333333336"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20/12/2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pv-wm-zIB">
+                                <rect key="frame" x="246" y="12" width="65" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -91,8 +91,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="companyNameLabel" destination="TaU-3p-OgD" id="QgF-6P-5Ai"/>
+                <outlet property="dateLabel" destination="3pv-wm-zIB" id="5JG-a9-7d4"/>
                 <outlet property="detailView" destination="c9U-N0-yfQ" id="r48-fh-O3V"/>
                 <outlet property="foodImageView" destination="dQj-5v-hvJ" id="5BR-ZI-srb"/>
+                <outlet property="foodNameLabel" destination="vVR-hf-67n" id="L5e-uN-kkX"/>
+                <outlet property="newAmountLabel" destination="XR1-CI-l3y" id="tOe-Xe-Rl5"/>
+                <outlet property="oldAmountLabel" destination="4hf-ic-XWv" id="R6g-wt-t11"/>
             </connections>
             <point key="canvasLocation" x="-8.3969465648854964" y="17.253521126760564"/>
         </tableViewCell>

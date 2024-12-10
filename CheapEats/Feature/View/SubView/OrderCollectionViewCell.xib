@@ -11,10 +11,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="gTV-IL-0wX" customClass="OrderCollectionViewCell" customModule="CheapEats" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="250" height="180"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="250" height="180"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O4A-kU-nd9">
@@ -24,22 +24,22 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btd-x7-yDK">
-                        <rect key="frame" x="0.0" y="130" width="250" height="70"/>
+                        <rect key="frame" x="0.0" y="130" width="250" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burger king" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GY-wA-rnJ">
-                                <rect key="frame" x="10" y="10" width="88" height="21"/>
+                                <rect key="frame" x="10" y="5" width="88" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 adet popchicken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBg-Np-VJ1">
-                                <rect key="frame" x="10" y="46" width="105" height="15"/>
+                                <rect key="frame" x="10" y="30" width="105" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="SecondTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GH9-tx-jRX">
-                                <rect key="frame" x="148.33333333333334" y="46" width="34.666666666666657" height="15"/>
+                                <rect key="frame" x="148.33333333333334" y="30" width="34.666666666666657" height="15"/>
                                 <attributedString key="attributedText">
                                     <fragment content="150TL">
                                         <attributes>
@@ -53,13 +53,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="130 TL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3u-p0-YLX">
-                                <rect key="frame" x="188" y="40" width="52" height="21"/>
+                                <rect key="frame" x="188" y="24" width="52" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 KM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5r-rD-bGc">
-                                <rect key="frame" x="210" y="14" width="30" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20/12/2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5r-rD-bGc">
+                                <rect key="frame" x="175" y="6" width="65" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -69,12 +69,12 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="A3u-p0-YLX" secondAttribute="trailing" constant="10" id="7vi-hE-E6F"/>
                             <constraint firstItem="lBg-Np-VJ1" firstAttribute="leading" secondItem="btd-x7-yDK" secondAttribute="leading" constant="10" id="BMv-lU-QPh"/>
-                            <constraint firstItem="3GY-wA-rnJ" firstAttribute="top" secondItem="btd-x7-yDK" secondAttribute="top" constant="10" id="E4m-kQ-6JQ"/>
-                            <constraint firstAttribute="bottom" secondItem="A3u-p0-YLX" secondAttribute="bottom" constant="9" id="Ith-kv-h5a"/>
+                            <constraint firstItem="3GY-wA-rnJ" firstAttribute="top" secondItem="btd-x7-yDK" secondAttribute="top" constant="5" id="E4m-kQ-6JQ"/>
+                            <constraint firstAttribute="bottom" secondItem="A3u-p0-YLX" secondAttribute="bottom" constant="5" id="Ith-kv-h5a"/>
                             <constraint firstAttribute="trailing" secondItem="D5r-rD-bGc" secondAttribute="trailing" constant="10" id="MKd-6A-mDN"/>
-                            <constraint firstItem="D5r-rD-bGc" firstAttribute="top" secondItem="btd-x7-yDK" secondAttribute="top" constant="14" id="NYv-C8-Afd"/>
-                            <constraint firstAttribute="bottom" secondItem="lBg-Np-VJ1" secondAttribute="bottom" constant="9" id="b32-EK-RvS"/>
-                            <constraint firstAttribute="bottom" secondItem="GH9-tx-jRX" secondAttribute="bottom" constant="9" id="bDB-pt-cJB"/>
+                            <constraint firstItem="D5r-rD-bGc" firstAttribute="top" secondItem="btd-x7-yDK" secondAttribute="top" constant="6" id="NYv-C8-Afd"/>
+                            <constraint firstAttribute="bottom" secondItem="lBg-Np-VJ1" secondAttribute="bottom" constant="5" id="b32-EK-RvS"/>
+                            <constraint firstAttribute="bottom" secondItem="GH9-tx-jRX" secondAttribute="bottom" constant="5" id="bDB-pt-cJB"/>
                             <constraint firstItem="3GY-wA-rnJ" firstAttribute="leading" secondItem="btd-x7-yDK" secondAttribute="leading" constant="10" id="gHD-87-Hum"/>
                             <constraint firstItem="A3u-p0-YLX" firstAttribute="leading" secondItem="GH9-tx-jRX" secondAttribute="trailing" constant="5" id="ysf-70-sJC"/>
                         </constraints>
@@ -93,8 +93,13 @@
             </constraints>
             <size key="customSize" width="231" height="178"/>
             <connections>
+                <outlet property="companyNameLabel" destination="3GY-wA-rnJ" id="GLt-eR-55e"/>
+                <outlet property="dateLabel" destination="D5r-rD-bGc" id="RcO-VR-1qp"/>
                 <outlet property="detailView" destination="btd-x7-yDK" id="S0T-HH-ClP"/>
+                <outlet property="foodNameLabel" destination="lBg-Np-VJ1" id="fHr-eR-Btx"/>
                 <outlet property="imageView" destination="O4A-kU-nd9" id="WYc-jb-2GI"/>
+                <outlet property="newAmountLabel" destination="A3u-p0-YLX" id="VmP-Nk-dV0"/>
+                <outlet property="oldAmountLabel" destination="GH9-tx-jRX" id="71T-eL-Y4r"/>
             </connections>
             <point key="canvasLocation" x="13.740458015267174" y="50.70422535211268"/>
         </collectionViewCell>

@@ -10,6 +10,6 @@ import UIKit
 
 extension MoreViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        moreViewModel.filterProducts(by: searchText)
     }
 }

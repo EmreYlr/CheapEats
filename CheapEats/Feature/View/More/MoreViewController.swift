@@ -24,6 +24,7 @@ final class MoreViewController: UIViewController {
     func initTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "FoodTableViewCell", bundle: nil), forCellReuseIdentifier: "foodcell")
         tableView.layer.cornerRadius = 10
         
@@ -47,7 +48,7 @@ final class MoreViewController: UIViewController {
 //MARK: -MoreViewModelOutputProtocol
 extension MoreViewController: MoreViewModelOutputProtocol {
     func update() {
-        print("Update")
+        tableView.reloadData()
     }
     
     func error() {

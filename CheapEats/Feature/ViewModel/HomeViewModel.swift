@@ -10,6 +10,8 @@ import Foundation
 protocol HomeViewModelProtocol {
     var delegate: HomeViewModelOutputProtocol? { get set }
     var user: Users? { get set }
+    var endlingProduct: [Product]? { get set }
+    var recommendedProduct: [Product]? { get set }
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject{
@@ -20,6 +22,8 @@ protocol HomeViewModelOutputProtocol: AnyObject{
 final class HomeViewModel {
     weak var delegate: HomeViewModelOutputProtocol?
     var user: Users?
+    var endlingProduct: [Product]? = [Product(company: "McDonalds", food: "BigMac", date: "12.12.2024", oldAmount: "150TL", newAmount: "100TL", imageUrl: "testImage"), Product(company: "BurgerKing", food: "Whopper", date: "12.12.2024", oldAmount: "200TL", newAmount: "150TL", imageUrl: "testImage2"), Product(company: "KFC", food: "Bucket", date: "12.12.2024", oldAmount: "300TL", newAmount: "250TL", imageUrl: "testImage3"), Product(company: "Popeyes", food: "Chicken", date: "12.12.2024", oldAmount: "100TL", newAmount: "50TL", imageUrl: "testImage4")]
+    var recommendedProduct: [Product]? = [Product(company: "KFC", food: "Bucket", date: "12.12.2024", oldAmount: "300TL", newAmount: "250TL", imageUrl: "testImage3") ,Product(company: "Popeyes", food: "Chicken", date: "12.12.2024", oldAmount: "100TL", newAmount: "50TL", imageUrl: "testImage4"), Product(company: "McDonalds", food: "BigMac", date: "12.12.2024", oldAmount: "150TL", newAmount: "100TL", imageUrl: "testImage"), Product(company: "BurgerKing", food: "Whopper", date: "12.12.2024", oldAmount: "200TL", newAmount: "150TL", imageUrl: "testImage2")]
     init() {
         self.user = UserManager.shared.user
     }

@@ -18,8 +18,7 @@ struct OrderDetail {
     let newAmount: String
     let total: String
     let imageUrl: String
-    
-    // Firebase'den veriyi almak için bir initializer
+
     init?(dictionary: [String: Any]) {
         guard
             let company = dictionary["company"] as? String,

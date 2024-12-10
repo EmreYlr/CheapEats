@@ -24,12 +24,10 @@ class OrdersTableViewCell: UITableViewCell {
         super.layoutSubviews()
         self.backgroundColor = .textWhite
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 10))
-        ordersImageView.layer.cornerRadius = 10
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = UIColor(named: "ButtonColor")?.cgColor
         contentView.layer.borderWidth = 1
-        ordersImageView.layer.cornerRadius = 10
-        ordersImageView.layer.borderColor = UIColor(named: "BG")?.cgColor
+        ordersImageView.layer.borderColor = UIColor(named: "ButtonColor")?.cgColor
         ordersImageView.layer.borderWidth = 1
         
     }

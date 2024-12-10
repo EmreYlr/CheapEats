@@ -11,18 +11,26 @@ import UIKit
 extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! OrderCollectionViewCell
-        cell.imageView.image = UIImage(named: "testImage")
+        if collectionView == endlingCollectionView {
+            if let product = homeViewModel.endlingProduct?[indexPath.row] {
+                cell.configureCell(product: product)
+            }
+        } else if collectionView == recommendedCollectionView {
+            if let product = homeViewModel.recommendedProduct?[indexPath.row] {
+                cell.configureCell(product: product)
+            }
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.size.width * 0.7
-        let height = collectionView.frame.size.height
+        let height = collectionView.frame.size.height * 0.9
         return CGSize(width: width, height: height)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

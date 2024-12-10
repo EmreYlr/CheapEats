@@ -11,6 +11,11 @@ class FoodTableViewCell: UITableViewCell {
 
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var detailView: UIView!
+    @IBOutlet weak var companyNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var foodNameLabel: UILabel!
+    @IBOutlet weak var oldAmountLabel: UILabel!
+    @IBOutlet weak var newAmountLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,12 +24,21 @@ class FoodTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColor = .textWhite
+        self.backgroundColor = .BG
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0))
         foodImageView.roundCorners(corners: [.topLeft, .topRight], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
-        detailView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 2)
+        detailView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
         foodImageView.layer.opacity = 0.8
         self.layer.borderWidth = 0
+    }
+    
+    func configureCell(product: Product) {
+        companyNameLabel.text = product.company
+        dateLabel.text = product.date
+        foodNameLabel.text = product.food
+        oldAmountLabel.text = product.oldAmount
+        newAmountLabel.text = product.newAmount
+        foodImageView.image = UIImage(named: product.imageUrl)
     }
 
 }

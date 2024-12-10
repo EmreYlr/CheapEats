@@ -10,7 +10,11 @@ import UIKit
 class OrderCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var detailView: UIView!
-    
+    @IBOutlet weak var companyNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var foodNameLabel: UILabel!
+    @IBOutlet weak var oldAmountLabel: UILabel!
+    @IBOutlet weak var newAmountLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,6 +25,15 @@ class OrderCollectionViewCell: UICollectionViewCell {
         imageView?.roundCorners(corners: [.topLeft, .topRight], radius: 10)
         imageView.layer.opacity = 0.8
         detailView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 0.5)
+    }
+    
+    func configureCell(product: Product) {
+        companyNameLabel.text = product.company
+        dateLabel.text = product.date
+        foodNameLabel.text = product.food
+        oldAmountLabel.text = product.oldAmount
+        newAmountLabel.text = product.newAmount
+        imageView.image = UIImage(named: product.imageUrl)
     }
 
 }
