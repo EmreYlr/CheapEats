@@ -31,7 +31,7 @@ final class FilterViewController: UIViewController {
         if filterViewModel.selectedMealTypes.isEmpty {
             filterSelectedLabel.text = "Tümü"
         } else {
-            filterSelectedLabel.text = filterViewModel.selectedMealTypes.joined(separator: ", ")
+            filterSelectedLabel.text = filterViewModel.selectedMealTypes.map { $0.rawValue }.joined(separator: ", ")
         }
         minMealPriceSegment.selectedSegmentIndex = filterViewModel.selectedMinMealPrice
         distanceSegment.selectedSegmentIndex = filterViewModel.selectedDistance
@@ -86,13 +86,8 @@ final class FilterViewController: UIViewController {
 }
 
 extension FilterViewController: BottomSheetViewModelDelegate {
-    func didApplySelection(selectedOptions: [String]) {
+    func didApplySelection(selectedOptions: [MealType]) {
         filterViewModel.selectedMealTypes = selectedOptions
-        print("Seçilen Yemek Türleri: \(filterViewModel.selectedMealTypes)")
-        if selectedOptions.isEmpty {
-            filterSelectedLabel.text = "Tümü"
-        }else{
-            filterSelectedLabel.text = filterViewModel.selectedMealTypes.joined(separator: ", ")
-        }
+        filterSelectedLabel.text = selectedOptions.isEmpty ? "Tümü" : selectedOptions.map { $0.rawValue }.joined(separator: ", ")
     }
 }

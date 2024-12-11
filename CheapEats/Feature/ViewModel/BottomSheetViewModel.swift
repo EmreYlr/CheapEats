@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 protocol BottomSheetViewModelProtocol {
-    var delegate: BottomSheetViewModelOutputProtocol? { get set}
-    var options: [String] { get }
-    var selectedOptions: [String] { get set }
+    var delegate: BottomSheetViewModelOutputProtocol? { get set }
+    var options: [MealType] { get }
+    var selectedOptions: [MealType] { get set }
     func clearSelection(tableView: UITableView)
 }
 
@@ -20,14 +20,14 @@ protocol BottomSheetViewModelOutputProtocol: AnyObject {
 }
 
 protocol BottomSheetViewModelDelegate: AnyObject {
-    func didApplySelection(selectedOptions: [String])
+    func didApplySelection(selectedOptions: [MealType])
 }
 
 final class BottomSheetViewModel {
-    var options = ["Burger", "Döner", "Tatlı", "Pizza", "Tavuk", "Köfte", "Ev Yemekleri", "Pastane & Fırın", "Kebap", "Kahvaltı", "Vegan", "Çorba"]
-    var selectedOptions: [String] = []
+    var options = MealType.allCases
+    var selectedOptions: [MealType] = []
     weak var delegate: BottomSheetViewModelOutputProtocol?
-    
+
     func clearSelection(tableView: UITableView) {
         selectedOptions.removeAll()
         if let selectedRows = tableView.indexPathsForSelectedRows {
@@ -38,5 +38,4 @@ final class BottomSheetViewModel {
         delegate?.didChangeSelection()
     }
 }
-
 extension BottomSheetViewModel: BottomSheetViewModelProtocol {}

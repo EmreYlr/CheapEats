@@ -9,7 +9,7 @@ import Foundation
 
 protocol FilterViewModelProtocol {
     var delegate: FilterViewModelOutputProtocol? { get set }
-    var selectedMealTypes: [String] { get set }
+    var selectedMealTypes: [MealType] { get set }
     var selectedMinMealPrice: Int { get set }
     var selectedDistance: Int { get set }
     func clearFilters()
@@ -17,15 +17,15 @@ protocol FilterViewModelProtocol {
 }
 
 protocol FilterViewModelOutputProtocol: AnyObject {
-    func didApplyFilter(selectedMealTypes: [String], minMealPrice: Int, distance: Int)
+    func didApplyFilter(selectedMealTypes: [MealType], minMealPrice: Int, distance: Int)
 }
 
 final class FilterViewModel {
     weak var delegate: FilterViewModelOutputProtocol?
-    var selectedMealTypes: [String] = []
+    var selectedMealTypes: [MealType] = []
     var selectedMinMealPrice: Int = 0
     var selectedDistance: Int = 0
-    
+
     func emptyCheckSelectedItem(bottomSheetVC: BottomSheetViewController) {
         if selectedMealTypes.isEmpty {
             bottomSheetVC.bottomSheetViewModel.selectedOptions = []
@@ -33,7 +33,7 @@ final class FilterViewModel {
             bottomSheetVC.bottomSheetViewModel.selectedOptions = selectedMealTypes
         }
     }
-    
+
     func clearFilters() {
         selectedMealTypes = []
         selectedMinMealPrice = 0
