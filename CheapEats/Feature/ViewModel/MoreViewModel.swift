@@ -26,15 +26,17 @@ protocol MoreViewModelOutputProtocol: AnyObject {
 
 final class MoreViewModel {
     weak var delegate: MoreViewModelOutputProtocol?
-    var products: [Product]? = [Product(company: "McDonalds", food: "BigMac", date: "12.12.2024", oldAmount: "150TL", newAmount: "100TL", imageUrl: "testImage", mealType: [.burger]), Product(company: "BurgerKing", food: "Whopper", date: "12.12.2024", oldAmount: "200TL", newAmount: "150TL", imageUrl: "testImage2", mealType: [.burger]), Product(company: "KFC", food: "Bucket", date: "12.12.2024", oldAmount: "300TL", newAmount: "250TL", imageUrl: "testImage3", mealType: [.tavuk]), Product(company: "Popeyes", food: "Chicken", date: "12.12.2024", oldAmount: "100TL", newAmount: "50TL", imageUrl: "testImage4", mealType: [.tavuk])]
+    var products: [Product]? {
+        didSet {
+            filterProducts = products
+            delegate?.update()
+        }
+    }
     private let priceThresholds = [0, 100, 150, 200]
     var filterProducts: [Product]? = []
     var selectedMealTypes: [MealType] = []
     var selectedMinMealPrice: Int = 0
     var selectedDistance: Int = 0
-    init() {
-        filterProducts = products
-    }
     
     func emptyCheckSelectedItem(filterVC: FilterViewController) {
         filterVC.filterViewModel.selectedMealTypes = selectedMealTypes
@@ -57,8 +59,6 @@ final class MoreViewModel {
             let matchesPrice = selectedMinMealPrice == 0 || productPrice <= selectedMinMealPrice
             return matchesMealType && matchesPrice
         }
-            
-            
         delegate?.update()
     }
     

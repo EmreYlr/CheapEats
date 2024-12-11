@@ -24,6 +24,10 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             if let product = homeViewModel.recommendedProduct?[indexPath.row] {
                 cell.configureCell(product: product)
             }
+        } else if collectionView == closeCollectionView {
+            if let product = homeViewModel.closeProduct?[indexPath.row] {
+                cell.configureCell(product: product)
+            }
         }
         return cell
     }
@@ -63,5 +67,15 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         recommendedCollectionView.showsHorizontalScrollIndicator = false
         recommendedCollectionView.backgroundColor = .BG
         recommendedCollectionView.layer.cornerRadius = 10
+    }
+    func closeViewLayoutSettings() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        closeCollectionView.collectionViewLayout = layout
+        closeCollectionView.isPagingEnabled = false
+        closeCollectionView.showsHorizontalScrollIndicator = false
+        closeCollectionView.backgroundColor = .BG
+        closeCollectionView.layer.cornerRadius = 10
     }
 }

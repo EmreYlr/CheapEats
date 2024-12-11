@@ -59,6 +59,7 @@
 		C3C6FDE42CFE25A00045DEDE /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDE32CFE25A00045DEDE /* FilterViewModel.swift */; };
 		C3C6FDE62CFE44A50045DEDE /* MoreViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDE52CFE44A50045DEDE /* MoreViewController+ScrollView.swift */; };
 		C3E482ED2D08998500C28240 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E482EC2D08998500C28240 /* Product.swift */; };
+		C3E482EF2D0A266000C28240 /* HomeViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E482EE2D0A266000C28240 /* HomeViewController+MapView.swift */; };
 		C3FDC2C42CF7A5F0001BD056 /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDC2C32CF7A5F0001BD056 /* HomeViewController+CollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		C3C6FDE32CFE25A00045DEDE /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		C3C6FDE52CFE44A50045DEDE /* MoreViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		C3E482EC2D08998500C28240 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		C3E482EE2D0A266000C28240 /* HomeViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+MapView.swift"; sourceTree = "<group>"; };
 		C3FDC2C32CF7A5F0001BD056 /* HomeViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -327,6 +329,7 @@
 			children = (
 				C36D3EA42CF34534008FE62B /* HomeViewController.swift */,
 				C3FDC2C32CF7A5F0001BD056 /* HomeViewController+CollectionView.swift */,
+				C3E482EE2D0A266000C28240 /* HomeViewController+MapView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				7E2472532CFBAB590078619E /* OrdersViewController+TableView.swift in Sources */,
 				C3E482ED2D08998500C28240 /* Product.swift in Sources */,
 				C301F7762CFA60AC000E7B99 /* DetailViewModel.swift in Sources */,
+				C3E482EF2D0A266000C28240 /* HomeViewController+MapView.swift in Sources */,
 				C3FDC2C42CF7A5F0001BD056 /* HomeViewController+CollectionView.swift in Sources */,
 				C3B21C8A2CF9EB02005878F9 /* MoreViewModel.swift in Sources */,
 				C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */,
