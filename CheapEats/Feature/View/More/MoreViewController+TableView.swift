@@ -10,7 +10,9 @@ import UIKit
 
 extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moreViewModel.filterProducts?.count ?? 0
+        let count = moreViewModel.filterProducts?.count ?? 0
+        notProductView.isHidden = count > 0
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

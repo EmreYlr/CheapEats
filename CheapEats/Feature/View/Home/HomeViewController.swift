@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 
 final class HomeViewController: UIViewController{
     //MARK: -Variables
@@ -17,8 +17,12 @@ final class HomeViewController: UIViewController{
     @IBOutlet weak var recommendedCollectionView: UICollectionView!
     @IBOutlet weak var closeMoreButton: UIButton!
     @IBOutlet weak var closeCollectionView: UICollectionView!
+    @IBOutlet weak var accessView: UIView!
+    @IBOutlet weak var locationDescriptionLabel: UILabel!
     var homeViewModel : HomeViewModelProtocol = HomeViewModel()
     let SB = UIStoryboard(name: "Main", bundle: nil)
+    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +31,12 @@ final class HomeViewController: UIViewController{
         collectionViewLayoutSettings()
         endlingViewLayoutSettings()
         closeViewLayoutSettings()
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        checkLocationPermission()
     }
+    
     
     private func initLoad(){
         if let user = homeViewModel.user {
@@ -36,7 +45,7 @@ final class HomeViewController: UIViewController{
         initCollectionView(with: closeCollectionView)
         initCollectionView(with: endlingCollectionView)
         initCollectionView(with: recommendedCollectionView)
-    }   
+    }
     
     private func initCollectionView(with collectionView: UICollectionView) {
         collectionView.dataSource = self
@@ -68,7 +77,12 @@ extension HomeViewController {
         navigationController?.pushViewController(moreVC, animated: true)
     }
     
-    
+    @IBAction func accessButonClicked(_ sender: UIButton) {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+
 }
 //MARK: -Output Protocol
 extension HomeViewController : HomeViewModelOutputProtocol {

@@ -11,6 +11,8 @@ final class MoreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var filterButton: UIBarButtonItem!
+    @IBOutlet weak var notProductView: UIView!
+    
     var moreViewModel : MoreViewModelProtocol = MoreViewModel()
 
     override func viewDidLoad() {
