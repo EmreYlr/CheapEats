@@ -34,13 +34,13 @@ final class HomeViewController: UIViewController{
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        checkLocationPermission()
+        accessView.isHidden = homeViewModel.checkLocationPermission(with: locationManager)
     }
     
     
     private func initLoad(){
         if let user = homeViewModel.user {
-            helloLabel.text = "Hello, \(user.firstName)"
+            helloLabel.text = "Hello, \(user.firstName) \(user.lastName)"
         }
         initCollectionView(with: closeCollectionView)
         initCollectionView(with: endlingCollectionView)

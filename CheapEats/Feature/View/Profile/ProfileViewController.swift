@@ -8,45 +8,52 @@
 import Foundation
 import UIKit
 final class ProfileViewController: UIViewController{
-
- private let profileViewModel: ProfileViewModelProtocol = ProfileViewModel()
+    
+    private let profileViewModel: ProfileViewModelProtocol = ProfileViewModel()
     
     //MARK: -Variables
     
-    @IBOutlet weak var ProfileBackView: UIView!
-    
-    
-    @IBOutlet var ContentView: UIView!
-    @IBOutlet weak var phoneBackView: UIView!
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet var emailView: UIView!
+    @IBOutlet weak var phoneView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileName: UILabel!
-    @IBOutlet weak var epostaLbl: UILabel!
-    @IBOutlet weak var phoneLbl: UILabel!
-    @IBOutlet weak var accountManagement:UIButton!
-    @IBOutlet weak var editProfile: UIButton!
-    @IBOutlet weak var exitLbl: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var emailBackView: UIView!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var cardManagementButton:UIButton!
+    @IBOutlet weak var editProfileButton: UIButton!
+    @IBOutlet weak var exitButton: UIButton!
+    
     override func viewDidLoad() {
-    super.viewDidLoad()
-    print("ProfileViewModel ")
-    initScreen()
-}
-    //MARK: -Func
-private func initScreen() {
-    ProfileBackView.roundCorners(corners: [.topRight,.bottomLeft], radius: 30, borderColor: UIColor(named: "TitleColor"), borderWidth: 4)
-  ContentView.roundCorners(corners: [.allCorners], radius: 15, borderColor: UIColor(named: "TitleColor"), borderWidth: 2)
-   // phoneBackView.roundCorners(corners: [.allCorners], radius: 13, borderColor: UIColor(named: "TitleColor"), borderWidth: 1)
-    epostaLbl.roundCorners(corners: [.allCorners], radius: 5, borderColor: UIColor(named: "TitleColor"), borderWidth: 1)
-    phoneLbl.roundCorners(corners: [.allCorners], radius: 5, borderColor: UIColor(named: "TitleColor"), borderWidth: 1)
-    profileImageView.roundCorners(corners: [.allCorners], radius: 20, borderColor: UIColor(named: "TitleColor"), borderWidth: 1)
-    profileName.roundCorners(corners: [.allCorners], radius: 5, borderColor: UIColor(named: "TitleColor"), borderWidth: 1)
-    editProfile.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "TitleColor"), borderWidth: 1)
-    accountManagement.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "TitleColor"), borderWidth: 1)
-    exitLbl.roundCorners(corners: [.allCorners], radius: 10, borderColor: UIColor(named: "CutColor"), borderWidth: 1)
+        super.viewDidLoad()
+        print("ProfileViewModel")
+        initScreen()
+    }
+    
+    private func initScreen() {
+        configureView(profileImageView, cornerRadius: 5, borderColor: .gray, borderWidth: 0.5)
+        setBorder(with: profileView.layer)
+        setBorder(with: emailView.layer)
+        setBorder(with: phoneView.layer)
+        setBorder(with: exitButton.layer)
+        setBorder(with: cardManagementButton.layer)
+        setBorder(with: editProfileButton.layer)
+        phoneView.layer.shadowColor = UIColor.black.cgColor
+        phoneView.layer.shadowOpacity = 0.5
+        phoneView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        phoneView.layer.shadowRadius = 3.0
+        editProfileButton.layer.shadowColor = UIColor.black.cgColor
+        editProfileButton.layer.shadowOpacity = 0.5
+        editProfileButton.layer.shadowOffset = CGSize(width: 2, height: 0)
+        editProfileButton.layer.shadowRadius = 3.0
     
     }
-
+    
+    func setBorder(with CALayer: CALayer) {
+        CALayer.borderColor = UIColor.gray.cgColor
+        CALayer.borderWidth = 0.2
+    }
+    
 }
 
 //MARK: -Output Protocol

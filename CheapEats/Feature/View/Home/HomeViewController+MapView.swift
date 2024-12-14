@@ -10,24 +10,6 @@ import MapKit
 import CoreLocation
 
 extension HomeViewController: CLLocationManagerDelegate {
-    func checkLocationPermission() {
-        let status = locationManager.authorizationStatus
-        
-        switch status {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .authorizedWhenInUse, .authorizedAlways:
-            accessView.isHidden = true
-            locationManager.requestLocation()
-        case .denied, .restricted:
-            accessView.isHidden = false
-            print("Konum izni verilmedi. Ayarlardan izin verin.")
-        @unknown default:
-            accessView.isHidden = false
-            print("Bilinmeyen bir izin durumu.")
-        }
-    }
-    
     // Kullanıcı izin durumunu değiştirdiğinde tetiklenir
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         let status = manager.authorizationStatus
@@ -35,8 +17,8 @@ extension HomeViewController: CLLocationManagerDelegate {
             locationManager.requestLocation()
             accessView.isHidden = true
         } else if status == .denied {
-            accessView.isHidden = false
             print("Kullanıcı konum iznini reddetti.")
+            accessView.isHidden = false
         }
     }
     

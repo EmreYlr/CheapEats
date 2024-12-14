@@ -27,9 +27,13 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var descriptonLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var payView: UIView!
-    @IBOutlet weak var newPriceLabel: UILabel!
-    @IBOutlet weak var oldPriceLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var foodNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var companyNameLabel: UILabel!
+    @IBOutlet weak var oldAmountLabel: UILabel!
+    
+    @IBOutlet weak var newAmountLabel: UILabel!
     
     var detailViewModel: DetailViewModelProtocol = DetailViewModel()
     
@@ -53,9 +57,18 @@ final class DetailViewController: UIViewController {
         mapView.layer.cornerRadius = 10
         configureView(confirmButton, cornerRadius: 10)
         configureView(payView, cornerRadius: 10, borderColor: .button, borderWidth: 2)
+        
+        if let product = detailViewModel.product {
+            imageView.image = UIImage(named: product.imageUrl)
+            foodNameLabel.text = product.food
+            foodLabel.text = String(describing: product.mealType.first!)
+            companyNameLabel.text = product.company
+            dateLabel.text = product.date
+            oldAmountLabel.text = product.oldAmount
+            newAmountLabel.text = product.newAmount
+        }
         descriptonLabel.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries."
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
     }

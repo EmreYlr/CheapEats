@@ -23,6 +23,12 @@ final class MoreViewController: UIViewController {
         print("More")
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.tintColor = UIColor(named: "ButtonColor")
+        filterButton.tintColor = UIColor(named: "ButtonColor")
+    }
+    
     func initTableView() {
         tableView.delegate = self
         tableView.dataSource = self

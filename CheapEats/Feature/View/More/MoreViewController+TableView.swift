@@ -30,6 +30,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let SB = UIStoryboard(name: "Main", bundle: nil)
         let detailVC = SB.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        detailVC.detailViewModel.product = moreViewModel.filterProducts?[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

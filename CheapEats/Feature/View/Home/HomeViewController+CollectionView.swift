@@ -40,6 +40,19 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let SB = UIStoryboard(name: "Main", bundle: nil)
         let detailVC = SB.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        if collectionView == endlingCollectionView {
+            if let product = homeViewModel.endlingProduct?[indexPath.row] {
+                detailVC.detailViewModel.product = product
+            }
+        } else if collectionView == recommendedCollectionView {
+            if let product = homeViewModel.recommendedProduct?[indexPath.row] {
+                detailVC.detailViewModel.product = product
+            }
+        } else if collectionView == closeCollectionView {
+            if let product = homeViewModel.closeProduct?[indexPath.row] {
+                detailVC.detailViewModel.product = product
+            }
+        }
         navigationController?.pushViewController(detailVC, animated: true)
     }
     

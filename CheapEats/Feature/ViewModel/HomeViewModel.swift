@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 protocol HomeViewModelProtocol {
     var delegate: HomeViewModelOutputProtocol? { get set }
@@ -13,6 +14,7 @@ protocol HomeViewModelProtocol {
     var endlingProduct: [Product]? { get set }
     var recommendedProduct: [Product]? { get set }
     var closeProduct: [Product]? { get set }
+    func checkLocationPermission(with locationManager: CLLocationManager) -> Bool
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject{
@@ -29,6 +31,24 @@ final class HomeViewModel {
     
     init() {
         self.user = UserManager.shared.user
+    }
+    
+    func checkLocationPermission(with locationManager: CLLocationManager) -> Bool{
+        let status = locationManager.authorizationStatus
+        switch status {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.requestLocation()
+            return true
+        case .denied, .restricted:
+            print("Konum izni verilmedi. Ayarlardan izin verin.")
+            return false
+        @unknown default:
+            print("Bilinmeyen bir izin durumu.")
+            return false
+        }
+        return false
     }
 }
 
