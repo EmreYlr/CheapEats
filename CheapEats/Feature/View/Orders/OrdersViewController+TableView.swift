@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return ordersViewModel.orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ordersCell", for: indexPath) as! OrdersTableViewCell
-        cell.ordersImageView.image = UIImage(named: "testImage")
+        cell.configureCell(with: ordersViewModel.orders[indexPath.row])
         return cell
         
     }
@@ -24,7 +24,8 @@ extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let SB = UIStoryboard(name: "Main", bundle: nil)
-        let detailVC = SB.instantiateViewController(withIdentifier: "OrdersDetailViewController") as! OrdersDetailViewController
+        let detailVC = SB.instantiateViewController(withIdentifier: "OrdersDetailViewController") as! OrderDetailViewController
+        detailVC.orderDetailViewModel.order = ordersViewModel.orders[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }
         }

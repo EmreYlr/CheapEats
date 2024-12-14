@@ -31,5 +31,27 @@ class OrdersTableViewCell: UITableViewCell {
         ordersImageView.layer.borderWidth = 1
         
     }
- 
+    func configureCell(with orders: Orders) {
+        ordersImageView.image = UIImage(named: orders.imageUrl)
+        foodNameLbl.text = orders.food
+        companyNameLbl.text = orders.company
+        orderDateLbl.text = orders.date
+        
+        let status = orders.orderStatus
+        orderDeliveryStatusLbl.text = status.rawValue
+        switch status {
+        case .delivered:
+            orderDeliveryStatusLbl.textColor = .button
+            orderColorStatus.tintColor = .button
+            orderColorStatus.image = UIImage(systemName: "checkmark")
+        case .preparing:
+            orderDeliveryStatusLbl.textColor = .systemOrange
+            orderColorStatus.tintColor = .systemOrange
+            orderColorStatus.image = UIImage(systemName: "clock")
+        case .canceled:
+            orderDeliveryStatusLbl.textColor = .cut
+            orderColorStatus.tintColor = .cut
+            orderColorStatus.image = UIImage(systemName: "xmark")
+        }
+    }
 }

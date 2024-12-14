@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-final class OrdersDetailViewController: UIViewController{
+final class OrderDetailViewController: UIViewController{
     //MARK: -Variables
     @IBOutlet weak var orderDetailView: UIView!
     @IBOutlet weak var companyLabel: UILabel!
@@ -21,7 +21,8 @@ final class OrdersDetailViewController: UIViewController{
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var orderNo: UILabel!
     
-    private let orderDetailViewModel: OrdersViewModelProtocol = OrdersViewModel()
+    var orderDetailViewModel: OrderDetailViewModelProtocol = OrderDetailViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("OrdersDetailViewController ")
@@ -33,12 +34,26 @@ final class OrdersDetailViewController: UIViewController{
         configureView(detailImageView, cornerRadius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
         configureView(paymentDetailView, cornerRadius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
         configureView(orderDetailView, cornerRadius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
+        
+        if let order = orderDetailViewModel.order {
+            detailImageView.image = UIImage(named: order.imageUrl)
+            companyLabel.text = "Restorant Adı: \(order.company)"
+            foodLabel.text = "Yemek: \(order.food)"
+            dateLabel.text = "Tarih: \(order.date)"
+            orderNo.text = "Sipariş No: #\(order.orderNumber)"
+            let oldAmount = Int(order.oldAmount) ?? 0
+            let newAmount = Int(order.newAmount) ?? 0
+            oldholdsLbl.text = "\(order.oldAmount) TL"
+            discountLbl.text = "\(oldAmount - newAmount) TL"
+            newAmountLbl.text = "\(order.newAmount) TL"
+            totalLbl.text = "\(order.newAmount) TL"
+        }
     }
     
     
 }
 
-extension OrdersDetailViewController: OrdersViewModelOutputProtocol {
+extension OrderDetailViewController: OrderDetailViewModelOutputProtocol {
     func update() {
         print("update")
     }

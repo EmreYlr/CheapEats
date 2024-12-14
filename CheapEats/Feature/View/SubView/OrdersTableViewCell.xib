@@ -35,9 +35,9 @@
                         <color key="textColor" name="SecondTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teslim Edildi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ff-zw-fUC">
-                        <rect key="frame" x="235" y="67" width="71" height="15"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teslim Edildi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ff-zw-fUC">
+                        <rect key="frame" x="233.66666666666666" y="67" width="72.333333333333343" height="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                         <color key="textColor" name="ButtonColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -48,7 +48,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="khj-sW-nEA">
-                        <rect key="frame" x="220" y="68" width="15" height="13.666666666666671"/>
+                        <rect key="frame" x="218.66666666666666" y="68" width="15" height="13.666666666666671"/>
                         <color key="tintColor" name="ButtonColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="TMw-qd-SEq"/>

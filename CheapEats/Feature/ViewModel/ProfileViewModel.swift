@@ -8,6 +8,7 @@
 import Foundation
 protocol ProfileViewModelProtocol{
     var delegate: ProfileViewModelOutputProtocol? { get set}
+    var user: Users? { get set }
 }
 
 protocol ProfileViewModelOutputProtocol: AnyObject{
@@ -18,5 +19,9 @@ protocol ProfileViewModelOutputProtocol: AnyObject{
 
 final class ProfileViewModel {
     weak var delegate: ProfileViewModelOutputProtocol?
+    var user: Users?
+    init() {
+        self.user = UserManager.shared.user
+    }
 }
 extension ProfileViewModel: ProfileViewModelProtocol {}
