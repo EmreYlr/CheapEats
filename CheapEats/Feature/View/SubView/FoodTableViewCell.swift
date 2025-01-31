@@ -33,11 +33,11 @@ class FoodTableViewCell: UITableViewCell {
     }
     
     func configureCell(product: Product) {
-        companyNameLabel.text = product.company
-        dateLabel.text = product.date
-        foodNameLabel.text = product.food
-        oldAmountLabel.text = product.oldAmount
-        newAmountLabel.text = product.newAmount
+        companyNameLabel.text = product.restaurantName
+        dateLabel.text = dateFormatter(with: product.createdAt)
+        foodNameLabel.text = product.name
+        oldAmountLabel.text = product.oldPrice
+        newAmountLabel.text = product.newPrice
         foodImageView.image = UIImage(named: product.imageUrl)
     }
 

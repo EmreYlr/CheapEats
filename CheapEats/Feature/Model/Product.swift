@@ -8,16 +8,21 @@
 import Foundation
 
 struct Product {
-    let company: String
-    let food: String
-    let date: String
-    let oldAmount: String
-    let newAmount: String
-    let imageUrl: String
-    let mealType: [MealType]
+    var productId: String
+    var name: String
+    var description: String
+    var oldPrice: String
+    var newPrice: String
+    var restaurantId: String
+    var restaurantName: String
+    var category: [Category]
+    var imageUrl: String
+    var deliveryType: DeliveryType
+    var createdAt: Date
+    var endDate: String
 }
 
-enum MealType: String, CaseIterable, CustomStringConvertible {
+enum Category: String, CaseIterable, CustomStringConvertible {
     case burger = "Burger"
     case doner = "Döner"
     case tatlı = "Tatlı"
@@ -35,4 +40,28 @@ enum MealType: String, CaseIterable, CustomStringConvertible {
         return self.rawValue
     }
 }
+
+enum DeliveryType: String {
+    case all = "Hepsi"
+    case delivery = "Gel-Al"
+    case takeout = "Kurye"
+    
+    var description: String {
+        return self.rawValue
+    }
+}
+
+/*
+ import FirebaseFirestore
+
+ fetchProducts { products, error in
+     if let error = error {
+         print("Error fetching products: \(error)")
+     } else if let products = products {
+         for product in products {
+             print("Product Name: \(product.name), Price: \(product.price)")
+         }
+     }
+ }
+ */
 

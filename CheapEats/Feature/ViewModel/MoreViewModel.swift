@@ -11,11 +11,11 @@ protocol MoreViewModelProtocol {
     var delegate: MoreViewModelOutputProtocol? { get set }
     var products: [Product]? { get set }
     var filterProducts: [Product]? { get set }
-    var selectedMealTypes: [MealType] { get set }
+    var selectedMealTypes: [Category] { get set }
     var selectedMinMealPrice: Int { get set }
     var selectedDistance: Int { get set }
     func emptyCheckSelectedItem(filterVC: FilterViewController)
-    func applyFilterItem(selectedMealTypes: [MealType], minMealPrice: Int, distance: Int)
+    func applyFilterItem(selectedMealTypes: [Category], minMealPrice: Int, distance: Int)
     func filterProducts(by searchText: String)
 }
 
@@ -34,7 +34,7 @@ final class MoreViewModel {
     }
     private let priceThresholds = [0, 100, 150, 200]
     var filterProducts: [Product]? = []
-    var selectedMealTypes: [MealType] = []
+    var selectedMealTypes: [Category] = []
     var selectedMinMealPrice: Int = 0
     var selectedDistance: Int = 0
     
@@ -48,14 +48,14 @@ final class MoreViewModel {
         filterVC.filterViewModel.selectedDistance = selectedDistance
     }
     
-    func applyFilterItem(selectedMealTypes: [MealType], minMealPrice: Int, distance: Int) {
+    func applyFilterItem(selectedMealTypes: [Category], minMealPrice: Int, distance: Int) {
         self.selectedMealTypes = selectedMealTypes
         self.selectedMinMealPrice = priceThresholds[minMealPrice]
         self.selectedDistance = distance
         
         filterProducts = products?.filter { product in
-            let matchesMealType = selectedMealTypes.isEmpty || product.mealType.contains(where: selectedMealTypes.contains)
-            let productPrice = Int(product.newAmount.replacingOccurrences(of: "TL", with: "")) ?? 0
+            let matchesMealType = selectedMealTypes.isEmpty || product.category.contains(where: selectedMealTypes.contains)
+            let productPrice = Int(product.newPrice.replacingOccurrences(of: "TL", with: "")) ?? 0
             let matchesPrice = selectedMinMealPrice == 0 || productPrice <= selectedMinMealPrice
             return matchesMealType && matchesPrice
         }
@@ -67,8 +67,8 @@ final class MoreViewModel {
             filterProducts = products
         } else {
             filterProducts = products?.filter { product in
-                product.company.localizedCaseInsensitiveContains(searchText) ||
-                product.food.localizedCaseInsensitiveContains(searchText)
+                product.restaurantName.localizedCaseInsensitiveContains(searchText) ||
+                product.name.localizedCaseInsensitiveContains(searchText)
             }
         }
         delegate?.update()

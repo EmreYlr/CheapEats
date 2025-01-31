@@ -86,7 +86,7 @@ final class FilterViewController: UIViewController {
 }
 
 extension FilterViewController: BottomSheetViewModelDelegate {
-    func didApplySelection(selectedOptions: [MealType]) {
+    func didApplySelection(selectedOptions: [Category]) {
         filterViewModel.selectedMealTypes = selectedOptions
         filterSelectedLabel.text = selectedOptions.isEmpty ? "Tümü" : selectedOptions.map { $0.rawValue }.joined(separator: ", ")
     }

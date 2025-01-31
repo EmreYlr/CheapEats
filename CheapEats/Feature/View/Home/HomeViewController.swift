@@ -28,16 +28,15 @@ final class HomeViewController: UIViewController{
         super.viewDidLoad()
         homeViewModel.delegate = self
         initLoad()
-        collectionViewLayoutSettings()
-        endlingViewLayoutSettings()
-        closeViewLayoutSettings()
-        
+        collectionViewSettings(with: endlingCollectionView)
+        collectionViewSettings(with: recommendedCollectionView)
+        collectionViewSettings(with: closeCollectionView)
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         accessView.isHidden = homeViewModel.checkLocationPermission(with: locationManager)
+        homeViewModel.fetchProducts()
     }
-    
-    
+
     private func initLoad(){
         if let user = homeViewModel.user {
             helloLabel.text = "Hello, \(user.firstName) \(user.lastName)"
@@ -82,11 +81,15 @@ extension HomeViewController {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
-
+    
+    
 }
 //MARK: -Output Protocol
 extension HomeViewController : HomeViewModelOutputProtocol {
     func update() {
+        endlingCollectionView.reloadData()
+        recommendedCollectionView.reloadData()
+        closeCollectionView.reloadData()
         print("Update")
     }
     

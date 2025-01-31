@@ -60,15 +60,18 @@ final class DetailViewController: UIViewController {
         
         if let product = detailViewModel.product {
             imageView.image = UIImage(named: product.imageUrl)
-            foodNameLabel.text = product.food
-            foodLabel.text = String(describing: product.mealType.first!)
-            companyNameLabel.text = product.company
-            dateLabel.text = product.date
-            oldAmountLabel.text = product.oldAmount
-            newAmountLabel.text = product.newAmount
+            foodNameLabel.text = product.name
+            foodLabel.text = String(describing: product.category.first!)
+            companyNameLabel.text = product.restaurantName
+            dateLabel.text = dateFormatter(with: product.createdAt)
+            oldAmountLabel.text = product.oldPrice
+            newAmountLabel.text = product.newPrice
+            descriptonLabel.text = product.description
+            deliveryLabel.text = product.deliveryType.rawValue
+            timeLabel.text = product.endDate
         }
-        descriptonLabel.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries."
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true
     }

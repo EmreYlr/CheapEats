@@ -10,8 +10,8 @@ import UIKit
 
 protocol BottomSheetViewModelProtocol {
     var delegate: BottomSheetViewModelOutputProtocol? { get set }
-    var options: [MealType] { get }
-    var selectedOptions: [MealType] { get set }
+    var options: [Category] { get }
+    var selectedOptions: [Category] { get set }
     func clearSelection(tableView: UITableView)
 }
 
@@ -20,12 +20,12 @@ protocol BottomSheetViewModelOutputProtocol: AnyObject {
 }
 
 protocol BottomSheetViewModelDelegate: AnyObject {
-    func didApplySelection(selectedOptions: [MealType])
+    func didApplySelection(selectedOptions: [Category])
 }
 
 final class BottomSheetViewModel {
-    var options = MealType.allCases
-    var selectedOptions: [MealType] = []
+    var options = Category.allCases
+    var selectedOptions: [Category] = []
     weak var delegate: BottomSheetViewModelOutputProtocol?
 
     func clearSelection(tableView: UITableView) {

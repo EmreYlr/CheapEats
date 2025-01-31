@@ -9,7 +9,7 @@ import Foundation
 
 protocol FilterViewModelProtocol {
     var delegate: FilterViewModelOutputProtocol? { get set }
-    var selectedMealTypes: [MealType] { get set }
+    var selectedMealTypes: [Category] { get set }
     var selectedMinMealPrice: Int { get set }
     var selectedDistance: Int { get set }
     func clearFilters()
@@ -17,12 +17,12 @@ protocol FilterViewModelProtocol {
 }
 
 protocol FilterViewModelOutputProtocol: AnyObject {
-    func didApplyFilter(selectedMealTypes: [MealType], minMealPrice: Int, distance: Int)
+    func didApplyFilter(selectedMealTypes: [Category], minMealPrice: Int, distance: Int)
 }
 
 final class FilterViewModel {
     weak var delegate: FilterViewModelOutputProtocol?
-    var selectedMealTypes: [MealType] = []
+    var selectedMealTypes: [Category] = []
     var selectedMinMealPrice: Int = 0
     var selectedDistance: Int = 0
 

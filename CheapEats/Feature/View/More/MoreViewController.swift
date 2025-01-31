@@ -65,7 +65,7 @@ extension MoreViewController: MoreViewModelOutputProtocol {
 }
 //MARK: -FilterViewModelOutputProtocol
 extension MoreViewController: FilterViewModelOutputProtocol {
-    func didApplyFilter(selectedMealTypes: [MealType], minMealPrice: Int, distance: Int) {
+    func didApplyFilter(selectedMealTypes: [Category], minMealPrice: Int, distance: Int) {
         moreViewModel.applyFilterItem(selectedMealTypes: selectedMealTypes, minMealPrice: minMealPrice, distance: distance)
         print("Filter Applied")
         print(selectedMealTypes)

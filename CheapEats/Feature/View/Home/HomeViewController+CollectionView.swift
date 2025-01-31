@@ -11,7 +11,7 @@ import UIKit
 extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -60,35 +60,14 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         return 10
     }
     
-    func collectionViewLayoutSettings() {
+    func collectionViewSettings(with collectionView: UICollectionView) {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        endlingCollectionView.collectionViewLayout = layout
-        endlingCollectionView.isPagingEnabled = false
-        endlingCollectionView.showsHorizontalScrollIndicator = false
-        endlingCollectionView.backgroundColor = .BG
-        endlingCollectionView.layer.cornerRadius = 10
-    }
-    
-    func endlingViewLayoutSettings() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        recommendedCollectionView.collectionViewLayout = layout
-        recommendedCollectionView.isPagingEnabled = false
-        recommendedCollectionView.showsHorizontalScrollIndicator = false
-        recommendedCollectionView.backgroundColor = .BG
-        recommendedCollectionView.layer.cornerRadius = 10
-    }
-    func closeViewLayoutSettings() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        closeCollectionView.collectionViewLayout = layout
-        closeCollectionView.isPagingEnabled = false
-        closeCollectionView.showsHorizontalScrollIndicator = false
-        closeCollectionView.backgroundColor = .BG
-        closeCollectionView.layer.cornerRadius = 10
+        collectionView.collectionViewLayout = layout
+        collectionView.isPagingEnabled = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .BG
+        collectionView.layer.cornerRadius = 10
     }
 }
