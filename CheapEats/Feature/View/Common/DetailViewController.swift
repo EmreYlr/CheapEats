@@ -59,7 +59,8 @@ final class DetailViewController: UIViewController {
         configureView(payView, cornerRadius: 10, borderColor: .button, borderWidth: 2)
         
         if let product = detailViewModel.product {
-            imageView.image = UIImage(named: product.imageUrl)
+            imageView.kf.indicatorType = .activity
+            imageView.kf.setImage(with: URL(string: product.imageUrl))
             foodNameLabel.text = product.name
             foodLabel.text = String(describing: product.category.first!)
             companyNameLabel.text = product.restaurantName

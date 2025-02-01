@@ -50,18 +50,3 @@ enum DeliveryType: String {
         return self.rawValue
     }
 }
-
-/*
- import FirebaseFirestore
-
- fetchProducts { products, error in
-     if let error = error {
-         print("Error fetching products: \(error)")
-     } else if let products = products {
-         for product in products {
-             print("Product Name: \(product.name), Price: \(product.price)")
-         }
-     }
- }
- */
-

@@ -20,6 +20,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
         if let product = moreViewModel.filterProducts?[indexPath.row] {
             cell.configureCell(product: product)
         }
+        cell.selectionStyle = .none
         return cell
         
     }

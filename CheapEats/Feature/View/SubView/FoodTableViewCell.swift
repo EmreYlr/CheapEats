@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Kingfisher
 
-class FoodTableViewCell: UITableViewCell {
+final class FoodTableViewCell: UITableViewCell {
 
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var detailView: UIView!
@@ -38,7 +39,8 @@ class FoodTableViewCell: UITableViewCell {
         foodNameLabel.text = product.name
         oldAmountLabel.text = product.oldPrice
         newAmountLabel.text = product.newPrice
-        foodImageView.image = UIImage(named: product.imageUrl)
+        foodImageView.kf.indicatorType = .activity
+        foodImageView.kf.setImage(with: URL(string: product.imageUrl))
     }
 
 }

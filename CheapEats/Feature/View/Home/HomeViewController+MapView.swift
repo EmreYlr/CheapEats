@@ -24,8 +24,6 @@ extension HomeViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
-        
-        // Enlem ve boylamı konsola yazdır
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         print("Latitude: \(latitude), Longitude: \(longitude)")
@@ -57,31 +55,5 @@ extension HomeViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Konum alınamadı: \(error.localizedDescription)")
     }
-    //Uzaklık hesaplama metodu
-    /*
-     let userLatitude = 37.165952
-     let userLongitude = 38.795954
-     let destinationLatitude = 37.169876
-     let destinationLongitude = 38.810689
-     
-     getRouteDistance(userLat: userLatitude, userLon: userLongitude, destLat: destinationLatitude, destLon: destinationLongitude) { distance in
-         print(distance != nil ? "Yol mesafesi: \(distance!) km" : "Mesafe hesaplanamadı.")
-     }
-     
-     
-     func getRouteDistance(userLat: Double, userLon: Double, destLat: Double, destLon: Double, completion: @escaping (Double?) -> Void) {
-         let request = MKDirections.Request()
-         request.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: userLat, longitude: userLon)))
-         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: destLat, longitude: destLon)))
-         request.transportType = .walking
-         
-         MKDirections(request: request).calculate { response, _ in
-             if let distance = response?.routes.first?.distance {
-                 completion(distance / 1000)
-             } else {
-                 completion(nil)
-             }
-         }
-     }
-     */
+    
 }

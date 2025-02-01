@@ -15,6 +15,7 @@ extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ordersCell", for: indexPath) as! OrdersTableViewCell
         cell.configureCell(with: ordersViewModel.orders[indexPath.row])
+        cell.selectionStyle = .none
         return cell
         
     }

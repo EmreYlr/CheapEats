@@ -26,32 +26,16 @@ protocol HomeViewModelOutputProtocol: AnyObject{
 final class HomeViewModel {
     weak var delegate: HomeViewModelOutputProtocol?
     var user: Users?
+    //TODO: -Sadece product çek sonrasında filtreleme işlemlerini yap.
+    //var product: [Product]?
     var endlingProduct: [Product]?
     var recommendedProduct: [Product]?
     var closeProduct: [Product]?
-    
-    func fetchProducts() {
-        NetworkManager.shared.fetchProducts { products, error in
-            if let error = error {
-                print("Error fetching products: \(error)")
-                self.delegate?.error()
-            } else if let products = products {
-                self.endlingProduct = products
-                self.recommendedProduct = products
-                self.closeProduct = products
-                self.delegate?.update()
-            }
-        }
-    }
-    
-//    var endlingProduct: [Product]? = [Product(company: "McDonalds", food: "BigMac", date: "12.12.2024", oldAmount: "150TL", newAmount: "100TL", imageUrl: "testImage", mealType: [.burger]), Product(company: "BurgerKing", food: "Whopper", date: "12.12.2024", oldAmount: "200TL", newAmount: "150TL", imageUrl: "testImage2", mealType: [.burger]), Product(company: "KFC", food: "Bucket", date: "12.12.2024", oldAmount: "300TL", newAmount: "250TL", imageUrl: "testImage3", mealType: [.tavuk]), Product(company: "Popeyes", food: "Chicken", date: "12.12.2024", oldAmount: "100TL", newAmount: "50TL", imageUrl: "testImage4", mealType: [.tavuk])]
-//    var recommendedProduct: [Product]? = [Product(company: "KFC", food: "Bucket", date: "12.12.2024", oldAmount: "300TL", newAmount: "250TL", imageUrl: "testImage3", mealType: [.tavuk]) ,Product(company: "Popeyes", food: "Chicken", date: "12.12.2024", oldAmount: "100TL", newAmount: "50TL", imageUrl: "testImage4", mealType: [.tavuk]), Product(company: "McDonalds", food: "BigMac", date: "12.12.2024", oldAmount: "150TL", newAmount: "100TL", imageUrl: "testImage", mealType: [.burger]), Product(company: "BurgerKing", food: "Whopper", date: "12.12.2024", oldAmount: "200TL", newAmount: "150TL", imageUrl: "testImage2", mealType: [.burger])]
-//    var closeProduct: [Product]? = [Product(company: "Popeyes", food: "Chicken", date: "12.12.2024", oldAmount: "100TL", newAmount: "50TL", imageUrl: "testImage4", mealType: [.tavuk]), Product(company: "KFC", food: "Bucket", date: "12.12.2024", oldAmount: "300TL", newAmount: "250TL", imageUrl: "testImage3", mealType: [.tavuk]) ,Product(company: "McDonalds", food: "BigMac", date: "12.12.2024", oldAmount: "150TL", newAmount: "100TL", imageUrl: "testImage", mealType: [.burger]), Product(company: "BurgerKing", food: "Whopper", date: "12.12.2024", oldAmount: "200TL", newAmount: "150TL", imageUrl: "testImage2", mealType: [.burger])]
-    
+
     init() {
         self.user = UserManager.shared.user
     }
-    
+
     func checkLocationPermission(with locationManager: CLLocationManager) -> Bool{
         let status = locationManager.authorizationStatus
         switch status {
@@ -68,6 +52,20 @@ final class HomeViewModel {
             return false
         }
         return false
+    }
+    
+    func fetchProducts() {
+        NetworkManager.shared.fetchProducts { products, error in
+            if let error = error {
+                print("Error fetching products: \(error)")
+                self.delegate?.error()
+            } else if let products = products {
+                self.endlingProduct = products
+                self.recommendedProduct = products
+                self.closeProduct = products
+                self.delegate?.update()
+            }
+        }
     }
 }
 

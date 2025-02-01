@@ -33,7 +33,8 @@ class OrderCollectionViewCell: UICollectionViewCell {
         foodNameLabel.text = product.name
         oldAmountLabel.text = product.oldPrice
         newAmountLabel.text = product.newPrice
-        imageView.image = UIImage(named: product.imageUrl)
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: URL(string: product.imageUrl))
     }
 
 }

@@ -65,6 +65,9 @@
 		C3C6FDE62CFE44A50045DEDE /* MoreViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDE52CFE44A50045DEDE /* MoreViewController+ScrollView.swift */; };
 		C3E482ED2D08998500C28240 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E482EC2D08998500C28240 /* Product.swift */; };
 		C3E482EF2D0A266000C28240 /* HomeViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E482EE2D0A266000C28240 /* HomeViewController+MapView.swift */; };
+		C3EAD8442D4E705500CD49CE /* MapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAD8432D4E705500CD49CE /* MapScreenViewController.swift */; };
+		C3EAD8462D4E708000CD49CE /* MapScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAD8452D4E708000CD49CE /* MapScreenViewModel.swift */; };
+		C3EAD8482D4E732F00CD49CE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAD8472D4E732C00CD49CE /* LocationManager.swift */; };
 		C3FDC2C42CF7A5F0001BD056 /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDC2C32CF7A5F0001BD056 /* HomeViewController+CollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +126,9 @@
 		C3C6FDE52CFE44A50045DEDE /* MoreViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		C3E482EC2D08998500C28240 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C3E482EE2D0A266000C28240 /* HomeViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+MapView.swift"; sourceTree = "<group>"; };
+		C3EAD8432D4E705500CD49CE /* MapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewController.swift; sourceTree = "<group>"; };
+		C3EAD8452D4E708000CD49CE /* MapScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewModel.swift; sourceTree = "<group>"; };
+		C3EAD8472D4E732C00CD49CE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C3FDC2C32CF7A5F0001BD056 /* HomeViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +170,7 @@
 		C320E2E82D071893004C6122 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C3EAD8472D4E732C00CD49CE /* LocationManager.swift */,
 				C3986A052CFA60640085521A /* DetailViewController.swift */,
 			);
 			path = Common;
@@ -267,6 +274,7 @@
 				C3FDC2C72CF7A6CA001BD056 /* Home */,
 				C320E2E82D071893004C6122 /* Common */,
 				C3B21C8C2CF9EC98005878F9 /* More */,
+				C3EAD8402D4E700F00CD49CE /* Map */,
 				C320E2E62D0717D8004C6122 /* Orders */,
 				C320E2E72D071801004C6122 /* Profile */,
 			);
@@ -282,6 +290,7 @@
 				C36D3EC12CF34C4A008FE62B /* HomeViewModel.swift */,
 				C3B21C892CF9EB02005878F9 /* MoreViewModel.swift */,
 				C301F7752CFA60AC000E7B99 /* DetailViewModel.swift */,
+				C3EAD8452D4E708000CD49CE /* MapScreenViewModel.swift */,
 				7E2472562CFC627A0078619E /* OrdersViewModel.swift */,
 				C3B4EF782D0DD788002AD314 /* OrderDetailViewModel.swift */,
 				7E2B93F72CFF830100D84BB0 /* ProfileViewModel.swift */,
@@ -339,6 +348,14 @@
 				C36D3EC42CF353E3008FE62B /* LoginViewController.swift */,
 			);
 			path = FirstScreen;
+			sourceTree = "<group>";
+		};
+		C3EAD8402D4E700F00CD49CE /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C3EAD8432D4E705500CD49CE /* MapScreenViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		C3FDC2C22CF7A5B7001BD056 /* SubView */ = {
@@ -458,11 +475,13 @@
 				7E2B93F82CFF830100D84BB0 /* ProfileViewModel.swift in Sources */,
 				C36D3EF92CF36251008FE62B /* RegisterViewController.swift in Sources */,
 				C3C6FDE62CFE44A50045DEDE /* MoreViewController+ScrollView.swift in Sources */,
+				C3EAD8442D4E705500CD49CE /* MapScreenViewController.swift in Sources */,
 				C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */,
 				C320E2EA2D075C85004C6122 /* UIViewController+Extension.swift in Sources */,
 				C3C6FDDE2CFE19A20045DEDE /* BottomSheetViewModel.swift in Sources */,
 				C36D3EFC2CF36267008FE62B /* RegisterViewModel.swift in Sources */,
 				C37B42562CF4E41500A03C4D /* NetworkManager+Response.swift in Sources */,
+				C3EAD8462D4E708000CD49CE /* MapScreenViewModel.swift in Sources */,
 				7E2472552CFBBD970078619E /* OrderDetailViewController.swift in Sources */,
 				C3986A062CFA60640085521A /* DetailViewController.swift in Sources */,
 				C3B21C882CF9EAF8005878F9 /* MoreViewController.swift in Sources */,
@@ -480,6 +499,7 @@
 				C3B21C8A2CF9EB02005878F9 /* MoreViewModel.swift in Sources */,
 				C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */,
 				C3B4EF772D0DD033002AD314 /* Orders.swift in Sources */,
+				C3EAD8482D4E732F00CD49CE /* LocationManager.swift in Sources */,
 				C32CBEFA2CF8A2110016F444 /* Users.swift in Sources */,
 				C3657B622D4D20630003918D /* DateFormatter.swift in Sources */,
 				7E65B2262CFCF8C800A57E67 /* OrderDetail.swift in Sources */,
