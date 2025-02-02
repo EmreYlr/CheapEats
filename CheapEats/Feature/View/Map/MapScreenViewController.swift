@@ -10,22 +10,52 @@ import MapKit
 
 final class MapScreenViewController: UIViewController {
     //MARK: -Variables
+    
+    @IBOutlet weak var accessView: UIView!
+    
+    @IBOutlet weak var accessButon: UIButton!
     @IBOutlet weak var mapView: MKMapView!
-    let mapScreenViewModel: MapScreenViewModelProtocol = MapScreenViewModel()
+    var mapScreenViewModel: MapScreenViewModelProtocol = MapScreenViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MapScreenViewController")
+        mapScreenViewModel.delegate = self
+        initLoad()
         setupMap()
+        
+    }
+    
+    private func initLoad() {
+        mapView.layer.cornerRadius = 10
+        if mapScreenViewModel.checkLocationCoordinate() {
+            accessView.isHidden = true
+            mapView.isHidden = false
+        } else{
+            accessView.isHidden = false
+            mapView.isHidden = true
+        }
     }
     
     private func setupMap() {
-        // Kaydedilen konum bilgilerini al ve haritayı güncelle
-        if let latitude = LocationManager.shared.currentLatitude,
-           let longitude = LocationManager.shared.currentLongitude {
-            mapScreenViewModel.updateLocation(latitude: latitude, longitude: longitude)
-            self.mapScreenViewModel.centerMapToLocation(mapView: self.mapView)
+        mapScreenViewModel.centerMapToLocation(with: mapView)
+    }
+    
+    @IBAction func accessButonClicked(_ sender: UIButton) {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
+    
+}
+extension MapScreenViewController: MapScreenViewModelOutputProtocol {
+    func update() {
+        print("update")
+    }
+    
+    func error() {
+        print("error")
+    }
+    
     
 }
 //Uzaklık hesaplama metodu

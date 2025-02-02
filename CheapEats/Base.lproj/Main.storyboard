@@ -1075,20 +1075,99 @@
                                 <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1f3-9H-jJx" userLabel="Location View">
+                                <rect key="frame" x="0.0" y="180" width="393" height="589"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.slash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Aux-6O-MID">
+                                        <rect key="frame" x="76" y="180.33333333333334" width="240" height="129.00000000000003"/>
+                                        <color key="tintColor" name="ButtonColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="bec-F3-P2R"/>
+                                            <constraint firstAttribute="width" constant="240" id="hqI-e0-Z2P"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7P-zy-2kH">
+                                        <rect key="frame" x="8" y="385" width="377" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="xxX-mw-i4g"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <backgroundConfiguration key="background" cornerRadius="10">
+                                                <color key="backgroundColor" name="ButtonColor"/>
+                                            </backgroundConfiguration>
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Konum İzni">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="20" name="Helvetica-Bold"/>
+                                                        <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content=" ">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="İçin Ayarlara Git">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="20" name="Helvetica-Bold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="accessButonClicked:" destination="Qei-vS-6qw" eventType="touchUpInside" id="940-hn-AEv"/>
+                                            <action selector="accessButonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RWD-QF-a7m"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sana yakın restoranları görebilmen için konum izni vermen gerekiyor." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chm-AV-XDW">
+                                        <rect key="frame" x="20" y="310" width="327.66666666666663" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="23c-of-lmE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="BGColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="d7P-zy-2kH" secondAttribute="trailing" constant="8" id="0dB-Ru-Kob"/>
+                                    <constraint firstItem="chm-AV-XDW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1f3-9H-jJx" secondAttribute="leading" constant="20" symbolic="YES" id="2Z0-Sv-th8"/>
+                                    <constraint firstItem="d7P-zy-2kH" firstAttribute="top" secondItem="chm-AV-XDW" secondAttribute="bottom" constant="25" id="ELT-PQ-rMU"/>
+                                    <constraint firstItem="Aux-6O-MID" firstAttribute="top" secondItem="1f3-9H-jJx" secondAttribute="top" constant="180" id="IQW-d1-xNd"/>
+                                    <constraint firstItem="chm-AV-XDW" firstAttribute="top" secondItem="Aux-6O-MID" secondAttribute="bottom" id="KGd-3g-HJR"/>
+                                    <constraint firstItem="Aux-6O-MID" firstAttribute="leading" secondItem="1f3-9H-jJx" secondAttribute="leading" constant="76" id="OY2-dg-Zka"/>
+                                    <constraint firstAttribute="trailing" secondItem="chm-AV-XDW" secondAttribute="trailing" constant="45.5" id="XSG-zD-NcN"/>
+                                    <constraint firstAttribute="trailing" secondItem="Aux-6O-MID" secondAttribute="trailing" constant="77" id="nuB-DM-6BN"/>
+                                    <constraint firstItem="d7P-zy-2kH" firstAttribute="leading" secondItem="1f3-9H-jJx" secondAttribute="leading" constant="8" id="wjH-cO-3Ma"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Nj-4T-OLY"/>
                         <color key="backgroundColor" name="BGColor"/>
                         <constraints>
+                            <constraint firstItem="1f3-9H-jJx" firstAttribute="leading" secondItem="1Nj-4T-OLY" secondAttribute="leading" id="3Zv-vh-mgW"/>
                             <constraint firstItem="ZVo-4H-Ifa" firstAttribute="leading" secondItem="1Nj-4T-OLY" secondAttribute="leading" id="4FN-Mf-22o"/>
+                            <constraint firstItem="1Nj-4T-OLY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qPS-QT-KdR" secondAttribute="trailing" symbolic="YES" id="7Cb-Ah-GB4"/>
                             <constraint firstItem="qPS-QT-KdR" firstAttribute="top" secondItem="1Nj-4T-OLY" secondAttribute="top" id="E6G-MW-ZJ7"/>
                             <constraint firstItem="qPS-QT-KdR" firstAttribute="leading" secondItem="1Nj-4T-OLY" secondAttribute="leading" constant="16" id="HbN-1c-msc"/>
+                            <constraint firstItem="1f3-9H-jJx" firstAttribute="top" secondItem="qPS-QT-KdR" secondAttribute="bottom" constant="50" id="IVo-V1-wfo"/>
                             <constraint firstItem="1Nj-4T-OLY" firstAttribute="bottom" secondItem="ZVo-4H-Ifa" secondAttribute="bottom" id="M6I-1j-Pss"/>
                             <constraint firstItem="1Nj-4T-OLY" firstAttribute="trailing" secondItem="ZVo-4H-Ifa" secondAttribute="trailing" id="fyn-sf-NHm"/>
                             <constraint firstItem="ZVo-4H-Ifa" firstAttribute="top" secondItem="qPS-QT-KdR" secondAttribute="bottom" constant="10" id="jhe-tt-28g"/>
+                            <constraint firstItem="1f3-9H-jJx" firstAttribute="bottom" secondItem="1Nj-4T-OLY" secondAttribute="bottom" id="kGf-xW-mIi"/>
+                            <constraint firstItem="1f3-9H-jJx" firstAttribute="trailing" secondItem="1Nj-4T-OLY" secondAttribute="trailing" id="yGb-X9-yJJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="OTT-eu-3kD"/>
                     <connections>
+                        <outlet property="accessButon" destination="d7P-zy-2kH" id="xTh-8o-4ch"/>
+                        <outlet property="accessView" destination="1f3-9H-jJx" id="uq8-Ps-GQs"/>
                         <outlet property="mapView" destination="ZVo-4H-Ifa" id="Gdf-Ki-r3J"/>
                     </connections>
                 </viewController>
@@ -2117,7 +2196,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hu9-7u-W9h"/>
+        <segue reference="1UV-Rt-qrR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="1024" height="1024"/>
