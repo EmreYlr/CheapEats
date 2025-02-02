@@ -15,6 +15,16 @@ final class MapScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MapScreenViewController")
+        setupMap()
+    }
+    
+    private func setupMap() {
+        // Kaydedilen konum bilgilerini al ve haritayı güncelle
+        if let latitude = LocationManager.shared.currentLatitude,
+           let longitude = LocationManager.shared.currentLongitude {
+            mapScreenViewModel.updateLocation(latitude: latitude, longitude: longitude)
+            self.mapScreenViewModel.centerMapToLocation(mapView: self.mapView)
+        }
     }
     
 }

@@ -28,6 +28,8 @@ extension HomeViewController: CLLocationManagerDelegate {
         let longitude = location.coordinate.longitude
         print("Latitude: \(latitude), Longitude: \(longitude)")
         
+        LocationManager.shared.currentLatitude = latitude
+        LocationManager.shared.currentLongitude = longitude
         // Adresi al
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
