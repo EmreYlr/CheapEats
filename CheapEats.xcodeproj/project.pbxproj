@@ -23,6 +23,8 @@
 		C32CBEF82CF89C990016F444 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEF72CF89C990016F444 /* UIView+Extension.swift */; };
 		C32CBEFA2CF8A2110016F444 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEF92CF8A2110016F444 /* Users.swift */; };
 		C32CBEFC2CF8AB880016F444 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEFB2CF8AB880016F444 /* UserManager.swift */; };
+		C32D6C432D50F55D002CD677 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32D6C422D50F54F002CD677 /* Restaurant.swift */; };
+		C32D6C462D510B0B002CD677 /* ProductError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32D6C452D510B06002CD677 /* ProductError.swift */; };
 		C3657B5E2D4D0C160003918D /* NetworkManager+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3657B5D2D4D0C160003918D /* NetworkManager+Request.swift */; };
 		C3657B622D4D20630003918D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3657B612D4D20600003918D /* DateFormatter.swift */; };
 		C3657B662D4D258E0003918D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C3657B652D4D258E0003918D /* FirebaseAuth */; };
@@ -88,6 +90,8 @@
 		C32CBEF72CF89C990016F444 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C32CBEF92CF8A2110016F444 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		C32CBEFB2CF8AB880016F444 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		C32D6C422D50F54F002CD677 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		C32D6C452D510B06002CD677 /* ProductError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductError.swift; sourceTree = "<group>"; };
 		C3657B5D2D4D0C160003918D /* NetworkManager+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Request.swift"; sourceTree = "<group>"; };
 		C3657B612D4D20600003918D /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		C36C1B0A2CF657A3007A96B4 /* OrderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -186,6 +190,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		C32D6C442D510B01002CD677 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C32D6C452D510B06002CD677 /* ProductError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		C3657B5B2D4D0BE00003918D /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +269,7 @@
 		C36D3EB62CF34ACF008FE62B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C32D6C422D50F54F002CD677 /* Restaurant.swift */,
 				C32CBEF92CF8A2110016F444 /* Users.swift */,
 				7E65B2252CFCF8C800A57E67 /* OrderDetail.swift */,
 				7E2B93F92CFF832600D84BB0 /* ProfileModel.swift */,
@@ -303,6 +316,7 @@
 		C37B42542CF4E3F800A03C4D /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				C32D6C442D510B01002CD677 /* Error */,
 				C3657B5C2D4D0BE50003918D /* Response */,
 				C3657B5B2D4D0BE00003918D /* Request */,
 				C32CBEFB2CF8AB880016F444 /* UserManager.swift */,
@@ -478,6 +492,7 @@
 				C3EAD8442D4E705500CD49CE /* MapScreenViewController.swift in Sources */,
 				C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */,
 				C320E2EA2D075C85004C6122 /* UIViewController+Extension.swift in Sources */,
+				C32D6C432D50F55D002CD677 /* Restaurant.swift in Sources */,
 				C3C6FDDE2CFE19A20045DEDE /* BottomSheetViewModel.swift in Sources */,
 				C36D3EFC2CF36267008FE62B /* RegisterViewModel.swift in Sources */,
 				C37B42562CF4E41500A03C4D /* NetworkManager+Response.swift in Sources */,
@@ -513,6 +528,7 @@
 				C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */,
 				C3C6FDE12CFE1A220045DEDE /* BottomSheetViewController+TableView.swift in Sources */,
 				C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */,
+				C32D6C462D510B0B002CD677 /* ProductError.swift in Sources */,
 				C36D3F022CF3629E008FE62B /* PassResViewModel.swift in Sources */,
 				7E8FB72C2CFB43EB005AA2E4 /* OrdersTableViewCell.swift in Sources */,
 				C36D3EC22CF34C4A008FE62B /* HomeViewModel.swift in Sources */,

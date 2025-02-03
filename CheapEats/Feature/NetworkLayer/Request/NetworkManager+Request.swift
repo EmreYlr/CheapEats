@@ -55,37 +55,32 @@ extension NetworkManager {
     }
     
     //MARK: -ProductRequest
-    func fetchProducts(completion: @escaping ([Product]?, Error?) -> Void) {
-        db.collection("products").getDocuments(source: .default) { (querySnapshot, error) in
+    func fetchProducts(completion: @escaping (Result<[Product], ProductError>) -> Void) {
+        db.collection("products").getDocuments { (querySnapshot, error) in
             if let error = error {
-                completion(nil, error)
-            } else {
-                var products = [Product]()
-                for document in querySnapshot!.documents {
-                    let data = document.data()
-                    let categoryStrings = data["category"] as? [String] ?? []
-                    let categories = categoryStrings.compactMap { Category(rawValue: $0) }
-                    
-                    let deliveryTypeString = data["deliveryType"] as? String ?? DeliveryType.all.rawValue
-                    let deliveryType = DeliveryType(rawValue: deliveryTypeString) ?? .all
-                    
-                    let product = Product(
-                        productId: document.documentID,
-                        name: data["name"] as? String ?? "",
-                        description: data["description"] as? String ?? "",
-                        oldPrice: data["oldPrice"] as? String ?? "",
-                        newPrice: data["newPrice"] as? String ?? "",
-                        restaurantId: data["restaurantId"] as? String ?? "",
-                        restaurantName: data["restaurantName"] as? String ?? "",
-                        category: categories,
-                        imageUrl: data["imageUrl"] as? String ?? "",
-                        deliveryType: deliveryType,
-                        createdAt: (data["createdAt"] as? Timestamp)?.dateValue() ?? Date(),
-                        endDate: data["endDate"] as? String ?? "00:00"
-                    )
-                    products.append(product)
+                completion(.failure(.networkError(error)))
+                return
+            }
+            
+            guard let documents = querySnapshot?.documents else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            do {
+                let products = try documents.compactMap { document -> Product? in
+                    try Product(dictionary: document.data(), documentId: document.documentID)
                 }
-                completion(products, nil)
+                
+                if products.isEmpty {
+                    completion(.failure(.noData))
+                } else {
+                    completion(.success(products))
+                }
+            } catch let error as ProductError {
+                completion(.failure(error))
+            } catch {
+                completion(.failure(.decodingError))
             }
         }
     }

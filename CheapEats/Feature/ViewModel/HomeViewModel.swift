@@ -55,15 +55,28 @@ final class HomeViewModel {
     }
     
     func fetchProducts() {
-        NetworkManager.shared.fetchProducts { products, error in
-            if let error = error {
-                print("Error fetching products: \(error)")
-                self.delegate?.error()
-            } else if let products = products {
+        NetworkManager.shared.fetchProducts { result in
+            switch result {
+            case .success(let products):
                 self.endlingProduct = products
                 self.recommendedProduct = products
                 self.closeProduct = products
                 self.delegate?.update()
+            case .failure(let error):
+                switch error {
+                case .invalidDocument:
+                    print("Invalid document structure")
+                    self.delegate?.error()
+                case .decodingError:
+                    print("Error decoding data")
+                    self.delegate?.error()
+                case .noData:
+                    print("No products found")
+                    self.delegate?.error()
+                case .networkError(let error):
+                    print("Network error: \(error.localizedDescription)")
+                    self.delegate?.error()
+                }
             }
         }
     }
