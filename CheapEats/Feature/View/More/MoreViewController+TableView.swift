@@ -18,7 +18,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodcell", for: indexPath) as! FoodTableViewCell
         if let product = moreViewModel.filterProducts?[indexPath.row] {
-            cell.configureCell(product: product)
+            cell.configureCell(productDetail: product)
         }
         cell.selectionStyle = .none
         return cell

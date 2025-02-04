@@ -15,7 +15,6 @@ struct Product {
     var oldPrice: String
     var newPrice: String
     var restaurantId: String
-    var restaurantName: String
     var category: [Category]
     var imageUrl: String
     var deliveryType: DeliveryType
@@ -29,7 +28,6 @@ struct Product {
             self.oldPrice = dictionary["oldPrice"] as? String ?? ""
             self.newPrice = dictionary["newPrice"] as? String ?? ""
             self.restaurantId = dictionary["restaurantId"] as? String ?? ""
-            self.restaurantName = dictionary["restaurantName"] as? String ?? ""
             let categoryStrings = dictionary["category"] as? [String] ?? []
             self.category = categoryStrings.compactMap { Category(rawValue: $0) }
             self.imageUrl = dictionary["imageUrl"] as? String ?? ""

@@ -9,7 +9,7 @@ import Foundation
 
 protocol DetailViewModelProtocol {
     var delegate: DetailViewModelOutputProtocol? { get set }
-    var product: Product? { get set }
+    var product: ProductDetails? { get set }
 }
 protocol DetailViewModelOutputProtocol: AnyObject {
     func update()
@@ -18,7 +18,7 @@ protocol DetailViewModelOutputProtocol: AnyObject {
 
 final class DetailViewModel {
     weak var delegate: DetailViewModelOutputProtocol?
-    var product: Product?
+    var product: ProductDetails?
 }
 
 extension DetailViewModel: DetailViewModelProtocol { }

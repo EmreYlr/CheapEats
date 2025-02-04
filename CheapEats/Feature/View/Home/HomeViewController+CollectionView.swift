@@ -11,27 +11,25 @@ import UIKit
 extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let count = homeViewModel.closeProduct?.count {
-            return count >= 4 ? 4 : count
-        }
-        return 0
+        let count = homeViewModel.productDetailsList.count
+        return count >= 4 ? 4 : count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! OrderCollectionViewCell
         if collectionView == endlingCollectionView {
-            if let product = homeViewModel.endlingProduct?[indexPath.row] {
-                cell.configureCell(product: product)
-            }
+            let product = homeViewModel.endlingProduct[indexPath.row]
+            cell.configureCell(productDetail: product)
+            
         } else if collectionView == recommendedCollectionView {
-            if let product = homeViewModel.recommendedProduct?[indexPath.row] {
-                cell.configureCell(product: product)
-            }
+            let product = homeViewModel.recommendedProduct[indexPath.row]
+            cell.configureCell(productDetail: product)
+            
         } else if collectionView == closeCollectionView {
-            if let product = homeViewModel.closeProduct?[indexPath.row] {
-                cell.configureCell(product: product)
-            }
+            let product = homeViewModel.closeProduct[indexPath.row]
+                cell.configureCell(productDetail: product)
+            
         }
         return cell
     }
@@ -45,17 +43,16 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         let SB = UIStoryboard(name: "Main", bundle: nil)
         let detailVC = SB.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         if collectionView == endlingCollectionView {
-            if let product = homeViewModel.endlingProduct?[indexPath.row] {
+            let product = homeViewModel.endlingProduct[indexPath.row]
                 detailVC.detailViewModel.product = product
-            }
         } else if collectionView == recommendedCollectionView {
-            if let product = homeViewModel.recommendedProduct?[indexPath.row] {
+            let product = homeViewModel.recommendedProduct[indexPath.row]
                 detailVC.detailViewModel.product = product
-            }
+            
         } else if collectionView == closeCollectionView {
-            if let product = homeViewModel.closeProduct?[indexPath.row] {
+            let product = homeViewModel.closeProduct[indexPath.row]
                 detailVC.detailViewModel.product = product
-            }
+            
         }
         navigationController?.pushViewController(detailVC, animated: true)
     }

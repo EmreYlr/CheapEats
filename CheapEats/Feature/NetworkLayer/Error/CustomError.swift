@@ -5,7 +5,7 @@
 //  Created by Emre on 3.02.2025.
 //
 
-enum ProductError: Error {
+enum CustomError: Error {
     case invalidDocument
     case decodingError
     case noData

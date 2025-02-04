@@ -55,7 +55,7 @@ extension NetworkManager {
     }
     
     //MARK: -ProductRequest
-    func fetchProducts(completion: @escaping (Result<[Product], ProductError>) -> Void) {
+    func fetchProducts(completion: @escaping (Result<[Product], CustomError>) -> Void) {
         db.collection("products").getDocuments { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(.networkError(error)))
@@ -67,20 +67,38 @@ extension NetworkManager {
                 return
             }
             
-            do {
-                let products = try documents.compactMap { document -> Product? in
-                    try Product(dictionary: document.data(), documentId: document.documentID)
-                }
-                
-                if products.isEmpty {
-                    completion(.failure(.noData))
-                } else {
-                    completion(.success(products))
-                }
-            } catch let error as ProductError {
-                completion(.failure(error))
-            } catch {
-                completion(.failure(.decodingError))
+            let products = documents.compactMap { document -> Product? in
+                Product(dictionary: document.data(), documentId: document.documentID)
+            }
+            
+            if products.isEmpty {
+                completion(.failure(.noData))
+            } else {
+                completion(.success(products))
+            }
+        }
+    }
+    
+    func fetchRestaurant(completion: @escaping (Result<[Restaurant], CustomError>) -> Void) {
+        db.collection("restaurants").getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(.networkError(error)))
+                return
+            }
+            
+            guard let documents = querySnapshot?.documents else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            let restaurant = documents.compactMap { document -> Restaurant? in
+                Restaurant(dictionary: document.data(), documentId: document.documentID)
+            }
+            
+            if restaurant.isEmpty {
+                completion(.failure(.noData))
+            } else {
+                completion(.success(restaurant))
             }
         }
     }

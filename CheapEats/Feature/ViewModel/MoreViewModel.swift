@@ -9,8 +9,8 @@ import Foundation
 
 protocol MoreViewModelProtocol {
     var delegate: MoreViewModelOutputProtocol? { get set }
-    var products: [Product]? { get set }
-    var filterProducts: [Product]? { get set }
+    var productDetail: [ProductDetails]? { get set }
+    var filterProducts: [ProductDetails]? { get set }
     var selectedMealTypes: [Category] { get set }
     var selectedMinMealPrice: Int { get set }
     var selectedDistance: Int { get set }
@@ -26,14 +26,14 @@ protocol MoreViewModelOutputProtocol: AnyObject {
 
 final class MoreViewModel {
     weak var delegate: MoreViewModelOutputProtocol?
-    var products: [Product]? {
+    var productDetail: [ProductDetails]? {
         didSet {
-            filterProducts = products
+            filterProducts = productDetail
             delegate?.update()
         }
     }
     private let priceThresholds = [0, 100, 150, 200]
-    var filterProducts: [Product]? = []
+    var filterProducts: [ProductDetails]? = []
     var selectedMealTypes: [Category] = []
     var selectedMinMealPrice: Int = 0
     var selectedDistance: Int = 0
@@ -53,9 +53,9 @@ final class MoreViewModel {
         self.selectedMinMealPrice = priceThresholds[minMealPrice]
         self.selectedDistance = distance
         
-        filterProducts = products?.filter { product in
-            let matchesMealType = selectedMealTypes.isEmpty || product.category.contains(where: selectedMealTypes.contains)
-            let productPrice = Int(product.newPrice.replacingOccurrences(of: "TL", with: "")) ?? 0
+        filterProducts = productDetail?.filter { productDetails in
+            let matchesMealType = selectedMealTypes.isEmpty || productDetails.product.category.contains(where: selectedMealTypes.contains)
+            let productPrice = Int(productDetails.product.newPrice.replacingOccurrences(of: "TL", with: "")) ?? 0
             let matchesPrice = selectedMinMealPrice == 0 || productPrice <= selectedMinMealPrice
             return matchesMealType && matchesPrice
         }
@@ -64,11 +64,12 @@ final class MoreViewModel {
     
     func filterProducts(by searchText: String) {
         if searchText.isEmpty {
-            filterProducts = products
+            filterProducts = productDetail
         } else {
-            filterProducts = products?.filter { product in
-                product.restaurantName.localizedCaseInsensitiveContains(searchText) ||
-                product.name.localizedCaseInsensitiveContains(searchText)
+            filterProducts = productDetail?.filter { productDetails in
+                productDetails.restaurant.name.localizedCaseInsensitiveContains(searchText) ||
+                productDetails.product
+                    .name.localizedCaseInsensitiveContains(searchText)
             }
         }
         delegate?.update()

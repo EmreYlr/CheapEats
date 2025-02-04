@@ -34,7 +34,7 @@ final class HomeViewController: UIViewController{
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         accessView.isHidden = homeViewModel.checkLocationPermission(with: locationManager)
-        homeViewModel.fetchProducts()
+        homeViewModel.fetchData()
     }
 
     private func initLoad(){
@@ -58,21 +58,21 @@ extension HomeViewController {
     @IBAction func endlingMoreButtonClicked(_ sender: Any) {
         let moreVC = SB.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
         moreVC.navigationItem.title = "Son Eklenenler"
-        moreVC.moreViewModel.products = homeViewModel.endlingProduct
+        moreVC.moreViewModel.productDetail = homeViewModel.endlingProduct
         navigationController?.pushViewController(moreVC, animated: true)
     }
     
     @IBAction func recommendedMoreButtonClicked(_ sender: Any) {
         let moreVC = SB.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
         moreVC.navigationItem.title = "Önerilenler"
-        moreVC.moreViewModel.products = homeViewModel.recommendedProduct
+        moreVC.moreViewModel.productDetail = homeViewModel.recommendedProduct
         navigationController?.pushViewController(moreVC, animated: true)
     }
     
     @IBAction func closeMoreButtonClicked(_ sender: Any) {
         let moreVC = SB.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
         moreVC.navigationItem.title = "En Yakındakiler"
-        moreVC.moreViewModel.products = homeViewModel.closeProduct
+        moreVC.moreViewModel.productDetail = homeViewModel.closeProduct
         navigationController?.pushViewController(moreVC, animated: true)
     }
     
@@ -87,10 +87,15 @@ extension HomeViewController {
 //MARK: -Output Protocol
 extension HomeViewController : HomeViewModelOutputProtocol {
     func update() {
+        homeViewModel.collectionLoad()
+        print("Update")
+    }
+    
+    func updateCollection() {
+        closeCollectionView.reloadData()
         endlingCollectionView.reloadData()
         recommendedCollectionView.reloadData()
-        closeCollectionView.reloadData()
-        print("Update")
+        print("Update Collection")
     }
     
     func error() {

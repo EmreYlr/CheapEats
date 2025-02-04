@@ -33,14 +33,14 @@ final class FoodTableViewCell: UITableViewCell {
         self.layer.borderWidth = 0
     }
     
-    func configureCell(product: Product) {
-        companyNameLabel.text = product.restaurantName
-        dateLabel.text = dateFormatter(with: product.createdAt)
-        foodNameLabel.text = product.name
-        oldAmountLabel.text = product.oldPrice
-        newAmountLabel.text = product.newPrice
+    func configureCell(productDetail: ProductDetails) {
+        companyNameLabel.text = productDetail.restaurant.name
+        dateLabel.text = dateFormatter(with: productDetail.product.createdAt)
+        foodNameLabel.text = productDetail.product.name
+        oldAmountLabel.text = productDetail.product.oldPrice
+        newAmountLabel.text = productDetail.product.newPrice
         foodImageView.kf.indicatorType = .activity
-        foodImageView.kf.setImage(with: URL(string: product.imageUrl))
+        foodImageView.kf.setImage(with: URL(string: productDetail.product.imageUrl))
     }
 
 }

@@ -58,18 +58,18 @@ final class DetailViewController: UIViewController {
         configureView(confirmButton, cornerRadius: 10)
         configureView(payView, cornerRadius: 10, borderColor: .button, borderWidth: 2)
         
-        if let product = detailViewModel.product {
+        if let productDetail = detailViewModel.product {
             imageView.kf.indicatorType = .activity
-            imageView.kf.setImage(with: URL(string: product.imageUrl))
-            foodNameLabel.text = product.name
-            foodLabel.text = String(describing: product.category.first!)
-            companyNameLabel.text = product.restaurantName
-            dateLabel.text = dateFormatter(with: product.createdAt)
-            oldAmountLabel.text = product.oldPrice
-            newAmountLabel.text = product.newPrice
-            descriptonLabel.text = product.description
-            deliveryLabel.text = product.deliveryType.rawValue
-            timeLabel.text = product.endDate
+            imageView.kf.setImage(with: URL(string: productDetail.product.imageUrl))
+            foodNameLabel.text = productDetail.product.name
+            foodLabel.text = String(describing: productDetail.product.category.first!)
+            companyNameLabel.text = productDetail.restaurant.name
+            dateLabel.text = dateFormatter(with: productDetail.product.createdAt)
+            oldAmountLabel.text = productDetail.product.oldPrice
+            newAmountLabel.text = productDetail.product.newPrice
+            descriptonLabel.text = productDetail.product.description
+            deliveryLabel.text = productDetail.product.deliveryType.rawValue
+            timeLabel.text = productDetail.product.endDate
         }
     }
     
