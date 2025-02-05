@@ -51,6 +51,8 @@
 		C37B42562CF4E41500A03C4D /* NetworkManager+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B42552CF4E41500A03C4D /* NetworkManager+Response.swift */; };
 		C38901A52D525337004522F7 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38901A42D525332004522F7 /* ProductDetails.swift */; };
 		C3986A062CFA60640085521A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3986A052CFA60640085521A /* DetailViewController.swift */; };
+		C3ADE97F2D53A14D00278990 /* DetailViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */; };
+		C3ADE9812D53B68200278990 /* RouterDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE9802D53B67500278990 /* RouterDistance.swift */; };
 		C3B21C882CF9EAF8005878F9 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C872CF9EAF8005878F9 /* MoreViewController.swift */; };
 		C3B21C8A2CF9EB02005878F9 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C892CF9EB02005878F9 /* MoreViewModel.swift */; };
 		C3B21C8E2CF9ECCA005878F9 /* MoreViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */; };
@@ -116,6 +118,8 @@
 		C37B42552CF4E41500A03C4D /* NetworkManager+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Response.swift"; sourceTree = "<group>"; };
 		C38901A42D525332004522F7 /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
 		C3986A052CFA60640085521A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+MapView.swift"; sourceTree = "<group>"; };
+		C3ADE9802D53B67500278990 /* RouterDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDistance.swift; sourceTree = "<group>"; };
 		C3B21C872CF9EAF8005878F9 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		C3B21C892CF9EB02005878F9 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
 		C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreViewController+TableView.swift"; sourceTree = "<group>"; };
@@ -176,8 +180,8 @@
 		C320E2E82D071893004C6122 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C3ADE97D2D53A13700278990 /* Detail */,
 				C3EAD8472D4E732C00CD49CE /* LocationManager.swift */,
-				C3986A052CFA60640085521A /* DetailViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -185,6 +189,7 @@
 		C32CBEF62CF89C860016F444 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C3ADE9802D53B67500278990 /* RouterDistance.swift */,
 				C3657B612D4D20600003918D /* DateFormatter.swift */,
 				C32CBEF72CF89C990016F444 /* UIView+Extension.swift */,
 				C320E2E92D075C85004C6122 /* UIViewController+Extension.swift */,
@@ -325,6 +330,15 @@
 				C32CBEFB2CF8AB880016F444 /* UserManager.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		C3ADE97D2D53A13700278990 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				C3986A052CFA60640085521A /* DetailViewController.swift */,
+				C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		C3B21C8C2CF9EC98005878F9 /* More */ = {
@@ -489,6 +503,7 @@
 				C36D3EA52CF34534008FE62B /* HomeViewController.swift in Sources */,
 				7E2472572CFC627A0078619E /* OrdersViewModel.swift in Sources */,
 				C36D3EA12CF34534008FE62B /* AppDelegate.swift in Sources */,
+				C3ADE9812D53B68200278990 /* RouterDistance.swift in Sources */,
 				7E2B93F82CFF830100D84BB0 /* ProfileViewModel.swift in Sources */,
 				C36D3EF92CF36251008FE62B /* RegisterViewController.swift in Sources */,
 				C3C6FDE62CFE44A50045DEDE /* MoreViewController+ScrollView.swift in Sources */,
@@ -531,6 +546,7 @@
 				C3C6FDE42CFE25A00045DEDE /* FilterViewModel.swift in Sources */,
 				C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */,
 				C3C6FDE12CFE1A220045DEDE /* BottomSheetViewController+TableView.swift in Sources */,
+				C3ADE97F2D53A14D00278990 /* DetailViewController+MapView.swift in Sources */,
 				C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */,
 				C32D6C462D510B0B002CD677 /* CustomError.swift in Sources */,
 				C36D3F022CF3629E008FE62B /* PassResViewModel.swift in Sources */,

@@ -24,6 +24,7 @@ protocol HomeViewModelProtocol {
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject{
+    //TODO: Loading ekle
     func update()
     func updateCollection()
     func error()
@@ -39,7 +40,8 @@ final class HomeViewModel {
     var endlingProduct: [ProductDetails] = []
     var recommendedProduct: [ProductDetails] = []
     var closeProduct: [ProductDetails] = []
-
+    private let dispatchGroup = DispatchGroup()
+    
     init() {
         self.user = UserManager.shared.user
     }
@@ -64,51 +66,38 @@ final class HomeViewModel {
     }
     
     func fetchData() {
-        let dispatchGroup = DispatchGroup()
-        
         dispatchGroup.enter()
-        fetchProducts { [weak self] success in
-            if !success {
-                self?.delegate?.error()
-            }
-            dispatchGroup.leave()
-        }
+        fetchProducts()
         dispatchGroup.enter()
-        fetchRestaurants { [weak self] success in
-            if !success {
-                self?.delegate?.error()
-            }
-            dispatchGroup.leave()
-        }
-        
+        fetchRestaurants()
         dispatchGroup.notify(queue: .main) { [weak self] in
             self?.delegate?.update()
         }
     }
     
-    private func fetchProducts(completion: @escaping (Bool) -> Void) {
-        NetworkManager.shared.fetchProducts { result in
+    private func fetchProducts() {
+        NetworkManager.shared.fetchProducts { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let products):
                 self.products = products
-                completion(true)
             case .failure(let error):
                 self.handleError(error)
-                completion(false)
             }
+            dispatchGroup.leave()
         }
     }
-
-    private func fetchRestaurants(completion: @escaping (Bool) -> Void) {
-        NetworkManager.shared.fetchRestaurant { result in
+    
+    private func fetchRestaurants() {
+        NetworkManager.shared.fetchRestaurant { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let restaurants):
                 self.restaurants = restaurants
-                completion(true)
             case .failure(let error):
                 self.handleError(error)
-                completion(false)
             }
+            dispatchGroup.leave()
         }
     }
     
@@ -135,18 +124,18 @@ final class HomeViewModel {
     }
     
     private func handleError(_ error: CustomError) {
-            switch error {
-            case .invalidDocument:
-                print("Invalid document structure")
-            case .decodingError:
-                print("Error decoding data")
-            case .noData:
-                print("No data found")
-            case .networkError(let error):
-                print("Network error: \(error.localizedDescription)")
-            }
-            self.delegate?.error()
+        switch error {
+        case .invalidDocument:
+            print("Invalid document structure")
+        case .decodingError:
+            print("Error decoding data")
+        case .noData:
+            print("No data found")
+        case .networkError(let error):
+            print("Network error: \(error.localizedDescription)")
         }
+        self.delegate?.error()
+    }
 }
 
 extension HomeViewModel: HomeViewModelProtocol { }

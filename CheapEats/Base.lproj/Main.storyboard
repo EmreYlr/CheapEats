@@ -1435,9 +1435,9 @@
                                                         </subviews>
                                                         <color key="backgroundColor" name="IconBG"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="cZ5-Al-ZHI" secondAttribute="trailing" constant="19" id="4wl-n6-elL"/>
+                                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="cZ5-Al-ZHI" secondAttribute="trailing" constant="19" id="4wl-n6-elL"/>
                                                             <constraint firstAttribute="bottom" secondItem="Krb-yO-81z" secondAttribute="bottom" constant="5" id="HX6-de-1g9"/>
-                                                            <constraint firstItem="cZ5-Al-ZHI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Krb-yO-81z" secondAttribute="trailing" constant="8" symbolic="YES" id="QoQ-S6-Rgf"/>
+                                                            <constraint firstItem="cZ5-Al-ZHI" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Krb-yO-81z" secondAttribute="trailing" constant="8" symbolic="YES" id="QoQ-S6-Rgf"/>
                                                             <constraint firstItem="Krb-yO-81z" firstAttribute="leading" secondItem="gua-hb-75f" secondAttribute="leading" constant="8" id="Sdc-TS-LU5"/>
                                                             <constraint firstAttribute="height" constant="30" id="aZS-OY-fBi"/>
                                                             <constraint firstAttribute="width" constant="85" id="hK6-jw-nfz"/>
@@ -2196,7 +2196,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1UV-Rt-qrR"/>
+        <segue reference="hu9-7u-W9h"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="1024" height="1024"/>

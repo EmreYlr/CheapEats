@@ -44,14 +44,14 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         let detailVC = SB.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         if collectionView == endlingCollectionView {
             let product = homeViewModel.endlingProduct[indexPath.row]
-                detailVC.detailViewModel.product = product
+                detailVC.detailViewModel.productDetail = product
         } else if collectionView == recommendedCollectionView {
             let product = homeViewModel.recommendedProduct[indexPath.row]
-                detailVC.detailViewModel.product = product
+                detailVC.detailViewModel.productDetail = product
             
         } else if collectionView == closeCollectionView {
             let product = homeViewModel.closeProduct[indexPath.row]
-                detailVC.detailViewModel.product = product
+                detailVC.detailViewModel.productDetail = product
             
         }
         navigationController?.pushViewController(detailVC, animated: true)

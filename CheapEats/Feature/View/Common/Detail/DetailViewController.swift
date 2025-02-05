@@ -40,10 +40,12 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initScreen()
+        configureMapView()
         print("Detail")
     }
     
     private func initScreen() {
+        detailViewModel.delegate = self
         distanceImageIcon.image = UIImage(systemName: "point.filled.topleft.down.curvedto.point.bottomright.up")
         imageView.layer.cornerRadius = 10
         distanceView.layer.cornerRadius = 5
@@ -58,7 +60,7 @@ final class DetailViewController: UIViewController {
         configureView(confirmButton, cornerRadius: 10)
         configureView(payView, cornerRadius: 10, borderColor: .button, borderWidth: 2)
         
-        if let productDetail = detailViewModel.product {
+        if let productDetail = detailViewModel.productDetail {
             imageView.kf.indicatorType = .activity
             imageView.kf.setImage(with: URL(string: productDetail.product.imageUrl))
             foodNameLabel.text = productDetail.product.name
@@ -70,6 +72,14 @@ final class DetailViewController: UIViewController {
             descriptonLabel.text = productDetail.product.description
             deliveryLabel.text = productDetail.product.deliveryType.rawValue
             timeLabel.text = productDetail.product.endDate
+        }
+    }
+    
+    func configureMapView() {
+        mapView.delegate = self
+        detailViewModel.mapViewCenterCoordinate(mapView: mapView)
+        detailViewModel.getRoutuerDistance { distance in
+            self.distanceLabel.text = distance
         }
     }
     
@@ -95,3 +105,4 @@ extension DetailViewController: DetailViewModelOutputProtocol {
         print("error")
     }
 }
+
