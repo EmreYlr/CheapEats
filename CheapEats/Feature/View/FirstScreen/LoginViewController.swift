@@ -6,24 +6,31 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 final class LoginViewController: UIViewController {
     //MARK: -Variables
     @IBOutlet weak var emailLayer: UITextField!
     @IBOutlet weak var passwordLayer: UITextField!
     @IBOutlet weak var waitView: UIView!
-    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     @IBOutlet weak var loginButton: UIButton!
+    
+    private var loadIndicator: NVActivityIndicatorView!
     var loginViewModel : LoginViewModelProtocol = LoginViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLoadingIndicator()
         emailLayer.text = "yeleremre@hotmail.com"
         passwordLayer.text = "123456"
         loginViewModel.delegate = self
         loginButton.layer.cornerRadius = 10
-        loadIndicator.color = UIColor(named: "ButtonColor")
         
     }
+    private func setupLoadingIndicator() {
+        loadIndicator = createLoadingIndicator(in: self.waitView)
+    }
+    
     @IBAction func loginButtonClicked(_ sender: Any) {
         guard let email = emailLayer.text, let password = passwordLayer.text else { return }
         loginViewModel.loginUser(email: email, password: password)

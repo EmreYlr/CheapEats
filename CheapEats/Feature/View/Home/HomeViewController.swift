@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import NVActivityIndicatorView
 
 final class HomeViewController: UIViewController{
     //MARK: -Variables
@@ -21,7 +22,7 @@ final class HomeViewController: UIViewController{
     @IBOutlet weak var locationDescriptionLabel: UILabel!
     @IBOutlet weak var waitView: UIView!
     
-    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
+    private var loadIndicator: NVActivityIndicatorView!
     var homeViewModel : HomeViewModelProtocol = HomeViewModel()
     let SB = UIStoryboard(name: "Main", bundle: nil)
     
@@ -29,6 +30,7 @@ final class HomeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLoadingIndicator()
         homeViewModel.delegate = self
         initLoad()
         collectionViewSettings(with: endlingCollectionView)
@@ -38,6 +40,10 @@ final class HomeViewController: UIViewController{
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         accessView.isHidden = homeViewModel.checkLocationPermission(with: locationManager)
         homeViewModel.fetchData()
+    }
+    
+    private func setupLoadingIndicator() {
+        loadIndicator = createLoadingIndicator(in: waitView)
     }
 
     private func initLoad(){

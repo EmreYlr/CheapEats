@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 final class RegisterViewController: UIViewController {
     //MARK: -Variables
@@ -15,17 +16,20 @@ final class RegisterViewController: UIViewController {
     @IBOutlet weak var emailLabel: UITextField!
     @IBOutlet weak var passwordLabel: UITextField!
     @IBOutlet weak var registerButton: UIButton!
-    
     @IBOutlet weak var waitView: UIView!
-    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
-    
+
+    private var loadIndicator: NVActivityIndicatorView!
     private var registerViewModel: RegisterViewModelProtocol = RegisterViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLoadingIndicator()
         registerViewModel.delegate = self
         registerButton.layer.cornerRadius = 10
-        loadIndicator.color = UIColor(named: "ButtonColor")
+    }
+    
+    private func setupLoadingIndicator() {
+        loadIndicator = createLoadingIndicator(in: waitView)
     }
     
     @IBAction func registerButtonClicked(_ sender: Any) {

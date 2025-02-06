@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import NVActivityIndicatorView
 
 final class DetailViewController: UIViewController {
     //MARK: -Variables
@@ -32,19 +33,21 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var companyNameLabel: UILabel!
     @IBOutlet weak var oldAmountLabel: UILabel!
-    
     @IBOutlet weak var newAmountLabel: UILabel!
-    
     @IBOutlet weak var waitView: UIView!
-    
-    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
+    private var loadIndicator: NVActivityIndicatorView!
     var detailViewModel: DetailViewModelProtocol = DetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLoadingIndicator()
         initScreen()
         configureMapView()
         print("Detail")
+    }
+    
+    private func setupLoadingIndicator() {
+        loadIndicator = createLoadingIndicator(in: waitView)
     }
     
     private func initScreen() {
