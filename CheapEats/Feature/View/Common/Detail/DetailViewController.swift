@@ -35,6 +35,9 @@ final class DetailViewController: UIViewController {
     
     @IBOutlet weak var newAmountLabel: UILabel!
     
+    @IBOutlet weak var waitView: UIView!
+    
+    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     var detailViewModel: DetailViewModelProtocol = DetailViewModel()
     
     override func viewDidLoad() {
@@ -103,6 +106,18 @@ extension DetailViewController: DetailViewModelOutputProtocol {
     
     func error() {
         print("error")
+    }
+    
+    func startLoading() {
+        waitView.isHidden = false
+        loadIndicator.isHidden = false
+        loadIndicator.startAnimating()
+    }
+    
+    func stopLoading() {
+        waitView.isHidden = true
+        loadIndicator.isHidden = true
+        loadIndicator.stopAnimating()
     }
 }
 

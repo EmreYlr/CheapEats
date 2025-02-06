@@ -19,6 +19,9 @@ final class HomeViewController: UIViewController{
     @IBOutlet weak var closeCollectionView: UICollectionView!
     @IBOutlet weak var accessView: UIView!
     @IBOutlet weak var locationDescriptionLabel: UILabel!
+    @IBOutlet weak var waitView: UIView!
+    
+    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     var homeViewModel : HomeViewModelProtocol = HomeViewModel()
     let SB = UIStoryboard(name: "Main", bundle: nil)
     
@@ -100,5 +103,17 @@ extension HomeViewController : HomeViewModelOutputProtocol {
     
     func error() {
         print("Error")
+    }
+    
+    func startLoading() {
+        waitView.isHidden = false
+        loadIndicator.isHidden = false
+        loadIndicator.startAnimating()
+    }
+    
+    func stopLoading() {
+        waitView.isHidden = true
+        loadIndicator.isHidden = true
+        loadIndicator.stopAnimating()
     }
 }

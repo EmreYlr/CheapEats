@@ -668,6 +668,20 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxn-zS-pKA" userLabel="Wait View">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="N8x-H7-1eZ">
+                                        <rect key="frame" x="178" y="314.66666666666669" width="37" height="37"/>
+                                        <color key="color" name="ButtonColor"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" name="BGColor"/>
+                                <constraints>
+                                    <constraint firstItem="N8x-H7-1eZ" firstAttribute="centerX" secondItem="Bxn-zS-pKA" secondAttribute="centerX" id="blW-04-cgj"/>
+                                    <constraint firstItem="N8x-H7-1eZ" firstAttribute="centerY" secondItem="Bxn-zS-pKA" secondAttribute="centerY" id="yfM-WY-InF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BGColor"/>
@@ -679,11 +693,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K4w-VH-Zup" secondAttribute="trailing" id="FPc-oa-lJE"/>
                             <constraint firstItem="K4w-VH-Zup" firstAttribute="top" secondItem="OKi-dh-Cxv" secondAttribute="bottom" constant="15" id="LjP-K3-U5v"/>
                             <constraint firstItem="PTa-MU-gA4" firstAttribute="top" secondItem="OKi-dh-Cxv" secondAttribute="bottom" constant="15" id="Ohq-xc-Dej"/>
+                            <constraint firstItem="Bxn-zS-pKA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XUm-n6-YwM"/>
                             <constraint firstItem="PTa-MU-gA4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Xlk-bC-FmE"/>
                             <constraint firstItem="ypx-1i-hTN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="YIY-H8-Srv"/>
+                            <constraint firstItem="Bxn-zS-pKA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bSJ-MI-sUM"/>
                             <constraint firstItem="PTa-MU-gA4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="f6L-Sz-aB1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="K4w-VH-Zup" secondAttribute="bottom" id="jih-gk-3JV"/>
                             <constraint firstItem="OKi-dh-Cxv" firstAttribute="top" secondItem="ypx-1i-hTN" secondAttribute="bottom" id="nDW-CK-aY1"/>
+                            <constraint firstItem="Bxn-zS-pKA" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pKR-L1-Rnn"/>
+                            <constraint firstItem="Bxn-zS-pKA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u6C-kY-IRl"/>
                             <constraint firstItem="PTa-MU-gA4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uUJ-JB-dVh"/>
                             <constraint firstItem="OKi-dh-Cxv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="w9g-Xo-EZF"/>
                         </constraints>
@@ -696,9 +714,11 @@
                         <outlet property="endlingCollectionView" destination="UYU-u8-P0q" id="Qvm-jh-Wn1"/>
                         <outlet property="endlingMoreButton" destination="7XH-xA-X7c" id="RyK-cP-fd8"/>
                         <outlet property="helloLabel" destination="ypx-1i-hTN" id="KWh-Hj-2LL"/>
+                        <outlet property="loadIndicator" destination="N8x-H7-1eZ" id="lnf-FC-o2L"/>
                         <outlet property="locationDescriptionLabel" destination="OKi-dh-Cxv" id="paE-E0-2tX"/>
                         <outlet property="recommendedCollectionView" destination="LAS-5s-ChE" id="2hD-3R-EX3"/>
                         <outlet property="recommendedMoreButton" destination="uhY-pU-SHn" id="NFi-zZ-TdR"/>
+                        <outlet property="waitView" destination="Bxn-zS-pKA" id="iWJ-Ew-6ad"/>
                         <segue destination="3Wv-96-n5M" kind="show" identifier="seque" id="San-lI-vej"/>
                         <segue destination="Kv2-hv-gA4" kind="show" identifier="detailSeque" id="1UV-Rt-qrR"/>
                     </connections>
@@ -1627,6 +1647,20 @@
                                     <constraint firstAttribute="trailing" secondItem="idv-cL-w6a" secondAttribute="trailing" id="zqE-1N-YNa"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEW-j5-VjE" userLabel="Wait View">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Uef-dn-8gE">
+                                        <rect key="frame" x="178" y="366" width="37" height="37"/>
+                                        <color key="color" name="ButtonColor"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" name="BGColor"/>
+                                <constraints>
+                                    <constraint firstItem="Uef-dn-8gE" firstAttribute="centerX" secondItem="eEW-j5-VjE" secondAttribute="centerX" id="fzs-wL-KvO"/>
+                                    <constraint firstItem="Uef-dn-8gE" firstAttribute="centerY" secondItem="eEW-j5-VjE" secondAttribute="centerY" id="r5S-OJ-nlm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lTe-sA-7t5"/>
                         <color key="backgroundColor" name="BGColor"/>
@@ -1634,10 +1668,14 @@
                             <constraint firstAttribute="trailing" secondItem="rDq-R4-F6O" secondAttribute="trailing" constant="16" id="CDm-PZ-e4H"/>
                             <constraint firstItem="lTe-sA-7t5" firstAttribute="trailing" secondItem="Q97-Cr-dMb" secondAttribute="trailing" id="CyC-RK-JLd"/>
                             <constraint firstItem="rDq-R4-F6O" firstAttribute="top" secondItem="Q97-Cr-dMb" secondAttribute="bottom" id="KSr-fU-tNL"/>
+                            <constraint firstItem="eEW-j5-VjE" firstAttribute="top" secondItem="R6f-WO-1yH" secondAttribute="top" id="Qfi-MS-640"/>
+                            <constraint firstItem="eEW-j5-VjE" firstAttribute="leading" secondItem="lTe-sA-7t5" secondAttribute="leading" id="UWt-TV-cAH"/>
                             <constraint firstItem="lTe-sA-7t5" firstAttribute="bottom" secondItem="Q97-Cr-dMb" secondAttribute="bottom" constant="56" id="ZRI-Kf-7TI"/>
                             <constraint firstItem="boe-BH-tzN" firstAttribute="height" secondItem="R6f-WO-1yH" secondAttribute="height" multiplier="0.938967" priority="250" id="cOl-TQ-knW"/>
                             <constraint firstItem="rDq-R4-F6O" firstAttribute="leading" secondItem="R6f-WO-1yH" secondAttribute="leading" constant="16" id="eGr-gf-6em"/>
                             <constraint firstItem="Q97-Cr-dMb" firstAttribute="leading" secondItem="lTe-sA-7t5" secondAttribute="leading" id="hOh-hS-gS0"/>
+                            <constraint firstItem="eEW-j5-VjE" firstAttribute="trailing" secondItem="lTe-sA-7t5" secondAttribute="trailing" id="kdA-HY-8wp"/>
+                            <constraint firstItem="eEW-j5-VjE" firstAttribute="bottom" secondItem="lTe-sA-7t5" secondAttribute="bottom" id="rWl-WG-sIM"/>
                             <constraint firstItem="Q97-Cr-dMb" firstAttribute="top" secondItem="R6f-WO-1yH" secondAttribute="top" id="s5m-z1-nty"/>
                             <constraint firstItem="lTe-sA-7t5" firstAttribute="bottom" secondItem="rDq-R4-F6O" secondAttribute="bottom" id="tTR-Cg-JoD"/>
                         </constraints>
@@ -1659,6 +1697,7 @@
                         <outlet property="foodNameLabel" destination="xPR-it-dKG" id="zNj-ye-wZf"/>
                         <outlet property="foodView" destination="1EY-gn-lgj" id="VgM-Xw-hjW"/>
                         <outlet property="imageView" destination="t6v-YB-Ub2" id="dZO-YV-b1V"/>
+                        <outlet property="loadIndicator" destination="Uef-dn-8gE" id="O32-dB-pnW"/>
                         <outlet property="mapView" destination="hDg-uB-SBH" id="55u-4X-z0i"/>
                         <outlet property="newAmountLabel" destination="FFu-wd-cwo" id="NkY-ub-bgG"/>
                         <outlet property="oldAmountLabel" destination="LLh-Lg-Rcx" id="OSx-eQ-b48"/>
@@ -1667,6 +1706,7 @@
                         <outlet property="timeImageIcon" destination="3Kz-1b-E1p" id="nN1-c1-6Er"/>
                         <outlet property="timeLabel" destination="g2k-fW-ncL" id="YRx-dP-zN9"/>
                         <outlet property="timeView" destination="lZy-hS-o3j" id="DWg-w6-9iV"/>
+                        <outlet property="waitView" destination="eEW-j5-VjE" id="KAL-2J-GbR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaQ-aa-MNl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2196,7 +2236,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hu9-7u-W9h"/>
+        <segue reference="1UV-Rt-qrR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="1024" height="1024"/>

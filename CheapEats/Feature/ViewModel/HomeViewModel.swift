@@ -24,10 +24,11 @@ protocol HomeViewModelProtocol {
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject{
-    //TODO: Loading ekle
     func update()
     func updateCollection()
     func error()
+    func startLoading()
+    func stopLoading()
 }
 
 final class HomeViewModel {
@@ -66,13 +67,16 @@ final class HomeViewModel {
     }
     
     func fetchData() {
+        self.delegate?.startLoading()
         dispatchGroup.enter()
         fetchProducts()
         dispatchGroup.enter()
         fetchRestaurants()
         dispatchGroup.notify(queue: .main) { [weak self] in
             self?.delegate?.update()
+            self?.delegate?.stopLoading()
         }
+        
     }
     
     private func fetchProducts() {

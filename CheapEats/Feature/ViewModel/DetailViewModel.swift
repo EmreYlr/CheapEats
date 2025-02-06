@@ -15,9 +15,10 @@ protocol DetailViewModelProtocol {
     func mapViewCenterCoordinate(mapView: MKMapView)
 }
 protocol DetailViewModelOutputProtocol: AnyObject {
-    //TODO: Loading ekle
     func update()
     func error()
+    func startLoading()
+    func stopLoading()
 }
 
 final class DetailViewModel {
@@ -38,21 +39,25 @@ final class DetailViewModel {
     }
     
     func getRoutuerDistance(completion: @escaping(String) -> Void){
+        self.delegate?.startLoading()
         if let userLatitude = LocationManager.shared.currentLatitude, let userLongitude = LocationManager.shared.currentLongitude, let destinationLatitude = productDetail?.restaurant.location.latitude,  let destinationLongitude = productDetail?.restaurant.location.longitude {
             getRouteDistance(userLat: userLatitude, userLon: userLongitude, destLat: destinationLatitude, destLon: destinationLongitude) { distance in
                 if distance < 1 {
                     let distanceTemp = Int(distance * 1000)
                     let returnDistance = "\(distanceTemp) M"
                     completion(returnDistance)
+                    self.delegate?.stopLoading()
                 }  else{
                     let truncatedDistance = floor(distance * 100) / 100
                     let returnDistance = String(format: "%.1f KM", truncatedDistance)
                     completion(returnDistance)
+                    self.delegate?.stopLoading()
                 }
             }
         }
         else {
             completion("0 M")
+            self.delegate?.stopLoading()
         }
     }
 }
