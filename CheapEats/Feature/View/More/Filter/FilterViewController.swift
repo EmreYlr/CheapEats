@@ -25,7 +25,6 @@ final class FilterViewController: UIViewController {
         distanceSegment.layer.shadowOpacity = 0
         configureView(buttonView, cornerRadius: 10)
         configureView(applyButton, cornerRadius: 10)
-        //TODO: - Distance hesaplanacak
     }
     
     override func viewWillAppear(_ animated: Bool) {

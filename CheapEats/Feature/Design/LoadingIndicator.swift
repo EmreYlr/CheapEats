@@ -17,7 +17,7 @@ extension UIViewController {
             color: .button,
             padding: 0
         )
-        loadIndicator.center = view.center
+        loadIndicator.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
         view.addSubview(loadIndicator)
         view.isHidden = true
         loadIndicator.isHidden = true

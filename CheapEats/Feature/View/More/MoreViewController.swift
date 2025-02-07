@@ -6,18 +6,22 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 final class MoreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var filterButton: UIBarButtonItem!
     @IBOutlet weak var notProductView: UIView!
+    @IBOutlet weak var waitView: UIView!
     
+    private var loadIndicator: NVActivityIndicatorView!
     var moreViewModel : MoreViewModelProtocol = MoreViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         moreViewModel.delegate = self
+        setupLoadingIndicator()
         initTableView()
         initSearchController()
         print("More")
@@ -27,6 +31,10 @@ final class MoreViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = .clear
         navigationController?.navigationBar.tintColor = UIColor(named: "ButtonColor")
         filterButton.tintColor = UIColor(named: "ButtonColor")
+    }
+    
+    private func setupLoadingIndicator() {
+        loadIndicator = createLoadingIndicator(in: waitView)
     }
     
     func initTableView() {
@@ -62,15 +70,23 @@ extension MoreViewController: MoreViewModelOutputProtocol {
     func error() {
         print("Error")
     }
+    
+    func startLoading() {
+        waitView.isHidden = false
+        loadIndicator.isHidden = false
+        loadIndicator.startAnimating()
+    }
+    
+    func stopLoading() {
+        waitView.isHidden = true
+        loadIndicator.isHidden = true
+        loadIndicator.stopAnimating()
+    }
 }
 //MARK: -FilterViewModelOutputProtocol
 extension MoreViewController: FilterViewModelOutputProtocol {
     func didApplyFilter(selectedMealTypes: [Category], minMealPrice: Int, distance: Int) {
         moreViewModel.applyFilterItem(selectedMealTypes: selectedMealTypes, minMealPrice: minMealPrice, distance: distance)
-        print("Filter Applied")
-        print(selectedMealTypes)
-        print(minMealPrice)
-        print(distance)
     }
 }
 
