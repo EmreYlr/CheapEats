@@ -31,8 +31,8 @@ class OrderCollectionViewCell: UICollectionViewCell {
         companyNameLabel.text = productDetail.restaurant.name
         dateLabel.text = dateFormatter(with: productDetail.product.createdAt)
         foodNameLabel.text = productDetail.product.name
-        oldAmountLabel.text = productDetail.product.oldPrice
-        newAmountLabel.text = productDetail.product.newPrice
+        oldAmountLabel.text = "\(formatDouble(productDetail.product.oldPrice)) TL"
+        newAmountLabel.text = "\(formatDouble(productDetail.product.newPrice)) TL"
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(with: URL(string: productDetail.product.imageUrl))
     }

@@ -31,8 +31,8 @@ class OrdersTableViewCell: UITableViewCell {
         ordersImageView.layer.borderWidth = 1
         
     }
-    func configureCell(with orders: Orders) {
-        ordersImageView.image = UIImage(named: orders.imageUrl)
+    func configureCell(with orders: UserOrder) {
+        /*ordersImageView.image = UIImage(named: orders.imageUrl)
         foodNameLbl.text = orders.food
         companyNameLbl.text = orders.company
         orderDateLbl.text = orders.date
@@ -53,5 +53,6 @@ class OrdersTableViewCell: UITableViewCell {
             orderColorStatus.tintColor = .cut
             orderColorStatus.image = UIImage(systemName: "xmark")
         }
+         */
     }
 }

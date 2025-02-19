@@ -60,11 +60,10 @@ final class MoreViewModel {
         self.selectedMealTypes = selectedMealTypes
         self.selectedMinMealPrice = priceThresholds[minMealPrice]
         self.selectedDistance = distanceThresholds[distance]
-        
         filterProducts = productDetail?.filter { productDetails in
             let matchesMealType = selectedMealTypes.isEmpty || productDetails.product.category.contains(where: selectedMealTypes.contains)
-            let productPrice = Int(productDetails.product.newPrice.replacingOccurrences(of: "TL", with: "")) ?? 0
-            let matchesPrice = selectedMinMealPrice == 0 || productPrice <= selectedMinMealPrice
+            let productPrice = productDetails.product.newPrice
+            let matchesPrice = selectedMinMealPrice == 0 || productPrice <= Double(selectedMinMealPrice)
             return matchesMealType && matchesPrice
         }
         if let filterProducts = filterProducts {

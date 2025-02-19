@@ -12,8 +12,8 @@ struct Product {
     var productId: String
     var name: String
     var description: String
-    var oldPrice: String
-    var newPrice: String
+    var oldPrice: Double
+    var newPrice: Double
     var restaurantId: String
     var category: [Category]
     var imageUrl: String
@@ -22,24 +22,24 @@ struct Product {
     var endDate: String
     
     init?(dictionary: [String: Any], documentId: String) {
-            self.productId = documentId
-            self.name = dictionary["name"] as? String ?? ""
-            self.description = dictionary["description"] as? String ?? ""
-            self.oldPrice = dictionary["oldPrice"] as? String ?? ""
-            self.newPrice = dictionary["newPrice"] as? String ?? ""
-            self.restaurantId = dictionary["restaurantId"] as? String ?? ""
-            let categoryStrings = dictionary["category"] as? [String] ?? []
-            self.category = categoryStrings.compactMap { Category(rawValue: $0) }
-            self.imageUrl = dictionary["imageUrl"] as? String ?? ""
-            let deliveryTypeString = dictionary["deliveryType"] as? String ?? DeliveryType.all.rawValue
-            self.deliveryType = DeliveryType(rawValue: deliveryTypeString) ?? .all
-            if let timestamp = dictionary["createdAt"] as? Timestamp {
-                self.createdAt = timestamp.dateValue()
-            } else {
-                self.createdAt = Date()
-            }
-            self.endDate = dictionary["endDate"] as? String ?? "00:00"
+        self.productId = documentId
+        self.name = dictionary["name"] as? String ?? ""
+        self.description = dictionary["description"] as? String ?? ""
+        self.oldPrice = dictionary["oldPrice"] as? Double ?? 0.0
+        self.newPrice = dictionary["newPrice"] as? Double ?? 0.0
+        self.restaurantId = dictionary["restaurantId"] as? String ?? ""
+        let categoryStrings = dictionary["category"] as? [String] ?? []
+        self.category = categoryStrings.compactMap { Category(rawValue: $0) }
+        self.imageUrl = dictionary["imageUrl"] as? String ?? ""
+        let deliveryTypeString = dictionary["deliveryType"] as? String ?? DeliveryType.all.rawValue
+        self.deliveryType = DeliveryType(rawValue: deliveryTypeString) ?? .all
+        if let timestamp = dictionary["createdAt"] as? Timestamp {
+            self.createdAt = timestamp.dateValue()
+        } else {
+            self.createdAt = Date()
         }
+        self.endDate = dictionary["endDate"] as? String ?? "00:00"
+    }
 }
 
 enum Category: String, CaseIterable, CustomStringConvertible {

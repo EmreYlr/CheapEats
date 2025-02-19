@@ -10,7 +10,7 @@ import Foundation
 
 protocol OrderDetailViewModelProtocol {
     var delegate: OrderDetailViewModelOutputProtocol? { get set}
-    var order: Orders? { get set }
+    var order: UserOrder? { get set }
 }
 
 protocol OrderDetailViewModelOutputProtocol: AnyObject {
@@ -20,7 +20,7 @@ protocol OrderDetailViewModelOutputProtocol: AnyObject {
 
 final class OrderDetailViewModel {
     weak var delegate: OrderDetailViewModelOutputProtocol?
-    var order: Orders?
+    var order: UserOrder?
 }
 
 extension OrderDetailViewModel: OrderDetailViewModelProtocol {}

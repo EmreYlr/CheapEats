@@ -102,4 +102,31 @@ extension NetworkManager {
             }
         }
     }
+    
+    func fetchOrders(completion: @escaping (Result<[UserOrder], CustomError>) -> Void) {
+        db.collection("orders").getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(.networkError(error)))
+                return
+            }
+            
+            guard let documents = snapshot?.documents else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            let orders = documents.compactMap { (document) -> UserOrder? in
+                let data = document.data()
+                return UserOrder(dictionary: data, documentId: document.documentID)
+            }
+            
+            if orders.isEmpty {
+                completion(.failure(.noData))
+            } else {
+                completion(.success(orders))
+            }
+            
+
+        }
+    }
 }

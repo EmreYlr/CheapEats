@@ -7,26 +7,28 @@
 
 import Foundation
 
-struct Orders {
-    let orderNumber: String
-    let company: String
-    let food: String
-    let date: String
-    let imageUrl: String
-    let oldAmount: String
-    let newAmount: String
-    let orderStatus: OrderStatus
-}
+//struct Orders {
+//    let orderNumber: String
+//    let company: String
+//    let food: String
+//    let date: String
+//    let imageUrl: String
+//    let oldAmount: String
+//    let newAmount: String
+//    let orderStatus: OrderStatus
+//}
+//
+//enum OrderStatus: String, CaseIterable, CustomStringConvertible {
+//    case preparing = "Hazırlanıyor"
+//    case delivered = "Teslim Edildi"
+//    case canceled = "İptal Edildi"
+//    
+//    var description: String {
+//        return self.rawValue
+//    }
+//}
 
-enum OrderStatus: String, CaseIterable, CustomStringConvertible {
-    case preparing = "Hazırlanıyor"
-    case delivered = "Teslim Edildi"
-    case canceled = "İptal Edildi"
-    
-    var description: String {
-        return self.rawValue
-    }
-}
+
 /*
  struct Order {
      var orderId: String

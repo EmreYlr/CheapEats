@@ -12,12 +12,14 @@ final class OrdersViewController: UIViewController {
     
     //MARK: -Variables
     @IBOutlet weak var ordersTableView: UITableView!
-    let ordersViewModel: OrdersViewModelProtocol = OrdersViewModel()
+    var ordersViewModel: OrdersViewModelProtocol = OrdersViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initTableView()
+        ordersViewModel.delegate = self
         print("OrdersViewController ")
+        ordersViewModel.fetchOrders()
     }
     func initTableView() {
         ordersTableView.delegate = self
@@ -31,6 +33,7 @@ final class OrdersViewController: UIViewController {
 
 extension OrdersViewController: OrdersViewModelOutputProtocol {
     func update() {
+        print(ordersViewModel.orders)
         print("update")
     }
     

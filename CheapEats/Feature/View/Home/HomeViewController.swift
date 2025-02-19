@@ -21,11 +21,12 @@ final class HomeViewController: UIViewController{
     @IBOutlet weak var accessView: UIView!
     @IBOutlet weak var locationDescriptionLabel: UILabel!
     @IBOutlet weak var waitView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     private var loadIndicator: NVActivityIndicatorView!
     var homeViewModel : HomeViewModelProtocol = HomeViewModel()
     let SB = UIStoryboard(name: "Main", bundle: nil)
-    
+    let refreshControl = UIRefreshControl()
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -40,6 +41,17 @@ final class HomeViewController: UIViewController{
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         accessView.isHidden = homeViewModel.checkLocationPermission(with: locationManager)
         homeViewModel.fetchData()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.tintColor = UIColor(named: "ButtonColor")
+        scrollView.refreshControl = refreshControl
+         
+    }
+    
+    @objc func refreshData() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.homeViewModel.fetchData()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     private func setupLoadingIndicator() {

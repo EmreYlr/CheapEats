@@ -35,7 +35,7 @@ final class OrderDetailViewController: UIViewController{
         configureView(paymentDetailView, cornerRadius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
         configureView(orderDetailView, cornerRadius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
         
-        if let order = orderDetailViewModel.order {
+        /*if let order = orderDetailViewModel.order {
             detailImageView.image = UIImage(named: order.imageUrl)
             companyLabel.text = "Restorant Adı: \(order.company)"
             foodLabel.text = "Yemek: \(order.food)"
@@ -47,7 +47,7 @@ final class OrderDetailViewController: UIViewController{
             discountLbl.text = "\(oldAmount - newAmount) TL"
             newAmountLbl.text = "\(order.newAmount) TL"
             totalLbl.text = "\(order.newAmount) TL"
-        }
+        }*/
     }
     
     

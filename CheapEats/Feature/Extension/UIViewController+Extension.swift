@@ -20,6 +20,4 @@ extension UIViewController {
         view.layer.borderWidth = borderWidth
         view.layer.masksToBounds = true
     }
-    
-    
 }

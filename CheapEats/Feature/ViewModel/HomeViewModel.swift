@@ -68,6 +68,11 @@ final class HomeViewModel {
     
     func fetchData() {
         self.delegate?.startLoading()
+        products?.removeAll()
+        endlingProduct.removeAll()
+        recommendedProduct.removeAll()
+        closeProduct.removeAll()
+        productDetailsList.removeAll()
         dispatchGroup.enter()
         fetchProducts()
         dispatchGroup.enter()

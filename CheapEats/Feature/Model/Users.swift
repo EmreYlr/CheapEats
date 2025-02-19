@@ -7,12 +7,14 @@
 
 import Foundation
 import FirebaseFirestore
+
 struct Users {
     let uid: String
     let firstName: String
     let lastName: String
     let email: String
     let createdAt: Date
+    
     init?(data: [String: Any]) {
         guard let firstName = data["firstName"] as? String,
               let lastName = data["lastName"] as? String,

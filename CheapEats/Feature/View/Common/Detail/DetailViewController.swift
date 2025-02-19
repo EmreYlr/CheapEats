@@ -73,8 +73,8 @@ final class DetailViewController: UIViewController {
             foodLabel.text = String(describing: productDetail.product.category.first!)
             companyNameLabel.text = productDetail.restaurant.name
             dateLabel.text = dateFormatter(with: productDetail.product.createdAt)
-            oldAmountLabel.text = productDetail.product.oldPrice
-            newAmountLabel.text = productDetail.product.newPrice
+            oldAmountLabel.text = "\(formatDouble(productDetail.product.oldPrice)) TL"
+            newAmountLabel.text = "\(formatDouble(productDetail.product.newPrice)) TL"
             descriptonLabel.text = productDetail.product.description
             deliveryLabel.text = productDetail.product.deliveryType.rawValue
             timeLabel.text = productDetail.product.endDate

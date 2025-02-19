@@ -687,6 +687,7 @@
                         <outlet property="locationDescriptionLabel" destination="OKi-dh-Cxv" id="paE-E0-2tX"/>
                         <outlet property="recommendedCollectionView" destination="LAS-5s-ChE" id="2hD-3R-EX3"/>
                         <outlet property="recommendedMoreButton" destination="uhY-pU-SHn" id="NFi-zZ-TdR"/>
+                        <outlet property="scrollView" destination="K4w-VH-Zup" id="9op-mc-AHK"/>
                         <outlet property="waitView" destination="Bxn-zS-pKA" id="iWJ-Ew-6ad"/>
                         <segue destination="3Wv-96-n5M" kind="show" identifier="seque" id="San-lI-vej"/>
                         <segue destination="Kv2-hv-gA4" kind="show" identifier="detailSeque" id="1UV-Rt-qrR"/>
@@ -1579,13 +1580,13 @@
                                 <rect key="frame" x="16" y="713" width="361" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100TL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFu-wd-cwo">
-                                        <rect key="frame" x="50" y="17" width="57" height="23"/>
+                                        <rect key="frame" x="55" y="17" width="57" height="23"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                         <color key="textColor" name="ButtonColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idv-cL-w6a">
-                                        <rect key="frame" x="115" y="0.0" width="246" height="56"/>
+                                        <rect key="frame" x="120" y="0.0" width="241" height="56"/>
                                         <color key="backgroundColor" name="ButtonColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="i9t-9x-qts"/>
@@ -1614,7 +1615,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="idv-cL-w6a" firstAttribute="leading" relation="lessThanOrEqual" secondItem="FFu-wd-cwo" secondAttribute="trailing" constant="8" symbolic="YES" id="2vv-DE-wVD"/>
-                                    <constraint firstItem="FFu-wd-cwo" firstAttribute="leading" secondItem="LLh-Lg-Rcx" secondAttribute="trailing" id="HDf-dZ-mxg"/>
+                                    <constraint firstItem="FFu-wd-cwo" firstAttribute="leading" secondItem="LLh-Lg-Rcx" secondAttribute="trailing" constant="5" id="HDf-dZ-mxg"/>
                                     <constraint firstAttribute="bottom" secondItem="FFu-wd-cwo" secondAttribute="bottom" constant="16" id="HvK-D8-HFB"/>
                                     <constraint firstItem="FFu-wd-cwo" firstAttribute="top" secondItem="rDq-R4-F6O" secondAttribute="top" constant="17" id="IPr-i6-caJ"/>
                                     <constraint firstAttribute="bottom" secondItem="idv-cL-w6a" secondAttribute="bottom" id="Joa-Oo-PYq"/>

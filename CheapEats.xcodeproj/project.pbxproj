@@ -77,6 +77,8 @@
 		C3EAD8462D4E708000CD49CE /* MapScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAD8452D4E708000CD49CE /* MapScreenViewModel.swift */; };
 		C3EAD8482D4E732F00CD49CE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAD8472D4E732C00CD49CE /* LocationManager.swift */; };
 		C3FDC2C42CF7A5F0001BD056 /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDC2C32CF7A5F0001BD056 /* HomeViewController+CollectionView.swift */; };
+		C3FFDE4F2D64B24D00FF6296 /* FormatDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFDE4E2D64B24800FF6296 /* FormatDouble.swift */; };
+		C3FFDE512D65EA8A00FF6296 /* UserOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFDE502D65EA8500FF6296 /* UserOrder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +146,8 @@
 		C3EAD8452D4E708000CD49CE /* MapScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewModel.swift; sourceTree = "<group>"; };
 		C3EAD8472D4E732C00CD49CE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C3FDC2C32CF7A5F0001BD056 /* HomeViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C3FFDE4E2D64B24800FF6296 /* FormatDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDouble.swift; sourceTree = "<group>"; };
+		C3FFDE502D65EA8500FF6296 /* UserOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,7 @@
 		C32CBEF62CF89C860016F444 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C3FFDE4E2D64B24800FF6296 /* FormatDouble.swift */,
 				C3ADE9802D53B67500278990 /* RouterDistance.swift */,
 				C3657B612D4D20600003918D /* DateFormatter.swift */,
 				C32CBEF72CF89C990016F444 /* UIView+Extension.swift */,
@@ -282,10 +287,11 @@
 		C36D3EB62CF34ACF008FE62B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7E65B2252CFCF8C800A57E67 /* OrderDetail.swift */,
+				C3FFDE502D65EA8500FF6296 /* UserOrder.swift */,
 				C38901A42D525332004522F7 /* ProductDetails.swift */,
 				C32D6C422D50F54F002CD677 /* Restaurant.swift */,
 				C32CBEF92CF8A2110016F444 /* Users.swift */,
-				7E65B2252CFCF8C800A57E67 /* OrderDetail.swift */,
 				7E2B93F92CFF832600D84BB0 /* ProfileModel.swift */,
 				C3E482EC2D08998500C28240 /* Product.swift */,
 				C3B4EF762D0DD033002AD314 /* Orders.swift */,
@@ -531,6 +537,7 @@
 				C3986A062CFA60640085521A /* DetailViewController.swift in Sources */,
 				C3B21C882CF9EAF8005878F9 /* MoreViewController.swift in Sources */,
 				C32CBEFC2CF8AB880016F444 /* UserManager.swift in Sources */,
+				C3FFDE512D65EA8A00FF6296 /* UserOrder.swift in Sources */,
 				7E2B93F62CFF828D00D84BB0 /* ProfileViewController.swift in Sources */,
 				C301F7782CFA6542000E7B99 /* MoreViewController+Search.swift in Sources */,
 				7E2B93FA2CFF832600D84BB0 /* ProfileModel.swift in Sources */,
@@ -558,6 +565,7 @@
 				C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */,
 				C3C6FDE12CFE1A220045DEDE /* BottomSheetViewController+TableView.swift in Sources */,
 				C3ADE97F2D53A14D00278990 /* DetailViewController+MapView.swift in Sources */,
+				C3FFDE4F2D64B24D00FF6296 /* FormatDouble.swift in Sources */,
 				C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */,
 				C32D6C462D510B0B002CD677 /* CustomError.swift in Sources */,
 				C36D3F022CF3629E008FE62B /* PassResViewModel.swift in Sources */,
