@@ -20,6 +20,7 @@ struct Product {
     var deliveryType: DeliveryType
     var createdAt: Date
     var endDate: String
+    var status: Bool
     
     init?(dictionary: [String: Any], documentId: String) {
         self.productId = documentId
@@ -39,6 +40,7 @@ struct Product {
             self.createdAt = Date()
         }
         self.endDate = dictionary["endDate"] as? String ?? "00:00"
+        self.status = dictionary["status"] as? Bool ?? false
     }
 }
 

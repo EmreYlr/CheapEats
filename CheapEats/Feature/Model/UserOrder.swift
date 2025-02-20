@@ -13,7 +13,6 @@ struct UserOrder {
     var orderDate: Date
     var orderNo: String
     var productId: String
-    var restaurantId: String
     var status: OrderStatus
     var userId: String
     
@@ -26,7 +25,6 @@ struct UserOrder {
         }
         self.orderNo = dictionary["orderNo"] as? String ?? ""
         self.productId = dictionary["productId"] as? String ?? ""
-        self.restaurantId = dictionary["restaurantId"] as? String ?? ""
         let statusString = dictionary["status"] as? String ?? OrderStatus.delivered.rawValue
         self.status = OrderStatus(rawValue: statusString) ?? .preparing
         self.userId = dictionary["userId"] as? String ?? ""

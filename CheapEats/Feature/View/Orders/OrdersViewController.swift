@@ -19,7 +19,7 @@ final class OrdersViewController: UIViewController {
         initTableView()
         ordersViewModel.delegate = self
         print("OrdersViewController ")
-        ordersViewModel.fetchOrders()
+        ordersViewModel.fetchData()
     }
     func initTableView() {
         ordersTableView.delegate = self
@@ -33,12 +33,17 @@ final class OrdersViewController: UIViewController {
 
 extension OrdersViewController: OrdersViewModelOutputProtocol {
     func update() {
-        print(ordersViewModel.orders)
+        ordersViewModel.loadData()
+        //print(ordersViewModel.orderDetailsList)
         print("update")
     }
     
     func error() {
         print("error")
+    }
+    
+    func updateTable() {
+        ordersTableView.reloadData()
     }
     
     

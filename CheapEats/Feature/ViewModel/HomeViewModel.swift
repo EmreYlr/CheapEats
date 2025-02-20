@@ -11,8 +11,6 @@ import CoreLocation
 protocol HomeViewModelProtocol {
     var delegate: HomeViewModelOutputProtocol? { get set }
     var user: Users? { get set }
-    var products: [Product]? { get set }
-    var restaurants: [Restaurant]? { get set }
     var productDetailsList: [ProductDetails] { get set }
     var endlingProduct: [ProductDetails] { get set }
     var recommendedProduct: [ProductDetails] { get set }
@@ -73,6 +71,7 @@ final class HomeViewModel {
         recommendedProduct.removeAll()
         closeProduct.removeAll()
         productDetailsList.removeAll()
+        restaurants?.removeAll()
         dispatchGroup.enter()
         fetchProducts()
         dispatchGroup.enter()

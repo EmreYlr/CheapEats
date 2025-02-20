@@ -31,13 +31,12 @@ class OrdersTableViewCell: UITableViewCell {
         ordersImageView.layer.borderWidth = 1
         
     }
-    func configureCell(with orders: UserOrder) {
-        /*ordersImageView.image = UIImage(named: orders.imageUrl)
-        foodNameLbl.text = orders.food
-        companyNameLbl.text = orders.company
-        orderDateLbl.text = orders.date
-        
-        let status = orders.orderStatus
+    func configureCell(with ordersDetail: OrderDetail) {
+        ordersImageView.image = UIImage(named: ordersDetail.productDetail.product.imageUrl)
+        foodNameLbl.text = ordersDetail.productDetail.product.name
+        companyNameLbl.text = ordersDetail.productDetail.restaurant.name
+        orderDateLbl.text = ordersDetail.userOrder.orderDate.formatted()
+        let status = ordersDetail.userOrder.status
         orderDeliveryStatusLbl.text = status.rawValue
         switch status {
         case .delivered:
@@ -53,6 +52,6 @@ class OrdersTableViewCell: UITableViewCell {
             orderColorStatus.tintColor = .cut
             orderColorStatus.image = UIImage(systemName: "xmark")
         }
-         */
+         
     }
 }

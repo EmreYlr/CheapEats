@@ -55,8 +55,9 @@ extension NetworkManager {
     }
     
     //MARK: -ProductRequest
+    //TODO: - Status false olanı çek
     func fetchProducts(completion: @escaping (Result<[Product], CustomError>) -> Void) {
-        db.collection("products").getDocuments { (querySnapshot, error) in
+        db.collection("products").whereField("status", isEqualTo: false).getDocuments { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(.networkError(error)))
                 return
@@ -102,7 +103,7 @@ extension NetworkManager {
             }
         }
     }
-    
+    //where ile userId gönder
     func fetchOrders(completion: @escaping (Result<[UserOrder], CustomError>) -> Void) {
         db.collection("orders").getDocuments { (snapshot, error) in
             if let error = error {
@@ -126,7 +127,29 @@ extension NetworkManager {
                 completion(.success(orders))
             }
             
-
+            
         }
     }
+    
+    func fetchSelectedProduct(productIds: [String], completion: @escaping (Result<[Product], CustomError>) -> Void) {
+        db.collection("products")
+            .whereField(FieldPath.documentID(), in: productIds)
+            .getDocuments { querySnapshot, error in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                    completion(.failure(.networkError(error)))
+                } else {
+                    var products: [Product] = []
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        let productId = document.documentID
+                        if let product = Product(dictionary: data, documentId: productId) {
+                            products.append(product)
+                        }
+                    }
+                    completion(.success(products))
+                }
+            }
+    }
+    
 }
