@@ -18,6 +18,8 @@ protocol OrdersViewModelOutputProtocol: AnyObject {
     func update()
     func error()
     func updateTable()
+    func startLoading()
+    func stopLoading()
 }
 
 final class OrdersViewModel {
@@ -30,23 +32,25 @@ final class OrdersViewModel {
     private let dispatchGroup = DispatchGroup()
     
     func fetchData() {
-        //self.delegate?.startLoading()
+        self.delegate?.startLoading()
         orders.removeAll()
         products?.removeAll()
         productDetailsList.removeAll()
         restaurants?.removeAll()
         dispatchGroup.enter()
         fetchOrders()
-        dispatchGroup.enter()
-        let productIds = orders.map { $0.productId }
-        fetchProducts(productIds: productIds)
-        dispatchGroup.enter()
-        fetchRestaurants()
         dispatchGroup.notify(queue: .main) { [weak self] in
-            self?.delegate?.update()
-            //self?.delegate?.stopLoading()
+            guard let self = self else { return }
+            let productIds = self.orders.map { $0.productId }
+            self.dispatchGroup.enter()
+            self.fetchProducts(productIds: productIds)
+            self.dispatchGroup.enter()
+            self.fetchRestaurants()
+            self.dispatchGroup.notify(queue: .main) { [weak self] in
+                self?.delegate?.update()
+                self?.delegate?.stopLoading()
+            }
         }
-        
     }
     
     private func fetchOrders() {
@@ -59,7 +63,7 @@ final class OrdersViewModel {
                 print(error)
                 self.delegate?.error()
             }
-            dispatchGroup.leave()
+            self.dispatchGroup.leave()
         }
     }
     
@@ -117,9 +121,6 @@ final class OrdersViewModel {
         combineProductDetailAndOrderDetails()
         delegate?.updateTable()
     }
-    
-    
-    //[Orders(orderNumber: "1234987", company: "Burger King", food: "Whopper", date: "12.12.2024", imageUrl: "testImage", oldAmount: "200", newAmount: "150", orderStatus: .preparing), Orders(orderNumber: "9871234", company: "KFC", food: "Twister", date: "12.12.2024", imageUrl: "testImage3", oldAmount: "100", newAmount: "80", orderStatus: .delivered), Orders(orderNumber: "343123412", company: "McDonald's", food: "Big Mac", date: "12.12.2024", imageUrl: "testImage4", oldAmount: "150", newAmount: "120", orderStatus: .canceled)]
 }
 
 extension OrdersViewModel: OrdersViewModelProtocol {}

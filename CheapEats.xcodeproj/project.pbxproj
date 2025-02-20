@@ -61,7 +61,6 @@
 		C3B21C8E2CF9ECCA005878F9 /* MoreViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */; };
 		C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C8F2CF9ED3B005878F9 /* FoodTableViewCell.swift */; };
 		C3B21C922CF9ED3B005878F9 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */; };
-		C3B4EF772D0DD033002AD314 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B4EF762D0DD033002AD314 /* Orders.swift */; };
 		C3B4EF792D0DD788002AD314 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B4EF782D0DD788002AD314 /* OrderDetailViewModel.swift */; };
 		C3BB4BE32D4D2B3400A1057E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C3BB4BE22D4D2B3400A1057E /* Kingfisher */; };
 		C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDD12CFCFE820045DEDE /* LineView.swift */; };
@@ -131,7 +130,6 @@
 		C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreViewController+TableView.swift"; sourceTree = "<group>"; };
 		C3B21C8F2CF9ED3B005878F9 /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
-		C3B4EF762D0DD033002AD314 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		C3B4EF782D0DD788002AD314 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		C3C6FDD12CFCFE820045DEDE /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		C3C6FDD52CFD05A60045DEDE /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 				C32CBEF92CF8A2110016F444 /* Users.swift */,
 				7E2B93F92CFF832600D84BB0 /* ProfileModel.swift */,
 				C3E482EC2D08998500C28240 /* Product.swift */,
-				C3B4EF762D0DD033002AD314 /* Orders.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -550,7 +547,6 @@
 				C3FDC2C42CF7A5F0001BD056 /* HomeViewController+CollectionView.swift in Sources */,
 				C3B21C8A2CF9EB02005878F9 /* MoreViewModel.swift in Sources */,
 				C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */,
-				C3B4EF772D0DD033002AD314 /* Orders.swift in Sources */,
 				C3EAD8482D4E732F00CD49CE /* LocationManager.swift in Sources */,
 				C32CBEFA2CF8A2110016F444 /* Users.swift in Sources */,
 				C3657B622D4D20630003918D /* DateFormatter.swift in Sources */,

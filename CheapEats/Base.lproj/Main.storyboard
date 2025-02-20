@@ -1711,6 +1711,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Q9h-Ye-Sdo">
                                 <rect key="frame" x="0.0" y="145" width="393" height="624"/>
                                 <color key="backgroundColor" name="BGColor"/>
+                                <view key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" id="W3d-hg-2qB" userLabel="Wait View">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" name="BGColor"/>
+                                </view>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMr-e8-nDT">
                                 <rect key="frame" x="16" y="103" width="71" height="27"/>
@@ -1718,28 +1723,37 @@
                                 <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EO9-zl-QS9" userLabel="Wait View">
+                                <rect key="frame" x="0.0" y="145" width="393" height="624"/>
+                                <color key="backgroundColor" name="BGColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="out-kp-hsT"/>
                         <color key="backgroundColor" name="BGColor"/>
                         <constraints>
+                            <constraint firstItem="EO9-zl-QS9" firstAttribute="bottom" secondItem="out-kp-hsT" secondAttribute="bottom" id="3RO-3C-5ol"/>
                             <constraint firstItem="IMr-e8-nDT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="out-kp-hsT" secondAttribute="leading" id="C90-9i-JA3"/>
                             <constraint firstItem="IMr-e8-nDT" firstAttribute="top" secondItem="out-kp-hsT" secondAttribute="top" id="HK8-2c-CvY"/>
+                            <constraint firstItem="EO9-zl-QS9" firstAttribute="leading" secondItem="out-kp-hsT" secondAttribute="leading" id="IK1-bH-zCv"/>
                             <constraint firstItem="out-kp-hsT" firstAttribute="trailing" secondItem="Q9h-Ye-Sdo" secondAttribute="trailing" id="Lua-J8-qJs"/>
                             <constraint firstItem="out-kp-hsT" firstAttribute="bottom" secondItem="Q9h-Ye-Sdo" secondAttribute="bottom" id="Slg-wZ-wbB"/>
                             <constraint firstItem="Q9h-Ye-Sdo" firstAttribute="leading" secondItem="out-kp-hsT" secondAttribute="leading" id="WK5-uv-YT3"/>
+                            <constraint firstItem="EO9-zl-QS9" firstAttribute="trailing" secondItem="out-kp-hsT" secondAttribute="trailing" id="XSK-bN-2vl"/>
                             <constraint firstItem="out-kp-hsT" firstAttribute="trailing" secondItem="IMr-e8-nDT" secondAttribute="trailing" constant="306" id="pFy-ER-7dE"/>
+                            <constraint firstItem="EO9-zl-QS9" firstAttribute="top" secondItem="IMr-e8-nDT" secondAttribute="bottom" constant="15" id="s7k-Xb-0Ee"/>
                             <constraint firstItem="Q9h-Ye-Sdo" firstAttribute="top" secondItem="IMr-e8-nDT" secondAttribute="bottom" constant="15" id="tTt-gE-hVw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Orders" id="wtb-mZ-nN8"/>
                     <connections>
                         <outlet property="ordersTableView" destination="Q9h-Ye-Sdo" id="IRD-Bf-Ztb"/>
+                        <outlet property="waitView" destination="EO9-zl-QS9" id="s4p-pO-ilz"/>
                         <segue destination="qYx-gA-22G" kind="show" identifier="orderDeatilSeque" id="LKj-rw-pMo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnc-Ll-FHk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3601" y="775"/>
+            <point key="canvasLocation" x="3600.7633587786258" y="774.64788732394368"/>
         </scene>
         <!--Order Detail View Controller-->
         <scene sceneID="Pfz-xf-oNQ">
@@ -1934,7 +1948,7 @@
                         <outlet property="discountLbl" destination="zVn-pp-71g" id="CKU-Wi-cXD"/>
                         <outlet property="foodLabel" destination="llx-Xs-wOo" id="U3T-eL-Om5"/>
                         <outlet property="newAmountLbl" destination="xWl-aR-y3c" id="mvv-2Z-hTT"/>
-                        <outlet property="oldholdsLbl" destination="5S4-Pe-1QU" id="Etr-U9-jNn"/>
+                        <outlet property="oldAmountLbl" destination="5S4-Pe-1QU" id="Etr-U9-jNn"/>
                         <outlet property="orderDetailView" destination="70Y-KA-70k" id="rxJ-vH-WPI"/>
                         <outlet property="orderNo" destination="t6z-PD-Hkn" id="PcU-zO-EGr"/>
                         <outlet property="paymentDetailView" destination="dzz-wW-pIS" id="913-NT-6u2"/>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class OrdersTableViewCell: UITableViewCell {
     
@@ -31,11 +32,13 @@ class OrdersTableViewCell: UITableViewCell {
         ordersImageView.layer.borderWidth = 1
         
     }
+    
     func configureCell(with ordersDetail: OrderDetail) {
-        ordersImageView.image = UIImage(named: ordersDetail.productDetail.product.imageUrl)
+        ordersImageView.kf.indicatorType = .activity
+        ordersImageView.kf.setImage(with: URL(string: ordersDetail.productDetail.product.imageUrl))
         foodNameLbl.text = ordersDetail.productDetail.product.name
         companyNameLbl.text = ordersDetail.productDetail.restaurant.name
-        orderDateLbl.text = ordersDetail.userOrder.orderDate.formatted()
+        orderDateLbl.text = dateFormatter(with: ordersDetail.userOrder.orderDate)
         let status = ordersDetail.userOrder.status
         orderDeliveryStatusLbl.text = status.rawValue
         switch status {

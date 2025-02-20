@@ -26,7 +26,7 @@ extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let SB = UIStoryboard(name: "Main", bundle: nil)
         let detailVC = SB.instantiateViewController(withIdentifier: "OrdersDetailViewController") as! OrderDetailViewController
-        //detailVC.orderDetailViewModel.order = ordersViewModel.orders[indexPath.row]
+        detailVC.orderDetailViewModel.order = ordersViewModel.orderDetailsList[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }
         }

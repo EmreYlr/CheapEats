@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import Kingfisher
+
 final class OrderDetailViewController: UIViewController{
     //MARK: -Variables
     @IBOutlet weak var orderDetailView: UIView!
@@ -14,7 +16,7 @@ final class OrderDetailViewController: UIViewController{
     @IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var paymentDetailView: UIView!
-    @IBOutlet weak var oldholdsLbl: UILabel!
+    @IBOutlet weak var oldAmountLbl: UILabel!
     @IBOutlet weak var discountLbl: UILabel!
     @IBOutlet weak var newAmountLbl: UILabel!
     @IBOutlet weak var totalLbl: UILabel!
@@ -35,19 +37,20 @@ final class OrderDetailViewController: UIViewController{
         configureView(paymentDetailView, cornerRadius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
         configureView(orderDetailView, cornerRadius: 10, borderColor: UIColor(named: "ButtonColor"), borderWidth: 1)
         
-        /*if let order = orderDetailViewModel.order {
-            detailImageView.image = UIImage(named: order.imageUrl)
-            companyLabel.text = "Restorant Adı: \(order.company)"
-            foodLabel.text = "Yemek: \(order.food)"
-            dateLabel.text = "Tarih: \(order.date)"
-            orderNo.text = "Sipariş No: #\(order.orderNumber)"
-            let oldAmount = Int(order.oldAmount) ?? 0
-            let newAmount = Int(order.newAmount) ?? 0
-            oldholdsLbl.text = "\(order.oldAmount) TL"
-            discountLbl.text = "\(oldAmount - newAmount) TL"
-            newAmountLbl.text = "\(order.newAmount) TL"
-            totalLbl.text = "\(order.newAmount) TL"
-        }*/
+        if let order = orderDetailViewModel.order {
+            detailImageView.kf.indicatorType = .activity
+            detailImageView.kf.setImage(with: URL(string: order.productDetail.product.imageUrl))
+            companyLabel.text = "Restorant Adı: \(order.productDetail.restaurant.name)"
+            foodLabel.text = "Yemek: \(order.productDetail.product.name)"
+            dateLabel.text = "Tarih: \(dateFormatter(with: order.userOrder.orderDate))"
+            orderNo.text = "Sipariş No: #\(order.userOrder.orderNo)"
+            let oldAmount = Double(order.productDetail.product.oldPrice)
+            let newAmount = Double(order.productDetail.product.newPrice)
+            oldAmountLbl.text = "\(formatDouble(order.productDetail.product.oldPrice)) TL"
+            discountLbl.text = "\(formatDouble(oldAmount - newAmount)) TL"
+            newAmountLbl.text = "\(formatDouble(order.productDetail.product.newPrice)) TL"
+            totalLbl.text = "\(formatDouble(newAmount)) TL"
+        }
     }
     
     

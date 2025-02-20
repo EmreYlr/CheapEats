@@ -55,7 +55,6 @@ extension NetworkManager {
     }
     
     //MARK: -ProductRequest
-    //TODO: - Status false olanı çek
     func fetchProducts(completion: @escaping (Result<[Product], CustomError>) -> Void) {
         db.collection("products").whereField("status", isEqualTo: false).getDocuments { (querySnapshot, error) in
             if let error = error {
@@ -103,9 +102,10 @@ extension NetworkManager {
             }
         }
     }
-    //where ile userId gönder
+    
     func fetchOrders(completion: @escaping (Result<[UserOrder], CustomError>) -> Void) {
-        db.collection("orders").getDocuments { (snapshot, error) in
+        let userId = UserManager.shared.user?.uid ?? "PddYR01PDKRP84nhli014DS0tTt1"
+        db.collection("orders").whereField("userId", isEqualTo: userId).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(.networkError(error)))
                 return
