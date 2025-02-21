@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,13 +24,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burger King" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gps-qR-Wws">
-                        <rect key="frame" x="110" y="5" width="203" height="20.333333333333332"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="110" y="5" width="85.666666666666686" height="19.333333333333332"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double chicken menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZU-DN-yiu">
-                        <rect key="frame" x="109.99999999999999" y="30.333333333333332" width="130.66666666666663" height="15.666666666666668"/>
+                        <rect key="frame" x="109.99999999999999" y="29.333333333333332" width="130.66666666666663" height="15.666666666666668"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" name="SecondTextColor"/>
                         <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="khj-sW-nEA">
-                        <rect key="frame" x="218.66666666666666" y="68" width="15" height="13.666666666666671"/>
+                        <rect key="frame" x="218.66666666666666" y="67.666666666666671" width="15" height="13.666666666666671"/>
                         <color key="tintColor" name="ButtonColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="TMw-qd-SEq"/>
@@ -63,6 +63,12 @@
                             <constraint firstAttribute="height" constant="20" id="Z1n-hT-Msa"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#orderNo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAC-bn-4zt">
+                        <rect key="frame" x="228" y="9" width="58" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" name="SecondTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" name="BGColor"/>
                 <constraints>
@@ -71,15 +77,16 @@
                     <constraint firstAttribute="bottom" secondItem="xKE-JO-6X9" secondAttribute="bottom" id="4OH-vy-oH9"/>
                     <constraint firstItem="MT7-oe-Uh6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="EzJ-bB-e1d"/>
                     <constraint firstAttribute="bottom" secondItem="9ff-zw-fUC" secondAttribute="bottom" constant="8" id="IN6-Ds-u4W"/>
+                    <constraint firstItem="MT7-oe-Uh6" firstAttribute="leading" secondItem="rAC-bn-4zt" secondAttribute="trailing" id="Lm4-fa-lcY"/>
                     <constraint firstAttribute="bottom" secondItem="khj-sW-nEA" secondAttribute="bottom" constant="8" id="MD8-mG-s2u"/>
                     <constraint firstAttribute="bottom" secondItem="5GZ-0I-raq" secondAttribute="bottom" constant="8" id="VgP-Yd-gNN"/>
                     <constraint firstItem="5GZ-0I-raq" firstAttribute="leading" secondItem="xKE-JO-6X9" secondAttribute="trailing" constant="10" id="XN5-Wu-ALQ"/>
                     <constraint firstItem="gps-qR-Wws" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ZuN-7N-KxO"/>
-                    <constraint firstAttribute="trailing" secondItem="gps-qR-Wws" secondAttribute="trailing" constant="3" id="fSe-1i-MWB"/>
                     <constraint firstItem="OZU-DN-yiu" firstAttribute="top" secondItem="gps-qR-Wws" secondAttribute="bottom" constant="5" id="g04-7F-u4t"/>
                     <constraint firstItem="xKE-JO-6X9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gu3-N5-kzx"/>
                     <constraint firstAttribute="trailing" secondItem="MT7-oe-Uh6" secondAttribute="trailing" constant="10" id="hqg-JU-q2R"/>
                     <constraint firstItem="9ff-zw-fUC" firstAttribute="leading" secondItem="khj-sW-nEA" secondAttribute="trailing" id="t9w-He-Txo"/>
+                    <constraint firstItem="rAC-bn-4zt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="vVd-7d-nAn"/>
                     <constraint firstItem="xKE-JO-6X9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wad-Dg-PhQ"/>
                     <constraint firstItem="OZU-DN-yiu" firstAttribute="leading" secondItem="xKE-JO-6X9" secondAttribute="trailing" constant="10" id="yPE-lb-R9U"/>
                 </constraints>
@@ -91,6 +98,7 @@
                 <outlet property="orderColorStatus" destination="khj-sW-nEA" id="xbj-QU-ZaH"/>
                 <outlet property="orderDateLbl" destination="5GZ-0I-raq" id="X6C-ih-fit"/>
                 <outlet property="orderDeliveryStatusLbl" destination="9ff-zw-fUC" id="Cmc-SJ-ivO"/>
+                <outlet property="orderNoLabel" destination="rAC-bn-4zt" id="pS0-TX-hHr"/>
                 <outlet property="ordersImageView" destination="xKE-JO-6X9" id="aEB-6t-JPu"/>
             </connections>
             <point key="canvasLocation" x="265.64885496183206" y="-18.30985915492958"/>

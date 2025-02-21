@@ -17,6 +17,7 @@ class OrdersTableViewCell: UITableViewCell {
     @IBOutlet weak var orderDeliveryStatusLbl: UILabel!
     @IBOutlet weak var orderColorStatus: UIImageView!
     
+    @IBOutlet weak var orderNoLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -41,6 +42,7 @@ class OrdersTableViewCell: UITableViewCell {
         orderDateLbl.text = dateFormatter(with: ordersDetail.userOrder.orderDate)
         let status = ordersDetail.userOrder.status
         orderDeliveryStatusLbl.text = status.rawValue
+        orderNoLabel.text = "#\(ordersDetail.userOrder.orderNo)"
         switch status {
         case .delivered:
             orderDeliveryStatusLbl.textColor = .button
