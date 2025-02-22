@@ -11,4 +11,7 @@ final class UserManager {
     static let shared = UserManager()
     private init() {}
     var user: Users?
+    func signOut() {
+        user = nil
+    }
 }

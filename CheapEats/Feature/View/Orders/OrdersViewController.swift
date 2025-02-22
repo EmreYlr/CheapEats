@@ -10,7 +10,6 @@ import UIKit
 import NVActivityIndicatorView
 
 final class OrdersViewController: UIViewController {
-    
     //MARK: -Variables
     @IBOutlet weak var ordersTableView: UITableView!
     @IBOutlet weak var waitView: UIView!

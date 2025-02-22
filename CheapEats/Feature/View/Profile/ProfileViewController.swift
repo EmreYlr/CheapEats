@@ -7,7 +7,9 @@
 
 import Foundation
 import UIKit
-final class ProfileViewController: UIViewController{
+import NVActivityIndicatorView
+
+final class ProfileViewController: UIViewController {
     //MARK: -Variables
     @IBOutlet weak var profileView: UIView!
     @IBOutlet var emailView: UIView!
@@ -19,14 +21,17 @@ final class ProfileViewController: UIViewController{
     @IBOutlet weak var cardManagementButton:UIButton!
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var exitButton: UIButton!
+    @IBOutlet weak var waitView: UIView!
     
-    private let profileViewModel: ProfileViewModelProtocol = ProfileViewModel()
+    private var loadIndicator: NVActivityIndicatorView!
+    let SB = UIStoryboard(name: "Main", bundle: nil)
+    private var profileViewModel: ProfileViewModelProtocol = ProfileViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ProfileViewModel")
         initScreen()
-        
+        setupLoadingIndicator()
         if let user = profileViewModel.user {
             profileName.text = "\(user.firstName) \(user.lastName)"
             emailLabel.text = user.email
@@ -34,7 +39,12 @@ final class ProfileViewController: UIViewController{
         }
     }
     
+    private func setupLoadingIndicator() {
+        loadIndicator = createLoadingIndicator(in: waitView)
+    }
+    
     private func initScreen() {
+        profileViewModel.delegate = self
         configureView(profileImageView, cornerRadius: 5, borderColor: .gray, borderWidth: 0.5)
         setBorder(with: profileView.layer)
         setBorder(with: emailView.layer)
@@ -47,16 +57,52 @@ final class ProfileViewController: UIViewController{
 
     }
     
+    @IBAction func editProfileButtonClicked(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func manageCardButtonClicked(_ sender: UIButton) {
+        let manageCardView = SB.instantiateViewController(withIdentifier: "ManageCardViewController") as! ManageCardViewController
+        navigationController?.pushViewController(manageCardView, animated: true)
+    }
+    
+    @IBAction func signOutButtonClicked(_ sender: UIButton) {
+        showTwoButtonAlert(title: "Uyarı", message: "Çıkış yapmak istediğinizden emin misiniz?", firstButtonTitle: "İptal", firstButtonHandler: .none, secondButtonTitle: "Çıkış Yap", secondButtonHandler: { _ in
+            self.profileViewModel.signOut()
+        })
+    }
 }
 
 //MARK: -Output Protocol
 extension ProfileViewController: ProfileViewModelOutputProtocol {
     func update() {
-        print("update")
+        let SB = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = SB.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let navigationController = UINavigationController(rootViewController: loginViewController)
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        self.view.window?.layer.add(transition, forKey: kCATransition)
+        self.view.window?.rootViewController = navigationController
+        self.view.window?.makeKeyAndVisible()
     }
     
     func error() {
         print("error")
+    }
+    
+    func startLoading() {
+        waitView.isHidden = false
+        waitView.alpha = 0.4
+        loadIndicator.isHidden = false
+        loadIndicator.startAnimating()
+    }
+    
+    func stopLoading() {
+        waitView.isHidden = true
+        loadIndicator.isHidden = true
+        loadIndicator.stopAnimating()
     }
     
     

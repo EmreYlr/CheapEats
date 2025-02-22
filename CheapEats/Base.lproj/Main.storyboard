@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xY8-fg-I0a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PCE-QY-hl2">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -14,7 +14,7 @@
         <!--Login Screen-->
         <scene sceneID="uiW-FR-70S">
             <objects>
-                <viewController id="gmu-8m-dbF" customClass="LoginViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="gmu-8m-dbF" customClass="LoginViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NiJ-MZ-MQ1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2136,7 +2136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaD-gW-EZe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4713.740458015267" y="822.53521126760563"/>
+            <point key="canvasLocation" x="4714" y="775"/>
         </scene>
         <!--Profile-->
         <scene sceneID="ROG-7t-Z9g">
@@ -2146,6 +2146,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qun-Bx-3xa">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="ButtonColor"/>
+                        <color key="barTintColor" name="ButtonColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="uAe-vc-cXU" kind="relationship" relationship="rootViewController" id="1eF-tx-b03"/>
@@ -2158,7 +2160,7 @@
         <!--Profile-->
         <scene sceneID="ScH-aw-CCy">
             <objects>
-                <viewController id="uAe-vc-cXU" customClass="ProfileViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="uAe-vc-cXU" customClass="ProfileViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ziq-hC-dZe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2186,6 +2188,9 @@
                                         </hierarchicalColors>
                                     </imageReference>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="editProfileButtonClicked:" destination="uAe-vc-cXU" eventType="touchUpInside" id="aai-gW-gTP"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Xdn-L2-DRC">
                                 <rect key="frame" x="357" y="351.33333333333331" width="20" height="16.333333333333314"/>
@@ -2216,6 +2221,9 @@
                                     </imageReference>
                                     <color key="baseForegroundColor" name="TextBlackColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="manageCardButtonClicked:" destination="uAe-vc-cXU" eventType="touchUpInside" id="TjE-3a-9s6"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1SI-Zs-r3M">
                                 <rect key="frame" x="357" y="401.33333333333331" width="20" height="16.333333333333314"/>
@@ -2242,6 +2250,9 @@
                                         </hierarchicalColors>
                                     </imageReference>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signOutButtonClicked:" destination="uAe-vc-cXU" eventType="touchUpInside" id="OkI-h3-dh3"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdA-sO-AtD" userLabel="ProfileView">
                                 <rect key="frame" x="0.0" y="144.33333333333334" width="393" height="70"/>
@@ -2343,6 +2354,10 @@
                                     <constraint firstAttribute="width" constant="20" id="hcA-GZ-O58"/>
                                 </constraints>
                             </imageView>
+                            <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JQv-TJ-DNN" userLabel="Wait View">
+                                <rect key="frame" x="0.0" y="129.33333333333331" width="393" height="639.66666666666674"/>
+                                <color key="backgroundColor" name="BGColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Zw-8Q-YbO"/>
                         <color key="backgroundColor" name="BGColor"/>
@@ -2350,6 +2365,7 @@
                             <constraint firstItem="7Zw-8Q-YbO" firstAttribute="trailing" secondItem="lhe-DV-JY9" secondAttribute="trailing" id="3Ao-Ad-Odg"/>
                             <constraint firstItem="HL3-ji-hiy" firstAttribute="top" secondItem="hNX-xY-JiL" secondAttribute="bottom" id="8RU-D5-k0K"/>
                             <constraint firstItem="hfE-BP-4XW" firstAttribute="top" secondItem="CqN-EX-2q4" secondAttribute="bottom" id="9g5-nK-V6b"/>
+                            <constraint firstItem="JQv-TJ-DNN" firstAttribute="top" secondItem="S9h-wg-Hf8" secondAttribute="bottom" id="Byu-GT-QCX"/>
                             <constraint firstItem="7Zw-8Q-YbO" firstAttribute="trailing" secondItem="CqN-EX-2q4" secondAttribute="trailing" id="ENr-5c-DdT"/>
                             <constraint firstItem="lhe-DV-JY9" firstAttribute="top" secondItem="hfE-BP-4XW" secondAttribute="bottom" constant="20" id="IR2-Co-Njg"/>
                             <constraint firstItem="1SI-Zs-r3M" firstAttribute="centerY" secondItem="hNX-xY-JiL" secondAttribute="centerY" id="JBB-eS-sjJ"/>
@@ -2359,10 +2375,13 @@
                             <constraint firstItem="S9h-wg-Hf8" firstAttribute="leading" secondItem="7Zw-8Q-YbO" secondAttribute="leading" constant="16" id="OaZ-lY-1lZ"/>
                             <constraint firstItem="1SI-Zs-r3M" firstAttribute="leading" secondItem="Xdn-L2-DRC" secondAttribute="leading" id="Prs-3d-amg"/>
                             <constraint firstItem="S9h-wg-Hf8" firstAttribute="top" secondItem="7Zw-8Q-YbO" secondAttribute="top" id="UdI-lG-7ne"/>
+                            <constraint firstItem="JQv-TJ-DNN" firstAttribute="bottom" secondItem="7Zw-8Q-YbO" secondAttribute="bottom" id="WK2-aA-6ZS"/>
                             <constraint firstItem="CqN-EX-2q4" firstAttribute="leading" secondItem="7Zw-8Q-YbO" secondAttribute="leading" id="a5u-dl-L3u"/>
                             <constraint firstItem="Sda-qX-5HP" firstAttribute="leading" secondItem="1SI-Zs-r3M" secondAttribute="leading" id="a8S-5D-H7s"/>
+                            <constraint firstItem="JQv-TJ-DNN" firstAttribute="leading" secondItem="7Zw-8Q-YbO" secondAttribute="leading" id="aED-CX-QsH"/>
                             <constraint firstItem="hNX-xY-JiL" firstAttribute="top" secondItem="lhe-DV-JY9" secondAttribute="bottom" id="agY-IN-XBi"/>
                             <constraint firstItem="gdA-sO-AtD" firstAttribute="leading" secondItem="7Zw-8Q-YbO" secondAttribute="leading" id="cb4-Wi-KTd"/>
+                            <constraint firstItem="JQv-TJ-DNN" firstAttribute="trailing" secondItem="7Zw-8Q-YbO" secondAttribute="trailing" id="d9B-UR-jwF"/>
                             <constraint firstItem="Sda-qX-5HP" firstAttribute="centerY" secondItem="HL3-ji-hiy" secondAttribute="centerY" id="e41-up-VPH"/>
                             <constraint firstItem="Xdn-L2-DRC" firstAttribute="trailing" secondItem="Ziq-hC-dZe" secondAttribute="trailingMargin" id="h1Y-mQ-euV"/>
                             <constraint firstItem="HL3-ji-hiy" firstAttribute="leading" secondItem="7Zw-8Q-YbO" secondAttribute="leading" id="jNr-t1-rSM"/>
@@ -2389,11 +2408,29 @@
                         <outlet property="profileImageView" destination="Jz2-RR-Z4d" id="Vti-Y0-byb"/>
                         <outlet property="profileName" destination="L4y-2S-gWh" id="guh-OY-xGR"/>
                         <outlet property="profileView" destination="gdA-sO-AtD" id="q91-4E-hA5"/>
+                        <outlet property="waitView" destination="JQv-TJ-DNN" id="DVC-oc-G7u"/>
+                        <segue destination="avc-ac-JLp" kind="show" id="Mf4-mO-wti"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aw9-xV-bBI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3649.6183206106871" y="1519.7183098591549"/>
+        </scene>
+        <!--Manage Card-->
+        <scene sceneID="IEg-cl-3p8">
+            <objects>
+                <viewController storyboardIdentifier="ManageCardViewController" id="avc-ac-JLp" customClass="ManageCardViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qHU-Zi-BKd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="x7l-y7-fqC"/>
+                        <color key="backgroundColor" name="BGColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Manage Card" id="0zr-cs-e0c"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxV-DH-DPR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4714" y="1520"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
