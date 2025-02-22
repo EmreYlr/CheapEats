@@ -46,11 +46,33 @@ final class DetailViewController: UIViewController {
         print("Detail")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.tintColor = UIColor(named: "ButtonColor")
+    }
+    
     private func setupLoadingIndicator() {
         loadIndicator = createLoadingIndicator(in: waitView)
     }
     
+    @objc func shareButtonClicked() {
+        let textToShare = "www.cheapeats.com/product/\(detailViewModel.productDetail?.product.productId ?? "")"
+        let activityViewController = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
     private func initScreen() {
+        let shareButton = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(shareButtonClicked))
+        shareButton.image = UIImage(systemName: "square.and.arrow.up")
+        navigationItem.rightBarButtonItem = shareButton
+        
+        scrollView.delegate = self
         detailViewModel.delegate = self
         distanceImageIcon.image = UIImage(systemName: "point.filled.topleft.down.curvedto.point.bottomright.up")
         imageView.layer.cornerRadius = 10
@@ -87,14 +109,6 @@ final class DetailViewController: UIViewController {
         detailViewModel.getRoutuerDistance { distance in
             self.distanceLabel.text = distance
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = false
     }
     
     @IBAction func confirmButtonClicked(_ sender: UIButton) {

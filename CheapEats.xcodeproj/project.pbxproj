@@ -61,6 +61,10 @@
 		C3B21C8E2CF9ECCA005878F9 /* MoreViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */; };
 		C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C8F2CF9ED3B005878F9 /* FoodTableViewCell.swift */; };
 		C3B21C922CF9ED3B005878F9 /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */; };
+		C3B394B12D69E87D007CD437 /* BorderAndShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B394B02D69E873007CD437 /* BorderAndShadow.swift */; };
+		C3B394B32D69F36B007CD437 /* DetailViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B394B22D69F361007CD437 /* DetailViewController+ScrollView.swift */; };
+		C3B394B52D69F3FC007CD437 /* OrderDetailViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B394B42D69F3F2007CD437 /* OrderDetailViewController+ScrollView.swift */; };
+		C3B394BA2D6A1B11007CD437 /* PDFHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B394B92D6A1B04007CD437 /* PDFHelper.swift */; };
 		C3B4EF792D0DD788002AD314 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B4EF782D0DD788002AD314 /* OrderDetailViewModel.swift */; };
 		C3BB4BE32D4D2B3400A1057E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C3BB4BE22D4D2B3400A1057E /* Kingfisher */; };
 		C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDD12CFCFE820045DEDE /* LineView.swift */; };
@@ -130,6 +134,10 @@
 		C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreViewController+TableView.swift"; sourceTree = "<group>"; };
 		C3B21C8F2CF9ED3B005878F9 /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
+		C3B394B02D69E873007CD437 /* BorderAndShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderAndShadow.swift; sourceTree = "<group>"; };
+		C3B394B22D69F361007CD437 /* DetailViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+ScrollView.swift"; sourceTree = "<group>"; };
+		C3B394B42D69F3F2007CD437 /* OrderDetailViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderDetailViewController+ScrollView.swift"; sourceTree = "<group>"; };
+		C3B394B92D6A1B04007CD437 /* PDFHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFHelper.swift; sourceTree = "<group>"; };
 		C3B4EF782D0DD788002AD314 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		C3C6FDD12CFCFE820045DEDE /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		C3C6FDD52CFD05A60045DEDE /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -172,7 +180,7 @@
 			children = (
 				7E2472502CFBAB390078619E /* OrdersViewController.swift */,
 				7E2472522CFBAB590078619E /* OrdersViewController+TableView.swift */,
-				7E2472542CFBBD970078619E /* OrderDetailViewController.swift */,
+				C3B394B62D69F407007CD437 /* Order Detail */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -197,6 +205,7 @@
 		C32CBEF62CF89C860016F444 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C3B394B92D6A1B04007CD437 /* PDFHelper.swift */,
 				C3FFDE4E2D64B24800FF6296 /* FormatDouble.swift */,
 				C3ADE9802D53B67500278990 /* RouterDistance.swift */,
 				C3657B612D4D20600003918D /* DateFormatter.swift */,
@@ -346,6 +355,7 @@
 			children = (
 				C3986A052CFA60640085521A /* DetailViewController.swift */,
 				C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */,
+				C3B394B22D69F361007CD437 /* DetailViewController+ScrollView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -362,9 +372,19 @@
 			path = More;
 			sourceTree = "<group>";
 		};
+		C3B394B62D69F407007CD437 /* Order Detail */ = {
+			isa = PBXGroup;
+			children = (
+				7E2472542CFBBD970078619E /* OrderDetailViewController.swift */,
+				C3B394B42D69F3F2007CD437 /* OrderDetailViewController+ScrollView.swift */,
+			);
+			path = "Order Detail";
+			sourceTree = "<group>";
+		};
 		C3C6FDD92CFD07060045DEDE /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				C3B394B02D69E873007CD437 /* BorderAndShadow.swift */,
 				C3C6FDD12CFCFE820045DEDE /* LineView.swift */,
 				C35F6B792D550CBC00DBB7EA /* LoadingIndicator.swift */,
 			);
@@ -516,9 +536,11 @@
 				C35F6B7A2D550CBF00DBB7EA /* LoadingIndicator.swift in Sources */,
 				C36D3EA52CF34534008FE62B /* HomeViewController.swift in Sources */,
 				7E2472572CFC627A0078619E /* OrdersViewModel.swift in Sources */,
+				C3B394B52D69F3FC007CD437 /* OrderDetailViewController+ScrollView.swift in Sources */,
 				C36D3EA12CF34534008FE62B /* AppDelegate.swift in Sources */,
 				C3ADE9812D53B68200278990 /* RouterDistance.swift in Sources */,
 				7E2B93F82CFF830100D84BB0 /* ProfileViewModel.swift in Sources */,
+				C3B394B12D69E87D007CD437 /* BorderAndShadow.swift in Sources */,
 				C36D3EF92CF36251008FE62B /* RegisterViewController.swift in Sources */,
 				C3C6FDE62CFE44A50045DEDE /* MoreViewController+ScrollView.swift in Sources */,
 				C3EAD8442D4E705500CD49CE /* MapScreenViewController.swift in Sources */,
@@ -546,6 +568,8 @@
 				C3E482EF2D0A266000C28240 /* HomeViewController+MapView.swift in Sources */,
 				C3FDC2C42CF7A5F0001BD056 /* HomeViewController+CollectionView.swift in Sources */,
 				C3B21C8A2CF9EB02005878F9 /* MoreViewModel.swift in Sources */,
+				C3B394BA2D6A1B11007CD437 /* PDFHelper.swift in Sources */,
+				C3B394B32D69F36B007CD437 /* DetailViewController+ScrollView.swift in Sources */,
 				C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */,
 				C3EAD8482D4E732F00CD49CE /* LocationManager.swift in Sources */,
 				C32CBEFA2CF8A2110016F444 /* Users.swift in Sources */,

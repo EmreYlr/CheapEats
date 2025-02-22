@@ -104,7 +104,7 @@ extension NetworkManager {
     }
     
     func fetchOrders(completion: @escaping (Result<[UserOrder], CustomError>) -> Void) {
-        let userId = UserManager.shared.user?.uid ?? "PddYR01PDKRP84nhli014DS0tTt1"
+        let userId = UserManager.shared.user?.uid ?? "oiDMcITkunZm4MsJ4IpAB8mbwfz1"
         db.collection("orders").whereField("userId", isEqualTo: userId).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(.networkError(error)))

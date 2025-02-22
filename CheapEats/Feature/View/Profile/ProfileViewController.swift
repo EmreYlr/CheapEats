@@ -8,11 +8,7 @@
 import Foundation
 import UIKit
 final class ProfileViewController: UIViewController{
-    
-    private let profileViewModel: ProfileViewModelProtocol = ProfileViewModel()
-    
     //MARK: -Variables
-    
     @IBOutlet weak var profileView: UIView!
     @IBOutlet var emailView: UIView!
     @IBOutlet weak var phoneView: UIView!
@@ -23,6 +19,8 @@ final class ProfileViewController: UIViewController{
     @IBOutlet weak var cardManagementButton:UIButton!
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var exitButton: UIButton!
+    
+    private let profileViewModel: ProfileViewModelProtocol = ProfileViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,24 +45,6 @@ final class ProfileViewController: UIViewController{
         setShadow(with: editProfileButton.layer , shadowOffset: true)
         setShadow(with: phoneView.layer, shadowOffset: false)
 
-    }
-    
-    private func setBorder(with CALayer: CALayer) {
-        CALayer.borderColor = UIColor.gray.cgColor
-        CALayer.borderWidth = 0.2
-    }
-    
-    private func setShadow(with CALayer: CALayer, shadowOffset: Bool) {
-        CALayer.shadowColor = UIColor.black.cgColor
-        CALayer.masksToBounds = false
-        CALayer.shadowOpacity = 0.5
-        if shadowOffset {
-            CALayer.shadowOffset = CGSize(width: 2, height: 0)
-        }else{
-            CALayer.shadowOffset = CGSize(width: 0, height: 2)
-        }
-        
-        CALayer.shadowRadius = 3.0
     }
     
 }
