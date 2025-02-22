@@ -51,6 +51,11 @@
 		C36D3EFC2CF36267008FE62B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EFB2CF36267008FE62B /* RegisterViewModel.swift */; };
 		C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EFE2CF36286008FE62B /* PassResViewController.swift */; };
 		C36D3F022CF3629E008FE62B /* PassResViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3F012CF3629E008FE62B /* PassResViewModel.swift */; };
+		C3766BEB2D6A6B9200E75ABE /* ManageCardViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3766BEA2D6A6B8900E75ABE /* ManageCardViewController+TableView.swift */; };
+		C3766BF02D6A6C2400E75ABE /* ManageCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3766BEF2D6A6C2400E75ABE /* ManageCardTableViewCell.xib */; };
+		C3766BF12D6A6C2400E75ABE /* ManageCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3766BEE2D6A6C2400E75ABE /* ManageCardTableViewCell.swift */; };
+		C3766BF62D6A80F600E75ABE /* AddManageCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3766BF52D6A80F600E75ABE /* AddManageCardTableViewCell.xib */; };
+		C3766BF72D6A80F600E75ABE /* AddManageCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3766BF42D6A80F600E75ABE /* AddManageCardTableViewCell.swift */; };
 		C37B42562CF4E41500A03C4D /* NetworkManager+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B42552CF4E41500A03C4D /* NetworkManager+Response.swift */; };
 		C38901A52D525337004522F7 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38901A42D525332004522F7 /* ProductDetails.swift */; };
 		C3986A062CFA60640085521A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3986A052CFA60640085521A /* DetailViewController.swift */; };
@@ -127,6 +132,11 @@
 		C36D3EFB2CF36267008FE62B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C36D3EFE2CF36286008FE62B /* PassResViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassResViewController.swift; sourceTree = "<group>"; };
 		C36D3F012CF3629E008FE62B /* PassResViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassResViewModel.swift; sourceTree = "<group>"; };
+		C3766BEA2D6A6B8900E75ABE /* ManageCardViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ManageCardViewController+TableView.swift"; sourceTree = "<group>"; };
+		C3766BEE2D6A6C2400E75ABE /* ManageCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCardTableViewCell.swift; sourceTree = "<group>"; };
+		C3766BEF2D6A6C2400E75ABE /* ManageCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageCardTableViewCell.xib; sourceTree = "<group>"; };
+		C3766BF42D6A80F600E75ABE /* AddManageCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddManageCardTableViewCell.swift; sourceTree = "<group>"; };
+		C3766BF52D6A80F600E75ABE /* AddManageCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddManageCardTableViewCell.xib; sourceTree = "<group>"; };
 		C37B42552CF4E41500A03C4D /* NetworkManager+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Response.swift"; sourceTree = "<group>"; };
 		C38901A42D525332004522F7 /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
 		C3986A052CFA60640085521A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -393,6 +403,7 @@
 		C3B394BD2D6A2A3D007CD437 /* Manage Card */ = {
 			isa = PBXGroup;
 			children = (
+				C3766BEA2D6A6B8900E75ABE /* ManageCardViewController+TableView.swift */,
 				C3B394C02D6A2A57007CD437 /* ManageCardViewController.swift */,
 			);
 			path = "Manage Card";
@@ -445,6 +456,10 @@
 				C3B21C902CF9ED3B005878F9 /* FoodTableViewCell.xib */,
 				7E8FB72A2CFB43EB005AA2E4 /* OrdersTableViewCell.swift */,
 				7E8FB72B2CFB43EB005AA2E4 /* OrdersTableViewCell.xib */,
+				C3766BEE2D6A6C2400E75ABE /* ManageCardTableViewCell.swift */,
+				C3766BEF2D6A6C2400E75ABE /* ManageCardTableViewCell.xib */,
+				C3766BF42D6A80F600E75ABE /* AddManageCardTableViewCell.swift */,
+				C3766BF52D6A80F600E75ABE /* AddManageCardTableViewCell.xib */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -532,8 +547,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3766BF62D6A80F600E75ABE /* AddManageCardTableViewCell.xib in Resources */,
 				C36D3EAA2CF34535008FE62B /* Assets.xcassets in Resources */,
 				C36D3ECE2CF356ED008FE62B /* GoogleService-Info.plist in Resources */,
+				C3766BF02D6A6C2400E75ABE /* ManageCardTableViewCell.xib in Resources */,
 				C36D3EAD2CF34535008FE62B /* Base in Resources */,
 				C36D3EA82CF34534008FE62B /* Base in Resources */,
 				7E8FB72D2CFB43EB005AA2E4 /* OrdersTableViewCell.xib in Resources */,
@@ -561,6 +578,7 @@
 				C36D3EF92CF36251008FE62B /* RegisterViewController.swift in Sources */,
 				C3C6FDE62CFE44A50045DEDE /* MoreViewController+ScrollView.swift in Sources */,
 				C3EAD8442D4E705500CD49CE /* MapScreenViewController.swift in Sources */,
+				C3766BF72D6A80F600E75ABE /* AddManageCardTableViewCell.swift in Sources */,
 				C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */,
 				C320E2EA2D075C85004C6122 /* UIViewController+Extension.swift in Sources */,
 				C38901A52D525337004522F7 /* ProductDetails.swift in Sources */,
@@ -575,6 +593,7 @@
 				C3B21C882CF9EAF8005878F9 /* MoreViewController.swift in Sources */,
 				C32CBEFC2CF8AB880016F444 /* UserManager.swift in Sources */,
 				C3FFDE512D65EA8A00FF6296 /* UserOrder.swift in Sources */,
+				C3766BF12D6A6C2400E75ABE /* ManageCardTableViewCell.swift in Sources */,
 				7E2B93F62CFF828D00D84BB0 /* ProfileViewController.swift in Sources */,
 				C3B394C32D6A2E87007CD437 /* Alert.swift in Sources */,
 				C301F7782CFA6542000E7B99 /* MoreViewController+Search.swift in Sources */,
@@ -600,6 +619,7 @@
 				C36C1B0C2CF657A3007A96B4 /* OrderCollectionViewCell.swift in Sources */,
 				C36D3EA32CF34534008FE62B /* SceneDelegate.swift in Sources */,
 				C36D3EC52CF353E3008FE62B /* LoginViewController.swift in Sources */,
+				C3766BEB2D6A6B9200E75ABE /* ManageCardViewController+TableView.swift in Sources */,
 				C3C6FDD62CFD05A60045DEDE /* FilterViewController.swift in Sources */,
 				C3C6FDE42CFE25A00045DEDE /* FilterViewModel.swift in Sources */,
 				C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */,

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cardCell" rowHeight="61" id="KGk-i7-Jjw" customClass="ManageCardTableViewCell" customModule="CheapEats" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="336" height="61"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="336" height="61"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KRJ-AI-VL2">
+                        <rect key="frame" x="20" y="13" width="60" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="LXA-Tg-7RH"/>
+                            <constraint firstAttribute="width" constant="60" id="g1t-Hb-mzz"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uht-d7-yG4">
+                        <rect key="frame" x="92" y="13" width="38" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cardNo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQP-KU-IfE">
+                        <rect key="frame" x="92" y="35" width="41.333333333333343" height="14.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" name="SecondTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbj-HV-pJs">
+                        <rect key="frame" x="291" y="18" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="Yna-mb-Vb4"/>
+                            <constraint firstAttribute="height" constant="25" id="uTe-y8-5P5"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="trash.fill" catalog="system">
+                            <color key="baseForegroundColor" name="ButtonColor"/>
+                        </buttonConfiguration>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Uht-d7-yG4" firstAttribute="leading" secondItem="KRJ-AI-VL2" secondAttribute="trailing" constant="12" id="DgH-PG-pmM"/>
+                    <constraint firstAttribute="trailing" secondItem="pbj-HV-pJs" secondAttribute="trailing" constant="20" id="EUs-50-oza"/>
+                    <constraint firstItem="Uht-d7-yG4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="GOf-Ng-Akw"/>
+                    <constraint firstItem="xQP-KU-IfE" firstAttribute="top" secondItem="Uht-d7-yG4" secondAttribute="bottom" constant="4" id="bs8-FM-c63"/>
+                    <constraint firstAttribute="bottom" secondItem="KRJ-AI-VL2" secondAttribute="bottom" constant="14" id="gC5-n3-AjH"/>
+                    <constraint firstItem="xQP-KU-IfE" firstAttribute="leading" secondItem="KRJ-AI-VL2" secondAttribute="trailing" constant="12" id="gCv-PO-RFI"/>
+                    <constraint firstItem="pbj-HV-pJs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="kgJ-QI-doU"/>
+                    <constraint firstItem="KRJ-AI-VL2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="uls-HJ-hhf"/>
+                    <constraint firstAttribute="bottom" secondItem="pbj-HV-pJs" secondAttribute="bottom" constant="18" id="v0g-ZN-df5"/>
+                    <constraint firstItem="KRJ-AI-VL2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="yKf-0Q-WCo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cardImageView" destination="KRJ-AI-VL2" id="TUg-sJ-5z1"/>
+                <outlet property="cardNameLabel" destination="Uht-d7-yG4" id="U5N-ZX-Z1U"/>
+                <outlet property="cardNoLabel" destination="xQP-KU-IfE" id="pYR-3S-sTS"/>
+                <outlet property="trashButton" destination="pbj-HV-pJs" id="xL8-7U-bpN"/>
+            </connections>
+            <point key="canvasLocation" x="24.427480916030532" y="24.295774647887324"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="trash.fill" catalog="system" width="117" height="128"/>
+        <namedColor name="ButtonColor">
+            <color red="0.32199999690055847" green="0.41999998688697815" blue="0.30199998617172241" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondTextColor">
+            <color red="0.46700000762939453" green="0.46700000762939453" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

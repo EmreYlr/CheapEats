@@ -7,7 +7,11 @@
 
 import UIKit
 
-extension UIViewController {
+protocol BorderAndShadow {
+    func setBorder(with CALayer: CALayer)
+    func setShadow(with CALayer: CALayer, shadowOffset: Bool)
+}
+extension BorderAndShadow {
     func setBorder(with CALayer: CALayer) {
         CALayer.borderColor = UIColor.gray.cgColor
         CALayer.borderWidth = 0.2
@@ -26,3 +30,6 @@ extension UIViewController {
         CALayer.shadowRadius = 3.0
     }
 }
+
+extension UITableViewCell: BorderAndShadow {}
+extension UIViewController: BorderAndShadow {}

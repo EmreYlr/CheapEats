@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ordersViewModel.orderDetailsList.count
@@ -29,5 +30,6 @@ extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
         detailVC.orderDetailViewModel.order = ordersViewModel.orderDetailsList[indexPath.row]
         navigationController?.pushViewController(detailVC, animated: true)
     }
-        }
+    
+}
 
