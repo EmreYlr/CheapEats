@@ -6,19 +6,26 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 final class ManageCardViewController: UIViewController {
     //MARK: -Variables
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var waitView: UIView!
+    private var loadIndicator: NVActivityIndicatorView!
+    
     var manageCardViewModel: ManageCardViewModelProtocol = ManageCardViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manageCardViewModel.delegate = self
         initTableView()
+        setupLoadingIndicator()
+        initScreen()
         print("ManageCardViewController")
-        //TODO: -Visa MasterCard Troy algoritması yaz
-        manageCardViewModel.fetchUserCreditCards()
+    }
+    
+    private func setupLoadingIndicator() {
+        loadIndicator = createLoadingIndicator(in: waitView)
     }
     
     func initTableView() {
@@ -26,6 +33,11 @@ final class ManageCardViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ManageCardTableViewCell", bundle: nil), forCellReuseIdentifier: "cardCell")
         tableView.register(UINib(nibName: "AddManageCardTableViewCell", bundle: nil), forCellReuseIdentifier: "addCardCell")
+    }
+    
+    func initScreen() {
+        manageCardViewModel.delegate = self
+        manageCardViewModel.fetchUserCreditCards()
     }
 }
 
@@ -45,5 +57,15 @@ extension ManageCardViewController: ManageCardViewModelOutputProtocol {
         tableView.endUpdates()
     }
     
+    func startLoading() {
+        waitView.isHidden = false
+        loadIndicator.isHidden = false
+        loadIndicator.startAnimating()
+    }
     
+    func stopLoading() {
+        waitView.isHidden = true
+        loadIndicator.isHidden = true
+        loadIndicator.stopAnimating()
+    }
 }

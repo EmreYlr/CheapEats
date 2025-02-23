@@ -21,7 +21,7 @@ extension ManageCardViewController: UITableViewDelegate, UITableViewDataSource {
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! ManageCardTableViewCell
-            cell.selectionStyle = .none
+            cell.selectionStyle = .gray
             cell.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
             cell.configureCell(with: manageCardViewModel.userCreditCards[indexPath.row])
             cell.trashButtonTapped = { [weak self] in
@@ -40,6 +40,7 @@ extension ManageCardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == manageCardViewModel.userCreditCards.count {
             let SB = UIStoryboard(name: "Main", bundle: nil)
             let addCardVC = SB.instantiateViewController(withIdentifier: "AddCardViewController") as! AddCardViewController
