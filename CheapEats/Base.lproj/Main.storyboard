@@ -2444,11 +2444,28 @@
                     <navigationItem key="navigationItem" title="Manage Card" id="0zr-cs-e0c"/>
                     <connections>
                         <outlet property="tableView" destination="6ft-3u-aYW" id="5P8-Xn-Dd2"/>
+                        <segue destination="Ukg-aq-CGc" kind="show" id="0jS-PN-0c2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxV-DH-DPR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4713.740458015267" y="1519.7183098591549"/>
+        </scene>
+        <!--Add New Card-->
+        <scene sceneID="XpN-rb-kek">
+            <objects>
+                <viewController storyboardIdentifier="AddCardViewController" id="Ukg-aq-CGc" customClass="AddCardViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IBx-MN-NnW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="axN-ss-xqx"/>
+                        <color key="backgroundColor" name="BGColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Card" id="1OU-B6-Fho"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sy6-w9-v6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5598" y="1520"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

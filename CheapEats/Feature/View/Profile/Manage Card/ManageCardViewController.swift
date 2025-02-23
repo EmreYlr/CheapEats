@@ -14,8 +14,11 @@ final class ManageCardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        manageCardViewModel.delegate = self
         initTableView()
         print("ManageCardViewController")
+        //TODO: -Visa MasterCard Troy algoritması yaz
+        manageCardViewModel.fetchUserCreditCards()
     }
     
     func initTableView() {
@@ -24,4 +27,23 @@ final class ManageCardViewController: UIViewController {
         tableView.register(UINib(nibName: "ManageCardTableViewCell", bundle: nil), forCellReuseIdentifier: "cardCell")
         tableView.register(UINib(nibName: "AddManageCardTableViewCell", bundle: nil), forCellReuseIdentifier: "addCardCell")
     }
+}
+
+extension ManageCardViewController: ManageCardViewModelOutputProtocol {
+    func update() {
+        tableView.reloadData()
+        print("Update")
+    }
+    
+    func error() {
+        print("Error")
+    }
+    
+    func didDeleteCard(at indexPath: IndexPath) {
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
+    }
+    
+    
 }

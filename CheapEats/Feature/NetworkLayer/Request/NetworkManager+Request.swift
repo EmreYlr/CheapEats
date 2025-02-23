@@ -152,4 +152,42 @@ extension NetworkManager {
             }
     }
     
+    func fetchUserCreditCards(completion: @escaping (Result<[UserCreditCards], CustomError>) -> Void) {
+        let userId = UserManager.shared.user?.uid ?? "oiDMcITkunZm4MsJ4IpAB8mbwfz1"
+        db.collection("userCreditCard").whereField("userId", isEqualTo: userId).getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(.networkError(error)))
+                return
+            }
+
+            guard let documents = snapshot?.documents else {
+                completion(.failure(.noData))
+                return
+            }
+
+            let creditCards = documents.compactMap { (document) -> UserCreditCards? in
+                let data = document.data()
+                return UserCreditCards(dictionary: data, documentId: document.documentID)
+            }
+
+            if creditCards.isEmpty {
+                completion(.failure(.noData))
+            } else {
+                completion(.success(creditCards))
+            }
+        }
+    }
+    func deleteUserCreditCard(at cardId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let cardDocRef = Firestore.firestore().collection("userCreditCard").document(cardId)
+        cardDocRef.delete { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
+    
+    
 }

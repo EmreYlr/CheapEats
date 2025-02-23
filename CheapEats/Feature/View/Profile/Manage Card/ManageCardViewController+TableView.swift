@@ -9,11 +9,11 @@ import UIKit
 
 extension ManageCardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return manageCardViewModel.userCreditCards.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 5 {
+        if indexPath.row == manageCardViewModel.userCreditCards.count {
             let addCell = tableView.dequeueReusableCell(withIdentifier: "addCardCell", for: indexPath) as! AddManageCardTableViewCell
             addCell.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
             addCell.selectionStyle = .none
@@ -23,9 +23,14 @@ extension ManageCardViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! ManageCardTableViewCell
             cell.selectionStyle = .none
             cell.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
-            cell.cardNameLabel.text = "Öğrenci Kartım"
-            cell.cardNoLabel.text = "1234 5678 9101 1121"
-            cell.cardImageView.image = UIImage(named: "VisaLogo")
+            cell.configureCell(with: manageCardViewModel.userCreditCards[indexPath.row])
+            cell.trashButtonTapped = { [weak self] in
+                guard let self = self else { return }
+                self.showTwoButtonAlert(title: "Uyarı!", message: "Kayıtlı kart silinecek emin misiniz?", firstButtonTitle: "Sil", firstButtonHandler: { _ in
+                    let cardId = self.manageCardViewModel.userCreditCards[indexPath.row].cardId
+                    self.manageCardViewModel.deleteUserCreditCard(at: cardId, indexPath: indexPath)
+                }, secondButtonTitle: "İptal", secondButtonHandler: nil)
+            }
             return cell
         }
     }
@@ -35,16 +40,24 @@ extension ManageCardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        if indexPath.row == manageCardViewModel.userCreditCards.count {
+            let SB = UIStoryboard(name: "Main", bundle: nil)
+            let addCardVC = SB.instantiateViewController(withIdentifier: "AddCardViewController") as! AddCardViewController
+            navigationController?.pushViewController(addCardVC, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.row < 5
+        return indexPath.row < manageCardViewModel.userCreditCards.count
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            showTwoButtonAlert(title: "Uyarı!", message: "Kayıtlı kart silinecek emin misiniz?", firstButtonTitle: "Sil", firstButtonHandler: { _ in
+                let cardId = self.manageCardViewModel.userCreditCards[indexPath.row].cardId
+                self.manageCardViewModel.deleteUserCreditCard(at: cardId, indexPath: indexPath)
+            }, secondButtonTitle: "İptal", secondButtonHandler: nil)
+            
         }
     }
 }
