@@ -29,6 +29,7 @@
 		C3395A842D6B408800461A5E /* CreditCardValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3395A832D6B407E00461A5E /* CreditCardValidation.swift */; };
 		C3395A882D6B4B4E00461A5E /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3395A872D6B4B4E00461A5E /* AddCardViewController.swift */; };
 		C3395A8B2D6B4B8800461A5E /* AddCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3395A8A2D6B4B8700461A5E /* AddCardViewModel.swift */; };
+		C3395A912D6BA76900461A5E /* JVFloatLabeledTextField in Frameworks */ = {isa = PBXBuildFile; productRef = C3395A902D6BA76900461A5E /* JVFloatLabeledTextField */; };
 		C35F6B762D5506CC00DBB7EA /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = C35F6B752D5506CC00DBB7EA /* NVActivityIndicatorView */; };
 		C35F6B782D5506CC00DBB7EA /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = C35F6B772D5506CC00DBB7EA /* NVActivityIndicatorViewExtended */; };
 		C35F6B7A2D550CBF00DBB7EA /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F6B792D550CBC00DBB7EA /* LoadingIndicator.swift */; };
@@ -61,6 +62,7 @@
 		C3766BF62D6A80F600E75ABE /* AddManageCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3766BF52D6A80F600E75ABE /* AddManageCardTableViewCell.xib */; };
 		C3766BF72D6A80F600E75ABE /* AddManageCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3766BF42D6A80F600E75ABE /* AddManageCardTableViewCell.swift */; };
 		C37B42562CF4E41500A03C4D /* NetworkManager+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B42552CF4E41500A03C4D /* NetworkManager+Response.swift */; };
+		C38469172D6BB97E001E37C2 /* AddCardViewController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38469162D6BB96F001E37C2 /* AddCardViewController+TextField.swift */; };
 		C38901A52D525337004522F7 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38901A42D525332004522F7 /* ProductDetails.swift */; };
 		C3986A062CFA60640085521A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3986A052CFA60640085521A /* DetailViewController.swift */; };
 		C3ADE97F2D53A14D00278990 /* DetailViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */; };
@@ -146,6 +148,7 @@
 		C3766BF42D6A80F600E75ABE /* AddManageCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddManageCardTableViewCell.swift; sourceTree = "<group>"; };
 		C3766BF52D6A80F600E75ABE /* AddManageCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddManageCardTableViewCell.xib; sourceTree = "<group>"; };
 		C37B42552CF4E41500A03C4D /* NetworkManager+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Response.swift"; sourceTree = "<group>"; };
+		C38469162D6BB96F001E37C2 /* AddCardViewController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCardViewController+TextField.swift"; sourceTree = "<group>"; };
 		C38901A42D525332004522F7 /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
 		C3986A052CFA60640085521A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+MapView.swift"; sourceTree = "<group>"; };
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3BB4BE32D4D2B3400A1057E /* Kingfisher in Frameworks */,
+				C3395A912D6BA76900461A5E /* JVFloatLabeledTextField in Frameworks */,
 				C35F6B782D5506CC00DBB7EA /* NVActivityIndicatorViewExtended in Frameworks */,
 				C3657B6A2D4D258E0003918D /* FirebaseDatabase in Frameworks */,
 				C35F6B762D5506CC00DBB7EA /* NVActivityIndicatorView in Frameworks */,
@@ -414,6 +418,7 @@
 		C3B394BD2D6A2A3D007CD437 /* Manage Card */ = {
 			isa = PBXGroup;
 			children = (
+				C38469162D6BB96F001E37C2 /* AddCardViewController+TextField.swift */,
 				C3766BEA2D6A6B8900E75ABE /* ManageCardViewController+TableView.swift */,
 				C3B394C02D6A2A57007CD437 /* ManageCardViewController.swift */,
 				C3395A872D6B4B4E00461A5E /* AddCardViewController.swift */,
@@ -511,6 +516,7 @@
 				C3BB4BE22D4D2B3400A1057E /* Kingfisher */,
 				C35F6B752D5506CC00DBB7EA /* NVActivityIndicatorView */,
 				C35F6B772D5506CC00DBB7EA /* NVActivityIndicatorViewExtended */,
+				C3395A902D6BA76900461A5E /* JVFloatLabeledTextField */,
 			);
 			productName = CheapEats;
 			productReference = C36D3E9D2CF34534008FE62B /* CheapEats.app */;
@@ -544,6 +550,7 @@
 				C3657B642D4D258E0003918D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C3BB4BE12D4D2B3400A1057E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C35F6B742D5506CB00DBB7EA /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				C3395A8F2D6BA76900461A5E /* XCRemoteSwiftPackageReference "JVFloatLabeledTextField" */,
 			);
 			productRefGroup = C36D3E9E2CF34534008FE62B /* Products */;
 			projectDirPath = "";
@@ -634,6 +641,7 @@
 				C32CBEF82CF89C990016F444 /* UIView+Extension.swift in Sources */,
 				C36C1B0C2CF657A3007A96B4 /* OrderCollectionViewCell.swift in Sources */,
 				C36D3EA32CF34534008FE62B /* SceneDelegate.swift in Sources */,
+				C38469172D6BB97E001E37C2 /* AddCardViewController+TextField.swift in Sources */,
 				C36D3EC52CF353E3008FE62B /* LoginViewController.swift in Sources */,
 				C3766BEB2D6A6B9200E75ABE /* ManageCardViewController+TableView.swift in Sources */,
 				C3C6FDD62CFD05A60045DEDE /* FilterViewController.swift in Sources */,
@@ -870,6 +878,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C3395A8F2D6BA76900461A5E /* XCRemoteSwiftPackageReference "JVFloatLabeledTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jverdi/JVFloatLabeledTextField";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.5;
+			};
+		};
 		C35F6B742D5506CB00DBB7EA /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
@@ -897,6 +913,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C3395A902D6BA76900461A5E /* JVFloatLabeledTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3395A8F2D6BA76900461A5E /* XCRemoteSwiftPackageReference "JVFloatLabeledTextField" */;
+			productName = JVFloatLabeledTextField;
+		};
 		C35F6B752D5506CC00DBB7EA /* NVActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C35F6B742D5506CB00DBB7EA /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;

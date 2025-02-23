@@ -1,5 +1,5 @@
 {
-  "originHash" : "2412a3323cf28caf9922684fd15caeef6558351a8e2bd58417836c77d97cae87",
+  "originHash" : "a11f9ad1e11036b6560602f94f81d018f39ad9dd870df2b88d645ab3ffc2acd9",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -80,6 +80,15 @@
       "state" : {
         "revision" : "2d12673670417654f08f5f90fdd62926dc3a2648",
         "version" : "100.0.0"
+      }
+    },
+    {
+      "identity" : "jvfloatlabeledtextfield",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jverdi/JVFloatLabeledTextField",
+      "state" : {
+        "revision" : "69c0e80a2d0b9dac52ec37a164c9c5fe0e901038",
+        "version" : "1.2.5"
       }
     },
     {

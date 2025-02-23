@@ -15,7 +15,7 @@ struct UserCreditCards {
     let cardNo: String
     let cardMonth: Int
     let cardYear: Int
-    let CCV: Int
+    let CVV: Int
     let cardType: CardType
     
     init?(dictionary: [String: Any], documentId: String) {
@@ -25,7 +25,7 @@ struct UserCreditCards {
         self.cardNo = dictionary["cardNo"] as? String ?? ""
         self.cardMonth = dictionary["cardMonth"] as? Int ?? 0
         self.cardYear = dictionary["cardYear"] as? Int ?? 0
-        self.CCV = dictionary["CCV"] as? Int ?? 0
+        self.CVV = dictionary["CVV"] as? Int ?? 0
         let cardTypeString = dictionary["cardType"] as? String ?? CardType.unknown.rawValue
         self.cardType = CardType(rawValue: cardTypeString) ?? .unknown   
     }

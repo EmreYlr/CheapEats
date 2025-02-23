@@ -7,9 +7,10 @@
 
 import UIKit
 
-final class AddCardViewController: UIViewController {
+final class AddCardViewController: UIViewController{
     //MARK: -Variables
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var cardInfoView: UIView!
     @IBOutlet weak var cardTypeImage: UIImageView!
     @IBOutlet weak var cardNoLabel: UILabel!
     @IBOutlet weak var cardNoTextLabel: UILabel!
@@ -18,9 +19,15 @@ final class AddCardViewController: UIViewController {
     @IBOutlet weak var expiryDateLabel: UILabel!
     @IBOutlet weak var expiryDateTextLabel: UILabel!
     @IBOutlet weak var cardBackView: UIView!
-    @IBOutlet weak var CCVLabel: UILabel!
-    @IBOutlet weak var CCVTextLabel: UILabel!
-    
+    @IBOutlet weak var CVVLabel: UILabel!
+    @IBOutlet weak var CVVTextLabel: UILabel!
+    @IBOutlet weak var cardNoTextField: UITextField!
+    @IBOutlet weak var cardOwnerNameTextField: UITextField!
+    @IBOutlet weak var monthTextField: UITextField!
+    @IBOutlet weak var yearTextField: UITextField!
+    @IBOutlet weak var CVVTextField: UITextField!
+    @IBOutlet weak var cardNameTextField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     var addcardViewModel: AddCardViewModelProtocol = AddCardViewModel()
     var isOpen = false
     
@@ -28,13 +35,35 @@ final class AddCardViewController: UIViewController {
         super.viewDidLoad()
         print("AddCardViewController")
         initScreen()
+        cardNoTextLabel.textColor = .gray
         setupGradient(with: .black)
         setupTapGesture()
+        initCardSettings()
     }
+    
+    private func initCardSettings() {
+        cardNoTextField.delegate = self
+        cardOwnerNameTextField.delegate = self
+        monthTextField.delegate = self
+        yearTextField.delegate = self
+        CVVTextField.delegate = self
+        cardNoTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        monthTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        yearTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        cardOwnerNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        CVVTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    }
+    
     private func initScreen() {
         addcardViewModel.delegate = self
         cardView.layer.cornerRadius = 10
         cardView.layer.masksToBounds = true
+        saveButton.layer.cornerRadius = 5
+        setShadow(with: cardInfoView.layer, shadowOffset: true)
+        
+    }
+    
+    @IBAction func saveButtonClicked(_ sender: UIButton) {
     }
     
     private func setupGradient(with color: UIColor, status: Bool = true) {
@@ -54,19 +83,20 @@ final class AddCardViewController: UIViewController {
         }
         
         gradient.colors = [color.withAlphaComponent(0.9).cgColor,
-            color.withAlphaComponent(0.8).cgColor,
-            color.withAlphaComponent(0.6).cgColor]
+                           color.withAlphaComponent(0.8).cgColor,
+                           color.withAlphaComponent(0.6).cgColor]
         gradient.cornerRadius = cardView.layer.cornerRadius
         gradient.frame = cardView.bounds
         cardView.layer.insertSublayer(gradient, at: 0)
     }
+    
     private func setupTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cardViewTapped))
         cardView.addGestureRecognizer(tapGesture)
         cardView.isUserInteractionEnabled = true
     }
     
-    @objc private func cardViewTapped() {
+    @objc func cardViewTapped() {
         if isOpen {
             UIView.transition(with: cardView, duration: 0.4, options: .transitionFlipFromLeft, animations: {
                 self.isOpen = false
@@ -91,8 +121,8 @@ final class AddCardViewController: UIViewController {
         expiryDateLabel.isHidden = false
         expiryDateTextLabel.isHidden = false
         cardBackView.isHidden = true
-        CCVLabel.isHidden = true
-        CCVTextLabel.isHidden = true
+        CVVLabel.isHidden = true
+        CVVTextLabel.isHidden = true
     }
     
     func backCardView() {
@@ -104,8 +134,8 @@ final class AddCardViewController: UIViewController {
         expiryDateLabel.isHidden = true
         expiryDateTextLabel.isHidden = true
         cardBackView.isHidden = false
-        CCVLabel.isHidden = false
-        CCVTextLabel.isHidden = false
+        CVVLabel.isHidden = false
+        CVVTextLabel.isHidden = false
     }
     
 }
