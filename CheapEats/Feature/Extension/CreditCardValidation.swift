@@ -55,4 +55,4 @@ extension CreditCardSettings {
     }
 }
 
-extension ManageCardViewController: CreditCardSettings {}
+extension AddCardViewController: CreditCardSettings {}

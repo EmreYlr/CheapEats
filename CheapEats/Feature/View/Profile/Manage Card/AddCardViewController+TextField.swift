@@ -58,6 +58,10 @@ extension AddCardViewController: UITextFieldDelegate {
                 displayText.replaceCharacters(in: NSRange(location: index, length: 1), with: String(char))
             }
         }
+        
+        let cardType = determineCardType(cardNumber: text)
+        updateCardTypeImage(cardType: cardType)
+        
         cardNoTextLabel.attributedText = displayText
     }
     
@@ -192,6 +196,23 @@ extension AddCardViewController: UITextFieldDelegate {
             
         default:
             return true
+        }
+    }
+    
+    private func updateCardTypeImage(cardType: CardType) {
+        switch cardType {
+        case .visa:
+            cardTypeImage.image = UIImage(named: "VisaLogo")
+            cardTypeImage.isHidden = isOpen
+        case .mastercard:
+            cardTypeImage.image = UIImage(named: "MCLogo")
+            cardTypeImage.isHidden = isOpen
+        case .troy:
+            cardTypeImage.image = UIImage(named: "troyLogo")
+            cardTypeImage.isHidden = isOpen
+        case .unknown:
+            cardTypeImage.image = nil
+            cardTypeImage.isHidden = true
         }
     }
     

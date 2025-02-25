@@ -35,7 +35,6 @@ final class AddCardViewController: UIViewController{
         super.viewDidLoad()
         print("AddCardViewController")
         initScreen()
-        cardNoTextLabel.textColor = .gray
         setupGradient(with: .black)
         setupTapGesture()
         initCardSettings()
@@ -46,6 +45,7 @@ final class AddCardViewController: UIViewController{
         cardOwnerNameTextField.delegate = self
         monthTextField.delegate = self
         yearTextField.delegate = self
+        cardNoTextLabel.textColor = .gray
         CVVTextField.delegate = self
         cardNoTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         monthTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -64,6 +64,9 @@ final class AddCardViewController: UIViewController{
     }
     
     @IBAction func saveButtonClicked(_ sender: UIButton) {
+//        if !isValidCardNumber(cardNoTextLabel.text ?? "") {
+//            showOneButtonAlert(title: "Hata", message: "Kart No Hatalı")
+//        }
     }
     
     private func setupGradient(with color: UIColor, status: Bool = true) {
