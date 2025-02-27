@@ -24,6 +24,11 @@ final class ManageCardViewController: UIViewController {
         print("ManageCardViewController")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        manageCardViewModel.fetchUserCreditCards()
+    }
+    
     private func setupLoadingIndicator() {
         loadIndicator = createLoadingIndicator(in: waitView)
     }

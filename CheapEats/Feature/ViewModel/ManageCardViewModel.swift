@@ -26,6 +26,7 @@ final class ManageCardViewModel {
     var userCreditCards: [UserCreditCards] = []
     
     func fetchUserCreditCards() {
+        userCreditCards.removeAll()
         delegate?.startLoading()
         NetworkManager.shared.fetchUserCreditCards { [weak self] result in
             self?.delegate?.stopLoading()

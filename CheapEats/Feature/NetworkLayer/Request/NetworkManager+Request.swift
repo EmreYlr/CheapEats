@@ -177,6 +177,7 @@ extension NetworkManager {
             }
         }
     }
+    
     func deleteUserCreditCard(at cardId: String, completion: @escaping (Result<Void, Error>) -> Void) {
         let cardDocRef = Firestore.firestore().collection("userCreditCard").document(cardId)
         cardDocRef.delete { error in
@@ -188,6 +189,17 @@ extension NetworkManager {
         }
     }
     
-    
-    
+    func addUserCreditCard(card: UserCreditCards, completion: @escaping (Result<Void, Error>) -> Void) {
+        let userCardRef = db.collection("userCreditCard").document()
+        var userCardData = card
+        userCardData.cardId = userCardRef.documentID
+        
+        userCardRef.setData(userCardData.toDictionary()) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
 }

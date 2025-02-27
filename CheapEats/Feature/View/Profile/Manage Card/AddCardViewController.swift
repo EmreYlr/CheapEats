@@ -64,9 +64,14 @@ final class AddCardViewController: UIViewController{
     }
     
     @IBAction func saveButtonClicked(_ sender: UIButton) {
-//        if !isValidCardNumber(cardNoTextLabel.text ?? "") {
-//            showOneButtonAlert(title: "Hata", message: "Kart No Hatalı")
-//        }
+        if !isValidCardNumber(cardNoTextLabel.text ?? "") {
+            showOneButtonAlert(title: "Hata", message: "Girmiş olduğunuz kart numarası geçersiz.")
+            return
+        }
+        if let userId = UserManager.shared.user?.uid {
+            let userCreditCard = UserCreditCards(userId: userId, cardName: cardNameTextField.text ?? "", cardOwnerName: cardOwnerNameTextField.text ?? "", cardNo: cardNoTextField.text ?? "", cardMonth: Int(monthTextField.text ?? "") ?? 0, cardYear: Int(yearTextField.text ?? "") ?? 0, CVV: Int(CVVTextField.text ?? "") ?? 0, cardType: determineCardType(cardNumber: cardNoTextField.text ?? ""))
+            addcardViewModel.addCard(userCreditCart: userCreditCard)
+        }
     }
     
     private func setupGradient(with color: UIColor, status: Bool = true) {
@@ -146,6 +151,8 @@ final class AddCardViewController: UIViewController{
 extension AddCardViewController: AddCardViewModelOutputProtocol {
     func update() {
         print("update")
+        //showOneButtonAlert(title: "Başarılı", message: "Kart başarılı bir şekilde eklendi.")
+        navigationController?.popViewController(animated: true)
     }
     
     func error() {
