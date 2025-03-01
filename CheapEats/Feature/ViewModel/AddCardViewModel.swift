@@ -11,7 +11,7 @@ protocol AddCardViewModelProtocol {
 }
 
 protocol AddCardViewModelOutputProtocol: AnyObject {
-    func update()
+    func didAddCard(_ card: UserCreditCards)
     func error()
 }
 
@@ -19,11 +19,13 @@ final class AddCardViewModel {
     weak var delegate: AddCardViewModelOutputProtocol?
     
     func addCard(userCreditCart: UserCreditCards) {
+        var card = userCreditCart
         NetworkManager.shared.addUserCreditCard(card: userCreditCart) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success:
-                self.delegate?.update()
+            case .success (let result):
+                card.cardId = result
+                self.delegate?.didAddCard(card)
             case .failure:
                 self.delegate?.error()
             }

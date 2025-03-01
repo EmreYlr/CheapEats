@@ -30,6 +30,7 @@ final class AddCardViewController: UIViewController{
     @IBOutlet weak var saveButton: UIButton!
     var addcardViewModel: AddCardViewModelProtocol = AddCardViewModel()
     var isOpen = false
+    weak var delegate: AddCardViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,13 +150,18 @@ final class AddCardViewController: UIViewController{
 }
 
 extension AddCardViewController: AddCardViewModelOutputProtocol {
-    func update() {
+    func didAddCard(_ card: UserCreditCards) {
         print("update")
         //showOneButtonAlert(title: "Başarılı", message: "Kart başarılı bir şekilde eklendi.")
+        delegate?.didAddCard(card)
         navigationController?.popViewController(animated: true)
     }
     
     func error() {
         print("error")
     }
+}
+
+protocol AddCardViewControllerDelegate: AnyObject {
+    func didAddCard(_ card: UserCreditCards)
 }

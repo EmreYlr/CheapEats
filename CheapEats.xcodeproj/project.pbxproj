@@ -418,8 +418,8 @@
 		C3B394BD2D6A2A3D007CD437 /* Manage Card */ = {
 			isa = PBXGroup;
 			children = (
-				C3766BEA2D6A6B8900E75ABE /* ManageCardViewController+TableView.swift */,
 				C3B394C02D6A2A57007CD437 /* ManageCardViewController.swift */,
+				C3766BEA2D6A6B8900E75ABE /* ManageCardViewController+TableView.swift */,
 				C3395A872D6B4B4E00461A5E /* AddCardViewController.swift */,
 				C38469162D6BB96F001E37C2 /* AddCardViewController+TextField.swift */,
 			);

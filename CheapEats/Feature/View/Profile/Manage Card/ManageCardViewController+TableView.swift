@@ -44,6 +44,7 @@ extension ManageCardViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == manageCardViewModel.userCreditCards.count {
             let SB = UIStoryboard(name: "Main", bundle: nil)
             let addCardVC = SB.instantiateViewController(withIdentifier: "AddCardViewController") as! AddCardViewController
+            addCardVC.delegate = self
             navigationController?.pushViewController(addCardVC, animated: true)
         }
     }

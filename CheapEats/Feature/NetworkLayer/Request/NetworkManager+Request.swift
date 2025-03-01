@@ -189,16 +189,16 @@ extension NetworkManager {
         }
     }
     
-    func addUserCreditCard(card: UserCreditCards, completion: @escaping (Result<Void, Error>) -> Void) {
+    func addUserCreditCard(card: UserCreditCards, completion: @escaping (Result<String, Error>) -> Void) {
         let userCardRef = db.collection("userCreditCard").document()
         var userCardData = card
         userCardData.cardId = userCardRef.documentID
         
-        userCardRef.setData(userCardData.toDictionary()) { error in
+        userCardRef.setData(userCardData.toDictionary()) {error in
             if let error = error {
                 completion(.failure(error))
             } else {
-                completion(.success(()))
+                completion(.success(userCardRef.documentID))
             }
         }
     }

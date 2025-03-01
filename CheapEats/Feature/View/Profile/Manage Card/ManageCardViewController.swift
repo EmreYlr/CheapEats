@@ -24,11 +24,6 @@ final class ManageCardViewController: UIViewController {
         print("ManageCardViewController")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        manageCardViewModel.fetchUserCreditCards()
-    }
-    
     private func setupLoadingIndicator() {
         loadIndicator = createLoadingIndicator(in: waitView)
     }
@@ -72,5 +67,12 @@ extension ManageCardViewController: ManageCardViewModelOutputProtocol {
         waitView.isHidden = true
         loadIndicator.isHidden = true
         loadIndicator.stopAnimating()
+    }
+}
+
+extension ManageCardViewController: AddCardViewControllerDelegate {
+    func didAddCard(_ card: UserCreditCards) {
+        manageCardViewModel.userCreditCards.append(card)
+        tableView.reloadData()
     }
 }
