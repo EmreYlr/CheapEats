@@ -13,6 +13,7 @@ final class ManageCardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var waitView: UIView!
     private var loadIndicator: NVActivityIndicatorView!
+    private var refreshControl: UIRefreshControl!
     
     var manageCardViewModel: ManageCardViewModelProtocol = ManageCardViewModel()
     
@@ -20,8 +21,19 @@ final class ManageCardViewController: UIViewController {
         super.viewDidLoad()
         initTableView()
         setupLoadingIndicator()
+        initRefreshControl()
         initScreen()
         print("ManageCardViewController")
+    }
+    private func initRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .button
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc private func refreshData() {
+        manageCardViewModel.fetchUserCreditCards(isRefreshing: false)
     }
     
     private func setupLoadingIndicator() {
@@ -37,13 +49,14 @@ final class ManageCardViewController: UIViewController {
     
     func initScreen() {
         manageCardViewModel.delegate = self
-        manageCardViewModel.fetchUserCreditCards()
+        manageCardViewModel.fetchUserCreditCards(isRefreshing: true)
     }
 }
 
 extension ManageCardViewController: ManageCardViewModelOutputProtocol {
     func update() {
         tableView.reloadData()
+        refreshControl.endRefreshing()
         print("Update")
     }
     

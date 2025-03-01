@@ -9,7 +9,7 @@ import Foundation
 protocol ManageCardViewModelProtocol {
     var delegate: ManageCardViewModelOutputProtocol? { get set }
     var userCreditCards: [UserCreditCards] { get set }
-    func fetchUserCreditCards()
+    func fetchUserCreditCards(isRefreshing: Bool)
     func deleteUserCreditCard(at card: String, indexPath: IndexPath)
 }
 
@@ -25,9 +25,11 @@ final class ManageCardViewModel {
     weak var delegate: ManageCardViewModelOutputProtocol?
     var userCreditCards: [UserCreditCards] = []
     
-    func fetchUserCreditCards() {
+    func fetchUserCreditCards(isRefreshing: Bool) {
         userCreditCards.removeAll()
-        delegate?.startLoading()
+        if isRefreshing {
+            delegate?.startLoading()
+        }
         NetworkManager.shared.fetchUserCreditCards { [weak self] result in
             self?.delegate?.stopLoading()
             switch result {

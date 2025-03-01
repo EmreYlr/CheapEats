@@ -26,6 +26,7 @@ final class ProfileViewController: UIViewController {
     private var loadIndicator: NVActivityIndicatorView!
     let SB = UIStoryboard(name: "Main", bundle: nil)
     private var profileViewModel: ProfileViewModelProtocol = ProfileViewModel()
+    private var manageCardViewController: ManageCardViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +63,12 @@ final class ProfileViewController: UIViewController {
     }
     
     @IBAction func manageCardButtonClicked(_ sender: UIButton) {
-        let manageCardView = SB.instantiateViewController(withIdentifier: "ManageCardViewController") as! ManageCardViewController
-        navigationController?.pushViewController(manageCardView, animated: true)
+        if manageCardViewController == nil {
+            manageCardViewController = SB.instantiateViewController(withIdentifier: "ManageCardViewController") as? ManageCardViewController
+        }
+        if let manageCardVC = manageCardViewController {
+            navigationController?.pushViewController(manageCardVC, animated: true)
+        }
     }
     
     @IBAction func signOutButtonClicked(_ sender: UIButton) {
