@@ -1561,7 +1561,7 @@
                                             <constraint firstItem="hDg-uB-SBH" firstAttribute="leading" secondItem="boe-BH-tzN" secondAttribute="leading" constant="16" id="lvZ-Kb-SeF"/>
                                             <constraint firstItem="HAs-56-w0k" firstAttribute="leading" secondItem="boe-BH-tzN" secondAttribute="leading" constant="16" id="m2v-Hl-Jvw"/>
                                             <constraint firstItem="gGW-an-9OO" firstAttribute="top" secondItem="m0d-Ue-6sN" secondAttribute="bottom" constant="10" id="oUB-At-tT9"/>
-                                            <constraint firstItem="01J-G5-qcr" firstAttribute="leading" relation="lessThanOrEqual" secondItem="gGW-an-9OO" secondAttribute="trailing" constant="169" id="s3d-TO-rit"/>
+                                            <constraint firstItem="01J-G5-qcr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gGW-an-9OO" secondAttribute="trailing" constant="169" id="s3d-TO-rit"/>
                                             <constraint firstItem="hDg-uB-SBH" firstAttribute="top" secondItem="HAs-56-w0k" secondAttribute="bottom" constant="15" id="sSE-qW-YgA"/>
                                             <constraint firstItem="m0d-Ue-6sN" firstAttribute="top" secondItem="t6v-YB-Ub2" secondAttribute="bottom" constant="10" id="tIe-qA-DiN"/>
                                             <constraint firstItem="m0d-Ue-6sN" firstAttribute="leading" secondItem="boe-BH-tzN" secondAttribute="leading" constant="16" id="yYb-fG-bhQ"/>
@@ -2410,11 +2410,148 @@
                         <outlet property="profileView" destination="gdA-sO-AtD" id="q91-4E-hA5"/>
                         <outlet property="waitView" destination="JQv-TJ-DNN" id="DVC-oc-G7u"/>
                         <segue destination="avc-ac-JLp" kind="show" identifier="cardSeque" id="Mf4-mO-wti"/>
+                        <segue destination="WFT-8P-86L" kind="show" identifier="editProfileSeque" id="b3y-i9-wms"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aw9-xV-bBI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3649.6183206106871" y="1519.7183098591549"/>
+        </scene>
+        <!--Edit Profile-->
+        <scene sceneID="UB3-ue-bQQ">
+            <objects>
+                <viewController storyboardIdentifier="EditProfileViewController" id="WFT-8P-86L" customClass="EditProfileViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8h0-Pq-gb0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVc-ds-vQm">
+                                <rect key="frame" x="16" y="103" width="108" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" name="ButtonColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gy0-pN-N0h">
+                                <rect key="frame" x="0.0" y="138" width="393" height="270"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cTY-39-yTe" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="14" y="113" width="365" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="zeX-DH-FRz"/>
+                                        </constraints>
+                                        <color key="textColor" name="SecondTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                <color key="value" name="ButtonColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Soyisim" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1fu-oq-5hy" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="14" y="64" width="365" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="LJc-hl-nZ7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                <color key="value" name="ButtonColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QLH-20-4sQ" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="14" y="15" width="365" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="fXF-Dy-TBp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                <color key="value" name="ButtonColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAJ-wV-hd3">
+                                        <rect key="frame" x="14" y="215" width="365" height="45"/>
+                                        <color key="backgroundColor" name="ButtonColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="qI2-DE-cNm"/>
+                                            <constraint firstAttribute="height" constant="45" id="vfD-Gv-IKT"/>
+                                        </constraints>
+                                        <color key="tintColor" name="TextWhiteColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Kaydet">
+                                            <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="applyButtonClicked:" destination="WFT-8P-86L" eventType="touchUpInside" id="lLC-hP-fCC"/>
+                                            <action selector="confirmButtonClicked:" destination="Kv2-hv-gA4" eventType="touchUpInside" id="U23-dg-StG"/>
+                                            <action selector="pickupLocationButton:" destination="qYx-gA-22G" eventType="touchUpInside" id="ZKi-8n-stG"/>
+                                            <action selector="saveButtonClicked:" destination="Ukg-aq-CGc" eventType="touchUpInside" id="DPa-7t-zRN"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tel No" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DDU-uq-p9H" customClass="JVFloatLabeledTextField">
+                                        <rect key="frame" x="14" y="156" width="365" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="2KD-Hv-n8r"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                <color key="value" name="ButtonColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="zAJ-wV-hd3" firstAttribute="leading" secondItem="gy0-pN-N0h" secondAttribute="leading" constant="14" id="4wO-OD-jfh"/>
+                                    <constraint firstAttribute="trailing" secondItem="zAJ-wV-hd3" secondAttribute="trailing" constant="14" id="8nF-Ur-hx7"/>
+                                    <constraint firstItem="QLH-20-4sQ" firstAttribute="leading" secondItem="gy0-pN-N0h" secondAttribute="leading" constant="14" id="AxB-cz-EJX"/>
+                                    <constraint firstAttribute="trailing" secondItem="DDU-uq-p9H" secondAttribute="trailing" constant="14" id="GC6-Yy-dtM"/>
+                                    <constraint firstItem="1fu-oq-5hy" firstAttribute="top" secondItem="QLH-20-4sQ" secondAttribute="bottom" constant="14" id="Jok-56-Bke"/>
+                                    <constraint firstItem="DDU-uq-p9H" firstAttribute="top" secondItem="cTY-39-yTe" secondAttribute="bottom" constant="8" id="PQU-ex-cwT"/>
+                                    <constraint firstAttribute="trailing" secondItem="QLH-20-4sQ" secondAttribute="trailing" constant="14" id="XTN-mX-J76"/>
+                                    <constraint firstItem="QLH-20-4sQ" firstAttribute="top" secondItem="gy0-pN-N0h" secondAttribute="top" constant="15" id="aL0-3t-aAh"/>
+                                    <constraint firstAttribute="height" constant="270" id="esT-u6-NNJ"/>
+                                    <constraint firstItem="cTY-39-yTe" firstAttribute="leading" secondItem="gy0-pN-N0h" secondAttribute="leading" constant="14" id="fAS-gW-pYc"/>
+                                    <constraint firstItem="cTY-39-yTe" firstAttribute="top" secondItem="1fu-oq-5hy" secondAttribute="bottom" constant="14" id="kJ0-pr-kB9"/>
+                                    <constraint firstAttribute="bottom" secondItem="zAJ-wV-hd3" secondAttribute="bottom" constant="10" id="p4q-qY-IN8"/>
+                                    <constraint firstItem="DDU-uq-p9H" firstAttribute="leading" secondItem="gy0-pN-N0h" secondAttribute="leading" constant="14" id="r6m-Tm-MJc"/>
+                                    <constraint firstItem="1fu-oq-5hy" firstAttribute="leading" secondItem="gy0-pN-N0h" secondAttribute="leading" constant="14" id="s7K-EG-toJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="1fu-oq-5hy" secondAttribute="trailing" constant="14" id="tL4-rB-LMR"/>
+                                    <constraint firstAttribute="trailing" secondItem="cTY-39-yTe" secondAttribute="trailing" constant="14" id="yKu-zF-q9x"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NZA-up-KK3"/>
+                        <color key="backgroundColor" name="BGColor"/>
+                        <constraints>
+                            <constraint firstItem="gy0-pN-N0h" firstAttribute="trailing" secondItem="NZA-up-KK3" secondAttribute="trailing" id="71h-lv-xnT"/>
+                            <constraint firstItem="RVc-ds-vQm" firstAttribute="top" secondItem="NZA-up-KK3" secondAttribute="top" id="EHe-dD-cIa"/>
+                            <constraint firstItem="NZA-up-KK3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RVc-ds-vQm" secondAttribute="trailing" constant="269" id="FD3-QO-bHK"/>
+                            <constraint firstItem="gy0-pN-N0h" firstAttribute="top" secondItem="RVc-ds-vQm" secondAttribute="bottom" constant="8" id="P0z-lu-jJM"/>
+                            <constraint firstItem="RVc-ds-vQm" firstAttribute="leading" secondItem="NZA-up-KK3" secondAttribute="leading" constant="16" id="c6f-9G-9Ua"/>
+                            <constraint firstItem="gy0-pN-N0h" firstAttribute="leading" secondItem="NZA-up-KK3" secondAttribute="leading" id="rFV-5e-Vys"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="4v6-Nv-lEh"/>
+                    <connections>
+                        <outlet property="applyButton" destination="zAJ-wV-hd3" id="uBW-ZB-50C"/>
+                        <outlet property="editView" destination="gy0-pN-N0h" id="Q4u-ex-ESY"/>
+                        <outlet property="emailTextField" destination="cTY-39-yTe" id="tQr-AP-hIa"/>
+                        <outlet property="nameTextField" destination="QLH-20-4sQ" id="30C-66-3Dd"/>
+                        <outlet property="phoneNoTextField" destination="DDU-uq-p9H" id="1SB-8T-gWB"/>
+                        <outlet property="surnameTextField" destination="1fu-oq-5hy" id="gSk-L5-J2O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ws0-dE-iQG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4714" y="1520"/>
         </scene>
         <!--Manage Card-->
         <scene sceneID="IEg-cl-3p8">
@@ -2462,7 +2599,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxV-DH-DPR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4713.740458015267" y="1519.7183098591549"/>
+            <point key="canvasLocation" x="3650" y="2210"/>
         </scene>
         <!--Add New Card-->
         <scene sceneID="XpN-rb-kek">
@@ -2741,7 +2878,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sy6-w9-v6C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5596.1832061068699" y="1519.7183098591549"/>
+            <point key="canvasLocation" x="4714" y="2210"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

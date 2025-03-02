@@ -9,6 +9,7 @@ import Foundation
 protocol ProfileViewModelProtocol{
     var delegate: ProfileViewModelOutputProtocol? { get set}
     var user: Users? { get set }
+    func refreshUserData()
     func signOut()
 }
 
@@ -25,6 +26,9 @@ final class ProfileViewModel {
     
     init() {
         self.user = UserManager.shared.user
+    }
+    func refreshUserData() {
+        user = UserManager.shared.user
     }
     
     func signOut() {

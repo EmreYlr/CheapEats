@@ -34,7 +34,7 @@ final class FoodTableViewCell: UITableViewCell {
     }
     
     func configureCell(productDetail: ProductDetails) {
-        companyNameLabel.text = productDetail.restaurant.name
+        companyNameLabel.text = productDetail.restaurant.companyName
         dateLabel.text = dateFormatter(with: productDetail.product.createdAt)
         foodNameLabel.text = productDetail.product.name
         oldAmountLabel.text = "\(formatDouble(productDetail.product.oldPrice)) TL"

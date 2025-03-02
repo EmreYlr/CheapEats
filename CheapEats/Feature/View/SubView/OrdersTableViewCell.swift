@@ -38,7 +38,7 @@ class OrdersTableViewCell: UITableViewCell {
         ordersImageView.kf.indicatorType = .activity
         ordersImageView.kf.setImage(with: URL(string: ordersDetail.productDetail.product.imageUrl))
         foodNameLbl.text = ordersDetail.productDetail.product.name
-        companyNameLbl.text = ordersDetail.productDetail.restaurant.name
+        companyNameLbl.text = ordersDetail.productDetail.restaurant.companyName
         orderDateLbl.text = dateFormatter(with: ordersDetail.userOrder.orderDate)
         let status = ordersDetail.userOrder.status
         orderDeliveryStatusLbl.text = status.rawValue

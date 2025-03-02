@@ -44,6 +44,26 @@ extension NetworkManager {
         }
     }
     
+    func updateUserInfo(user: Users, completion: @escaping (Result<Void, Error>) -> Void) {
+        let userId = Auth.auth().currentUser?.uid ?? ""
+        let userRef = db.collection("users").document(userId)
+        let updates: [String: Any] = [
+            "firstName": user.firstName,
+            "lastName": user.lastName,
+            "email": user.email,
+            "phoneNumber": user.phoneNumber,
+            "updatedAt": Timestamp(date: Date())
+        ]
+        userRef.updateData(updates) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                UserManager.shared.user = user
+                completion(.success(()))
+            }
+        }
+    }
+    
     func resetPassword(email: String, completion: @escaping (Result<Void, Error>) -> Void) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if let error = error {

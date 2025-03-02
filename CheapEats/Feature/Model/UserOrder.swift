@@ -15,6 +15,7 @@ struct UserOrder {
     var productId: String
     var status: OrderStatus
     var userId: String
+    var cardInfo: String
     
     init?(dictionary: [String: Any], documentId: String) {
         self.orderId = documentId
@@ -24,6 +25,7 @@ struct UserOrder {
             self.orderDate = Date()
         }
         self.orderNo = dictionary["orderNo"] as? String ?? ""
+        self.cardInfo = dictionary["cardInfo"] as? String ?? ""
         self.productId = dictionary["productId"] as? String ?? ""
         let statusString = dictionary["status"] as? String ?? OrderStatus.delivered.rawValue
         self.status = OrderStatus(rawValue: statusString) ?? .preparing

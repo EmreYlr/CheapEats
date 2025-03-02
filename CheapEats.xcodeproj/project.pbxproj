@@ -19,6 +19,8 @@
 		7E8FB72D2CFB43EB005AA2E4 /* OrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E8FB72B2CFB43EB005AA2E4 /* OrdersTableViewCell.xib */; };
 		C301F7762CFA60AC000E7B99 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301F7752CFA60AC000E7B99 /* DetailViewModel.swift */; };
 		C301F7782CFA6542000E7B99 /* MoreViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301F7772CFA6542000E7B99 /* MoreViewController+Search.swift */; };
+		C31C06BE2D74D24E00617FC6 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31C06BD2D74D24E00617FC6 /* EditProfileViewController.swift */; };
+		C31C06C02D74D27C00617FC6 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31C06BF2D74D27700617FC6 /* EditProfileViewModel.swift */; };
 		C320E2EA2D075C85004C6122 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C320E2E92D075C85004C6122 /* UIViewController+Extension.swift */; };
 		C32CBEF82CF89C990016F444 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEF72CF89C990016F444 /* UIView+Extension.swift */; };
 		C32CBEFA2CF8A2110016F444 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEF92CF8A2110016F444 /* Users.swift */; };
@@ -111,6 +113,8 @@
 		7E8FB72B2CFB43EB005AA2E4 /* OrdersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrdersTableViewCell.xib; sourceTree = "<group>"; };
 		C301F7752CFA60AC000E7B99 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		C301F7772CFA6542000E7B99 /* MoreViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreViewController+Search.swift"; sourceTree = "<group>"; };
+		C31C06BD2D74D24E00617FC6 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		C31C06BF2D74D27700617FC6 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		C320E2E92D075C85004C6122 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		C32CBEF72CF89C990016F444 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C32CBEF92CF8A2110016F444 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -203,6 +207,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C31C06BA2D74D22D00617FC6 /* Edit Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C31C06BD2D74D24E00617FC6 /* EditProfileViewController.swift */,
+			);
+			path = "Edit Profile";
+			sourceTree = "<group>";
+		};
 		C320E2E62D0717D8004C6122 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +228,7 @@
 		C320E2E72D071801004C6122 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				C31C06BA2D74D22D00617FC6 /* Edit Profile */,
 				C3B394BD2D6A2A3D007CD437 /* Manage Card */,
 				7E2B93F52CFF828D00D84BB0 /* ProfileViewController.swift */,
 			);
@@ -369,6 +382,7 @@
 				C3C6FDDD2CFE19A20045DEDE /* BottomSheetViewModel.swift */,
 				C3B394BB2D6A29EE007CD437 /* ManageCardViewModel.swift */,
 				C3395A8A2D6B4B8700461A5E /* AddCardViewModel.swift */,
+				C31C06BF2D74D27700617FC6 /* EditProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -593,6 +607,7 @@
 				C36D3EA12CF34534008FE62B /* AppDelegate.swift in Sources */,
 				C3395A822D6B3A7400461A5E /* UserCreditCards.swift in Sources */,
 				C3ADE9812D53B68200278990 /* RouterDistance.swift in Sources */,
+				C31C06BE2D74D24E00617FC6 /* EditProfileViewController.swift in Sources */,
 				C3395A882D6B4B4E00461A5E /* AddCardViewController.swift in Sources */,
 				7E2B93F82CFF830100D84BB0 /* ProfileViewModel.swift in Sources */,
 				C3395A842D6B408800461A5E /* CreditCardValidation.swift in Sources */,
@@ -632,6 +647,7 @@
 				C3B394BA2D6A1B11007CD437 /* PDFHelper.swift in Sources */,
 				C3B394B32D69F36B007CD437 /* DetailViewController+ScrollView.swift in Sources */,
 				C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */,
+				C31C06C02D74D27C00617FC6 /* EditProfileViewModel.swift in Sources */,
 				C3EAD8482D4E732F00CD49CE /* LocationManager.swift in Sources */,
 				C3B394BC2D6A29F2007CD437 /* ManageCardViewModel.swift in Sources */,
 				C32CBEFA2CF8A2110016F444 /* Users.swift in Sources */,

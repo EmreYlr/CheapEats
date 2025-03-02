@@ -37,7 +37,7 @@ final class OrderDetailViewModel {
             let mapItemCurrentLocation = MKMapItem(placemark: currentLocation)
             let mapItemDestination = MKMapItem(placemark: destination)
             mapItemCurrentLocation.name = "Current Location"
-            mapItemDestination.name = order?.productDetail.restaurant.name ?? "Target"
+            mapItemDestination.name = order?.productDetail.restaurant.companyName ?? "Target"
             let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             MKMapItem.openMaps(with: [mapItemCurrentLocation, mapItemDestination], launchOptions: options)
         }

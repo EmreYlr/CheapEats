@@ -90,7 +90,7 @@ final class OrderDetailViewController: UIViewController{
         if let order = orderDetailViewModel.order {
             detailImageView.kf.indicatorType = .activity
             detailImageView.kf.setImage(with: URL(string: order.productDetail.product.imageUrl))
-            companyLabel.text = "\(order.productDetail.restaurant.name)"
+            companyLabel.text = "\(order.productDetail.restaurant.companyName)"
             foodLabel.text = "\(order.productDetail.product.name)"
             totalPriceLabel.text = "\(formatDouble(order.productDetail.product.newPrice)) TL"
             orderNo.text = "#\(order.userOrder.orderNo)"
@@ -105,7 +105,7 @@ final class OrderDetailViewController: UIViewController{
                 orderStatusLabel.textColor = .cut
             }
             //TODO: Kart Bilgileri gelecek
-            cardNumberLabel.text = "**** **** **** 4345"
+            cardNumberLabel.text = "**** **** **** \(order.userOrder.cardInfo)"
             let oldAmount = Double(order.productDetail.product.oldPrice)
             let newAmount = Double(order.productDetail.product.newPrice)
             oldAmountLabel.text = "\(formatDouble(order.productDetail.product.oldPrice)) TL"

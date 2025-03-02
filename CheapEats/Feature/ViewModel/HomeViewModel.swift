@@ -16,6 +16,7 @@ protocol HomeViewModelProtocol {
     var recommendedProduct: [ProductDetails] { get set }
     var closeProduct: [ProductDetails] { get set }
     func fetchData()
+    func refreshUserData()
     func combineProductAndRestaurantDetails()
     func collectionLoad()
     func checkLocationPermission(with locationManager: CLLocationManager) -> Bool
@@ -42,6 +43,9 @@ final class HomeViewModel {
     private let dispatchGroup = DispatchGroup()
     
     init() {
+        self.user = UserManager.shared.user
+    }
+    func refreshUserData() {
         self.user = UserManager.shared.user
     }
 

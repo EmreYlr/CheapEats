@@ -30,7 +30,7 @@ final class DetailViewModel {
             let location = CLLocationCoordinate2D(latitude: productDetail.restaurant.location.latitude, longitude: productDetail.restaurant.location.longitude)
             let annotation = MKPointAnnotation()
             annotation.coordinate = location
-            annotation.title = productDetail.restaurant.name
+            annotation.title = productDetail.restaurant.companyName
             mapView.addAnnotation(annotation)
             let region = MKCoordinateRegion(center: location, latitudinalMeters: 800, longitudinalMeters: 800)
             mapView.setRegion(region, animated: true)

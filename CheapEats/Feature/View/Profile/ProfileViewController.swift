@@ -27,21 +27,37 @@ final class ProfileViewController: UIViewController {
     let SB = UIStoryboard(name: "Main", bundle: nil)
     private var profileViewModel: ProfileViewModelProtocol = ProfileViewModel()
     private var manageCardViewController: ManageCardViewController?
+    private var editProfileViewController: EditProfileViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("ProfileViewModel")
         initScreen()
         setupLoadingIndicator()
+        updateUserInfo()
+        NotificationCenter.default.addObserver(self, selector: #selector(userProfileUpdated), name: NSNotification.Name("UserProfileUpdated"), object: nil)
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func userProfileUpdated() {
+        profileViewModel.refreshUserData()
+        updateUserInfo()
+        showOneButtonAlert(title: "Uyarı", message: "İşleminiz başarılı bir şekilde gerçekleştirildi.")
+    }
+    private func setupLoadingIndicator() {
+        loadIndicator = createLoadingIndicator(in: waitView)
+    }
+    
+    private func updateUserInfo() {
         if let user = profileViewModel.user {
             profileName.text = "\(user.firstName) \(user.lastName)"
             emailLabel.text = user.email
-            phoneLabel.text = "5523439914" //TODO: - phone number
+            phoneLabel.text = user.phoneNumber
         }
-    }
-    
-    private func setupLoadingIndicator() {
-        loadIndicator = createLoadingIndicator(in: waitView)
     }
     
     private func initScreen() {
@@ -59,7 +75,12 @@ final class ProfileViewController: UIViewController {
     }
     
     @IBAction func editProfileButtonClicked(_ sender: UIButton) {
-        
+        if editProfileViewController == nil {
+            editProfileViewController = SB.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController
+        }
+        if let editProfileVC = editProfileViewController {
+            navigationController?.pushViewController(editProfileVC, animated: true)
+        }
     }
     
     @IBAction func manageCardButtonClicked(_ sender: UIButton) {

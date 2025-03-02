@@ -10,7 +10,9 @@ import FirebaseFirestore
 
 struct Restaurant {
     let restaurantId: String
-    let name: String
+    let ownerName: String
+    let ownerSurname: String
+    let companyName: String
     let address: String
     let email: String
     let phone: String
@@ -19,7 +21,9 @@ struct Restaurant {
     
     init?(dictionary: [String: Any], documentId: String) {
         self.restaurantId = documentId
-        self.name = dictionary["name"] as? String ?? ""
+        self.companyName = dictionary["companyName"] as? String ?? ""
+        self.ownerName = dictionary["ownerName"] as? String ?? ""
+        self.ownerSurname = dictionary["ownerSurname"] as? String ?? ""
         self.address = dictionary["address"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
         self.phone = dictionary["phone"] as? String ?? ""

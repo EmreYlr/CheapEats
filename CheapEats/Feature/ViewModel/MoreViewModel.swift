@@ -76,7 +76,7 @@ final class MoreViewModel {
             filterProducts = productDetail
         } else {
             filterProducts = productDetail?.filter { productDetails in
-                productDetails.restaurant.name.localizedCaseInsensitiveContains(searchText) ||
+                productDetails.restaurant.companyName.localizedCaseInsensitiveContains(searchText) ||
                 productDetails.product
                     .name.localizedCaseInsensitiveContains(searchText)
             }

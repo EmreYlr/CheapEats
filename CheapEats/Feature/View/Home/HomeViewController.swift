@@ -34,6 +34,12 @@ final class HomeViewController: UIViewController{
         setupLoadingIndicator()
         homeViewModel.delegate = self
         initLoad()
+        initScreen()
+        updateUserInfo()
+        NotificationCenter.default.addObserver(self, selector: #selector(userProfileUpdated), name: NSNotification.Name("UserProfileUpdated"), object: nil)
+         
+    }
+    func initScreen() {
         collectionViewSettings(with: endlingCollectionView)
         collectionViewSettings(with: recommendedCollectionView)
         collectionViewSettings(with: closeCollectionView)
@@ -44,7 +50,6 @@ final class HomeViewController: UIViewController{
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         refreshControl.tintColor = UIColor(named: "ButtonColor")
         scrollView.refreshControl = refreshControl
-         
     }
     
     @objc func refreshData() {
@@ -53,18 +58,28 @@ final class HomeViewController: UIViewController{
             self.refreshControl.endRefreshing()
         }
     }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
+    @objc private func userProfileUpdated() {
+        homeViewModel.refreshUserData()
+        updateUserInfo()
+    }
     private func setupLoadingIndicator() {
         loadIndicator = createLoadingIndicator(in: waitView)
     }
 
     private func initLoad(){
-        if let user = homeViewModel.user {
-            helloLabel.text = "Hello, \(user.firstName) \(user.lastName)"
-        }
         initCollectionView(with: closeCollectionView)
         initCollectionView(with: endlingCollectionView)
         initCollectionView(with: recommendedCollectionView)
+    }
+    
+    private func updateUserInfo() {
+        if let user = homeViewModel.user {
+            helloLabel.text = "Hello, \(user.firstName) \(user.lastName)"
+        }
     }
     
     private func initCollectionView(with collectionView: UICollectionView) {
