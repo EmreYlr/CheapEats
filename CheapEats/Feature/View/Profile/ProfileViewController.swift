@@ -22,12 +22,14 @@ final class ProfileViewController: UIViewController {
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var exitButton: UIButton!
     @IBOutlet weak var waitView: UIView!
+    @IBOutlet weak var changePasswordButton: UIButton!
     
     private var loadIndicator: NVActivityIndicatorView!
     let SB = UIStoryboard(name: "Main", bundle: nil)
     private var profileViewModel: ProfileViewModelProtocol = ProfileViewModel()
     private var manageCardViewController: ManageCardViewController?
     private var editProfileViewController: EditProfileViewController?
+    private var changePasswordViewController: ChangePasswordViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +82,15 @@ final class ProfileViewController: UIViewController {
         }
         if let editProfileVC = editProfileViewController {
             navigationController?.pushViewController(editProfileVC, animated: true)
+        }
+    }
+    
+    @IBAction func changePasswordButton(_ sender: UIButton) {
+        if changePasswordViewController == nil {
+            changePasswordViewController = SB.instantiateViewController(withIdentifier: "ChangePasswordViewController") as? ChangePasswordViewController
+        }
+        if let changePasswordVC = changePasswordViewController {
+            navigationController?.pushViewController(changePasswordVC, animated: true)
         }
     }
     
