@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 final class EditProfileViewController: UIViewController {
     //MARK: -Variables
@@ -15,7 +16,8 @@ final class EditProfileViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneNoTextField: UITextField!
     @IBOutlet weak var applyButton: UIButton!
-    
+    @IBOutlet weak var waitView: UIView!
+    private var loadIndicator: NVActivityIndicatorView!
     var editProfileViewModel: EditProfileViewModelProtocol = EditProfileViewModel()
     
     override func viewDidLoad() {
@@ -23,7 +25,17 @@ final class EditProfileViewController: UIViewController {
         initData()
         initScreen()
         setupTextFieldObservers()
+        setupLoadingIndicator()
         print("EditProfileViewController")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateButtonState()
+    }
+    
+    private func setupLoadingIndicator() {
+        loadIndicator = createLoadingIndicator(in: waitView)
     }
     
     func initScreen() {
@@ -91,5 +103,17 @@ extension EditProfileViewController: EditProfileViewModelOutputProtocol {
     func updateButtonState(isEnabled: Bool) {
         applyButton.isEnabled = isEnabled
         applyButton.alpha = isEnabled ? 1.0 : 0.5
+    }
+    
+    func startLoading() {
+        waitView.isHidden = false
+        loadIndicator.isHidden = false
+        loadIndicator.startAnimating()
+    }
+    
+    func stopLoading() {
+        waitView.isHidden = true
+        loadIndicator.isHidden = true
+        loadIndicator.stopAnimating()
     }
 }

@@ -2527,15 +2527,23 @@
                                     <constraint firstAttribute="trailing" secondItem="cTY-39-yTe" secondAttribute="trailing" constant="14" id="yKu-zF-q9x"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOj-Nz-NtJ" userLabel="Wait View">
+                                <rect key="frame" x="0.0" y="138" width="393" height="631"/>
+                                <color key="backgroundColor" name="BGColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NZA-up-KK3"/>
                         <color key="backgroundColor" name="BGColor"/>
                         <constraints>
                             <constraint firstItem="gy0-pN-N0h" firstAttribute="trailing" secondItem="NZA-up-KK3" secondAttribute="trailing" id="71h-lv-xnT"/>
+                            <constraint firstItem="rOj-Nz-NtJ" firstAttribute="bottom" secondItem="NZA-up-KK3" secondAttribute="bottom" id="Abo-ie-UPi"/>
                             <constraint firstItem="RVc-ds-vQm" firstAttribute="top" secondItem="NZA-up-KK3" secondAttribute="top" id="EHe-dD-cIa"/>
                             <constraint firstItem="NZA-up-KK3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RVc-ds-vQm" secondAttribute="trailing" constant="269" id="FD3-QO-bHK"/>
+                            <constraint firstItem="rOj-Nz-NtJ" firstAttribute="top" secondItem="RVc-ds-vQm" secondAttribute="bottom" constant="8" id="HNI-HI-fML"/>
                             <constraint firstItem="gy0-pN-N0h" firstAttribute="top" secondItem="RVc-ds-vQm" secondAttribute="bottom" constant="8" id="P0z-lu-jJM"/>
+                            <constraint firstItem="rOj-Nz-NtJ" firstAttribute="trailing" secondItem="NZA-up-KK3" secondAttribute="trailing" id="Zdd-Ke-p82"/>
                             <constraint firstItem="RVc-ds-vQm" firstAttribute="leading" secondItem="NZA-up-KK3" secondAttribute="leading" constant="16" id="c6f-9G-9Ua"/>
+                            <constraint firstItem="rOj-Nz-NtJ" firstAttribute="leading" secondItem="NZA-up-KK3" secondAttribute="leading" id="p4p-ux-XSq"/>
                             <constraint firstItem="gy0-pN-N0h" firstAttribute="leading" secondItem="NZA-up-KK3" secondAttribute="leading" id="rFV-5e-Vys"/>
                         </constraints>
                     </view>
@@ -2547,11 +2555,12 @@
                         <outlet property="nameTextField" destination="QLH-20-4sQ" id="30C-66-3Dd"/>
                         <outlet property="phoneNoTextField" destination="DDU-uq-p9H" id="1SB-8T-gWB"/>
                         <outlet property="surnameTextField" destination="1fu-oq-5hy" id="gSk-L5-J2O"/>
+                        <outlet property="waitView" destination="rOj-Nz-NtJ" id="5lm-Ya-saU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ws0-dE-iQG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4714" y="1520"/>
+            <point key="canvasLocation" x="4713.740458015267" y="1519.7183098591549"/>
         </scene>
         <!--Manage Card-->
         <scene sceneID="IEg-cl-3p8">

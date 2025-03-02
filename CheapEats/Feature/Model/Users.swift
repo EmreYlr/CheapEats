@@ -9,12 +9,12 @@ import Foundation
 import FirebaseFirestore
 
 struct Users {
-    let uid: String
+    var uid: String
     let firstName: String
     let lastName: String
     let email: String
     let phoneNumber: String
-    let createdAt: Date
+    var createdAt: Date
     var updatedAt: Date?
     
     init?(data: [String: Any]) {

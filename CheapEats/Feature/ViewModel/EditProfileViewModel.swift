@@ -15,6 +15,8 @@ protocol EditProfileViewModelProtocol {
 protocol EditProfileViewModelOutputProtocol: AnyObject {
     func update()
     func error()
+    func startLoading()
+    func stopLoading()
     func updateButtonState(isEnabled: Bool)
 }
 
@@ -53,7 +55,17 @@ final class EditProfileViewModel {
     }
     
     func updateUserInfo(name: String?, surname: String?, email: String?, phone: String?) {
-        let user = Users(firstName: name ?? "", lastName: surname ?? "", email: email ?? "", phoneNumber: phone ?? "")
+        delegate?.startLoading()
+        originalName = name ?? ""
+        originalSurname = surname ?? ""
+        originalEmail = email ?? ""
+        originalPhone = phone ?? ""
+        var user = Users(firstName: name ?? "", lastName: surname ?? "", email: email ?? "", phoneNumber: phone ?? "")
+        if let tempUser = self.user {
+            user.uid = tempUser.uid
+            user.createdAt = tempUser.createdAt
+        }
+        
         NetworkManager.shared.updateUserInfo(user: user) { result in
             switch result {
             case .success:
@@ -62,8 +74,8 @@ final class EditProfileViewModel {
                 print(error)
                 self.delegate?.error()
             }
+            self.delegate?.stopLoading()
         }
-        
     }
 }
 
