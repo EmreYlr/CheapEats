@@ -46,5 +46,12 @@ extension MapScreenViewController: MKMapViewDelegate {
             print("Selected restaurant: \(title ?? ""), \(subtitle ?? "")")
         }
     }
+    func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
+        if mode == .none {
+            mapView.showsUserLocation = false
+        } else {
+            mapView.showsUserLocation = true
+        }
+    }
 }
 

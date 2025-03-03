@@ -8,11 +8,22 @@ final class MapScreenViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     var mapScreenViewModel: MapScreenViewModelProtocol = MapScreenViewModel()
+    private let categoriesToShow = [
+        MKPointOfInterestCategory.park,
+        MKPointOfInterestCategory.museum,
+        MKPointOfInterestCategory.nationalPark,
+        MKPointOfInterestCategory.stadium,
+        MKPointOfInterestCategory.university,
+        MKPointOfInterestCategory.hospital,
+        MKPointOfInterestCategory.hotel,
+        MKPointOfInterestCategory.pharmacy,
+        MKPointOfInterestCategory.school,
+        MKPointOfInterestCategory.gasStation
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MapScreenViewController")
-        mapScreenViewModel.delegate = self
         initLoad()
         setupMap()
     }
@@ -33,6 +44,7 @@ final class MapScreenViewController: UIViewController {
     }
     
     private func setupMap() {
+        mapScreenViewModel.delegate = self
         mapView.delegate = self
         mapView.showsCompass = false
         mapView.showsScale = false
@@ -40,6 +52,7 @@ final class MapScreenViewController: UIViewController {
         mapView.showsBuildings = false
         mapView.showsLargeContentViewer = false
         mapView.showsUserTrackingButton = true
+        mapView.pointOfInterestFilter = MKPointOfInterestFilter(including: categoriesToShow)
         mapScreenViewModel.centerMapToLocation(with: mapView)
         updateUserLocationOnMap()
         addRestaurantPins()
@@ -61,12 +74,7 @@ final class MapScreenViewController: UIViewController {
     }
     
     private func addRestaurantPins() {
-        for restaurant in mapScreenViewModel.mockRestaurants {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: restaurant.location.latitude, longitude: restaurant.location.longitude)
-            annotation.title = restaurant.companyName
-            mapView.addAnnotation(annotation)
-        }
+        mapScreenViewModel.addRestaurantPins(with: mapView)
     }
 }
 
