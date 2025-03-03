@@ -46,13 +46,27 @@ final class HomeViewController: UIViewController{
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         accessView.isHidden = homeViewModel.checkLocationPermission(with: locationManager)
+        if accessView.isHidden {
+            startLocationServices()
+        }
         homeViewModel.fetchData()
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         refreshControl.tintColor = UIColor(named: "ButtonColor")
         scrollView.refreshControl = refreshControl
     }
     
+    func startLocationServices() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    func stopLocationServices() {
+        locationManager.stopUpdatingLocation()
+    }
+    
     @objc func refreshData() {
+        if self.homeViewModel.checkLocationPermission(with: self.locationManager) {
+            self.startLocationServices()
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.homeViewModel.fetchData()
             self.refreshControl.endRefreshing()

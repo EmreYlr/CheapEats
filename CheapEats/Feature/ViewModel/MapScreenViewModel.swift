@@ -7,6 +7,7 @@
 
 import Foundation
 import MapKit
+import Firebase
 
 protocol MapScreenViewModelProtocol {
     var delegate: MapScreenViewModelOutputProtocol? { get set}
@@ -14,6 +15,7 @@ protocol MapScreenViewModelProtocol {
     var longitude: Double? { get set }
     func centerMapToLocation(with mapView: MKMapView)
     func checkLocationCoordinate() -> Bool
+    var mockRestaurants: [Restaurant] {get set}
 }
 
 protocol MapScreenViewModelOutputProtocol: AnyObject {
@@ -25,6 +27,62 @@ final class MapScreenViewModel {
     weak var delegate: MapScreenViewModelOutputProtocol?
     var latitude: Double?
     var longitude: Double?
+    var mockRestaurants: [Restaurant] = [
+            Restaurant(dictionary: [
+                "companyName": "Gourmet Heaven",
+                "ownerName": "Ali",
+                "ownerSurname": "Veli",
+                "address": "123 Atatürk Bulvarı, Şahinbey, Gaziantep",
+                "email": "ali.veli@gourmetheaven.com",
+                "phone": "555-1234",
+                "location": GeoPoint(latitude: 37.058, longitude: 37.382),
+                "createdAt": Timestamp(date: Date())
+            ], documentId: "1")!,
+            
+            Restaurant(dictionary: [
+                "companyName": "Seafood Delight",
+                "ownerName": "Ayşe",
+                "ownerSurname": "Yılmaz",
+                "address": "456 Cumhuriyet Caddesi, Şahinbey, Gaziantep",
+                "email": "ayse.yilmaz@seafooddelight.com",
+                "phone": "555-5678",
+                "location": GeoPoint(latitude: 37.065, longitude: 37.375),
+                "createdAt": Timestamp(date: Date())
+            ], documentId: "2")!,
+            
+            Restaurant(dictionary: [
+                "companyName": "Veggie Paradise",
+                "ownerName": "Mehmet",
+                "ownerSurname": "Kara",
+                "address": "789 Karataş Mahallesi, Şahinbey, Gaziantep",
+                "email": "mehmet.kara@veggieparadise.com",
+                "phone": "555-9101",
+                "location": GeoPoint(latitude: 37.042, longitude: 37.358),
+                "createdAt": Timestamp(date: Date())
+            ], documentId: "3")!,
+            
+            Restaurant(dictionary: [
+                "companyName": "Steak House",
+                "ownerName": "Fatma",
+                "ownerSurname": "Demir",
+                "address": "321 Güneykent Mahallesi, Şahinbey, Gaziantep",
+                "email": "fatma.demir@steakhouse.com",
+                "phone": "555-1122",
+                "location": GeoPoint(latitude: 37.028, longitude: 37.391),
+                "createdAt": Timestamp(date: Date())
+            ], documentId: "4")!,
+            
+            Restaurant(dictionary: [
+                "companyName": "Pizza Palace",
+                "ownerName": "Ahmet",
+                "ownerSurname": "Çelik",
+                "address": "654 23 Nisan Mahallesi, Şahinbey, Gaziantep",
+                "email": "ahmet.celik@pizzapalace.com",
+                "phone": "555-3344",
+                "location": GeoPoint(latitude: 37.073, longitude: 37.362),
+                "createdAt": Timestamp(date: Date())
+            ], documentId: "5")!
+        ]
     
     func centerMapToLocation(with mapView: MKMapView) {
         guard let latitude = latitude, let longitude = longitude else { return }
@@ -32,12 +90,7 @@ final class MapScreenViewModel {
         let region = MKCoordinateRegion(center: location, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
         
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location
-        annotation.title = "Burdasın"
-        mapView.showsUserTrackingButton = true
-        mapView.addAnnotation(annotation)
-        
+        //mapView.showsUserLocation = true
     }
     
     private func updateLocation() {

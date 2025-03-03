@@ -14,7 +14,7 @@ extension HomeViewController: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         let status = manager.authorizationStatus
         if status == .authorizedWhenInUse || status == .authorizedAlways {
-            locationManager.requestLocation()
+            startLocationServices()
             accessView.isHidden = true
         } else if status == .denied {
             print("Kullanıcı konum iznini reddetti.")
@@ -32,7 +32,9 @@ extension HomeViewController: CLLocationManagerDelegate {
         LocationManager.shared.currentLongitude = longitude
         
         let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
+            guard let self = self else { return }
+            
             if let error = error {
                 print("Adres alınamadı: \(error.localizedDescription)")
                 return
@@ -49,13 +51,12 @@ extension HomeViewController: CLLocationManagerDelegate {
                 ].compactMap { $0 }.joined(separator: ", ")
                 self.locationDescriptionLabel.text = address
                 print("Adres: \(address)")
+                self.stopLocationServices()
             }
         }
     }
-    
-    // Konum alınamadığında çalışır
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Konum alınamadı: \(error.localizedDescription)")
+        stopLocationServices()
     }
-    
 }

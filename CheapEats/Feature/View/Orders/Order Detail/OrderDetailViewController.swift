@@ -104,7 +104,6 @@ final class OrderDetailViewController: UIViewController{
             case .canceled:
                 orderStatusLabel.textColor = .cut
             }
-            //TODO: Kart Bilgileri gelecek
             cardNumberLabel.text = "**** **** **** \(order.userOrder.cardInfo)"
             let oldAmount = Double(order.productDetail.product.oldPrice)
             let newAmount = Double(order.productDetail.product.newPrice)
