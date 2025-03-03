@@ -15,7 +15,9 @@ protocol MapScreenViewModelProtocol {
     var longitude: Double? { get set }
     func centerMapToLocation(with mapView: MKMapView)
     func checkLocationCoordinate() -> Bool
-    var mockRestaurants: [Restaurant] {get set}
+    var mockRestaurants: [Restaurant] { get set }
+    var userAnnotation: MKPointAnnotation? { get }
+    func createUserLocationAnnotation() -> MKPointAnnotation?
 }
 
 protocol MapScreenViewModelOutputProtocol: AnyObject {
@@ -84,13 +86,16 @@ final class MapScreenViewModel {
             ], documentId: "5")!
         ]
     
+    private var _userAnnotation: MKPointAnnotation?
+    var userAnnotation: MKPointAnnotation? {
+        return _userAnnotation
+    }
+    
     func centerMapToLocation(with mapView: MKMapView) {
         guard let latitude = latitude, let longitude = longitude else { return }
         let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let region = MKCoordinateRegion(center: location, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
-        
-        //mapView.showsUserLocation = true
     }
     
     private func updateLocation() {
@@ -108,7 +113,20 @@ final class MapScreenViewModel {
         }
         return false
     }
+    
+    func createUserLocationAnnotation() -> MKPointAnnotation? {
+        updateLocation()
+        guard let latitude = self.latitude, let longitude = self.longitude else {
+            return nil
+        }
+        
+        let userLocation = MKPointAnnotation()
+        userLocation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        userLocation.title = "Konumunuz"
+        
+        _userAnnotation = userLocation
+        return userLocation
+    }
 }
-
 
 extension MapScreenViewModel: MapScreenViewModelProtocol {}

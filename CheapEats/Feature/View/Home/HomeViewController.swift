@@ -55,6 +55,16 @@ final class HomeViewController: UIViewController{
         scrollView.refreshControl = refreshControl
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshLocation()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopLocationServices()
+    }
+    
     func startLocationServices() {
         locationManager.startUpdatingLocation()
     }
@@ -64,14 +74,18 @@ final class HomeViewController: UIViewController{
     }
     
     @objc func refreshData() {
-        if self.homeViewModel.checkLocationPermission(with: self.locationManager) {
-            self.startLocationServices()
-        }
+        refreshLocation()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.homeViewModel.fetchData()
             self.refreshControl.endRefreshing()
         }
     }
+    private func refreshLocation() {
+        if self.homeViewModel.checkLocationPermission(with: self.locationManager) {
+            self.startLocationServices()
+        }
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }

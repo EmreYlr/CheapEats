@@ -67,6 +67,7 @@
 		C3766BF62D6A80F600E75ABE /* AddManageCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3766BF52D6A80F600E75ABE /* AddManageCardTableViewCell.xib */; };
 		C3766BF72D6A80F600E75ABE /* AddManageCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3766BF42D6A80F600E75ABE /* AddManageCardTableViewCell.swift */; };
 		C37B42562CF4E41500A03C4D /* NetworkManager+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B42552CF4E41500A03C4D /* NetworkManager+Response.swift */; };
+		C37E487C2D760CC500B8B1E1 /* MapScreenViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E487B2D760CB700B8B1E1 /* MapScreenViewController+MapView.swift */; };
 		C38469172D6BB97E001E37C2 /* AddCardViewController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38469162D6BB96F001E37C2 /* AddCardViewController+TextField.swift */; };
 		C38901A52D525337004522F7 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38901A42D525332004522F7 /* ProductDetails.swift */; };
 		C3986A062CFA60640085521A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3986A052CFA60640085521A /* DetailViewController.swift */; };
@@ -158,6 +159,7 @@
 		C3766BF42D6A80F600E75ABE /* AddManageCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddManageCardTableViewCell.swift; sourceTree = "<group>"; };
 		C3766BF52D6A80F600E75ABE /* AddManageCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddManageCardTableViewCell.xib; sourceTree = "<group>"; };
 		C37B42552CF4E41500A03C4D /* NetworkManager+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Response.swift"; sourceTree = "<group>"; };
+		C37E487B2D760CB700B8B1E1 /* MapScreenViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapScreenViewController+MapView.swift"; sourceTree = "<group>"; };
 		C38469162D6BB96F001E37C2 /* AddCardViewController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCardViewController+TextField.swift"; sourceTree = "<group>"; };
 		C38901A42D525332004522F7 /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
 		C3986A052CFA60640085521A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 		C3EAD8402D4E700F00CD49CE /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				C37E487B2D760CB700B8B1E1 /* MapScreenViewController+MapView.swift */,
 				C3EAD8432D4E705500CD49CE /* MapScreenViewController.swift */,
 			);
 			path = Map;
@@ -659,6 +662,7 @@
 				C3E482ED2D08998500C28240 /* Product.swift in Sources */,
 				C301F7762CFA60AC000E7B99 /* DetailViewModel.swift in Sources */,
 				C3657B5E2D4D0C160003918D /* NetworkManager+Request.swift in Sources */,
+				C37E487C2D760CC500B8B1E1 /* MapScreenViewController+MapView.swift in Sources */,
 				C3E482EF2D0A266000C28240 /* HomeViewController+MapView.swift in Sources */,
 				C3FDC2C42CF7A5F0001BD056 /* HomeViewController+CollectionView.swift in Sources */,
 				C3B21C8A2CF9EB02005878F9 /* MoreViewModel.swift in Sources */,
