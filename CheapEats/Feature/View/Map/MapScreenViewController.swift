@@ -59,11 +59,14 @@ final class MapScreenViewController: UIViewController {
     }
     
     private func updateUserLocationOnMap() {
-        if let oldAnnotation = mapScreenViewModel.userAnnotation {
-            mapView.removeAnnotation(oldAnnotation)
-        }
-        if let userAnnotation = mapScreenViewModel.createUserLocationAnnotation() {
-            mapView.addAnnotation(userAnnotation)
+        if let userAnnotation = mapScreenViewModel.userAnnotation {
+            if let newCoordinate = mapScreenViewModel.getUserCoordinate() {
+                userAnnotation.coordinate = newCoordinate
+            }
+        } else {
+            if let newAnnotation = mapScreenViewModel.createUserLocationAnnotation() {
+                mapView.addAnnotation(newAnnotation)
+            }
         }
     }
     

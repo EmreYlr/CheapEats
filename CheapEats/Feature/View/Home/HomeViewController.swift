@@ -57,7 +57,7 @@ final class HomeViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        refreshLocation()
+        //refreshLocation()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

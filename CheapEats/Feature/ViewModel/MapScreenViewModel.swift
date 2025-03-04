@@ -14,6 +14,7 @@ protocol MapScreenViewModelProtocol {
     var latitude: Double? { get set }
     var longitude: Double? { get set }
     func centerMapToLocation(with mapView: MKMapView)
+    func getUserCoordinate() -> CLLocationCoordinate2D? 
     func addRestaurantPins(with mapView: MKMapView)
     func checkLocationCoordinate() -> Bool
     var mockRestaurants: [Restaurant] { get set }
@@ -99,6 +100,7 @@ final class MapScreenViewModel {
         mapView.setRegion(region, animated: true)
     }
     
+    
     func addRestaurantPins(with mapView: MKMapView) {
         for restaurant in mockRestaurants {
             let annotation = MKPointAnnotation()
@@ -122,6 +124,13 @@ final class MapScreenViewModel {
             return true
         }
         return false
+    }
+    func getUserCoordinate() -> CLLocationCoordinate2D? {
+        updateLocation()
+        guard let latitude = self.latitude, let longitude = self.longitude else {
+            return nil
+        }
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
     func createUserLocationAnnotation() -> MKPointAnnotation? {
