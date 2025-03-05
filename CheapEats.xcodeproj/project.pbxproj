@@ -70,6 +70,9 @@
 		C37E487C2D760CC500B8B1E1 /* MapScreenViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37E487B2D760CB700B8B1E1 /* MapScreenViewController+MapView.swift */; };
 		C38469172D6BB97E001E37C2 /* AddCardViewController+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38469162D6BB96F001E37C2 /* AddCardViewController+TextField.swift */; };
 		C38901A52D525337004522F7 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38901A42D525332004522F7 /* ProductDetails.swift */; };
+		C3969FD02D786D3000CA68FE /* MapscreenViewContoller+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3969FCF2D786D2600CA68FE /* MapscreenViewContoller+CollectionView.swift */; };
+		C3969FD52D786E3F00CA68FE /* MapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3969FD42D786E3F00CA68FE /* MapCollectionViewCell.xib */; };
+		C3969FD62D786E3F00CA68FE /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3969FD32D786E3F00CA68FE /* MapCollectionViewCell.swift */; };
 		C3986A062CFA60640085521A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3986A052CFA60640085521A /* DetailViewController.swift */; };
 		C3ADE97F2D53A14D00278990 /* DetailViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */; };
 		C3ADE9812D53B68200278990 /* RouterDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE9802D53B67500278990 /* RouterDistance.swift */; };
@@ -162,6 +165,9 @@
 		C37E487B2D760CB700B8B1E1 /* MapScreenViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapScreenViewController+MapView.swift"; sourceTree = "<group>"; };
 		C38469162D6BB96F001E37C2 /* AddCardViewController+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCardViewController+TextField.swift"; sourceTree = "<group>"; };
 		C38901A42D525332004522F7 /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
+		C3969FCF2D786D2600CA68FE /* MapscreenViewContoller+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapscreenViewContoller+CollectionView.swift"; sourceTree = "<group>"; };
+		C3969FD32D786E3F00CA68FE /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
+		C3969FD42D786E3F00CA68FE /* MapCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3986A052CFA60640085521A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+MapView.swift"; sourceTree = "<group>"; };
 		C3ADE9802D53B67500278990 /* RouterDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDistance.swift; sourceTree = "<group>"; };
@@ -492,8 +498,9 @@
 		C3EAD8402D4E700F00CD49CE /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				C37E487B2D760CB700B8B1E1 /* MapScreenViewController+MapView.swift */,
 				C3EAD8432D4E705500CD49CE /* MapScreenViewController.swift */,
+				C37E487B2D760CB700B8B1E1 /* MapScreenViewController+MapView.swift */,
+				C3969FCF2D786D2600CA68FE /* MapscreenViewContoller+CollectionView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -511,6 +518,8 @@
 				C3766BEF2D6A6C2400E75ABE /* ManageCardTableViewCell.xib */,
 				C3766BF42D6A80F600E75ABE /* AddManageCardTableViewCell.swift */,
 				C3766BF52D6A80F600E75ABE /* AddManageCardTableViewCell.xib */,
+				C3969FD32D786E3F00CA68FE /* MapCollectionViewCell.swift */,
+				C3969FD42D786E3F00CA68FE /* MapCollectionViewCell.xib */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -607,6 +616,7 @@
 				C36D3EAD2CF34535008FE62B /* Base in Resources */,
 				C36D3EA82CF34534008FE62B /* Base in Resources */,
 				7E8FB72D2CFB43EB005AA2E4 /* OrdersTableViewCell.xib in Resources */,
+				C3969FD52D786E3F00CA68FE /* MapCollectionViewCell.xib in Resources */,
 				C36C1B0D2CF657A3007A96B4 /* OrderCollectionViewCell.xib in Resources */,
 				C3B21C922CF9ED3B005878F9 /* FoodTableViewCell.xib in Resources */,
 			);
@@ -687,7 +697,9 @@
 				C3C6FDE42CFE25A00045DEDE /* FilterViewModel.swift in Sources */,
 				C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */,
 				C3C6FDE12CFE1A220045DEDE /* BottomSheetViewController+TableView.swift in Sources */,
+				C3969FD62D786E3F00CA68FE /* MapCollectionViewCell.swift in Sources */,
 				C35A4E0C2D751A0900C95440 /* HiddenPassword+UITextField.swift in Sources */,
+				C3969FD02D786D3000CA68FE /* MapscreenViewContoller+CollectionView.swift in Sources */,
 				C3ADE97F2D53A14D00278990 /* DetailViewController+MapView.swift in Sources */,
 				C3FFDE4F2D64B24D00FF6296 /* FormatDouble.swift in Sources */,
 				C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */,

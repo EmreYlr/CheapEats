@@ -6,6 +6,7 @@ final class MapScreenViewController: UIViewController {
     @IBOutlet weak var accessView: UIView!
     @IBOutlet weak var accessButon: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var mapScreenViewModel: MapScreenViewModelProtocol = MapScreenViewModel()
     private let categoriesToShow = [
@@ -26,6 +27,7 @@ final class MapScreenViewController: UIViewController {
         print("MapScreenViewController")
         initLoad()
         setupMap()
+        initCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +43,13 @@ final class MapScreenViewController: UIViewController {
             accessView.isHidden = false
             mapView.isHidden = true
         }
+    }
+    private func initCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        collectionView.register(UINib(nibName: "MapCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+        collectionViewSettings(with: collectionView)
     }
     
     private func setupMap() {

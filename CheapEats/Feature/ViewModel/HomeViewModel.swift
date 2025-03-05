@@ -132,6 +132,7 @@ final class HomeViewModel {
         //recommendedProduct = productDetailsList.filter { $0.product.rating > 4.0 }
         closeProduct = productDetailsList
         //closeProduct = productDetailsList.filter { $0.restaurant.distance < 5.0 }
+        NotificationCenter.default.post(name: NSNotification.Name("closeProductUpdated"), object: closeProduct)
         self.delegate?.updateCollection()
     }
     

@@ -33,3 +33,4 @@ extension BorderAndShadow {
 
 extension UITableViewCell: BorderAndShadow {}
 extension UIViewController: BorderAndShadow {}
+extension UICollectionViewCell: BorderAndShadow {}

@@ -8,6 +8,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1064,16 +1065,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVo-4H-Ifa">
-                                <rect key="frame" x="0.0" y="140" width="393" height="629"/>
-                                <standardMapConfiguration key="preferredConfiguration"/>
-                            </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En Yakındakiler" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPS-QT-KdR">
-                                <rect key="frame" x="16" y="103" width="157" height="27"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <color key="textColor" name="ButtonColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1f3-9H-jJx" userLabel="Location View">
                                 <rect key="frame" x="0.0" y="180" width="393" height="589"/>
                                 <subviews>
@@ -1146,10 +1137,44 @@
                                     <constraint firstItem="d7P-zy-2kH" firstAttribute="leading" secondItem="1f3-9H-jJx" secondAttribute="leading" constant="8" id="wjH-cO-3Ma"/>
                                 </constraints>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVo-4H-Ifa">
+                                <rect key="frame" x="0.0" y="140" width="393" height="629"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En Yakındakiler" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPS-QT-KdR">
+                                <rect key="frame" x="16" y="103" width="157" height="27"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" name="ButtonColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ciw-ao-MaB" userLabel="Map Collection View">
+                                <rect key="frame" x="0.0" y="644" width="393" height="110"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="Xdd-ky-XJ2"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="idL-Sr-dPy">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Xwz-1U-DFE">
+                                        <rect key="frame" x="0.0" y="-9" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WSC-vQ-7CQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Nj-4T-OLY"/>
                         <color key="backgroundColor" name="BGColor"/>
                         <constraints>
+                            <constraint firstItem="Ciw-ao-MaB" firstAttribute="leading" secondItem="1Nj-4T-OLY" secondAttribute="leading" id="0jd-Sv-UAZ"/>
                             <constraint firstItem="1f3-9H-jJx" firstAttribute="leading" secondItem="1Nj-4T-OLY" secondAttribute="leading" id="3Zv-vh-mgW"/>
                             <constraint firstItem="ZVo-4H-Ifa" firstAttribute="leading" secondItem="1Nj-4T-OLY" secondAttribute="leading" id="4FN-Mf-22o"/>
                             <constraint firstItem="1Nj-4T-OLY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qPS-QT-KdR" secondAttribute="trailing" symbolic="YES" id="7Cb-Ah-GB4"/>
@@ -1157,9 +1182,11 @@
                             <constraint firstItem="qPS-QT-KdR" firstAttribute="leading" secondItem="1Nj-4T-OLY" secondAttribute="leading" constant="16" id="HbN-1c-msc"/>
                             <constraint firstItem="1f3-9H-jJx" firstAttribute="top" secondItem="qPS-QT-KdR" secondAttribute="bottom" constant="50" id="IVo-V1-wfo"/>
                             <constraint firstItem="1Nj-4T-OLY" firstAttribute="bottom" secondItem="ZVo-4H-Ifa" secondAttribute="bottom" id="M6I-1j-Pss"/>
+                            <constraint firstItem="1Nj-4T-OLY" firstAttribute="trailing" secondItem="Ciw-ao-MaB" secondAttribute="trailing" id="Xw9-uc-hOl"/>
                             <constraint firstItem="1Nj-4T-OLY" firstAttribute="trailing" secondItem="ZVo-4H-Ifa" secondAttribute="trailing" id="fyn-sf-NHm"/>
                             <constraint firstItem="ZVo-4H-Ifa" firstAttribute="top" secondItem="qPS-QT-KdR" secondAttribute="bottom" constant="10" id="jhe-tt-28g"/>
                             <constraint firstItem="1f3-9H-jJx" firstAttribute="bottom" secondItem="1Nj-4T-OLY" secondAttribute="bottom" id="kGf-xW-mIi"/>
+                            <constraint firstItem="1Nj-4T-OLY" firstAttribute="bottom" secondItem="Ciw-ao-MaB" secondAttribute="bottom" constant="15" id="y5x-BP-xSK"/>
                             <constraint firstItem="1f3-9H-jJx" firstAttribute="trailing" secondItem="1Nj-4T-OLY" secondAttribute="trailing" id="yGb-X9-yJJ"/>
                         </constraints>
                     </view>
@@ -1167,6 +1194,7 @@
                     <connections>
                         <outlet property="accessButon" destination="d7P-zy-2kH" id="xTh-8o-4ch"/>
                         <outlet property="accessView" destination="1f3-9H-jJx" id="uq8-Ps-GQs"/>
+                        <outlet property="collectionView" destination="Ciw-ao-MaB" id="tX6-EN-kV8"/>
                         <outlet property="mapView" destination="ZVo-4H-Ifa" id="Gdf-Ki-r3J"/>
                     </connections>
                 </viewController>
