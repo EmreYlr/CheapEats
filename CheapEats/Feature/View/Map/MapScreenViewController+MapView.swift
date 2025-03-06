@@ -55,5 +55,13 @@ extension MapScreenViewController: MKMapViewDelegate {
             mapView.showsUserLocation = true
         }
     }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotationCoordinate = view.annotation?.coordinate {
+            let region = MKCoordinateRegion(center: annotationCoordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            UIView.animate(withDuration: 0.8, delay: 0, options: [.curveEaseInOut], animations: {
+                self.mapView.setRegion(region, animated: true)
+            }, completion: nil)
+        }
+    }
 }
 

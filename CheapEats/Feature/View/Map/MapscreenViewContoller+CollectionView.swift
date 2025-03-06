@@ -5,6 +5,7 @@
 //  Created by Emre on 5.03.2025.
 //
 import UIKit
+import MapKit
 
 extension MapScreenViewController:  UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -17,6 +18,10 @@ extension MapScreenViewController:  UICollectionViewDelegate,UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MapCollectionViewCell
         cell.configure(productDetail: mapScreenViewModel.productDetail[indexPath.row])
+        cell.detailButtonTapped = { [weak self] in
+            guard let self = self else { return }
+            clickDetailButton(with: mapScreenViewModel.productDetail[indexPath.row])
+        }
         return cell
     }
     
@@ -25,9 +30,26 @@ extension MapScreenViewController:  UICollectionViewDelegate,UICollectionViewDat
         let height = collectionView.frame.size.height * 0.9
         return CGSize(width: width, height: height)
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("click")
+        let productDetail = mapScreenViewModel.productDetail[indexPath.row]
+        centerMapOnProductLocation(productDetail: productDetail)
     }
+
+    private func centerMapOnProductLocation(productDetail: ProductDetails) {
+        let coordinate = CLLocationCoordinate2D(latitude: productDetail.restaurant.location.latitude, longitude: productDetail.restaurant.location.longitude)
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        UIView.animate(withDuration: 0.8, delay: 0, options: [.curveEaseInOut], animations: {
+            self.mapView.setRegion(region, animated: true)
+        }, completion: { _ in 
+            if let annotation = self.mapView.annotations.first(where: { $0.coordinate.latitude == coordinate.latitude && $0.coordinate.longitude == coordinate.longitude }) {
+                self.mapView.selectAnnotation(annotation, animated: true)
+            }
+        })
+        
+        
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
@@ -43,5 +65,15 @@ extension MapScreenViewController:  UICollectionViewDelegate,UICollectionViewDat
         collectionView.backgroundColor = .clear
         collectionView.layer.cornerRadius = 10
     }
+    
+    func clickDetailButton(with productDetail: ProductDetails) {
+        if detailVC == nil {
+            detailVC = SB.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+        }
+        if let detailVC = detailVC {
+            detailVC.detailViewModel.productDetail = productDetail
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+        
+    }
 }
-

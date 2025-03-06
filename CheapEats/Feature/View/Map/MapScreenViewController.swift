@@ -9,6 +9,8 @@ final class MapScreenViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var mapScreenViewModel: MapScreenViewModelProtocol = MapScreenViewModel()
+    let SB = UIStoryboard(name: "Main", bundle: nil)
+    var detailVC: DetailViewController?
     private let categoriesToShow = [
         MKPointOfInterestCategory.park,
         MKPointOfInterestCategory.museum,

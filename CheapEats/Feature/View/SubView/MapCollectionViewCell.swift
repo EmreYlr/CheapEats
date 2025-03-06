@@ -17,6 +17,7 @@ class MapCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var newPriceLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var productDetailButton: UIButton!
+    var detailButtonTapped: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,5 +41,9 @@ class MapCollectionViewCell: UICollectionViewCell {
         oldPriceLabel.text = "\(productDetail.product.oldPrice) TL"
         newPriceLabel.text = "\(productDetail.product.newPrice) TL"
         distanceLabel.text = "850m"
+    }
+    
+    @IBAction func detailButtonClicked(_ sender: UIButton) {
+        detailButtonTapped?()
     }
 }
