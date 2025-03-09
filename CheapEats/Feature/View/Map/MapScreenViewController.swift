@@ -7,22 +7,8 @@ final class MapScreenViewController: UIViewController {
     @IBOutlet weak var accessButon: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     var mapScreenViewModel: MapScreenViewModelProtocol = MapScreenViewModel()
     let SB = UIStoryboard(name: "Main", bundle: nil)
-    var detailVC: DetailViewController?
-    private let categoriesToShow = [
-        MKPointOfInterestCategory.park,
-        MKPointOfInterestCategory.museum,
-        MKPointOfInterestCategory.nationalPark,
-        MKPointOfInterestCategory.stadium,
-        MKPointOfInterestCategory.university,
-        MKPointOfInterestCategory.hospital,
-        MKPointOfInterestCategory.hotel,
-        MKPointOfInterestCategory.pharmacy,
-        MKPointOfInterestCategory.school,
-        MKPointOfInterestCategory.gasStation
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +24,7 @@ final class MapScreenViewController: UIViewController {
     }
     
     private func initLoad() {
+        mapScreenViewModel.calculateAllDistances()
         if mapScreenViewModel.checkLocationCoordinate() {
             accessView.isHidden = true
             mapView.isHidden = false
@@ -63,7 +50,7 @@ final class MapScreenViewController: UIViewController {
         mapView.showsBuildings = false
         mapView.showsLargeContentViewer = false
         mapView.showsUserTrackingButton = true
-        mapView.pointOfInterestFilter = MKPointOfInterestFilter(including: categoriesToShow)
+        mapView.pointOfInterestFilter = MKPointOfInterestFilter(including: MKPointOfInterestCategory.defaultCategoriesToShow)
         mapScreenViewModel.centerMapToLocation(with: mapView)
         updateUserLocationOnMap()
         addRestaurantPins()
@@ -95,10 +82,20 @@ final class MapScreenViewController: UIViewController {
 extension MapScreenViewController: MapScreenViewModelOutputProtocol {
     func update() {
         print("update")
+        collectionView.reloadData()
         updateUserLocationOnMap()
     }
     
     func error() {
         print("error")
+    }
+    
+    func restaurantSelectionChanged() {
+        collectionView.reloadData()
+        if let selectedId = mapScreenViewModel.selectedRestaurantId,
+           let index = mapScreenViewModel.productDetail.firstIndex(where: { $0.restaurant.restaurantId == selectedId }) {
+            let indexPath = IndexPath(item: index, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
     }
 }

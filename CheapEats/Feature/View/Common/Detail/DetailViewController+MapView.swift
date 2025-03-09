@@ -11,18 +11,19 @@ extension DetailViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         let identifier = "RestaurantPin"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
+        
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
-            let btn = UIButton(type: .detailDisclosure)
-            annotationView?.rightCalloutAccessoryView = btn
+            let rightButton = UIButton(type: .detailDisclosure)
+            rightButton.tintColor = .button
+            annotationView?.rightCalloutAccessoryView = rightButton
         } else {
             annotationView?.annotation = annotation
         }
-        annotationView?.image = UIImage(systemName: "fork.knife.circle")
-        annotationView?.tintColor = .button
-        annotationView?.frame.size = CGSize(width: 25, height: 25)
+        annotationView?.markerTintColor = .button
+        annotationView?.glyphImage = UIImage(systemName: "fork.knife")
         return annotationView
     }
     

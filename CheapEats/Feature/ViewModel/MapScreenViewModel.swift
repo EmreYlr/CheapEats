@@ -18,13 +18,22 @@ protocol MapScreenViewModelProtocol {
     func addRestaurantPins(with mapView: MKMapView)
     func checkLocationCoordinate() -> Bool
     var productDetail: [ProductDetails] { get set }
+    var restaurantDistances: [String: Double] { get set }
     var userAnnotation: MKPointAnnotation? { get }
     func createUserLocationAnnotation() -> MKPointAnnotation?
+    func getFormattedDistance(for restaurantId: String) -> String
+    func calculateAllDistances()
+    var selectedRestaurantId: String? { get set }
+    func selectRestaurant(withId id: String?)
+    func isRestaurantSelected(_ restaurantId: String) -> Bool
+    func selectRestaurantByAnnotationTitle(_ title: String?)
+    
 }
 
 protocol MapScreenViewModelOutputProtocol: AnyObject {
     func update()
     func error()
+    func restaurantSelectionChanged()
 }
 
 final class MapScreenViewModel {
@@ -33,6 +42,8 @@ final class MapScreenViewModel {
     var longitude: Double?
     private var _userAnnotation: MKPointAnnotation?
     var productDetail: [ProductDetails] = []
+    var restaurantDistances: [String: Double] = [:]
+    var _selectedRestaurantId: String?
     
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleCloseProductUpdated(_:)), name: NSNotification.Name("closeProductUpdated"), object: nil)
@@ -66,6 +77,7 @@ final class MapScreenViewModel {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: productDetail.restaurant.location.latitude, longitude: productDetail.restaurant.location.longitude)
             annotation.title = productDetail.restaurant.companyName
+            annotation.subtitle = productDetail.product.name
             mapView.addAnnotation(annotation)
         }
     }
@@ -105,6 +117,73 @@ final class MapScreenViewModel {
         
         _userAnnotation = userLocation
         return userLocation
+    }
+    
+    func calculateAllDistances() {
+        guard checkLocationCoordinate() else { return }
+        
+        if let userLat = LocationManager.shared.currentLatitude,
+           let userLon = LocationManager.shared.currentLongitude {
+            
+            let group = DispatchGroup()
+            
+            for product in productDetail {
+                group.enter()
+                getRouteDistance(userLat: userLat, userLon: userLon, destLat: product.restaurant.location.latitude,destLon: product.restaurant.location.longitude) { distance in
+                    self.restaurantDistances[product.restaurant.restaurantId] = distance
+                    group.leave()
+                }
+            }
+            
+            group.notify(queue: .main) { [weak self] in
+                self?.delegate?.update()
+            }
+        }
+    }
+    func getFormattedDistance(for restaurantId: String) -> String {
+        guard let distance = restaurantDistances[restaurantId] else {
+            return "..."
+        }
+        
+        if distance < 1.0 {
+            let meters = Int(distance * 1000)
+            return "\(meters)m"
+        } else {
+            return String(format: "%.1f km", distance)
+        }
+    }
+}
+//Selected Restaurant Design
+extension MapScreenViewModel {
+    var selectedRestaurantId: String? {
+        get {
+            return _selectedRestaurantId
+        }
+        set {
+            if _selectedRestaurantId != newValue {
+                _selectedRestaurantId = newValue
+                delegate?.restaurantSelectionChanged()
+            }
+        }
+    }
+    
+    func selectRestaurant(withId id: String?) {
+        selectedRestaurantId = id
+    }
+    
+    func isRestaurantSelected(_ restaurantId: String) -> Bool {
+        return selectedRestaurantId == restaurantId
+    }
+    
+    func selectRestaurantByAnnotationTitle(_ title: String?) {
+        guard let title = title else {
+            selectedRestaurantId = nil
+            return
+        }
+        
+        if let productDetail = productDetail.first(where: { $0.restaurant.companyName == title }) {
+            selectedRestaurantId = productDetail.restaurant.restaurantId
+        }
     }
 }
 

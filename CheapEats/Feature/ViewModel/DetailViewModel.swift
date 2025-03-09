@@ -31,8 +31,9 @@ final class DetailViewModel {
             let annotation = MKPointAnnotation()
             annotation.coordinate = location
             annotation.title = productDetail.restaurant.companyName
+            annotation.subtitle = productDetail.product.name
             mapView.addAnnotation(annotation)
-            let region = MKCoordinateRegion(center: location, latitudinalMeters: 800, longitudinalMeters: 800)
+            let region = MKCoordinateRegion(center: location, latitudinalMeters: 200, longitudinalMeters: 200)
             mapView.setRegion(region, animated: true)
         }
         

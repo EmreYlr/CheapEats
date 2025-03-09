@@ -41,8 +41,8 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLoadingIndicator()
-        initScreen()
         configureMapView()
+        initScreen()
         print("Detail")
     }
     
@@ -105,6 +105,12 @@ final class DetailViewController: UIViewController {
     
     func configureMapView() {
         mapView.delegate = self
+        mapView.showsCompass = false
+        mapView.showsScale = false
+        mapView.showsTraffic = false
+        mapView.showsBuildings = false
+        mapView.showsLargeContentViewer = false
+        mapView.pointOfInterestFilter = MKPointOfInterestFilter(including: MKPointOfInterestCategory.defaultCategoriesToShow)
         detailViewModel.mapViewCenterCoordinate(mapView: mapView)
         detailViewModel.getRoutuerDistance { distance in
             self.distanceLabel.text = distance

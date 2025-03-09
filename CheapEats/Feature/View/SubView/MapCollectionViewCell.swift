@@ -33,14 +33,23 @@ class MapCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func configure(productDetail: ProductDetails) {
+    func configure(productDetail: ProductDetails, distance: String) {
         imageView.kf.setImage(with: URL(string: productDetail.product.imageUrl))
         imageView.kf.indicatorType = .activity
         companyNameLabel.text = productDetail.restaurant.companyName
         mealNameLabel.text = productDetail.product.name
-        oldPriceLabel.text = "\(productDetail.product.oldPrice) TL"
-        newPriceLabel.text = "\(productDetail.product.newPrice) TL"
-        distanceLabel.text = "850m"
+        
+        oldPriceLabel.text = "\(formatDouble(productDetail.product.oldPrice)) TL"
+        newPriceLabel.text = "\(formatDouble(productDetail.product.newPrice)) TL"
+        distanceLabel.text = distance
+    }
+    
+    func setHighlighted(_ highlighted: Bool) {
+        if highlighted {
+            contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
+        } else {
+            contentView.backgroundColor = UIColor.clear
+        }
     }
     
     @IBAction func detailButtonClicked(_ sender: UIButton) {

@@ -24,6 +24,8 @@
 		C31C06BE2D74D24E00617FC6 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31C06BD2D74D24E00617FC6 /* EditProfileViewController.swift */; };
 		C31C06C02D74D27C00617FC6 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31C06BF2D74D27700617FC6 /* EditProfileViewModel.swift */; };
 		C320E2EA2D075C85004C6122 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C320E2E92D075C85004C6122 /* UIViewController+Extension.swift */; };
+		C328A0742D7DC33000E5172A /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = C35F6B772D5506CC00DBB7EA /* NVActivityIndicatorViewExtended */; };
+		C328A0802D7DE3F400E5172A /* MapDesignCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C328A07F2D7DE3E600E5172A /* MapDesignCategories.swift */; };
 		C32CBEF82CF89C990016F444 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEF72CF89C990016F444 /* UIView+Extension.swift */; };
 		C32CBEFA2CF8A2110016F444 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEF92CF8A2110016F444 /* Users.swift */; };
 		C32CBEFC2CF8AB880016F444 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEFB2CF8AB880016F444 /* UserManager.swift */; };
@@ -36,7 +38,6 @@
 		C3395A912D6BA76900461A5E /* JVFloatLabeledTextField in Frameworks */ = {isa = PBXBuildFile; productRef = C3395A902D6BA76900461A5E /* JVFloatLabeledTextField */; };
 		C35A4E0C2D751A0900C95440 /* HiddenPassword+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35A4E0B2D7519FE00C95440 /* HiddenPassword+UITextField.swift */; };
 		C35F6B762D5506CC00DBB7EA /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = C35F6B752D5506CC00DBB7EA /* NVActivityIndicatorView */; };
-		C35F6B782D5506CC00DBB7EA /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = C35F6B772D5506CC00DBB7EA /* NVActivityIndicatorViewExtended */; };
 		C35F6B7A2D550CBF00DBB7EA /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F6B792D550CBC00DBB7EA /* LoadingIndicator.swift */; };
 		C3657B5E2D4D0C160003918D /* NetworkManager+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3657B5D2D4D0C160003918D /* NetworkManager+Request.swift */; };
 		C3657B622D4D20630003918D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3657B612D4D20600003918D /* DateFormatter.swift */; };
@@ -125,6 +126,7 @@
 		C31C06BD2D74D24E00617FC6 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		C31C06BF2D74D27700617FC6 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		C320E2E92D075C85004C6122 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		C328A07F2D7DE3E600E5172A /* MapDesignCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDesignCategories.swift; sourceTree = "<group>"; };
 		C32CBEF72CF89C990016F444 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C32CBEF92CF8A2110016F444 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		C32CBEFB2CF8AB880016F444 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -206,9 +208,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C328A0742D7DC33000E5172A /* NVActivityIndicatorViewExtended in Frameworks */,
 				C3BB4BE32D4D2B3400A1057E /* Kingfisher in Frameworks */,
 				C3395A912D6BA76900461A5E /* JVFloatLabeledTextField in Frameworks */,
-				C35F6B782D5506CC00DBB7EA /* NVActivityIndicatorViewExtended in Frameworks */,
 				C3657B6A2D4D258E0003918D /* FirebaseDatabase in Frameworks */,
 				C35F6B762D5506CC00DBB7EA /* NVActivityIndicatorView in Frameworks */,
 				C3657B6C2D4D258E0003918D /* FirebaseFirestore in Frameworks */,
@@ -270,6 +272,7 @@
 		C32CBEF62CF89C860016F444 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C328A07F2D7DE3E600E5172A /* MapDesignCategories.swift */,
 				C3395A832D6B407E00461A5E /* CreditCardValidation.swift */,
 				C3B394C22D6A2E85007CD437 /* Alert.swift */,
 				C3B394B92D6A1B04007CD437 /* PDFHelper.swift */,
@@ -679,6 +682,7 @@
 				C3B394BA2D6A1B11007CD437 /* PDFHelper.swift in Sources */,
 				C3B394B32D69F36B007CD437 /* DetailViewController+ScrollView.swift in Sources */,
 				C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */,
+				C328A0802D7DE3F400E5172A /* MapDesignCategories.swift in Sources */,
 				C31C06C02D74D27C00617FC6 /* EditProfileViewModel.swift in Sources */,
 				C31B833D2D75008A005D37C9 /* ChangePasswordViewController.swift in Sources */,
 				C3EAD8482D4E732F00CD49CE /* LocationManager.swift in Sources */,
@@ -866,6 +870,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -893,6 +898,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
