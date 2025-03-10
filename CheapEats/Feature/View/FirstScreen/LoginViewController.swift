@@ -21,12 +21,16 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLoadingIndicator()
+        initScreen()
+    }
+    
+    private func initScreen() {
         emailLayer.text = "yeleremre@hotmail.com"
         passwordLayer.text = "123456"
         loginViewModel.delegate = self
         loginButton.layer.cornerRadius = 10
-        
     }
+    
     private func setupLoadingIndicator() {
         loadIndicator = createLoadingIndicator(in: self.waitView)
     }
@@ -37,6 +41,19 @@ final class LoginViewController: UIViewController {
     }
 }
 extension LoginViewController: LoginViewModelOutputProtocol {
+    func update() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarVC = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        navigationController?.navigationBar.isHidden = true
+        stopLoading()
+        navigationController?.pushViewController(tabBarVC, animated: true)
+    }
+    
+    func error() {
+        print("error")
+        stopLoading()
+    }
+    
     func startLoading() {
         waitView.isHidden = false
         waitView.layer.opacity = 0.5
@@ -52,19 +69,4 @@ extension LoginViewController: LoginViewModelOutputProtocol {
         loadIndicator.stopAnimating()
         loginButton.isEnabled = true
     }
-    
-    func update() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabBarVC = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-        navigationController?.navigationBar.isHidden = true
-        stopLoading()
-        navigationController?.pushViewController(tabBarVC, animated: true)
-    }
-    
-    func error() {
-        print("error")
-        stopLoading()
-    }
-    
-    
 }

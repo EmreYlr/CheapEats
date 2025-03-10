@@ -39,6 +39,7 @@ final class ProfileViewModel {
                 switch result {
                 case .success:
                     UserManager.shared.signOut()
+                    UserDefaultsManager.shared.clearUserData()
                     self?.delegate?.update()
                 case .failure:
                     self?.delegate?.error()

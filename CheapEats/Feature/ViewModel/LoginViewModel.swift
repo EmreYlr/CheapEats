@@ -22,6 +22,7 @@ protocol LoginViewModelOutputProtocol: AnyObject {
 final class LoginViewModel {
     weak var delegate: LoginViewModelOutputProtocol?
     var userUID: String?
+    
     func loginUser(email: String, password: String) {
         self.delegate?.startLoading()
         NetworkManager.shared.loginUser(email: email, password: password) { [weak self] result in
@@ -53,6 +54,7 @@ final class LoginViewModel {
             guard let self = self else { return }
             if let user = user {
                 UserManager.shared.user = user
+                UserDefaultsManager.shared.saveUser(user)
                 self.delegate?.update()
             } else {
                 self.delegate?.error()

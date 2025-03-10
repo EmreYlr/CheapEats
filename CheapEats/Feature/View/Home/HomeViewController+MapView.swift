@@ -59,4 +59,12 @@ extension HomeViewController: CLLocationManagerDelegate {
         print("Konum alınamadı: \(error.localizedDescription)")
         stopLocationServices()
     }
+    
+    func startLocationServices() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    func stopLocationServices() {
+        locationManager.stopUpdatingLocation()
+    }
 }

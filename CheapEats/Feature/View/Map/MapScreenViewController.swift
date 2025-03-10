@@ -7,9 +7,12 @@ final class MapScreenViewController: UIViewController {
     @IBOutlet weak var accessButon: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var cartButton: UIBarButtonItem!
+    
     var mapScreenViewModel: MapScreenViewModelProtocol = MapScreenViewModel()
     let SB = UIStoryboard(name: "Main", bundle: nil)
-    
+    //TODO: -Fitreleme ekle(yakınlık-fiyat vs.)
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MapScreenViewController")
@@ -76,6 +79,9 @@ final class MapScreenViewController: UIViewController {
     
     private func addRestaurantPins() {
         mapScreenViewModel.addRestaurantPins(with: mapView)
+    }
+    
+    @IBAction func cartButtonClicked(_ sender: UIBarButtonItem) {
     }
 }
 

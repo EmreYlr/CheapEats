@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xY8-fg-I0a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PCE-QY-hl2">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -677,9 +677,17 @@
                             <constraint firstItem="OKi-dh-Cxv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="w9g-Xo-EZF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="f0L-c6-94c"/>
+                    <navigationItem key="navigationItem" title="Home" id="f0L-c6-94c">
+                        <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" style="plain" id="VXL-C2-1Bb">
+                            <color key="tintColor" name="ButtonColor"/>
+                            <connections>
+                                <action selector="cartButtonClicked:" destination="BYZ-38-t0r" id="Sam-Nb-q4J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="accessView" destination="PTa-MU-gA4" id="Xqg-uf-w4y"/>
+                        <outlet property="cartButton" destination="VXL-C2-1Bb" id="53h-Pq-jfA"/>
                         <outlet property="closeCollectionView" destination="e7T-nM-5qs" id="bCj-bf-l2m"/>
                         <outlet property="closeMoreButton" destination="3PT-fm-Mqk" id="XRz-UY-dEu"/>
                         <outlet property="endlingCollectionView" destination="UYU-u8-P0q" id="Qvm-jh-Wn1"/>
@@ -692,11 +700,28 @@
                         <outlet property="waitView" destination="Bxn-zS-pKA" id="iWJ-Ew-6ad"/>
                         <segue destination="3Wv-96-n5M" kind="show" identifier="seque" id="San-lI-vej"/>
                         <segue destination="Kv2-hv-gA4" kind="show" identifier="detailSeque" id="1UV-Rt-qrR"/>
+                        <segue destination="Dev-h1-P9L" kind="show" identifier="cartSeque" id="wep-wC-4Re"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3649.6183206106871" y="-789.43661971830988"/>
+        </scene>
+        <!--Cart-->
+        <scene sceneID="FK7-vI-W0k">
+            <objects>
+                <viewController id="Dev-h1-P9L" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pVN-za-z4Z">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="DCn-Ub-iIr"/>
+                        <color key="backgroundColor" name="BGColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cart" id="54y-VM-gEt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gd4-S8-UcN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5975" y="4"/>
         </scene>
         <!--More-->
         <scene sceneID="Cx6-eG-U3q">
@@ -1190,12 +1215,21 @@
                             <constraint firstItem="1f3-9H-jJx" firstAttribute="trailing" secondItem="1Nj-4T-OLY" secondAttribute="trailing" id="yGb-X9-yJJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="OTT-eu-3kD"/>
+                    <navigationItem key="navigationItem" title="Map" id="OTT-eu-3kD">
+                        <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" style="plain" id="Yk0-1a-3AT">
+                            <color key="tintColor" name="ButtonColor"/>
+                            <connections>
+                                <action selector="cartButtonClicked:" destination="Qei-vS-6qw" id="jaL-N3-5op"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="accessButon" destination="d7P-zy-2kH" id="xTh-8o-4ch"/>
                         <outlet property="accessView" destination="1f3-9H-jJx" id="uq8-Ps-GQs"/>
+                        <outlet property="cartButton" destination="Yk0-1a-3AT" id="1Cf-jb-bUN"/>
                         <outlet property="collectionView" destination="Ciw-ao-MaB" id="tX6-EN-kV8"/>
                         <outlet property="mapView" destination="ZVo-4H-Ifa" id="Gdf-Ki-r3J"/>
+                        <segue destination="Dev-h1-P9L" kind="show" identifier="cartSeque" id="8Pl-it-97Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAW-Wj-5wH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3135,6 +3169,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="1UV-Rt-qrR"/>
+        <segue reference="wep-wC-4Re"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="1024" height="1024"/>
@@ -3142,6 +3177,7 @@
         <image name="basket" catalog="system" width="128" height="108"/>
         <image name="basket.fill" catalog="system" width="128" height="108"/>
         <image name="car.fill" catalog="system" width="128" height="95"/>
+        <image name="cart" catalog="system" width="128" height="102"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="clock" catalog="system" width="128" height="123"/>
         <image name="creditcard" catalog="system" width="128" height="88"/>

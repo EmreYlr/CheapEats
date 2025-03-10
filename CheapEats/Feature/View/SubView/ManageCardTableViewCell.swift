@@ -39,7 +39,7 @@ class ManageCardTableViewCell: UITableViewCell {
             cardImageView.image = UIImage(named: "unknown")
         }
         cardNameLabel.text = card.cardName
-        cardNoLabel.text = card.cardNo
+        cardNoLabel.text = "**** **** **** \(card.cardNo.suffix(4))"
     }
     
     @IBAction func trashButtonClicked(_ sender: UIButton) {

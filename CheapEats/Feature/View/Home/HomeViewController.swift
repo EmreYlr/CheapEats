@@ -22,6 +22,7 @@ final class HomeViewController: UIViewController{
     @IBOutlet weak var locationDescriptionLabel: UILabel!
     @IBOutlet weak var waitView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var cartButton: UIBarButtonItem!
     
     private var loadIndicator: NVActivityIndicatorView!
     var homeViewModel : HomeViewModelProtocol = HomeViewModel()
@@ -32,14 +33,14 @@ final class HomeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLoadingIndicator()
-        homeViewModel.delegate = self
         initLoad()
         initScreen()
         updateUserInfo()
         NotificationCenter.default.addObserver(self, selector: #selector(userProfileUpdated), name: NSNotification.Name("UserProfileUpdated"), object: nil)
-         
     }
+    
     func initScreen() {
+        homeViewModel.delegate = self
         collectionViewSettings(with: endlingCollectionView)
         collectionViewSettings(with: recommendedCollectionView)
         collectionViewSettings(with: closeCollectionView)
@@ -65,14 +66,6 @@ final class HomeViewController: UIViewController{
         stopLocationServices()
     }
     
-    func startLocationServices() {
-        locationManager.startUpdatingLocation()
-    }
-    
-    func stopLocationServices() {
-        locationManager.stopUpdatingLocation()
-    }
-    
     @objc func refreshData() {
         refreshLocation()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -94,6 +87,7 @@ final class HomeViewController: UIViewController{
         homeViewModel.refreshUserData()
         updateUserInfo()
     }
+    
     private func setupLoadingIndicator() {
         loadIndicator = createLoadingIndicator(in: waitView)
     }
@@ -116,6 +110,7 @@ final class HomeViewController: UIViewController{
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         collectionView.register(UINib(nibName: "OrderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
     }
+    
 }
 //MARK: -Button Actions
 extension HomeViewController {
@@ -144,6 +139,10 @@ extension HomeViewController {
         if let url = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+    }
+    
+    @IBAction func cartButtonClicked(_ sender: UIBarButtonItem) {
+        print("Cart")
     }
     
     

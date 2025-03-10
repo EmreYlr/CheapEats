@@ -91,6 +91,8 @@
 		C3B394C32D6A2E87007CD437 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B394C22D6A2E85007CD437 /* Alert.swift */; };
 		C3B4EF792D0DD788002AD314 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B4EF782D0DD788002AD314 /* OrderDetailViewModel.swift */; };
 		C3BB4BE32D4D2B3400A1057E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C3BB4BE22D4D2B3400A1057E /* Kingfisher */; };
+		C3BCF0DB2D7F1D6200FC5A5C /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BCF0DA2D7F1D5E00FC5A5C /* CartManager.swift */; };
+		C3BCF0DD2D7F260B00FC5A5C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BCF0DC2D7F260B00FC5A5C /* UserDefaultsManager.swift */; };
 		C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDD12CFCFE820045DEDE /* LineView.swift */; };
 		C3C6FDD62CFD05A60045DEDE /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDD52CFD05A60045DEDE /* FilterViewController.swift */; };
 		C3C6FDDB2CFDE56E0045DEDE /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C6FDDA2CFDE56E0045DEDE /* BottomSheetViewController.swift */; };
@@ -186,6 +188,8 @@
 		C3B394C02D6A2A57007CD437 /* ManageCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCardViewController.swift; sourceTree = "<group>"; };
 		C3B394C22D6A2E85007CD437 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C3B4EF782D0DD788002AD314 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
+		C3BCF0DA2D7F1D5E00FC5A5C /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
+		C3BCF0DC2D7F260B00FC5A5C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		C3C6FDD12CFCFE820045DEDE /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		C3C6FDD52CFD05A60045DEDE /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		C3C6FDDA2CFDE56E0045DEDE /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
@@ -252,10 +256,10 @@
 		C320E2E72D071801004C6122 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				7E2B93F52CFF828D00D84BB0 /* ProfileViewController.swift */,
 				C31C06BA2D74D22D00617FC6 /* Edit Profile */,
 				C31B833B2D750076005D37C9 /* Change Password */,
 				C3B394BD2D6A2A3D007CD437 /* Manage Card */,
-				7E2B93F52CFF828D00D84BB0 /* ProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -264,7 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				C3ADE97D2D53A13700278990 /* Detail */,
-				C3EAD8472D4E732C00CD49CE /* LocationManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			children = (
 				C3C6FDD92CFD07060045DEDE /* Design */,
 				C32CBEF62CF89C860016F444 /* Extension */,
+				C3BCF0D92D7F1D5800FC5A5C /* Manager */,
 				C37B42542CF4E3F800A03C4D /* NetworkLayer */,
 				C36D3EB62CF34ACF008FE62B /* Model */,
 				C36D3EB72CF34AD7008FE62B /* View */,
@@ -418,10 +422,10 @@
 		C37B42542CF4E3F800A03C4D /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				C3BCF0DE2D7F262200FC5A5C /* UserDefaults */,
 				C32D6C442D510B01002CD677 /* Error */,
 				C3657B5C2D4D0BE50003918D /* Response */,
 				C3657B5B2D4D0BE00003918D /* Request */,
-				C32CBEFB2CF8AB880016F444 /* UserManager.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -468,6 +472,24 @@
 			path = "Manage Card";
 			sourceTree = "<group>";
 		};
+		C3BCF0D92D7F1D5800FC5A5C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C3BCF0DA2D7F1D5E00FC5A5C /* CartManager.swift */,
+				C32CBEFB2CF8AB880016F444 /* UserManager.swift */,
+				C3EAD8472D4E732C00CD49CE /* LocationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C3BCF0DE2D7F262200FC5A5C /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				C3BCF0DC2D7F260B00FC5A5C /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 		C3C6FDD92CFD07060045DEDE /* Design */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,9 +513,9 @@
 		C3C6FDE22CFE1F4A0045DEDE /* FirstScreen */ = {
 			isa = PBXGroup;
 			children = (
-				C36D3EFE2CF36286008FE62B /* PassResViewController.swift */,
-				C36D3EF82CF36251008FE62B /* RegisterViewController.swift */,
 				C36D3EC42CF353E3008FE62B /* LoginViewController.swift */,
+				C36D3EF82CF36251008FE62B /* RegisterViewController.swift */,
+				C36D3EFE2CF36286008FE62B /* PassResViewController.swift */,
 			);
 			path = FirstScreen;
 			sourceTree = "<group>";
@@ -651,6 +673,7 @@
 				C3766BF72D6A80F600E75ABE /* AddManageCardTableViewCell.swift in Sources */,
 				C3395A8B2D6B4B8800461A5E /* AddCardViewModel.swift in Sources */,
 				C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */,
+				C3BCF0DB2D7F1D6200FC5A5C /* CartManager.swift in Sources */,
 				C320E2EA2D075C85004C6122 /* UIViewController+Extension.swift in Sources */,
 				C38901A52D525337004522F7 /* ProductDetails.swift in Sources */,
 				C3B394C12D6A2A57007CD437 /* ManageCardViewController.swift in Sources */,
@@ -701,6 +724,7 @@
 				C3C6FDE42CFE25A00045DEDE /* FilterViewModel.swift in Sources */,
 				C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */,
 				C3C6FDE12CFE1A220045DEDE /* BottomSheetViewController+TableView.swift in Sources */,
+				C3BCF0DD2D7F260B00FC5A5C /* UserDefaultsManager.swift in Sources */,
 				C3969FD62D786E3F00CA68FE /* MapCollectionViewCell.swift in Sources */,
 				C35A4E0C2D751A0900C95440 /* HiddenPassword+UITextField.swift in Sources */,
 				C3969FD02D786D3000CA68FE /* MapscreenViewContoller+CollectionView.swift in Sources */,
