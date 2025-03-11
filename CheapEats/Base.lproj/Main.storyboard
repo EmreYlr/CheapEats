@@ -8,7 +8,6 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -678,7 +677,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="f0L-c6-94c">
-                        <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" style="plain" id="VXL-C2-1Bb">
+                        <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="VXL-C2-1Bb">
                             <color key="tintColor" name="ButtonColor"/>
                             <connections>
                                 <action selector="cartButtonClicked:" destination="BYZ-38-t0r" id="Sam-Nb-q4J"/>
@@ -1184,16 +1183,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Xwz-1U-DFE">
-                                        <rect key="frame" x="0.0" y="-9" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WSC-vQ-7CQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Nj-4T-OLY"/>
@@ -1216,7 +1206,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="OTT-eu-3kD">
-                        <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" style="plain" id="Yk0-1a-3AT">
+                        <barButtonItem key="rightBarButtonItem" image="cart" catalog="system" id="Yk0-1a-3AT">
                             <color key="tintColor" name="ButtonColor"/>
                             <connections>
                                 <action selector="cartButtonClicked:" destination="Qei-vS-6qw" id="jaL-N3-5op"/>
@@ -1396,7 +1386,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boe-BH-tzN" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="-60" width="393" height="594"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testImage2" translatesAutoresizingMaskIntoConstraints="NO" id="t6v-YB-Ub2">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t6v-YB-Ub2">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="dPP-pJ-g3l"/>
@@ -1655,7 +1645,7 @@
                                         </constraints>
                                         <color key="tintColor" red="0.97647058819999999" green="0.96078431369999995" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Siparişi Onayla"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sepete Ekle"/>
                                         <connections>
                                             <action selector="confirmButtonClicked:" destination="Kv2-hv-gA4" eventType="touchUpInside" id="IVh-Yi-Htj"/>
                                         </connections>
@@ -3199,7 +3189,6 @@
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <image name="square.and.pencil" catalog="system" width="128" height="121"/>
-        <image name="testImage2" width="700" height="400"/>
         <image name="tray" catalog="system" width="128" height="88"/>
         <image name="turkishlirasign.square.fill" catalog="system" width="128" height="114"/>
         <namedColor name="BGColor">
