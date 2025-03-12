@@ -19,6 +19,8 @@
 		7E8FB72D2CFB43EB005AA2E4 /* OrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E8FB72B2CFB43EB005AA2E4 /* OrdersTableViewCell.xib */; };
 		C301F7762CFA60AC000E7B99 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301F7752CFA60AC000E7B99 /* DetailViewModel.swift */; };
 		C301F7782CFA6542000E7B99 /* MoreViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C301F7772CFA6542000E7B99 /* MoreViewController+Search.swift */; };
+		C30797202D80B84E00591F70 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C307971F2D80B84E00591F70 /* CartViewController.swift */; };
+		C314AE142D81D40400FF03C3 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C314AE132D81D3FF00FF03C3 /* CartViewModel.swift */; };
 		C31B833D2D75008A005D37C9 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B833C2D75008A005D37C9 /* ChangePasswordViewController.swift */; };
 		C31B833F2D7500DE005D37C9 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31B833E2D7500D9005D37C9 /* ChangePasswordViewModel.swift */; };
 		C31C06BE2D74D24E00617FC6 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31C06BD2D74D24E00617FC6 /* EditProfileViewController.swift */; };
@@ -123,6 +125,8 @@
 		7E8FB72B2CFB43EB005AA2E4 /* OrdersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrdersTableViewCell.xib; sourceTree = "<group>"; };
 		C301F7752CFA60AC000E7B99 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		C301F7772CFA6542000E7B99 /* MoreViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreViewController+Search.swift"; sourceTree = "<group>"; };
+		C307971F2D80B84E00591F70 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		C314AE132D81D3FF00FF03C3 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		C31B833C2D75008A005D37C9 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		C31B833E2D7500D9005D37C9 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		C31C06BD2D74D24E00617FC6 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +231,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C314AE152D81D48A00FF03C3 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				C307971F2D80B84E00591F70 /* CartViewController.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
 		C31B833B2D750076005D37C9 /* Change Password */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				C3ADE97D2D53A13700278990 /* Detail */,
+				C314AE152D81D48A00FF03C3 /* Cart */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -415,6 +428,7 @@
 				C3395A8A2D6B4B8700461A5E /* AddCardViewModel.swift */,
 				C31C06BF2D74D27700617FC6 /* EditProfileViewModel.swift */,
 				C31B833E2D7500D9005D37C9 /* ChangePasswordViewModel.swift */,
+				C314AE132D81D3FF00FF03C3 /* CartViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -698,6 +712,7 @@
 				C3E482ED2D08998500C28240 /* Product.swift in Sources */,
 				C301F7762CFA60AC000E7B99 /* DetailViewModel.swift in Sources */,
 				C3657B5E2D4D0C160003918D /* NetworkManager+Request.swift in Sources */,
+				C30797202D80B84E00591F70 /* CartViewController.swift in Sources */,
 				C37E487C2D760CC500B8B1E1 /* MapScreenViewController+MapView.swift in Sources */,
 				C3E482EF2D0A266000C28240 /* HomeViewController+MapView.swift in Sources */,
 				C3FDC2C42CF7A5F0001BD056 /* HomeViewController+CollectionView.swift in Sources */,
@@ -725,6 +740,7 @@
 				C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */,
 				C3C6FDE12CFE1A220045DEDE /* BottomSheetViewController+TableView.swift in Sources */,
 				C3BCF0DD2D7F260B00FC5A5C /* UserDefaultsManager.swift in Sources */,
+				C314AE142D81D40400FF03C3 /* CartViewModel.swift in Sources */,
 				C3969FD62D786E3F00CA68FE /* MapCollectionViewCell.swift in Sources */,
 				C35A4E0C2D751A0900C95440 /* HiddenPassword+UITextField.swift in Sources */,
 				C3969FD02D786D3000CA68FE /* MapscreenViewContoller+CollectionView.swift in Sources */,

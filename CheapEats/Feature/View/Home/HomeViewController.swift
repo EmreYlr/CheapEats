@@ -26,6 +26,7 @@ final class HomeViewController: UIViewController{
     
     private var loadIndicator: NVActivityIndicatorView!
     var homeViewModel : HomeViewModelProtocol = HomeViewModel()
+    var cartVC: CartViewController?
     let SB = UIStoryboard(name: "Main", bundle: nil)
     let refreshControl = UIRefreshControl()
     let locationManager = CLLocationManager()
@@ -142,7 +143,12 @@ extension HomeViewController {
     }
     
     @IBAction func cartButtonClicked(_ sender: UIBarButtonItem) {
-        print("Cart")
+        if cartVC == nil {
+            cartVC = SB.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController
+        }
+        if let cartVC = cartVC {
+            navigationController?.pushViewController(cartVC, animated: true)
+        }
     }
     
     

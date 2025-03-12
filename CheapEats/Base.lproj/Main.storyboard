@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PCE-QY-hl2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dev-h1-P9L">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -709,7 +709,7 @@
         <!--Cart-->
         <scene sceneID="FK7-vI-W0k">
             <objects>
-                <viewController id="Dev-h1-P9L" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CartViewController" id="Dev-h1-P9L" customClass="CartViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pVN-za-z4Z">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1071,7 +1071,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="maB-D0-ljk">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" name="TitleColor"/>
+                        <color key="tintColor" name="ButtonColor"/>
+                        <color key="barTintColor" name="ButtonColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Qei-vS-6qw" kind="relationship" relationship="rootViewController" id="gLF-DF-i7U"/>

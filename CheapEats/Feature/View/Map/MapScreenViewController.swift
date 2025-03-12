@@ -12,6 +12,7 @@ final class MapScreenViewController: UIViewController {
     
     var mapScreenViewModel: MapScreenViewModelProtocol = MapScreenViewModel()
     let SB = UIStoryboard(name: "Main", bundle: nil)
+    var cartVC: CartViewController?
     //TODO: -Fitreleme ekle(yakınlık-fiyat vs.)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +83,12 @@ final class MapScreenViewController: UIViewController {
     }
     
     @IBAction func cartButtonClicked(_ sender: UIBarButtonItem) {
+        if cartVC == nil {
+            cartVC = SB.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController
+        }
+        if let cartVC = cartVC {
+            navigationController?.pushViewController(cartVC, animated: true)
+        }
     }
 }
 
