@@ -73,7 +73,7 @@
                 <outlet property="cardNoLabel" destination="xQP-KU-IfE" id="pYR-3S-sTS"/>
                 <outlet property="trashButton" destination="pbj-HV-pJs" id="xL8-7U-bpN"/>
             </connections>
-            <point key="canvasLocation" x="24.427480916030532" y="24.295774647887324"/>
+            <point key="canvasLocation" x="21" y="3"/>
         </tableViewCell>
     </objects>
     <resources>

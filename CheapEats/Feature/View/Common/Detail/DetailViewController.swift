@@ -37,7 +37,8 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var waitView: UIView!
     private var loadIndicator: NVActivityIndicatorView!
     var detailViewModel: DetailViewModelProtocol = DetailViewModel()
-    
+    let SB = UIStoryboard(name: "Main", bundle: nil)
+    var cartVC: CartViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLoadingIndicator()
@@ -118,6 +119,7 @@ final class DetailViewController: UIViewController {
     }
     
     @IBAction func confirmButtonClicked(_ sender: UIButton) {
+        detailViewModel.addCart()
     }
     
 }
@@ -125,6 +127,12 @@ final class DetailViewController: UIViewController {
 extension DetailViewController: DetailViewModelOutputProtocol {
     func update() {
         print("update")
+        if cartVC == nil {
+            cartVC = SB.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController
+        }
+        if let cartVC = cartVC {
+            navigationController?.pushViewController(cartVC, animated: true)
+        }
     }
     
     func error() {

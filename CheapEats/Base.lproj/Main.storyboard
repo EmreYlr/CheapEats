@@ -713,14 +713,89 @@
                     <view key="view" contentMode="scaleToFill" id="pVN-za-z4Z">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12A-Ze-EVF">
+                                <rect key="frame" x="16" y="103" width="361" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xLG-IA-YMw">
+                                        <rect key="frame" x="8" y="5.3333333333333304" width="30" height="29.666666666666671"/>
+                                        <color key="backgroundColor" name="ButtonColor"/>
+                                        <color key="tintColor" name="ButtonColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="deK-kJ-j6B"/>
+                                            <constraint firstAttribute="height" constant="30" id="rir-4f-l2i"/>
+                                        </constraints>
+                                        <imageReference key="image" image="checkmark.rectangle.portrait" catalog="system" symbolScale="medium" renderingMode="hierarchical">
+                                            <hierarchicalColors>
+                                                <color name="TextWhiteColor"/>
+                                                <color name="TextWhiteColor"/>
+                                                <color name="ButtonColor"/>
+                                            </hierarchicalColors>
+                                        </imageReference>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZUT-fH-jAl">
+                                        <rect key="frame" x="164.66666666666666" y="5.0000000000000018" width="31" height="27.666666666666671"/>
+                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                        <color key="tintColor" name="TextWhiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="gqW-0P-yHL"/>
+                                            <constraint firstAttribute="height" constant="25" id="zQI-yz-uLO"/>
+                                        </constraints>
+                                        <imageReference key="image" image="truck.box.badge.clock" catalog="system" symbolScale="medium" renderingMode="hierarchical">
+                                            <hierarchicalColors>
+                                                <color name="TextWhiteColor"/>
+                                                <color name="TextWhiteColor"/>
+                                                <color name="TextWhiteColor"/>
+                                            </hierarchicalColors>
+                                        </imageReference>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZYs-BW-A77">
+                                        <rect key="frame" x="323" y="6.9999999999999982" width="30" height="26"/>
+                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Gci-Uj-DnV"/>
+                                            <constraint firstAttribute="width" constant="30" id="yJU-mT-mhR"/>
+                                        </constraints>
+                                        <imageReference key="image" image="creditcard" catalog="system" symbolScale="medium" renderingMode="hierarchical">
+                                            <hierarchicalColors>
+                                                <color name="TextWhiteColor"/>
+                                                <color systemColor="secondaryLabelColor"/>
+                                                <color systemColor="tertiaryLabelColor"/>
+                                            </hierarchicalColors>
+                                        </imageReference>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="BGColor"/>
+                                <constraints>
+                                    <constraint firstItem="ZUT-fH-jAl" firstAttribute="centerX" secondItem="12A-Ze-EVF" secondAttribute="centerX" id="0XI-DP-TgE"/>
+                                    <constraint firstItem="ZUT-fH-jAl" firstAttribute="centerY" secondItem="12A-Ze-EVF" secondAttribute="centerY" id="NMg-Tk-PfN"/>
+                                    <constraint firstItem="xLG-IA-YMw" firstAttribute="leading" secondItem="12A-Ze-EVF" secondAttribute="leading" constant="8" id="RIR-XG-F7m"/>
+                                    <constraint firstAttribute="height" constant="40" id="Vc4-g4-vIs"/>
+                                    <constraint firstItem="ZYs-BW-A77" firstAttribute="centerY" secondItem="12A-Ze-EVF" secondAttribute="centerY" id="hUd-YR-6bV"/>
+                                    <constraint firstItem="xLG-IA-YMw" firstAttribute="centerY" secondItem="12A-Ze-EVF" secondAttribute="centerY" id="shr-L3-ke6"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZYs-BW-A77" secondAttribute="trailing" constant="8" id="xcs-q9-cZg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="DCn-Ub-iIr"/>
                         <color key="backgroundColor" name="BGColor"/>
+                        <constraints>
+                            <constraint firstItem="12A-Ze-EVF" firstAttribute="top" secondItem="DCn-Ub-iIr" secondAttribute="top" id="Emg-yw-fl4"/>
+                            <constraint firstItem="DCn-Ub-iIr" firstAttribute="trailing" secondItem="12A-Ze-EVF" secondAttribute="trailing" constant="16" id="UX0-6W-ET0"/>
+                            <constraint firstItem="12A-Ze-EVF" firstAttribute="leading" secondItem="DCn-Ub-iIr" secondAttribute="leading" constant="16" id="aLZ-Z6-c4g"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cart" id="54y-VM-gEt"/>
+                    <connections>
+                        <outlet property="checkOrderImageView" destination="xLG-IA-YMw" id="vN2-LU-LCk"/>
+                        <outlet property="deliveryImageView" destination="ZUT-fH-jAl" id="0RH-WS-FWo"/>
+                        <outlet property="paymentImageView" destination="ZYs-BW-A77" id="tve-ph-2Do"/>
+                        <outlet property="sectionView" destination="12A-Ze-EVF" id="TTe-mS-Zxk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gd4-S8-UcN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5975" y="4"/>
+            <point key="canvasLocation" x="5974.8091603053435" y="3.5211267605633805"/>
         </scene>
         <!--More-->
         <scene sceneID="Cx6-eG-U3q">
@@ -3169,6 +3244,7 @@
         <image name="basket.fill" catalog="system" width="128" height="108"/>
         <image name="car.fill" catalog="system" width="128" height="95"/>
         <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="checkmark.rectangle.portrait" catalog="system" width="115" height="128"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="clock" catalog="system" width="128" height="123"/>
         <image name="creditcard" catalog="system" width="128" height="88"/>
@@ -3191,6 +3267,7 @@
         <image name="slider.horizontal.3" catalog="system" width="128" height="99"/>
         <image name="square.and.pencil" catalog="system" width="128" height="121"/>
         <image name="tray" catalog="system" width="128" height="88"/>
+        <image name="truck.box.badge.clock" catalog="system" width="128" height="99"/>
         <image name="turkishlirasign.square.fill" catalog="system" width="128" height="114"/>
         <namedColor name="BGColor">
             <color red="0.99599999189376831" green="0.98000001907348633" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3219,8 +3296,17 @@
         <namedColor name="TitleColor">
             <color red="0.54100000858306885" green="0.6589999794960022" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
