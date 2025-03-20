@@ -28,9 +28,9 @@ class OrdersTableViewCell: UITableViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 10))
         contentView.layer.cornerRadius = 10
         contentView.layer.borderColor = UIColor(named: "ButtonColor")?.cgColor
-        contentView.layer.borderWidth = 1
+        contentView.layer.borderWidth = 0.5
         ordersImageView.layer.borderColor = UIColor(named: "ButtonColor")?.cgColor
-        ordersImageView.layer.borderWidth = 1
+        ordersImageView.layer.borderWidth = 0.5
         
     }
     

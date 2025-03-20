@@ -13,8 +13,8 @@ final class DashedLineManager {
     private init() {}
     
     func createDashedLine(
-        from firstImageView: UIImageView,
-        to secondImageView: UIImageView,
+        from firstImageView: UIView,
+        to secondImageView: UIView,
         in containerView: UIView,
         animate: Bool = false,
         lineWidth: CGFloat = 2.0,
@@ -55,7 +55,7 @@ final class DashedLineManager {
     }
    
     func createDashedLinesBetweenImages(
-        imageViews: [UIImageView],
+        imageViews: [UIView],
         in containerView: UIView,
         animateIndices: [Int] = [0],
         lineWidth: CGFloat = 2.0,

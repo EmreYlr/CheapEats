@@ -9,6 +9,7 @@ import Foundation
 
 protocol CartViewModelProtocol {
     var delegate: CartViewModelOutputProtocol? { get set }
+    var cartItems: [ProductDetails] { get set }
 }
 
 protocol CartViewModelOutputProtocol: AnyObject {
@@ -20,7 +21,7 @@ protocol CartViewModelOutputProtocol: AnyObject {
 
 final class CartViewModel {
     weak var delegate: CartViewModelOutputProtocol?
-
+    var cartItems: [ProductDetails] = []
 }
 
 extension CartViewModel: CartViewModelProtocol {}

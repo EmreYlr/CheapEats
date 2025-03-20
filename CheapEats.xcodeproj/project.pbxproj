@@ -38,6 +38,9 @@
 		C3395A882D6B4B4E00461A5E /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3395A872D6B4B4E00461A5E /* AddCardViewController.swift */; };
 		C3395A8B2D6B4B8800461A5E /* AddCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3395A8A2D6B4B8700461A5E /* AddCardViewModel.swift */; };
 		C3395A912D6BA76900461A5E /* JVFloatLabeledTextField in Frameworks */ = {isa = PBXBuildFile; productRef = C3395A902D6BA76900461A5E /* JVFloatLabeledTextField */; };
+		C345DE6B2D8CB57200EE6323 /* CartViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345DE6A2D8CB56E00EE6323 /* CartViewController+TableView.swift */; };
+		C345DE6E2D8CB61800EE6323 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345DE6C2D8CB61800EE6323 /* CartTableViewCell.swift */; };
+		C345DE6F2D8CB61800EE6323 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C345DE6D2D8CB61800EE6323 /* CartTableViewCell.xib */; };
 		C35A4E0C2D751A0900C95440 /* HiddenPassword+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35A4E0B2D7519FE00C95440 /* HiddenPassword+UITextField.swift */; };
 		C35F6B762D5506CC00DBB7EA /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = C35F6B752D5506CC00DBB7EA /* NVActivityIndicatorView */; };
 		C35F6B7A2D550CBF00DBB7EA /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F6B792D550CBC00DBB7EA /* LoadingIndicator.swift */; };
@@ -143,6 +146,9 @@
 		C3395A832D6B407E00461A5E /* CreditCardValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardValidation.swift; sourceTree = "<group>"; };
 		C3395A872D6B4B4E00461A5E /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		C3395A8A2D6B4B8700461A5E /* AddCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewModel.swift; sourceTree = "<group>"; };
+		C345DE6A2D8CB56E00EE6323 /* CartViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+TableView.swift"; sourceTree = "<group>"; };
+		C345DE6C2D8CB61800EE6323 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		C345DE6D2D8CB61800EE6323 /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		C35A4E0B2D7519FE00C95440 /* HiddenPassword+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HiddenPassword+UITextField.swift"; sourceTree = "<group>"; };
 		C35F6B792D550CBC00DBB7EA /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		C3657B5D2D4D0C160003918D /* NetworkManager+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Request.swift"; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				C307971F2D80B84E00591F70 /* CartViewController.swift */,
+				C345DE6A2D8CB56E00EE6323 /* CartViewController+TableView.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -562,6 +569,8 @@
 				C3766BF52D6A80F600E75ABE /* AddManageCardTableViewCell.xib */,
 				C3969FD32D786E3F00CA68FE /* MapCollectionViewCell.swift */,
 				C3969FD42D786E3F00CA68FE /* MapCollectionViewCell.xib */,
+				C345DE6C2D8CB61800EE6323 /* CartTableViewCell.swift */,
+				C345DE6D2D8CB61800EE6323 /* CartTableViewCell.xib */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -658,6 +667,7 @@
 				C36D3EAD2CF34535008FE62B /* Base in Resources */,
 				C36D3EA82CF34534008FE62B /* Base in Resources */,
 				7E8FB72D2CFB43EB005AA2E4 /* OrdersTableViewCell.xib in Resources */,
+				C345DE6F2D8CB61800EE6323 /* CartTableViewCell.xib in Resources */,
 				C3969FD52D786E3F00CA68FE /* MapCollectionViewCell.xib in Resources */,
 				C36C1B0D2CF657A3007A96B4 /* OrderCollectionViewCell.xib in Resources */,
 				C3B21C922CF9ED3B005878F9 /* FoodTableViewCell.xib in Resources */,
@@ -731,6 +741,7 @@
 				C3B394BC2D6A29F2007CD437 /* ManageCardViewModel.swift in Sources */,
 				C32CBEFA2CF8A2110016F444 /* Users.swift in Sources */,
 				C3657B622D4D20630003918D /* DateFormatter.swift in Sources */,
+				C345DE6E2D8CB61800EE6323 /* CartTableViewCell.swift in Sources */,
 				7E65B2262CFCF8C800A57E67 /* OrderDetail.swift in Sources */,
 				C3B21C8E2CF9ECCA005878F9 /* MoreViewController+TableView.swift in Sources */,
 				C32CBEF82CF89C990016F444 /* UIView+Extension.swift in Sources */,
@@ -739,6 +750,7 @@
 				C38469172D6BB97E001E37C2 /* AddCardViewController+TextField.swift in Sources */,
 				C36D3EC52CF353E3008FE62B /* LoginViewController.swift in Sources */,
 				C3766BEB2D6A6B9200E75ABE /* ManageCardViewController+TableView.swift in Sources */,
+				C345DE6B2D8CB57200EE6323 /* CartViewController+TableView.swift in Sources */,
 				C3C6FDD62CFD05A60045DEDE /* FilterViewController.swift in Sources */,
 				C3C6FDE42CFE25A00045DEDE /* FilterViewModel.swift in Sources */,
 				C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */,

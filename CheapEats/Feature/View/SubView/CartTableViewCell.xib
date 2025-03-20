@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cartCell" rowHeight="70" id="KGk-i7-Jjw" customClass="CartTableViewCell" customModule="CheapEats" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="358" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="358" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cKu-Q4-hPt">
+                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="9fV-FS-O9n"/>
+                            <constraint firstAttribute="height" constant="50" id="oIe-iq-8RD"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="foodName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3Y-kj-xFY">
+                        <rect key="frame" x="68" y="10" width="72" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6f-zi-oOl">
+                        <rect key="frame" x="263" y="15" width="85" height="40"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2h1-IF-hUA">
+                                <rect key="frame" x="58" y="10" width="20" height="20"/>
+                                <color key="backgroundColor" name="TitleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="4ke-gc-wZh"/>
+                                    <constraint firstAttribute="width" constant="20" id="Ntq-ZG-iEQ"/>
+                                </constraints>
+                                <color key="tintColor" name="TextBlackColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="plus" catalog="system" symbolScale="small"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlQ-Jl-J9R">
+                                <rect key="frame" x="41" y="11" width="7" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN6-TW-qhD">
+                                <rect key="frame" x="11" y="10" width="20" height="20"/>
+                                <color key="backgroundColor" name="TitleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="j8o-K0-GqO"/>
+                                    <constraint firstAttribute="height" constant="20" id="xuH-49-43Y"/>
+                                </constraints>
+                                <color key="tintColor" name="TextBlackColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="minus" catalog="system" symbolScale="small"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2h1-IF-hUA" secondAttribute="trailing" constant="7" id="7oY-q8-m6o"/>
+                            <constraint firstItem="GlQ-Jl-J9R" firstAttribute="leading" secondItem="VN6-TW-qhD" secondAttribute="trailing" constant="10" id="HgD-FP-5S6"/>
+                            <constraint firstItem="GlQ-Jl-J9R" firstAttribute="centerY" secondItem="X6f-zi-oOl" secondAttribute="centerY" id="Kjh-3M-Zvt"/>
+                            <constraint firstItem="2h1-IF-hUA" firstAttribute="leading" secondItem="GlQ-Jl-J9R" secondAttribute="trailing" constant="10" id="M6N-5O-7Rm"/>
+                            <constraint firstItem="2h1-IF-hUA" firstAttribute="centerY" secondItem="X6f-zi-oOl" secondAttribute="centerY" id="PAD-No-LuF"/>
+                            <constraint firstAttribute="height" constant="40" id="WNb-1O-I89"/>
+                            <constraint firstItem="VN6-TW-qhD" firstAttribute="centerY" secondItem="X6f-zi-oOl" secondAttribute="centerY" id="kqw-Vx-kxm"/>
+                            <constraint firstAttribute="width" constant="85" id="y1a-YZ-A2k"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150 TL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6b-ue-Yrd">
+                        <rect key="frame" x="68" y="33" width="42" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" name="SecondTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="X6f-zi-oOl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3bc-Ji-w2f"/>
+                    <constraint firstItem="cKu-Q4-hPt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="NHd-bn-XnW"/>
+                    <constraint firstItem="c3Y-kj-xFY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Obk-dj-quj"/>
+                    <constraint firstAttribute="trailing" secondItem="X6f-zi-oOl" secondAttribute="trailing" constant="10" id="beQ-Uk-7OJ"/>
+                    <constraint firstItem="J6b-ue-Yrd" firstAttribute="top" secondItem="c3Y-kj-xFY" secondAttribute="bottom" constant="5" id="geL-pm-vYY"/>
+                    <constraint firstItem="cKu-Q4-hPt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="nLb-g6-rWI"/>
+                    <constraint firstItem="J6b-ue-Yrd" firstAttribute="leading" secondItem="cKu-Q4-hPt" secondAttribute="trailing" constant="8" id="pIn-zC-kG0"/>
+                    <constraint firstItem="c3Y-kj-xFY" firstAttribute="leading" secondItem="cKu-Q4-hPt" secondAttribute="trailing" constant="8" id="yGe-eq-5ub"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cartImageView" destination="cKu-Q4-hPt" id="6cV-n1-gMu"/>
+                <outlet property="countLabel" destination="GlQ-Jl-J9R" id="7K8-Zd-f7b"/>
+                <outlet property="countView" destination="X6f-zi-oOl" id="CfQ-Tc-pjC"/>
+                <outlet property="decreaseButton" destination="VN6-TW-qhD" id="w7I-ZU-rwz"/>
+                <outlet property="foodNameLabel" destination="c3Y-kj-xFY" id="ei5-AL-h5P"/>
+                <outlet property="increaseButton" destination="2h1-IF-hUA" id="ymP-Pg-Wwk"/>
+                <outlet property="priceLabel" destination="J6b-ue-Yrd" id="YOH-Q0-APO"/>
+            </connections>
+            <point key="canvasLocation" x="140.45801526717557" y="32.394366197183103"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="minus" catalog="system" width="128" height="26"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <namedColor name="SecondTextColor">
+            <color red="0.46700000762939453" green="0.46700000762939453" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextBlackColor">
+            <color red="0.2199999988079071" green="0.21600000560283661" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="TitleColor">
+            <color red="0.54100000858306885" green="0.6589999794960022" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

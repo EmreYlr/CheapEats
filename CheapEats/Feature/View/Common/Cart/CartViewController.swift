@@ -12,14 +12,19 @@ final class CartViewController: UIViewController {
     @IBOutlet weak var checkOrderImageView: UIImageView!
     @IBOutlet weak var deliveryImageView: UIImageView!
     @IBOutlet weak var paymentImageView: UIImageView!
+    @IBOutlet weak var checkOrderView: UIView!
+    @IBOutlet weak var deliveryView: UIView!
+    @IBOutlet weak var paymentView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nextButton: UIButton!
     
     private var dashedLines: [CAShapeLayer] = []
-    
     var cartViewModel: CartViewModelProtocol = CartViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initScreen()
+        initTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,13 +45,31 @@ final class CartViewController: UIViewController {
     
     func initScreen() {
         cartViewModel.delegate = self
-        checkOrderImageView.layer.cornerRadius = 10
-        deliveryImageView.layer.cornerRadius = 10
-        paymentImageView.layer.cornerRadius = 10
+        //Çıkarabilirim
+        configureView(sectionView, cornerRadius: 5)
+        setShadow(with: sectionView.layer, shadowOffset: true)
+        
+        deliveryView.layer.cornerRadius = deliveryView.frame.size.width / 2
+        paymentView.layer.cornerRadius = paymentView.frame.size.width / 2
+        checkOrderView.layer.cornerRadius = checkOrderView.frame.size.width / 2
+        checkOrderImageView.layer.masksToBounds = true
+        deliveryImageView.layer.masksToBounds = true
+        paymentImageView.layer.masksToBounds = true
+        
+        nextButton.layer.cornerRadius = 5
+    }
+    
+    func initTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "cartCell")
+        tableView.layer.cornerRadius = 10
+        
     }
     
     private func addDashedLines() {
-        guard let checkImage = checkOrderImageView, let deliveryImage = deliveryImageView, let paymentImage = paymentImageView else { return }
+        guard let checkImage = checkOrderView, let deliveryImage = deliveryView, let paymentImage = paymentView else { return }
         let imageViews = [checkImage, deliveryImage, paymentImage]
         
         dashedLines = DashedLineManager.shared.createDashedLinesBetweenImages(
@@ -57,9 +80,11 @@ final class CartViewController: UIViewController {
             dashPattern: [6, 3],
             fromColor: .lightGray,
             toColor: .button,
-            animationDuration: 0.7,
+            animationDuration: 1,
             padding: 8
         )
+    }
+    @IBAction func nextButtonClicked(_ sender: UIButton) {
     }
 }
 

@@ -15,6 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+//        if #available(iOS 15.0, *) {
+//            configureNavigationBarAppearance()
+//        }
+        
         window = UIWindow(windowScene: windowScene)
         if UserDefaultsManager.shared.isUserLoggedIn(), let savedUser = UserDefaultsManager.shared.getUser() {
             UserManager.shared.user = savedUser
@@ -35,6 +39,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.makeKeyAndVisible()
     }
+    
+//    @available(iOS 15.0, *)
+//    private func configureNavigationBarAppearance() {
+//        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithOpaqueBackground()
+//        appearance.backgroundColor = .button
+//        
+//        // Navigation bar metin ve buton renkleri (isteğe bağlı)
+//        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+//        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+//        
+//        UINavigationBar.appearance().standardAppearance = appearance
+//        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+//        UINavigationBar.appearance().compactAppearance = appearance
+//        UINavigationBar.appearance().compactScrollEdgeAppearance = appearance
+//        
+//        UINavigationBar.appearance().tintColor = .white
+//    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
