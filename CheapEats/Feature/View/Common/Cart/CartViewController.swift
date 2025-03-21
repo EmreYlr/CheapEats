@@ -17,7 +17,9 @@ final class CartViewController: UIViewController {
     @IBOutlet weak var paymentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextButton: UIButton!
-    
+    @IBOutlet weak var stateView: UIView!
+    @IBOutlet weak var discoveryButton: UIButton!
+    @IBOutlet weak var totalLabel: UILabel!
     private var dashedLines: [CAShapeLayer] = []
     var cartViewModel: CartViewModelProtocol = CartViewModel()
     
@@ -30,8 +32,7 @@ final class CartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
-        print(CartManager.shared.getProduct() ?? "")
-        // Sepet verilerini yenileme
+        cartViewModel.getCartItems()
         addDashedLines()
     }
 
@@ -45,9 +46,6 @@ final class CartViewController: UIViewController {
     
     func initScreen() {
         cartViewModel.delegate = self
-        //Çıkarabilirim
-        configureView(sectionView, cornerRadius: 5)
-        setShadow(with: sectionView.layer, shadowOffset: true)
         
         deliveryView.layer.cornerRadius = deliveryView.frame.size.width / 2
         paymentView.layer.cornerRadius = paymentView.frame.size.width / 2
@@ -57,6 +55,10 @@ final class CartViewController: UIViewController {
         paymentImageView.layer.masksToBounds = true
         
         nextButton.layer.cornerRadius = 5
+    }
+    
+    private func updateTotalLabel() {
+        totalLabel.text = "\(formatDouble(cartViewModel.totalAmount)) TL"
     }
     
     func initTableView() {
@@ -84,13 +86,30 @@ final class CartViewController: UIViewController {
             padding: 8
         )
     }
+    
     @IBAction func nextButtonClicked(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func discoveryButtonClicked(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
 }
 
 extension CartViewController: CartViewModelOutputProtocol {
     func update() {
         print("update")
+        stateView.isHidden = true
+        tableView.reloadData()
+    }
+    
+    func emptyCart() {
+        print("emptyCart")
+        stateView.isHidden = false
+    }
+    
+    func reloadTotalAmount() {
+        updateTotalLabel()
     }
     
     func error() {
@@ -104,6 +123,4 @@ extension CartViewController: CartViewModelOutputProtocol {
     func stopLoading() {
         print("stopLoading")
     }
-    
-    
 }

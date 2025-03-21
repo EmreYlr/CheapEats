@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 protocol HomeViewModelProtocol {
     var delegate: HomeViewModelOutputProtocol? { get set }
@@ -20,6 +21,7 @@ protocol HomeViewModelProtocol {
     func combineProductAndRestaurantDetails()
     func collectionLoad()
     func checkLocationPermission(with locationManager: CLLocationManager) -> Bool
+    func isCartEmpty(with cartButton: UIBarButtonItem)
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject{
@@ -148,6 +150,17 @@ final class HomeViewModel {
             print("Network error: \(error.localizedDescription)")
         }
         self.delegate?.error()
+    }
+    
+    func isCartEmpty(with cartButton: UIBarButtonItem) {
+        if CartManager.shared.isEmpty() {
+            cartButton.image = UIImage(systemName: "cart")
+            BadgeManager.shared.removeBadge(from: cartButton)
+        } else {
+            cartButton.image = UIImage(systemName: "cart.fill")
+            let count = CartManager.shared.getProduct().count
+            BadgeManager.shared.updateBadge(on: cartButton, count: count)
+        }
     }
 }
 

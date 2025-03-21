@@ -31,6 +31,8 @@ final class HomeViewController: UIViewController{
     let refreshControl = UIRefreshControl()
     let locationManager = CLLocationManager()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLoadingIndicator()
@@ -60,6 +62,7 @@ final class HomeViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //refreshLocation()
+        homeViewModel.isCartEmpty(with: cartButton)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

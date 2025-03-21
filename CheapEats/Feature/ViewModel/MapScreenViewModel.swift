@@ -27,7 +27,7 @@ protocol MapScreenViewModelProtocol {
     func selectRestaurant(withId id: String?)
     func isRestaurantSelected(_ restaurantId: String) -> Bool
     func selectRestaurantByAnnotationTitle(_ title: String?)
-    
+    func isCartEmpty(with cartButton: UIBarButtonItem)
 }
 
 protocol MapScreenViewModelOutputProtocol: AnyObject {
@@ -150,6 +150,17 @@ final class MapScreenViewModel {
             return "\(meters)m"
         } else {
             return String(format: "%.1f km", distance)
+        }
+    }
+    
+    func isCartEmpty(with cartButton: UIBarButtonItem) {
+        if CartManager.shared.isEmpty() {
+            cartButton.image = UIImage(systemName: "cart")
+            BadgeManager.shared.removeBadge(from: cartButton)
+        } else {
+            cartButton.image = UIImage(systemName: "cart.fill")
+            let count = CartManager.shared.getProduct().count
+            BadgeManager.shared.updateBadge(on: cartButton, count: count)
         }
     }
 }

@@ -21,6 +21,8 @@ struct Product {
     var createdAt: Date
     var endDate: String
     var status: Bool
+    var quantity: Int
+    var selectedCount: Int
     
     init?(dictionary: [String: Any], documentId: String) {
         self.productId = documentId
@@ -41,6 +43,8 @@ struct Product {
         }
         self.endDate = dictionary["endDate"] as? String ?? "00:00"
         self.status = dictionary["status"] as? Bool ?? false
+        self.quantity = dictionary["quantity"] as? Int ?? 1
+        self.selectedCount = 1
     }
 }
 

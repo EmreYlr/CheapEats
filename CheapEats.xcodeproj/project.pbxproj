@@ -110,6 +110,7 @@
 		C3EAD8442D4E705500CD49CE /* MapScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAD8432D4E705500CD49CE /* MapScreenViewController.swift */; };
 		C3EAD8462D4E708000CD49CE /* MapScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAD8452D4E708000CD49CE /* MapScreenViewModel.swift */; };
 		C3EAD8482D4E732F00CD49CE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAD8472D4E732C00CD49CE /* LocationManager.swift */; };
+		C3EDEE922D8E159400337540 /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EDEE912D8E158F00337540 /* BadgeManager.swift */; };
 		C3FDC2C42CF7A5F0001BD056 /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDC2C32CF7A5F0001BD056 /* HomeViewController+CollectionView.swift */; };
 		C3FE32D62D849E4B00F16777 /* DashedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE32D52D849E4500F16777 /* DashedLine.swift */; };
 		C3FFDE4F2D64B24D00FF6296 /* FormatDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFDE4E2D64B24800FF6296 /* FormatDouble.swift */; };
@@ -213,6 +214,7 @@
 		C3EAD8432D4E705500CD49CE /* MapScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewController.swift; sourceTree = "<group>"; };
 		C3EAD8452D4E708000CD49CE /* MapScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewModel.swift; sourceTree = "<group>"; };
 		C3EAD8472D4E732C00CD49CE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		C3EDEE912D8E158F00337540 /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
 		C3FDC2C32CF7A5F0001BD056 /* HomeViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		C3FE32D52D849E4500F16777 /* DashedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLine.swift; sourceTree = "<group>"; };
 		C3FFDE4E2D64B24800FF6296 /* FormatDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDouble.swift; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 		C3BCF0D92D7F1D5800FC5A5C /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				C3EDEE912D8E158F00337540 /* BadgeManager.swift */,
 				C3BCF0DA2D7F1D5E00FC5A5C /* CartManager.swift */,
 				C32CBEFB2CF8AB880016F444 /* UserManager.swift */,
 				C3EAD8472D4E732C00CD49CE /* LocationManager.swift */,
@@ -694,6 +697,7 @@
 				7E2B93F82CFF830100D84BB0 /* ProfileViewModel.swift in Sources */,
 				C3395A842D6B408800461A5E /* CreditCardValidation.swift in Sources */,
 				C3B394B12D69E87D007CD437 /* BorderAndShadow.swift in Sources */,
+				C3EDEE922D8E159400337540 /* BadgeManager.swift in Sources */,
 				C36D3EF92CF36251008FE62B /* RegisterViewController.swift in Sources */,
 				C3C6FDE62CFE44A50045DEDE /* MoreViewController+ScrollView.swift in Sources */,
 				C3EAD8442D4E705500CD49CE /* MapScreenViewController.swift in Sources */,

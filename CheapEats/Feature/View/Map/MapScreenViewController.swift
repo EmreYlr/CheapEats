@@ -25,6 +25,7 @@ final class MapScreenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUserLocationOnMap()
+        mapScreenViewModel.isCartEmpty(with: cartButton)
     }
     
     private func initLoad() {

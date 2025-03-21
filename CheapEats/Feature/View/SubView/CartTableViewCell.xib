@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="358" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cKu-Q4-hPt">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cKu-Q4-hPt">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="9fV-FS-O9n"/>
@@ -47,10 +47,13 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="small"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="increaseButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="doO-lI-R0Z"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlQ-Jl-J9R">
                                 <rect key="frame" x="41" y="11" width="7" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -66,12 +69,15 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="minus" catalog="system" symbolScale="small"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="decreaseButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wAf-wi-749"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2h1-IF-hUA" secondAttribute="trailing" constant="7" id="7oY-q8-m6o"/>
-                            <constraint firstItem="GlQ-Jl-J9R" firstAttribute="leading" secondItem="VN6-TW-qhD" secondAttribute="trailing" constant="10" id="HgD-FP-5S6"/>
+                            <constraint firstItem="GlQ-Jl-J9R" firstAttribute="leading" secondItem="VN6-TW-qhD" secondAttribute="trailing" constant="10" id="GCs-jg-Ovg"/>
                             <constraint firstItem="GlQ-Jl-J9R" firstAttribute="centerY" secondItem="X6f-zi-oOl" secondAttribute="centerY" id="Kjh-3M-Zvt"/>
                             <constraint firstItem="2h1-IF-hUA" firstAttribute="leading" secondItem="GlQ-Jl-J9R" secondAttribute="trailing" constant="10" id="M6N-5O-7Rm"/>
                             <constraint firstItem="2h1-IF-hUA" firstAttribute="centerY" secondItem="X6f-zi-oOl" secondAttribute="centerY" id="PAD-No-LuF"/>

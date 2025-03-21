@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class CartTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var cartImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -16,6 +17,20 @@ final class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var increaseButton: UIButton!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var countView: UIView!
+    
+    var callback : ((Int) -> ())?
+    var deleteCallback: (() -> ())?
+    var productDetails: ProductDetails?
+    
+    var count = 1 {
+        didSet {
+            countLabel.text = "\(count)"
+            if let maxQuantity = productDetails?.product.quantity {
+                increaseButton.isEnabled = count < maxQuantity
+                increaseButton.alpha = count < maxQuantity ? 1 : 0.5
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +45,7 @@ final class CartTableViewCell: UITableViewCell {
         
         contentView.layer.cornerRadius = 10
         setShadow(with: contentView.layer, shadowOffset: true)
-
-        setShadow(with: cartImageView.layer, shadowOffset: true)
+        cartImageView.layer.borderWidth = 0.2
         cartImageView.layer.cornerRadius = 5
         cartImageView.layer.masksToBounds = true
         cartImageView.clipsToBounds = true
@@ -42,17 +56,33 @@ final class CartTableViewCell: UITableViewCell {
     }
     
     func configureCell(product: ProductDetails) {
-        cartImageView.image = UIImage(named: "Logo")
+        self.productDetails = product
+        cartImageView.kf.setImage(with: URL(string: product.product.imageUrl))
         foodNameLabel.text = product.product.name
-        priceLabel.text = "\(product.product.newPrice) TL"
-        countLabel.text = "1"
+        priceLabel.text = "\(formatDouble(product.product.newPrice)) TL"
+        count = product.product.selectedCount
+        countLabel.text = "\(count)"
+
+        increaseButton.isEnabled = count < product.product.quantity
+        increaseButton.alpha = count < product.product.quantity ? 1 : 0.5
     }
     
-    func fakeConfigure() {
-        cartImageView.image = UIImage(named: "VisaLogo")
-        foodNameLabel.text = "Test Food"
-        priceLabel.text = "150 TL"
-        countLabel.text = "1"
+    @IBAction func increaseButtonClicked(_ sender: UIButton) {
+        if let product = productDetails, count >= product.product.quantity {
+            return
+        }
+        
+        count += 1
+        callback?(count)
     }
     
+    @IBAction func decreaseButtonClicked(_ sender: UIButton) {
+        if count <= 1 {
+            deleteCallback?()
+            return
+        }
+        
+        count -= 1
+        callback?(count)
+    }
 }
