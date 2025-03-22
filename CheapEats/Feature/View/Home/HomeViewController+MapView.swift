@@ -30,6 +30,7 @@ extension HomeViewController: CLLocationManagerDelegate {
         
         LocationManager.shared.currentLatitude = latitude
         LocationManager.shared.currentLongitude = longitude
+        LocationManager.shared.currentLocation = location.coordinate
         
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
@@ -50,6 +51,7 @@ extension HomeViewController: CLLocationManagerDelegate {
                     //placemark.country          // Ülke
                 ].compactMap { $0 }.joined(separator: ", ")
                 self.locationDescriptionLabel.text = address
+                LocationManager.shared.currentAddress = address
                 print("Adres: \(address)")
                 self.stopLocationServices()
             }

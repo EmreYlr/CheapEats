@@ -27,7 +27,7 @@ class CustomSegmentedControl: UISegmentedControl {
         
         for i in 0..<numberOfSegments {
             segmentTitles.append(super.titleForSegment(at: i) ?? "Segment \(i+1)")
-            secondaryTexts.append("Detail")
+            secondaryTexts.append("(...)")
             enabledSegments.append(true) 
             super.setTitle("", forSegmentAt: i)
         }

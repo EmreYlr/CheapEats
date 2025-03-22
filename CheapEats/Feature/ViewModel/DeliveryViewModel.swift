@@ -14,9 +14,12 @@ protocol DeliveryViewModelProtocol {
     var totalAmount: Double { get set }
     var oldTotalAmount: Double { get set }
     func distanceCalculate(completion: @escaping (String) -> ())
-    func deliveryType(_ deliveryTypeSegment: CustomSegmentedControl)
-    func mapViewCenterCoordinate(mapView: MKMapView)
-    func getAdress() -> String
+    func deliveryType(_ deliveryTypeSegment: CustomSegmentedControl, mapView: MKMapView, addressLabel: UILabel, addressStateLabel: UILabel, totalAmount: UILabel, deliveryWarningLabel: UILabel)
+    func selectedDeliveryType(at index: Int, mapView: MKMapView, addressLabel: UILabel, addressStateLabel: UILabel, totalAmount: UILabel, deliveryWarningLabel: UILabel)
+    func mapViewCenterRestaurantCoordinate(mapView: MKMapView)
+    func mapViewCenterUserCoordinate(mapView: MKMapView)
+    func getRestaurantAddress() -> String
+    func getUserAddress() -> String
 }
 
 protocol DeliveryViewModelOutputProtocol: AnyObject {
@@ -46,12 +49,13 @@ final class DeliveryViewModel {
         }
     }
     
-    func deliveryType(_ deliveryTypeSegment: CustomSegmentedControl) {
+    func deliveryType(_ deliveryTypeSegment: CustomSegmentedControl, mapView: MKMapView, addressLabel: UILabel, addressStateLabel: UILabel, totalAmount: UILabel, deliveryWarningLabel: UILabel) {
         let deliveryType = cartItems.first?.product.deliveryType
         switch deliveryType {
         case .all:
             deliveryTypeSegment.setEnabled(true, forSegmentAt: 0)
             deliveryTypeSegment.setEnabled(true, forSegmentAt: 1)
+            deliveryTypeSegment.selectedSegmentIndex = 0
             break
         case .delivery:
             deliveryTypeSegment.setEnabled(false, forSegmentAt: 0)
@@ -62,12 +66,14 @@ final class DeliveryViewModel {
             deliveryTypeSegment.selectedSegmentIndex = 0
             break
         default:
+            deliveryTypeSegment.selectedSegmentIndex = 0
             break
         }
         deliveryTypeSegment.updateSegments()
+        selectedDeliveryType(at: deliveryTypeSegment.selectedSegmentIndex, mapView: mapView, addressLabel: addressLabel, addressStateLabel: addressStateLabel, totalAmount: totalAmount, deliveryWarningLabel: deliveryWarningLabel)
     }
     
-    func mapViewCenterCoordinate(mapView: MKMapView) {
+    func mapViewCenterRestaurantCoordinate(mapView: MKMapView) {
         guard let cartItems = cartItems.first else { return }
         let location = CLLocationCoordinate2D(latitude: cartItems.restaurant.location.latitude, longitude: cartItems.restaurant.location.longitude)
         let annotation = MKPointAnnotation()
@@ -79,9 +85,44 @@ final class DeliveryViewModel {
         mapView.setRegion(region, animated: true)
     }
     
-    func getAdress() -> String {
+    func mapViewCenterUserCoordinate(mapView: MKMapView) {
+        guard let userLocation = LocationManager.shared.currentLocation else { return }
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = userLocation
+        annotation.title = "Konumunuz"
+        mapView.addAnnotation(annotation)
+        let region = MKCoordinateRegion(center: userLocation, latitudinalMeters: 200, longitudinalMeters: 200)
+        mapView.setRegion(region, animated: true)
+    }
+    
+    func getRestaurantAddress() -> String {
         guard let cartItems = cartItems.first else { return "" }
         return cartItems.restaurant.address
+    }
+    
+    func getUserAddress() -> String {
+        return LocationManager.shared.currentAddress ?? "Adress alınamadı"
+    }
+    
+    func selectedDeliveryType(at index: Int, mapView: MKMapView, addressLabel: UILabel, addressStateLabel: UILabel, totalAmount: UILabel, deliveryWarningLabel: UILabel) {
+        
+        totalAmount.text = "\(formatDouble(self.totalAmount)) TL"
+        switch index {
+        case 0:
+            mapViewCenterUserCoordinate(mapView: mapView)
+            addressLabel.text = getUserAddress()
+            addressStateLabel.text = "Adresiniz:"
+            totalAmount.text = "\(formatDouble(self.totalAmount + 20)) TL"
+            deliveryWarningLabel.isHidden = false
+        case 1:
+            mapViewCenterRestaurantCoordinate(mapView: mapView)
+            addressLabel.text = getRestaurantAddress()
+            addressStateLabel.text = "Restorant Adresi:"
+            totalAmount.text = totalAmount.text ?? ""
+            deliveryWarningLabel.isHidden = true
+        default:
+            break
+        }
     }
 }
 

@@ -23,10 +23,12 @@ final class DeliveryViewController: UIViewController {
     @IBOutlet weak var deliveryTypeSegment: CustomSegmentedControl!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var addressView: UIView!
     
-    @IBOutlet weak var adressLabel: UILabel!
+    @IBOutlet weak var addressStateLabel: UILabel!
     
-    @IBOutlet weak var adressView: UIView!
+    @IBOutlet weak var deliveryWarningLabel: UILabel!
     private var dashedLines: [CAShapeLayer] = []
     var deliveryViewModel: DeliveryViewModelProtocol = DeliveryViewModel()
     
@@ -60,23 +62,24 @@ final class DeliveryViewController: UIViewController {
         deliveryView.layer.cornerRadius = deliveryView.frame.size.width / 2
         paymentView.layer.cornerRadius = paymentView.frame.size.width / 2
         checkOrderView.layer.cornerRadius = checkOrderView.frame.size.width / 2
+        
         checkOrderImageView.layer.cornerRadius = 5
         deliveryImageView.layer.cornerRadius = 5
         paymentImageView.layer.cornerRadius = 5
+        totalView.layer.cornerRadius = 5
+        nextButton.layer.cornerRadius = 5
+        mapView.layer.cornerRadius = 5
+        addressView.layer.cornerRadius = 5
+        
         checkOrderImageView.layer.masksToBounds = true
         deliveryImageView.layer.masksToBounds = true
         paymentImageView.layer.masksToBounds = true
-        totalView.layer.cornerRadius = 5
+        
         setShadow(with: totalView.layer, shadowOffset: true)
-        nextButton.layer.cornerRadius = 5
-        mapView.layer.cornerRadius = 5
-        setShadow(with:mapView.layer, shadowOffset: true)
-        setShadow(with: adressView.layer, shadowOffset: true)
-        adressView.layer.cornerRadius = 5
+        setShadow(with: addressView.layer, shadowOffset: true)
     }
     
     private func initData() {
-        totalLabel.text = "\(formatDouble(deliveryViewModel.totalAmount)) TL"
         oldTotalLabel.text = "\(formatDouble(deliveryViewModel.oldTotalAmount)) TL"
     }
     
@@ -86,7 +89,7 @@ final class DeliveryViewController: UIViewController {
             self.deliveryTypeSegment.setSecondaryText("(\(distance))", forSegmentAt: 1)
         }
         
-        deliveryViewModel.deliveryType(deliveryTypeSegment)
+        deliveryViewModel.deliveryType(deliveryTypeSegment, mapView: mapView, addressLabel: addressLabel, addressStateLabel: addressStateLabel, totalAmount: totalLabel, deliveryWarningLabel: deliveryWarningLabel)
     }
     
     private func configureMapView() {
@@ -97,9 +100,6 @@ final class DeliveryViewController: UIViewController {
         mapView.showsBuildings = false
         mapView.showsLargeContentViewer = false
         mapView.pointOfInterestFilter = MKPointOfInterestFilter(including: MKPointOfInterestCategory.defaultCategoriesToShow)
-        deliveryViewModel.mapViewCenterCoordinate(mapView: mapView)
-        
-        adressLabel.text = deliveryViewModel.getAdress()
     }
     
     private func addDashedLines() {
@@ -121,7 +121,7 @@ final class DeliveryViewController: UIViewController {
     }
     
     @IBAction func deliverySegmentClicked(_ sender: CustomSegmentedControl) {
-        print(sender.selectedSegmentIndex)
+        deliveryViewModel.selectedDeliveryType(at: sender.selectedSegmentIndex, mapView: mapView, addressLabel: addressLabel, addressStateLabel: addressStateLabel, totalAmount: totalLabel, deliveryWarningLabel: deliveryWarningLabel) 
     }
     
     @IBAction func nextButtonClicked(_ sender: UIButton) {

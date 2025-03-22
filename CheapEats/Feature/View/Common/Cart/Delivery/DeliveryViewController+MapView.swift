@@ -9,8 +9,11 @@ import MapKit
 
 extension DeliveryViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
         
-        let identifier = "RestaurantPin"
+        let identifier = "CustomPin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView
         
         if annotationView == nil {
@@ -22,8 +25,18 @@ extension DeliveryViewController: MKMapViewDelegate {
         } else {
             annotationView?.annotation = annotation
         }
-        annotationView?.markerTintColor = .button
-        annotationView?.glyphImage = UIImage(systemName: "fork.knife")
+        
+        // Check if this is the user's location annotation
+        if annotation.title == "Konumunuz" {
+            // User location pin - use person icon and red color
+            annotationView?.markerTintColor = .red
+            annotationView?.glyphImage = UIImage(systemName: "person.fill")
+        } else {
+            // Restaurant location pin - use fork.knife icon and button color
+            annotationView?.markerTintColor = .button
+            annotationView?.glyphImage = UIImage(systemName: "fork.knife")
+        }
+        
         return annotationView
     }
     

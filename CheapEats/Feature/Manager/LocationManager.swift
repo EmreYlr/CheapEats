@@ -14,4 +14,6 @@ final class LocationManager {
     
     var currentLatitude: Double?
     var currentLongitude: Double?
+    var currentAddress: String?
+    var currentLocation: CLLocationCoordinate2D?
 }

@@ -30,12 +30,13 @@ protocol CartViewModelOutputProtocol: AnyObject {
 final class CartViewModel {
     weak var delegate: CartViewModelOutputProtocol?
     var cartItems: [ProductDetails] = []
-    //TODO: old amount da olabilir
+
     var totalAmount: Double {
         return cartItems.reduce(0.0) { sum, productDetails in
             sum + (productDetails.product.newPrice * Double(productDetails.product.selectedCount))
         }
     }
+    
     var oldTotalAmount: Double {
         return cartItems.reduce(0.0) { sum, productDetails in
             sum + (productDetails.product.oldPrice * Double(productDetails.product.selectedCount))

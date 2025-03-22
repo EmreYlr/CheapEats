@@ -23,3 +23,4 @@ extension FormatDouble {
 extension UICollectionViewCell: FormatDouble {}
 extension UITableViewCell: FormatDouble {}
 extension UIViewController: FormatDouble {}
+extension DeliveryViewModel: FormatDouble {}
