@@ -65,6 +65,9 @@ final class CartViewController: UIViewController {
         checkOrderImageView.layer.masksToBounds = true
         deliveryImageView.layer.masksToBounds = true
         paymentImageView.layer.masksToBounds = true
+        checkOrderImageView.layer.cornerRadius = 5
+        deliveryImageView.layer.cornerRadius = 5
+        paymentImageView.layer.cornerRadius = 5
         totalView.layer.cornerRadius = 5
         setShadow(with: totalView.layer, shadowOffset: true)
         nextButton.layer.cornerRadius = 5

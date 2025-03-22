@@ -1150,37 +1150,6 @@
                                     <constraint firstItem="Ssr-Ab-sk0" firstAttribute="leading" secondItem="AB3-uw-ugI" secondAttribute="leading" constant="15" id="yer-eW-p6a"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hrg-N7-1Op">
-                                <rect key="frame" x="277" y="669" width="100" height="50"/>
-                                <color key="backgroundColor" name="ButtonColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="PeO-0Z-cQk"/>
-                                    <constraint firstAttribute="height" constant="50" id="qLg-cy-enu"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="İleri">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="Helvetica-Bold"/>
-                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="applyButtonClicked:" destination="dco-cR-H8G" eventType="touchUpInside" id="DZ4-GO-6WQ"/>
-                                    <action selector="nextButtonClicked:" destination="Dev-h1-P9L" eventType="touchUpInside" id="5XR-4h-Z0D"/>
-                                    <action selector="nextButtonClicked:" destination="4df-YL-qGx" eventType="touchUpInside" id="X5d-2w-8UW"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teslimat Türü" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Oq-Dk-GGk">
-                                <rect key="frame" x="15.999999999999993" y="230" width="110.33333333333331" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" name="TextBlackColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-6u-Uw1" userLabel="Total View">
                                 <rect key="frame" x="16" y="669" width="241" height="50"/>
                                 <subviews>
@@ -1223,6 +1192,86 @@
                                     <constraint firstItem="DOq-5W-f93" firstAttribute="top" secondItem="LTf-CF-BEX" secondAttribute="bottom" constant="4" id="yWO-Pg-iKL"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hrg-N7-1Op">
+                                <rect key="frame" x="277" y="669" width="100" height="50"/>
+                                <color key="backgroundColor" name="ButtonColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="PeO-0Z-cQk"/>
+                                    <constraint firstAttribute="height" constant="50" id="qLg-cy-enu"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="İleri">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="applyButtonClicked:" destination="dco-cR-H8G" eventType="touchUpInside" id="DZ4-GO-6WQ"/>
+                                    <action selector="nextButtonClicked:" destination="Dev-h1-P9L" eventType="touchUpInside" id="5XR-4h-Z0D"/>
+                                    <action selector="nextButtonClicked:" destination="4df-YL-qGx" eventType="touchUpInside" id="X5d-2w-8UW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teslimat Türü" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Oq-Dk-GGk">
+                                <rect key="frame" x="15.999999999999993" y="230" width="110.33333333333331" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" name="TextBlackColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ud4-1V-AhV">
+                                <rect key="frame" x="16" y="356" width="361" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="yG4-6I-B26"/>
+                                </constraints>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wqs-wx-x7E" customClass="CustomSegmentedControl" customModule="CheapEats" customModuleProvider="target">
+                                <rect key="frame" x="16" y="261" width="361" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ttA-eQ-rM3"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Kurye"/>
+                                    <segment title="Gel-Al"/>
+                                </segments>
+                                <connections>
+                                    <action selector="deliverySegmentClicked:" destination="4df-YL-qGx" eventType="valueChanged" id="Ulo-LC-57W"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSb-LR-YXx">
+                                <rect key="frame" x="16" y="571" width="361" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adres:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivx-eZ-giO">
+                                        <rect key="frame" x="5" y="5" width="48" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" name="TextBlackColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adress" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCh-eh-gqf">
+                                        <rect key="frame" x="5" y="23" width="351" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="DYX-LN-ogM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <color key="textColor" name="SecondTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="1kI-GC-m8o"/>
+                                    <constraint firstItem="iCh-eh-gqf" firstAttribute="leading" secondItem="oSb-LR-YXx" secondAttribute="leading" constant="5" id="6Ei-PJ-KPG"/>
+                                    <constraint firstAttribute="trailing" secondItem="iCh-eh-gqf" secondAttribute="trailing" constant="5" id="fYu-1w-77C"/>
+                                    <constraint firstItem="ivx-eZ-giO" firstAttribute="top" secondItem="oSb-LR-YXx" secondAttribute="top" constant="5" id="hbx-2J-jHB"/>
+                                    <constraint firstItem="ivx-eZ-giO" firstAttribute="leading" secondItem="oSb-LR-YXx" secondAttribute="leading" constant="5" id="oSQ-jF-pi5"/>
+                                    <constraint firstItem="iCh-eh-gqf" firstAttribute="top" secondItem="ivx-eZ-giO" secondAttribute="bottom" id="uMv-eZ-hGE"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GUe-Ne-hzH"/>
                         <color key="backgroundColor" name="BGColor"/>
@@ -1231,24 +1280,37 @@
                             <constraint firstItem="Hrg-N7-1Op" firstAttribute="leading" secondItem="IaL-6u-Uw1" secondAttribute="trailing" constant="20" id="8Tc-Lx-R1l"/>
                             <constraint firstItem="AB3-uw-ugI" firstAttribute="leading" secondItem="GUe-Ne-hzH" secondAttribute="leading" constant="16" id="9KP-Qg-rJe"/>
                             <constraint firstItem="GUe-Ne-hzH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6Oq-Dk-GGk" secondAttribute="trailing" constant="250" id="BQs-zi-ryf"/>
+                            <constraint firstItem="GUe-Ne-hzH" firstAttribute="trailing" secondItem="wqs-wx-x7E" secondAttribute="trailing" constant="16" id="E9Q-IN-rso"/>
+                            <constraint firstItem="oSb-LR-YXx" firstAttribute="top" secondItem="Ud4-1V-AhV" secondAttribute="bottom" constant="15" id="EL8-6a-e8w"/>
                             <constraint firstItem="6Oq-Dk-GGk" firstAttribute="top" secondItem="AB3-uw-ugI" secondAttribute="bottom" constant="15" id="FDu-7N-fJ0"/>
                             <constraint firstItem="GUe-Ne-hzH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="chJ-lx-57Z" secondAttribute="trailing" constant="200" id="HNv-VS-dRA"/>
                             <constraint firstItem="GUe-Ne-hzH" firstAttribute="trailing" secondItem="Hrg-N7-1Op" secondAttribute="trailing" constant="16" id="MEK-hF-qE6"/>
+                            <constraint firstItem="oSb-LR-YXx" firstAttribute="leading" secondItem="GUe-Ne-hzH" secondAttribute="leading" constant="16" id="MMD-tU-nXZ"/>
+                            <constraint firstItem="wqs-wx-x7E" firstAttribute="leading" secondItem="GUe-Ne-hzH" secondAttribute="leading" constant="16" id="NtK-j9-FxO"/>
                             <constraint firstItem="GUe-Ne-hzH" firstAttribute="bottom" secondItem="IaL-6u-Uw1" secondAttribute="bottom" constant="50" id="P5z-Bn-4sW"/>
                             <constraint firstItem="chJ-lx-57Z" firstAttribute="top" secondItem="GUe-Ne-hzH" secondAttribute="top" id="Ryq-fr-uf9"/>
+                            <constraint firstItem="GUe-Ne-hzH" firstAttribute="trailing" secondItem="Ud4-1V-AhV" secondAttribute="trailing" constant="16" id="T2a-qo-ojh"/>
+                            <constraint firstItem="GUe-Ne-hzH" firstAttribute="trailing" secondItem="oSb-LR-YXx" secondAttribute="trailing" constant="16" id="XV3-PO-HWA"/>
                             <constraint firstItem="GUe-Ne-hzH" firstAttribute="bottom" secondItem="Hrg-N7-1Op" secondAttribute="bottom" constant="50" id="i8G-JH-qap"/>
+                            <constraint firstItem="Ud4-1V-AhV" firstAttribute="leading" secondItem="GUe-Ne-hzH" secondAttribute="leading" constant="16" id="rJa-dz-xER"/>
+                            <constraint firstItem="wqs-wx-x7E" firstAttribute="top" secondItem="6Oq-Dk-GGk" secondAttribute="bottom" constant="10" id="uEB-aI-Ac7"/>
                             <constraint firstItem="IaL-6u-Uw1" firstAttribute="leading" secondItem="GUe-Ne-hzH" secondAttribute="leading" constant="16" id="v9g-rZ-i4J"/>
                             <constraint firstItem="AB3-uw-ugI" firstAttribute="top" secondItem="chJ-lx-57Z" secondAttribute="bottom" constant="15" id="vly-4s-InK"/>
                             <constraint firstItem="chJ-lx-57Z" firstAttribute="leading" secondItem="GUe-Ne-hzH" secondAttribute="leading" constant="16" id="wn9-o9-DVz"/>
+                            <constraint firstItem="Ud4-1V-AhV" firstAttribute="top" secondItem="wqs-wx-x7E" secondAttribute="bottom" constant="15" id="x5z-ou-I5y"/>
                             <constraint firstItem="6Oq-Dk-GGk" firstAttribute="leading" secondItem="GUe-Ne-hzH" secondAttribute="leading" constant="16" id="xFN-m8-uH3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Delivery Type" id="aF8-dJ-uve"/>
                     <connections>
+                        <outlet property="adressLabel" destination="iCh-eh-gqf" id="XJw-EA-p6d"/>
+                        <outlet property="adressView" destination="oSb-LR-YXx" id="OaS-AJ-L35"/>
                         <outlet property="checkOrderImageView" destination="KgT-I8-iNB" id="myI-58-9oh"/>
                         <outlet property="checkOrderView" destination="Ssr-Ab-sk0" id="Hcm-PT-vh0"/>
                         <outlet property="deliveryImageView" destination="tJ4-0e-ViF" id="ERT-sF-O0f"/>
+                        <outlet property="deliveryTypeSegment" destination="wqs-wx-x7E" id="g3E-jM-ZxD"/>
                         <outlet property="deliveryView" destination="uL1-w4-lLp" id="NhF-1Q-eHa"/>
+                        <outlet property="mapView" destination="Ud4-1V-AhV" id="qVA-Fq-jXj"/>
                         <outlet property="nextButton" destination="Hrg-N7-1Op" id="HNn-Zd-Urd"/>
                         <outlet property="oldTotalLabel" destination="DOq-5W-f93" id="qjw-0W-Dlg"/>
                         <outlet property="paymentImageView" destination="HKa-Jl-HF7" id="prv-Ta-jhz"/>
@@ -1260,7 +1322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5S-TL-OOR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6766" y="4"/>
+            <point key="canvasLocation" x="6765.6488549618316" y="3.5211267605633805"/>
         </scene>
         <!--More-->
         <scene sceneID="Cx6-eG-U3q">

@@ -30,4 +30,5 @@ extension RouterDistance {
 extension DetailViewModel: RouterDistance {}
 extension MoreViewModel: RouterDistance {}
 extension MapScreenViewModel: RouterDistance {}
+extension DeliveryViewModel: RouterDistance {}
 
