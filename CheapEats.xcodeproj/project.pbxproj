@@ -80,6 +80,8 @@
 		C3969FD52D786E3F00CA68FE /* MapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3969FD42D786E3F00CA68FE /* MapCollectionViewCell.xib */; };
 		C3969FD62D786E3F00CA68FE /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3969FD32D786E3F00CA68FE /* MapCollectionViewCell.swift */; };
 		C3986A062CFA60640085521A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3986A052CFA60640085521A /* DetailViewController.swift */; };
+		C3A8D2CC2D8ECA12001E55DB /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8D2CB2D8ECA12001E55DB /* DeliveryViewController.swift */; };
+		C3A8D2CE2D8ECA3D001E55DB /* DeliveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8D2CD2D8ECA37001E55DB /* DeliveryViewModel.swift */; };
 		C3ADE97F2D53A14D00278990 /* DetailViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */; };
 		C3ADE9812D53B68200278990 /* RouterDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE9802D53B67500278990 /* RouterDistance.swift */; };
 		C3B21C882CF9EAF8005878F9 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C872CF9EAF8005878F9 /* MoreViewController.swift */; };
@@ -185,6 +187,8 @@
 		C3969FD32D786E3F00CA68FE /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3969FD42D786E3F00CA68FE /* MapCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3986A052CFA60640085521A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C3A8D2CB2D8ECA12001E55DB /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
+		C3A8D2CD2D8ECA37001E55DB /* DeliveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewModel.swift; sourceTree = "<group>"; };
 		C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+MapView.swift"; sourceTree = "<group>"; };
 		C3ADE9802D53B67500278990 /* RouterDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDistance.swift; sourceTree = "<group>"; };
 		C3B21C872CF9EAF8005878F9 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 			children = (
 				C307971F2D80B84E00591F70 /* CartViewController.swift */,
 				C345DE6A2D8CB56E00EE6323 /* CartViewController+TableView.swift */,
+				C3A8D2C72D8EC9BF001E55DB /* Delivery */,
+				C3A8D2C82D8EC9E4001E55DB /* Payment */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 				C31C06BF2D74D27700617FC6 /* EditProfileViewModel.swift */,
 				C31B833E2D7500D9005D37C9 /* ChangePasswordViewModel.swift */,
 				C314AE132D81D3FF00FF03C3 /* CartViewModel.swift */,
+				C3A8D2CD2D8ECA37001E55DB /* DeliveryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -453,6 +460,21 @@
 				C3657B5B2D4D0BE00003918D /* Request */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		C3A8D2C72D8EC9BF001E55DB /* Delivery */ = {
+			isa = PBXGroup;
+			children = (
+				C3A8D2CB2D8ECA12001E55DB /* DeliveryViewController.swift */,
+			);
+			path = Delivery;
+			sourceTree = "<group>";
+		};
+		C3A8D2C82D8EC9E4001E55DB /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Payment;
 			sourceTree = "<group>";
 		};
 		C3ADE97D2D53A13700278990 /* Detail */ = {
@@ -737,6 +759,7 @@
 				C3B21C8A2CF9EB02005878F9 /* MoreViewModel.swift in Sources */,
 				C3B394BA2D6A1B11007CD437 /* PDFHelper.swift in Sources */,
 				C3B394B32D69F36B007CD437 /* DetailViewController+ScrollView.swift in Sources */,
+				C3A8D2CC2D8ECA12001E55DB /* DeliveryViewController.swift in Sources */,
 				C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */,
 				C328A0802D7DE3F400E5172A /* MapDesignCategories.swift in Sources */,
 				C31C06C02D74D27C00617FC6 /* EditProfileViewModel.swift in Sources */,
@@ -759,6 +782,7 @@
 				C3C6FDE42CFE25A00045DEDE /* FilterViewModel.swift in Sources */,
 				C3C6FDD22CFCFE820045DEDE /* LineView.swift in Sources */,
 				C3C6FDE12CFE1A220045DEDE /* BottomSheetViewController+TableView.swift in Sources */,
+				C3A8D2CE2D8ECA3D001E55DB /* DeliveryViewModel.swift in Sources */,
 				C3BCF0DD2D7F260B00FC5A5C /* UserDefaultsManager.swift in Sources */,
 				C314AE142D81D40400FF03C3 /* CartViewModel.swift in Sources */,
 				C3969FD62D786E3F00CA68FE /* MapCollectionViewCell.swift in Sources */,

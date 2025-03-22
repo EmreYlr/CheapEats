@@ -62,7 +62,8 @@ final class CartTableViewCell: UITableViewCell {
         priceLabel.text = "\(formatDouble(product.product.newPrice)) TL"
         count = product.product.selectedCount
         countLabel.text = "\(count)"
-
+        
+        
         increaseButton.isEnabled = count < product.product.quantity
         increaseButton.alpha = count < product.product.quantity ? 1 : 0.5
     }

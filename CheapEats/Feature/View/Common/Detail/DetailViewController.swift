@@ -35,6 +35,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var oldAmountLabel: UILabel!
     @IBOutlet weak var newAmountLabel: UILabel!
     @IBOutlet weak var waitView: UIView!
+    
     private var loadIndicator: NVActivityIndicatorView!
     var detailViewModel: DetailViewModelProtocol = DetailViewModel()
     let SB = UIStoryboard(name: "Main", bundle: nil)

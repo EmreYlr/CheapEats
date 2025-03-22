@@ -92,6 +92,50 @@ final class DashedLineManager {
         
         return dashedLines
     }
+
+    func createNonAnimatedDashedLinesBetweenImages(
+        imageViews: [UIView],
+        in containerView: UIView,
+        selectedIndices: [Int] = [0],
+        lineWidth: CGFloat = 2.0,
+        dashPattern: [NSNumber] = [6, 3],
+        defaultColor: UIColor = .lightGray,
+        selectedColor: UIColor = .green,
+        padding: CGFloat = 8
+    ) -> [CAShapeLayer] {
+        
+        guard imageViews.count >= 2 else { return [] }
+        
+        var dashedLines: [CAShapeLayer] = []
+        for index in 0..<(imageViews.count - 1) {
+            let firstImageView = imageViews[index]
+            let secondImageView = imageViews[index + 1]
+            let isSelected = selectedIndices.contains(index)
+            let lineColor = isSelected ? selectedColor : defaultColor
+            
+            let startX = firstImageView.frame.maxX
+            let endX = secondImageView.frame.minX
+            let midY = firstImageView.frame.midY
+
+            let path = UIBezierPath()
+            path.move(to: CGPoint(x: startX + padding, y: midY))
+            path.addLine(to: CGPoint(x: endX - padding, y: midY))
+
+            let dashedLayer = CAShapeLayer()
+            dashedLayer.path = path.cgPath
+            dashedLayer.strokeColor = lineColor.cgColor
+            dashedLayer.lineWidth = lineWidth
+            dashedLayer.lineDashPattern = dashPattern
+            dashedLayer.fillColor = nil
+            
+            containerView.layer.addSublayer(dashedLayer)
+            
+            dashedLines.append(dashedLayer)
+        }
+        
+        return dashedLines
+    }
+    
     private func animateStrokeColorChange(
         _ layer: CAShapeLayer,
         fromColor: UIColor,

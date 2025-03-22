@@ -11,9 +11,11 @@ protocol CartViewModelProtocol {
     var delegate: CartViewModelOutputProtocol? { get set }
     var cartItems: [ProductDetails] { get set }
     var totalAmount: Double { get }
+    var oldTotalAmount: Double { get }
     func updateCount(product: ProductDetails, count: Int)
     func getCartItems()
     func deleteProduct(product: ProductDetails)
+    func clearCart()
 }
 
 protocol CartViewModelOutputProtocol: AnyObject {
@@ -28,10 +30,15 @@ protocol CartViewModelOutputProtocol: AnyObject {
 final class CartViewModel {
     weak var delegate: CartViewModelOutputProtocol?
     var cartItems: [ProductDetails] = []
-    
+    //TODO: old amount da olabilir
     var totalAmount: Double {
         return cartItems.reduce(0.0) { sum, productDetails in
             sum + (productDetails.product.newPrice * Double(productDetails.product.selectedCount))
+        }
+    }
+    var oldTotalAmount: Double {
+        return cartItems.reduce(0.0) { sum, productDetails in
+            sum + (productDetails.product.oldPrice * Double(productDetails.product.selectedCount))
         }
     }
     
@@ -70,6 +77,11 @@ final class CartViewModel {
     
     private func isCartEmpty() -> Bool {
         return cartItems.isEmpty
+    }
+    func clearCart() {
+        CartManager.shared.clearCart()
+        cartItems.removeAll()
+        delegate?.emptyCart()
     }
 }
 

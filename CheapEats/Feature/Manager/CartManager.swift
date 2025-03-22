@@ -54,5 +54,9 @@ final class CartManager {
     func isEmpty() -> Bool {
         return selectedProduct.isEmpty
     }
+    
+    func clearCart() {
+        selectedProduct.removeAll()
+    }
 }
 
