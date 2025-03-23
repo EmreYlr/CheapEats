@@ -22,7 +22,6 @@ final class PaymentViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var oldTotalLabel: UILabel!
     @IBOutlet weak var okayButton: UIButton!
-    
     @IBOutlet weak var cardInfoView: UIView!
     @IBOutlet weak var changePayButton: UIButton!
     @IBOutlet weak var cardOwnerNameTextField: JVFloatLabeledTextField!
@@ -33,9 +32,17 @@ final class PaymentViewController: UIViewController {
     @IBOutlet weak var cardNameTextField: JVFloatLabeledTextField!
     @IBOutlet weak var cardInfoViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var saveCardSwitch: UISwitch!
-    
+    @IBOutlet weak var switchLabel: UILabel!
+    @IBOutlet weak var registeredCardView: UIView!
+    @IBOutlet weak var registeredCardLabel: UILabel!
+    @IBOutlet weak var registeredCardButton: UIButton!
+    @IBOutlet weak var registeredCardImage: UIImageView!
+    var isOpen = false
     private var dashedLines: [CAShapeLayer] = []
     var paymentViewModel: PaymentViewModelProtocol = PaymentViewModel()
+    
+    let SB = UIStoryboard(name: "Main", bundle: nil)
+    private var cardSelectViewController: CardSelectViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +84,9 @@ final class PaymentViewController: UIViewController {
         cardInfoView.layer.cornerRadius = 5
         setShadow(with: cardInfoView.layer, shadowOffset: true)
         addHorizontalLine(toView: cardInfoView, belowView: changePayButton)
+        registeredCardView.layer.cornerRadius = 5
+        setBorder(with: registeredCardView.layer)
+
     }
     
     private func addStaticDashedLines() {
@@ -100,6 +110,63 @@ final class PaymentViewController: UIViewController {
     }
     
     @IBAction func changePayButton(_ sender: UIButton) {
+        let newHeight: CGFloat = isOpen ? 250 : 150
+        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 13)]
+        if isOpen {
+            UIView.animate(withDuration: 0.3, animations: {
+                let attributedTitle = NSAttributedString(string: "Kayıtlı kartımla öde", attributes: attributes)
+                    sender.setAttributedTitle(attributedTitle, for: .normal)
+                self.cardInfoViewHeightConstraint.constant = newHeight
+                self.view.layoutIfNeeded()
+                self.firstFrontCardView()
+            },  completion: { _ in
+                self.frontCardView()
+            })
+        }else{
+            sender.titleLabel?.font = .systemFont(ofSize: 13)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.cardInfoViewHeightConstraint.constant = newHeight
+                let attributedTitle = NSAttributedString(string: "Başka Kartla Öde", attributes: attributes)
+                    sender.setAttributedTitle(attributedTitle, for: .normal)
+                self.view.layoutIfNeeded()
+                self.firstBackCardView()
+            },  completion: { _ in
+                self.backCardView()
+            })
+        }
+    }
+    
+    func frontCardView() {
+        self.isOpen = false
+        self.cardOwnerNameTextField.isHidden = false
+        self.cardNoTextField.isHidden = false
+        self.cardCVVTextField.isHidden = false
+        self.cardYearTextField.isHidden = false
+        self.cardMonthTextField.isHidden = false
+        self.saveCardSwitch.isHidden = false
+        self.switchLabel.isHidden = false
+    }
+    
+    func firstFrontCardView() {
+        self.registeredCardView.isHidden = true
+        self.registeredCardLabel.isHidden = true
+    }
+    
+    func backCardView() {
+        self.isOpen = true
+        self.registeredCardView.isHidden = false
+        self.registeredCardLabel.isHidden = false
+    }
+    
+    func firstBackCardView() {
+        self.cardOwnerNameTextField.isHidden = true
+        self.cardNoTextField.isHidden = true
+        self.cardCVVTextField.isHidden = true
+        self.cardNameTextField.isHidden = true
+        self.cardYearTextField.isHidden = true
+        self.cardMonthTextField.isHidden = true
+        self.saveCardSwitch.isHidden = true
+        self.switchLabel.isHidden = true
     }
     
     @IBAction func saveCardSwitchChanged(_ sender: UISwitch) {
@@ -107,6 +174,7 @@ final class PaymentViewController: UIViewController {
         
         if !sender.isOn {
             self.cardNameTextField.isHidden = true
+            self.cardNameTextField.isEnabled = false
         }
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -116,9 +184,26 @@ final class PaymentViewController: UIViewController {
             self.setShadow(with: self.cardInfoView.layer, shadowOffset: true)
             if sender.isOn {
                 self.cardNameTextField.isHidden = false
+                self.cardNameTextField.isEnabled = true
+                self.cardNameTextField.becomeFirstResponder()
             }
         })
     }
+    @IBAction func registeredCardButtonClicked(_ sender: UIButton) {
+        if cardSelectViewController == nil {
+            cardSelectViewController = SB.instantiateViewController(withIdentifier: "CardSelectViewController") as? CardSelectViewController
+        }
+        if let cardSelectVC = cardSelectViewController {
+            cardSelectVC.modalPresentationStyle = .pageSheet
+            if let sheet = cardSelectVC.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+            }
+            cardSelectVC.delegate = self
+            present(cardSelectVC, animated: true)
+        }
+    }
+    
+    
 }
 
 extension PaymentViewController: PaymentViewModelOutputProtocol {
@@ -136,5 +221,23 @@ extension PaymentViewController: PaymentViewModelOutputProtocol {
     
     func stopLoading() {
         print("stopLoading")
+    }
+}
+
+extension PaymentViewController: CardSelectViewModelDelegate {
+    func didApplySelection(selectedOption: UserCreditCards?) {
+        guard let creditCard = selectedOption else { return }
+        registeredCardButton.setTitle("\(creditCard.cardName) - \(creditCard.cardNo.suffix(4))", for: .normal)
+        registeredCardImage.isHidden = false
+        switch creditCard.cardType {
+        case .visa:
+            registeredCardImage.image = UIImage(named: "VisaLogo")
+        case .mastercard:
+            registeredCardImage.image = UIImage(named: "MCLogo")
+        case .troy:
+            registeredCardImage.image = UIImage(named: "troyLogo")
+        case .unknown:
+            registeredCardImage.isHidden = true
+        }
     }
 }
