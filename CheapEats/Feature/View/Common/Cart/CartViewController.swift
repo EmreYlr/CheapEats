@@ -25,7 +25,7 @@ final class CartViewController: UIViewController {
     @IBOutlet weak var trashButton: UIBarButtonItem!
     
     private var dashedLines: [CAShapeLayer] = []
-    static var isComingFromThirdVC: Bool = false
+    static var isComingFromDeliveryVC: Bool = false
     var cartViewModel: CartViewModelProtocol = CartViewModel()
     
     override func viewDidLoad() {
@@ -38,8 +38,8 @@ final class CartViewController: UIViewController {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
         
-        if CartViewController.isComingFromThirdVC {
-            CartViewController.isComingFromThirdVC = false
+        if CartViewController.isComingFromDeliveryVC {
+            CartViewController.isComingFromDeliveryVC = false
             addStaticDashedLines()
         } else {
             cartViewModel.getCartItems()

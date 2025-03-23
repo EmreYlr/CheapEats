@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dev-h1-P9L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PtE-2i-GAy">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -1553,15 +1553,193 @@
                                     <action selector="applyButtonClicked:" destination="dco-cR-H8G" eventType="touchUpInside" id="fn8-3h-9X4"/>
                                     <action selector="nextButtonClicked:" destination="Dev-h1-P9L" eventType="touchUpInside" id="1bT-cD-yTz"/>
                                     <action selector="nextButtonClicked:" destination="4df-YL-qGx" eventType="touchUpInside" id="Rt0-qX-AxL"/>
+                                    <action selector="okayButtonClicked:" destination="PtE-2i-GAy" eventType="touchUpInside" id="8Q6-CZ-7JD"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1H-fN-ITp">
+                                <rect key="frame" x="0.0" y="225" width="393" height="474"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4j-On-f78" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="900"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1N-OW-YlX" userLabel="Payment Methot">
+                                                <rect key="frame" x="8" y="8" width="377" height="250"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kart Bilgileri" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57w-5C-1Z5">
+                                                        <rect key="frame" x="8" y="10" width="100" height="21"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <color key="textColor" name="TextBlackColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhm-Q0-9pl">
+                                                        <rect key="frame" x="237.33333333333337" y="5.6666666666666572" width="131.66666666666663" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="mU0-bZ-9pb"/>
+                                                        </constraints>
+                                                        <color key="tintColor" name="ButtonColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Kayıtlı Kartımla Öde">
+                                                            <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="changePayButton:" destination="PtE-2i-GAy" eventType="touchUpInside" id="VHa-MJ-fFu"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kart Numarası" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7tK-hA-vdc" customClass="JVFloatLabeledTextField">
+                                                        <rect key="frame" x="8" y="109.66666666666669" width="361" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="gYQ-wh-4y9"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                                <color key="value" name="ButtonColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kart üzerindeki isim" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JY2-Yu-TBz" customClass="JVFloatLabeledTextField">
+                                                        <rect key="frame" x="8" y="55.666666666666686" width="361" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="nVa-6L-OmC"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                                <color key="value" name="ButtonColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ay" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UNi-5e-qjc" customClass="JVFloatLabeledTextField">
+                                                        <rect key="frame" x="8" y="163.66666666666669" width="80" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="dt6-nv-Oy2"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="kbM-Ki-3QH"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                                <color key="value" name="ButtonColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yıl" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iZI-Rc-QLW" customClass="JVFloatLabeledTextField">
+                                                        <rect key="frame" x="93" y="163.66666666666669" width="80" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="BC8-3b-Kp2"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="V99-tw-oSy"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                                <color key="value" name="ButtonColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVV" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WEi-Xo-2AH" customClass="JVFloatLabeledTextField">
+                                                        <rect key="frame" x="289" y="163.66666666666669" width="80" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="Bcu-mm-7CM"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="ewp-t2-STA"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                                <color key="value" name="ButtonColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Karta vermek istediğiniz isim" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SdA-Ch-l03" customClass="JVFloatLabeledTextField">
+                                                        <rect key="frame" x="8" y="252.66666666666669" width="361" height="35"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="35" id="fzw-R6-84l"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="floatingLabelActiveTextColor">
+                                                                <color key="value" name="ButtonColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diğer siparişlerin için kartını kaydet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKH-kg-Ho1">
+                                                        <rect key="frame" x="8" y="218.66666666666669" width="231.66666666666666" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <color key="textColor" name="TextBlackColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="H9u-2b-K9f">
+                                                        <rect key="frame" x="320" y="211.66666666666669" width="51" height="31"/>
+                                                        <color key="onTintColor" name="ButtonColor"/>
+                                                        <color key="thumbTintColor" name="TextWhiteColor"/>
+                                                        <connections>
+                                                            <action selector="saveCardSwitchChanged:" destination="PtE-2i-GAy" eventType="valueChanged" id="wDs-bd-pCN"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="SdA-Ch-l03" firstAttribute="top" secondItem="H9u-2b-K9f" secondAttribute="bottom" constant="10" id="0Zs-BC-VYC"/>
+                                                    <constraint firstItem="UNi-5e-qjc" firstAttribute="top" secondItem="7tK-hA-vdc" secondAttribute="bottom" constant="14" id="0ww-Xi-2kL"/>
+                                                    <constraint firstItem="Vhm-Q0-9pl" firstAttribute="centerY" secondItem="57w-5C-1Z5" secondAttribute="centerY" id="10T-qt-0V7"/>
+                                                    <constraint firstItem="WEi-Xo-2AH" firstAttribute="top" secondItem="7tK-hA-vdc" secondAttribute="bottom" constant="14" id="2vP-7j-C0p"/>
+                                                    <constraint firstItem="H9u-2b-K9f" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nKH-kg-Ho1" secondAttribute="trailing" constant="50" id="3F8-EL-dSM"/>
+                                                    <constraint firstItem="iZI-Rc-QLW" firstAttribute="top" secondItem="7tK-hA-vdc" secondAttribute="bottom" constant="14" id="4xq-wl-4z7"/>
+                                                    <constraint firstItem="UNi-5e-qjc" firstAttribute="leading" secondItem="r1N-OW-YlX" secondAttribute="leading" constant="8" id="77d-vH-4Gn"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SdA-Ch-l03" secondAttribute="trailing" constant="8" id="9i1-2A-f4u"/>
+                                                    <constraint firstItem="WEi-Xo-2AH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iZI-Rc-QLW" secondAttribute="trailing" constant="8" symbolic="YES" id="C3I-XK-Ndu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Vhm-Q0-9pl" secondAttribute="trailing" constant="8" id="HAM-tf-6nj"/>
+                                                    <constraint firstItem="nKH-kg-Ho1" firstAttribute="leading" secondItem="r1N-OW-YlX" secondAttribute="leading" constant="8" id="KA9-6d-LqF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="H9u-2b-K9f" secondAttribute="trailing" constant="8" id="NZ4-HT-Ykn"/>
+                                                    <constraint firstItem="7tK-hA-vdc" firstAttribute="top" secondItem="JY2-Yu-TBz" secondAttribute="bottom" constant="14" id="T05-Mz-dbx"/>
+                                                    <constraint firstItem="iZI-Rc-QLW" firstAttribute="leading" secondItem="UNi-5e-qjc" secondAttribute="trailing" constant="5" id="TEb-Os-A3O"/>
+                                                    <constraint firstItem="JY2-Yu-TBz" firstAttribute="top" secondItem="Vhm-Q0-9pl" secondAttribute="bottom" constant="20" id="Xul-Yg-sCI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="JY2-Yu-TBz" secondAttribute="trailing" constant="8" id="diR-WN-pQc"/>
+                                                    <constraint firstItem="7tK-hA-vdc" firstAttribute="leading" secondItem="r1N-OW-YlX" secondAttribute="leading" constant="8" id="dzl-hx-mxv"/>
+                                                    <constraint firstAttribute="height" constant="250" id="el8-k0-OAX"/>
+                                                    <constraint firstItem="nKH-kg-Ho1" firstAttribute="top" secondItem="UNi-5e-qjc" secondAttribute="bottom" constant="15" id="fY1-9L-wrQ"/>
+                                                    <constraint firstItem="Vhm-Q0-9pl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="57w-5C-1Z5" secondAttribute="trailing" constant="50" id="gGo-TL-hgN"/>
+                                                    <constraint firstItem="SdA-Ch-l03" firstAttribute="centerX" secondItem="r1N-OW-YlX" secondAttribute="centerX" id="gUd-uo-xyS"/>
+                                                    <constraint firstItem="57w-5C-1Z5" firstAttribute="top" secondItem="r1N-OW-YlX" secondAttribute="top" constant="10" id="gqj-gc-rrH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WEi-Xo-2AH" secondAttribute="trailing" constant="8" id="ofZ-d5-NkF"/>
+                                                    <constraint firstItem="JY2-Yu-TBz" firstAttribute="leading" secondItem="r1N-OW-YlX" secondAttribute="leading" constant="8" id="orO-Aw-FEL"/>
+                                                    <constraint firstItem="H9u-2b-K9f" firstAttribute="centerY" secondItem="nKH-kg-Ho1" secondAttribute="centerY" id="pEp-cD-vHd"/>
+                                                    <constraint firstItem="57w-5C-1Z5" firstAttribute="leading" secondItem="r1N-OW-YlX" secondAttribute="leading" constant="8" id="trE-L5-QQB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7tK-hA-vdc" secondAttribute="trailing" constant="8" id="zUa-cN-o3w"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" name="BGColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="r1N-OW-YlX" secondAttribute="trailing" constant="8" id="IId-Cr-QlO"/>
+                                            <constraint firstItem="r1N-OW-YlX" firstAttribute="top" secondItem="E4j-On-f78" secondAttribute="top" constant="8" id="IR2-km-DD0"/>
+                                            <constraint firstAttribute="height" constant="900" id="kEp-nh-k53"/>
+                                            <constraint firstItem="r1N-OW-YlX" firstAttribute="leading" secondItem="E4j-On-f78" secondAttribute="leading" constant="8" id="uSq-zy-WwX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="E4j-On-f78" secondAttribute="trailing" id="Kxa-gc-QI4"/>
+                                    <constraint firstItem="E4j-On-f78" firstAttribute="top" secondItem="s1H-fN-ITp" secondAttribute="top" id="MpK-pl-vTh"/>
+                                    <constraint firstAttribute="bottom" secondItem="E4j-On-f78" secondAttribute="bottom" id="fZz-OG-7aw"/>
+                                    <constraint firstItem="E4j-On-f78" firstAttribute="leading" secondItem="s1H-fN-ITp" secondAttribute="leading" id="h9D-9A-Qmt"/>
+                                    <constraint firstItem="E4j-On-f78" firstAttribute="centerX" secondItem="s1H-fN-ITp" secondAttribute="centerX" id="med-CF-CyG"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uKz-qE-xG7"/>
                         <color key="backgroundColor" name="BGColor"/>
                         <constraints>
                             <constraint firstItem="uKz-qE-xG7" firstAttribute="bottom" secondItem="0dc-ij-rMB" secondAttribute="bottom" constant="10" id="4FC-Le-NN8"/>
+                            <constraint firstItem="s1H-fN-ITp" firstAttribute="top" secondItem="hva-3i-DnH" secondAttribute="bottom" constant="10" id="4eA-t4-XIa"/>
                             <constraint firstItem="PN4-jU-5sJ" firstAttribute="top" secondItem="uKz-qE-xG7" secondAttribute="top" id="BKl-No-wWg"/>
+                            <constraint firstItem="0rV-4i-yhd" firstAttribute="top" secondItem="s1H-fN-ITp" secondAttribute="bottom" constant="10" id="Csl-SK-NmW"/>
                             <constraint firstItem="0dc-ij-rMB" firstAttribute="leading" secondItem="0rV-4i-yhd" secondAttribute="trailing" constant="10" id="NID-lZ-qa3"/>
+                            <constraint firstItem="s1H-fN-ITp" firstAttribute="leading" secondItem="uKz-qE-xG7" secondAttribute="leading" id="TCS-eF-2GJ"/>
                             <constraint firstItem="uKz-qE-xG7" firstAttribute="trailing" secondItem="0dc-ij-rMB" secondAttribute="trailing" constant="16" id="VQ9-88-0gt"/>
                             <constraint firstItem="hva-3i-DnH" firstAttribute="leading" secondItem="uKz-qE-xG7" secondAttribute="leading" constant="16" id="Y6p-Ah-ifN"/>
                             <constraint firstItem="uKz-qE-xG7" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PN4-jU-5sJ" secondAttribute="trailing" constant="300" id="avy-X5-L3U"/>
@@ -1569,14 +1747,39 @@
                             <constraint firstItem="uKz-qE-xG7" firstAttribute="bottom" secondItem="0rV-4i-yhd" secondAttribute="bottom" constant="10" id="cvI-HM-5qS"/>
                             <constraint firstItem="PN4-jU-5sJ" firstAttribute="leading" secondItem="uKz-qE-xG7" secondAttribute="leading" constant="16" id="g95-Wc-KhI"/>
                             <constraint firstItem="uKz-qE-xG7" firstAttribute="trailing" secondItem="hva-3i-DnH" secondAttribute="trailing" constant="16" id="qRi-0T-zsS"/>
+                            <constraint firstItem="uKz-qE-xG7" firstAttribute="trailing" secondItem="s1H-fN-ITp" secondAttribute="trailing" id="rw0-BC-5pa"/>
                             <constraint firstItem="hva-3i-DnH" firstAttribute="top" secondItem="PN4-jU-5sJ" secondAttribute="bottom" constant="15" id="xm7-G7-Yr8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Payment" id="60c-fr-pHa"/>
+                    <connections>
+                        <outlet property="cardCVVTextField" destination="WEi-Xo-2AH" id="17e-7X-Fl1"/>
+                        <outlet property="cardInfoView" destination="r1N-OW-YlX" id="RdQ-LU-vZ2"/>
+                        <outlet property="cardInfoViewHeightConstraint" destination="el8-k0-OAX" id="yxx-g4-set"/>
+                        <outlet property="cardMonthTextField" destination="UNi-5e-qjc" id="KGL-Bx-DYj"/>
+                        <outlet property="cardNameTextField" destination="SdA-Ch-l03" id="AmD-bC-eF4"/>
+                        <outlet property="cardNoTextField" destination="7tK-hA-vdc" id="jRL-UF-gKt"/>
+                        <outlet property="cardOwnerNameTextField" destination="JY2-Yu-TBz" id="9gg-H7-8aJ"/>
+                        <outlet property="cardYearTextField" destination="iZI-Rc-QLW" id="Mrq-e5-gVf"/>
+                        <outlet property="changePayButton" destination="Vhm-Q0-9pl" id="akD-BK-Kqn"/>
+                        <outlet property="checkOrderImageView" destination="gmh-ES-x2S" id="mlv-bz-fbC"/>
+                        <outlet property="checkOrderView" destination="Ysv-QN-e8N" id="wCT-aB-yXw"/>
+                        <outlet property="deliveryImageView" destination="KiK-cy-52c" id="Yx1-yG-7Ig"/>
+                        <outlet property="deliveryView" destination="SXU-Um-KMy" id="Aw6-iV-ihC"/>
+                        <outlet property="okayButton" destination="0dc-ij-rMB" id="rmt-D3-tVD"/>
+                        <outlet property="oldTotalLabel" destination="sij-Y3-MzB" id="nxe-C4-ZcN"/>
+                        <outlet property="paymentImageView" destination="hdS-2O-r9U" id="iUl-Be-kp7"/>
+                        <outlet property="paymentView" destination="zab-03-sxL" id="Srx-7x-wJX"/>
+                        <outlet property="saveCardSwitch" destination="H9u-2b-K9f" id="COV-3X-Gk9"/>
+                        <outlet property="scrollView" destination="s1H-fN-ITp" id="f5I-HA-Kqp"/>
+                        <outlet property="sectionView" destination="hva-3i-DnH" id="YIe-4q-2fy"/>
+                        <outlet property="totalLabel" destination="a6J-DF-dni" id="lco-HW-VsH"/>
+                        <outlet property="totalView" destination="0rV-4i-yhd" id="j9j-Wu-j3b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mdg-yh-5O9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7488" y="4"/>
+            <point key="canvasLocation" x="7536.6412213740459" y="3.5211267605633805"/>
         </scene>
         <!--More-->
         <scene sceneID="Cx6-eG-U3q">

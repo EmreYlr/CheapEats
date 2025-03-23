@@ -30,6 +30,7 @@ final class DeliveryViewController: UIViewController {
     @IBOutlet weak var deliveryStateLabel: UILabel!
     
     private var dashedLines: [CAShapeLayer] = []
+    static var isComingFromPaymentVC: Bool = false
     var deliveryViewModel: DeliveryViewModelProtocol = DeliveryViewModel()
     
     override func viewDidLoad() {
@@ -43,7 +44,13 @@ final class DeliveryViewController: UIViewController {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
         initData()
-        addDashedLines()
+        if DeliveryViewController.isComingFromPaymentVC {
+            DeliveryViewController.isComingFromPaymentVC = false
+            addStaticDashedLines()
+        } else {
+            //
+            addDashedLines()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,7 +59,7 @@ final class DeliveryViewController: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor(named: "ButtonColor")
         
         if isMovingFromParent {
-            CartViewController.isComingFromThirdVC = true
+            CartViewController.isComingFromDeliveryVC = true
         }
     }
     
@@ -118,6 +125,22 @@ final class DeliveryViewController: UIViewController {
             padding: 8
         )
         
+    }
+    
+    private func addStaticDashedLines() {
+        guard let checkImage = checkOrderView, let deliveryImage = deliveryView, let paymentImage = paymentView else { return }
+        let imageViews = [checkImage, deliveryImage, paymentImage]
+        
+        dashedLines = DashedLineManager.shared.createNonAnimatedDashedLinesBetweenImages(
+            imageViews: imageViews,
+            in: sectionView,
+            selectedIndices: [1,2],
+            lineWidth: 2.0,
+            dashPattern: [6, 3],
+            defaultColor: .title,
+            selectedColor: .button,
+            padding: 8
+        )
     }
     
     @IBAction func deliverySegmentClicked(_ sender: CustomSegmentedControl) {
