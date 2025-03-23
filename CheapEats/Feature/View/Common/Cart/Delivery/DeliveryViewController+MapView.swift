@@ -26,13 +26,10 @@ extension DeliveryViewController: MKMapViewDelegate {
             annotationView?.annotation = annotation
         }
         
-        // Check if this is the user's location annotation
         if annotation.title == "Konumunuz" {
-            // User location pin - use person icon and red color
             annotationView?.markerTintColor = .red
             annotationView?.glyphImage = UIImage(systemName: "person.fill")
         } else {
-            // Restaurant location pin - use fork.knife icon and button color
             annotationView?.markerTintColor = .button
             annotationView?.glyphImage = UIImage(systemName: "fork.knife")
         }

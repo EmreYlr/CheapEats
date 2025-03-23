@@ -23,8 +23,6 @@ protocol CartViewModelOutputProtocol: AnyObject {
     func emptyCart()
     func reloadTotalAmount()
     func error()
-    func startLoading()
-    func stopLoading()
 }
 
 final class CartViewModel {

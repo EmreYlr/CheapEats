@@ -159,12 +159,4 @@ extension CartViewController: CartViewModelOutputProtocol {
     func error() {
         print("error")
     }
-    
-    func startLoading() {
-        print("startLoading")
-    }
-    
-    func stopLoading() {
-        print("stopLoading")
-    }
 }

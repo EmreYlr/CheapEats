@@ -25,18 +25,18 @@ final class DeliveryViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var addressView: UIView!
-    
     @IBOutlet weak var addressStateLabel: UILabel!
-    
     @IBOutlet weak var deliveryWarningLabel: UILabel!
+    @IBOutlet weak var deliveryStateLabel: UILabel!
+    
     private var dashedLines: [CAShapeLayer] = []
     var deliveryViewModel: DeliveryViewModelProtocol = DeliveryViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureMapView()
         initScreen()
         initSegment()
-        configureMapView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +89,7 @@ final class DeliveryViewController: UIViewController {
             self.deliveryTypeSegment.setSecondaryText("(\(distance))", forSegmentAt: 1)
         }
         
-        deliveryViewModel.deliveryType(deliveryTypeSegment, mapView: mapView, addressLabel: addressLabel, addressStateLabel: addressStateLabel, totalAmount: totalLabel, deliveryWarningLabel: deliveryWarningLabel)
+        deliveryViewModel.deliveryType(deliveryTypeSegment, mapView: mapView, addressLabel: addressLabel, addressStateLabel: addressStateLabel, totalAmount: totalLabel, deliveryWarningLabel: deliveryWarningLabel, deliveryStateLabel: deliveryStateLabel)
     }
     
     private func configureMapView() {
@@ -121,18 +121,21 @@ final class DeliveryViewController: UIViewController {
     }
     
     @IBAction func deliverySegmentClicked(_ sender: CustomSegmentedControl) {
-        deliveryViewModel.selectedDeliveryType(at: sender.selectedSegmentIndex, mapView: mapView, addressLabel: addressLabel, addressStateLabel: addressStateLabel, totalAmount: totalLabel, deliveryWarningLabel: deliveryWarningLabel) 
+        deliveryViewModel.selectedDeliveryType(at: sender.selectedSegmentIndex, mapView: mapView, addressLabel: addressLabel, addressStateLabel: addressStateLabel, totalAmount: totalLabel, deliveryWarningLabel: deliveryWarningLabel, deliveryStateLabel: deliveryStateLabel) 
     }
     
     @IBAction func nextButtonClicked(_ sender: UIButton) {
-        
+        deliveryViewModel.createOrder(at: deliveryTypeSegment.selectedSegmentIndex)
     }
     
 }
 
 extension DeliveryViewController: DeliveryViewModelOutputProtocol {
     func update() {
-        print("update")
+        let SB = UIStoryboard(name: "Main", bundle: nil)
+        let paymentVC = SB.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
+        paymentVC.paymentViewModel.orderDetail = deliveryViewModel.orderDetail
+        navigationController?.pushViewController(paymentVC, animated: true)
     }
     
     func error() {

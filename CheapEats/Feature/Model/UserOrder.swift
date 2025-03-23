@@ -16,6 +16,7 @@ struct UserOrder {
     var status: OrderStatus
     var userId: String
     var cardInfo: String
+    var selectedDeliveryType: DeliveryType
     
     init?(dictionary: [String: Any], documentId: String) {
         self.orderId = documentId
@@ -30,7 +31,20 @@ struct UserOrder {
         let statusString = dictionary["status"] as? String ?? OrderStatus.delivered.rawValue
         self.status = OrderStatus(rawValue: statusString) ?? .preparing
         self.userId = dictionary["userId"] as? String ?? ""
-        }
+        let selectedDeliveryTypeString = dictionary["selectedDeliveryType"] as? String ?? DeliveryType.delivery.rawValue
+        self.selectedDeliveryType = DeliveryType(rawValue: selectedDeliveryTypeString) ?? .delivery
+    }
+    
+    init(productId: String, userId: String, selectedDeliveryType: DeliveryType) {
+        self.orderId = ""
+        self.orderDate = Date()
+        self.orderNo = ""
+        self.productId = productId
+        self.status = .preparing
+        self.userId = userId
+        self.cardInfo = ""
+        self.selectedDeliveryType = selectedDeliveryType
+    }
 }
 
 enum OrderStatus: String, CaseIterable, CustomStringConvertible {

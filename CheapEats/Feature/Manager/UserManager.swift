@@ -14,4 +14,7 @@ final class UserManager {
     func signOut() {
         user = nil
     }
+    func getUserId() -> String {
+        return user?.uid ?? ""
+    }
 }
