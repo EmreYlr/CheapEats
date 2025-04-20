@@ -36,6 +36,7 @@ final class CardSelectViewController: UIViewController {
     }
     
     private func setupTableView() {
+        cardTableView.backgroundColor = .white
         self.cardTableView.delegate = self
         self.cardTableView.dataSource = self
     }

@@ -144,12 +144,14 @@ extension CartViewController: CartViewModelOutputProtocol {
     func update() {
         print("update")
         stateView.isHidden = true
+        trashButton.isEnabled = true
         tableView.reloadData()
     }
     
     func emptyCart() {
         print("emptyCart")
         stateView.isHidden = false
+        trashButton.isEnabled = false
     }
     
     func reloadTotalAmount() {

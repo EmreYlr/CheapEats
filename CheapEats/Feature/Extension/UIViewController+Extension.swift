@@ -21,13 +21,20 @@ extension UIViewController {
         view.layer.masksToBounds = true
     }
     
-    func addHorizontalLine(toView containerView: UIView, belowView: UIView, padding: CGFloat = 10, color: UIColor = .lightGray, thickness: CGFloat = 1) {
+    func addHorizontalLine(
+        toView containerView: UIView,
+        belowView: UIView,
+        padding: CGFloat = 10,
+        color: UIColor = .lightGray,
+        thickness: CGFloat = 1,
+        horizontalPadding: CGFloat = 0
+    ) {
         let lineLayer = CALayer()
         lineLayer.backgroundColor = color.cgColor
         lineLayer.frame = CGRect(
-            x: 0,
+            x: horizontalPadding,
             y: belowView.frame.maxY + padding,
-            width: containerView.frame.width,
+            width: containerView.frame.width - (2 * horizontalPadding),
             height: thickness
         )
         

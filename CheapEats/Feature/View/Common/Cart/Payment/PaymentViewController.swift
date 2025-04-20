@@ -11,6 +11,7 @@ import JVFloatLabeledTextField
 final class PaymentViewController: UIViewController {
     //MARK: -Variables
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var sectionView: UIView!
     @IBOutlet weak var checkOrderView: UIView!
     @IBOutlet weak var checkOrderImageView: UIImageView!
@@ -37,16 +38,27 @@ final class PaymentViewController: UIViewController {
     @IBOutlet weak var registeredCardLabel: UILabel!
     @IBOutlet weak var registeredCardButton: UIButton!
     @IBOutlet weak var registeredCardImage: UIImageView!
+    @IBOutlet weak var couponView: UIView!
+    @IBOutlet weak var couponCodeTextField: JVFloatLabeledTextField!
+    @IBOutlet weak var couponButton: UIButton!
+    @IBOutlet weak var couponInfoLabel: UILabel!
+    @IBOutlet weak var payDetailView: UIView!
+    @IBOutlet weak var payDetailLabel: UILabel!
+    
+    @IBOutlet weak var oldPriceLabel: UILabel!
+    @IBOutlet weak var discountLabel: UILabel!
+    @IBOutlet weak var newPriceLabel: UILabel!
+    @IBOutlet weak var payDetailTotalLabel: UILabel!
     var isOpen = false
     private var dashedLines: [CAShapeLayer] = []
-    var paymentViewModel: PaymentViewModelProtocol = PaymentViewModel()
-    
+    var paymentViewModel: PaymentViewModelProtocol = PaymentViewModel() 
     let SB = UIStoryboard(name: "Main", bundle: nil)
     private var cardSelectViewController: CardSelectViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initScreen()
+        couponCodeTextField.addTarget(self, action: #selector(couponTextFieldDidChange(_:)), for: .editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,13 +92,21 @@ final class PaymentViewController: UIViewController {
         totalView.layer.cornerRadius = 5
         setShadow(with: totalView.layer, shadowOffset: true)
         okayButton.layer.cornerRadius = 5
-        
         cardInfoView.layer.cornerRadius = 5
+        couponView.layer.cornerRadius = 5
+        payDetailView.layer.cornerRadius = 5
         setShadow(with: cardInfoView.layer, shadowOffset: true)
+        setShadow(with: couponView.layer, shadowOffset: true)
+        setShadow(with: payDetailView.layer, shadowOffset: true)
         addHorizontalLine(toView: cardInfoView, belowView: changePayButton)
+        addHorizontalLine(toView: couponView, belowView: couponInfoLabel)
+        addHorizontalLine(toView: payDetailView, belowView: payDetailLabel)
+        addHorizontalLine(toView: payDetailView, belowView: newPriceLabel, horizontalPadding: 10)
+        couponButton.roundCorners(corners: [.topRight, .bottomRight], radius: 5)
+        
         registeredCardView.layer.cornerRadius = 5
         setBorder(with: registeredCardView.layer)
-
+        
     }
     
     private func addStaticDashedLines() {
@@ -104,7 +124,44 @@ final class PaymentViewController: UIViewController {
             padding: 8
         )
     }
+ 
+    private func frontCardView() {
+        self.isOpen = false
+        self.cardOwnerNameTextField.isHidden = false
+        self.cardNoTextField.isHidden = false
+        self.cardCVVTextField.isHidden = false
+        self.cardYearTextField.isHidden = false
+        self.cardMonthTextField.isHidden = false
+        self.saveCardSwitch.isHidden = false
+        self.switchLabel.isHidden = false
+    }
     
+    private func firstFrontCardView() {
+        self.registeredCardView.isHidden = true
+        self.registeredCardLabel.isHidden = true
+    }
+    
+    private func backCardView() {
+        self.isOpen = true
+        self.registeredCardView.isHidden = false
+        self.registeredCardLabel.isHidden = false
+    }
+    
+    private func firstBackCardView() {
+        self.cardOwnerNameTextField.isHidden = true
+        self.cardNoTextField.isHidden = true
+        self.cardCVVTextField.isHidden = true
+        self.cardNameTextField.isHidden = true
+        self.cardYearTextField.isHidden = true
+        self.cardMonthTextField.isHidden = true
+        self.saveCardSwitch.isHidden = true
+        self.switchLabel.isHidden = true
+    }
+}
+
+//MARK: -BUTTON
+
+extension PaymentViewController {
     @IBAction func okayButtonClicked(_ sender: UIButton) {
         
     }
@@ -136,39 +193,6 @@ final class PaymentViewController: UIViewController {
         }
     }
     
-    func frontCardView() {
-        self.isOpen = false
-        self.cardOwnerNameTextField.isHidden = false
-        self.cardNoTextField.isHidden = false
-        self.cardCVVTextField.isHidden = false
-        self.cardYearTextField.isHidden = false
-        self.cardMonthTextField.isHidden = false
-        self.saveCardSwitch.isHidden = false
-        self.switchLabel.isHidden = false
-    }
-    
-    func firstFrontCardView() {
-        self.registeredCardView.isHidden = true
-        self.registeredCardLabel.isHidden = true
-    }
-    
-    func backCardView() {
-        self.isOpen = true
-        self.registeredCardView.isHidden = false
-        self.registeredCardLabel.isHidden = false
-    }
-    
-    func firstBackCardView() {
-        self.cardOwnerNameTextField.isHidden = true
-        self.cardNoTextField.isHidden = true
-        self.cardCVVTextField.isHidden = true
-        self.cardNameTextField.isHidden = true
-        self.cardYearTextField.isHidden = true
-        self.cardMonthTextField.isHidden = true
-        self.saveCardSwitch.isHidden = true
-        self.switchLabel.isHidden = true
-    }
-    
     @IBAction func saveCardSwitchChanged(_ sender: UISwitch) {
         let newHeight: CGFloat = sender.isOn ? 300 : 250
         
@@ -188,7 +212,9 @@ final class PaymentViewController: UIViewController {
                 self.cardNameTextField.becomeFirstResponder()
             }
         })
+        
     }
+    
     @IBAction func registeredCardButtonClicked(_ sender: UIButton) {
         if cardSelectViewController == nil {
             cardSelectViewController = SB.instantiateViewController(withIdentifier: "CardSelectViewController") as? CardSelectViewController
@@ -203,7 +229,17 @@ final class PaymentViewController: UIViewController {
         }
     }
     
+    @IBAction func couponButtonClicked(_ sender: UIButton) {
+        
+    }
     
+    @objc func couponTextFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text, !text.isEmpty {
+            couponButton.isEnabled = true
+        } else {
+            couponButton.isEnabled = false
+        }
+    }
 }
 
 extension PaymentViewController: PaymentViewModelOutputProtocol {
