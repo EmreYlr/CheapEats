@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct Restaurant {
+struct Restaurant: Codable {
     let restaurantId: String
     let ownerName: String
     let ownerSurname: String
@@ -41,7 +41,7 @@ struct Restaurant {
     }
 }
 
-struct Location {
+struct Location: Codable {
     let latitude: Double
     let longitude: Double
     

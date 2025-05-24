@@ -9,10 +9,35 @@ import Foundation
 
 final class CartManager {
     static let shared = CartManager()
+    private let cartKey = "user_cart"
+
+    private init() {
+        selectedProduct = CartManager.loadCartFromUserDefaults()
+    }
     
-    private init() { selectedProduct = [] }
+    var selectedProduct: [ProductDetails] {
+        didSet {
+            CartManager.saveCartToUserDefaults(selectedProduct)
+        }
+    }
     
-    var selectedProduct: [ProductDetails] = []
+    private static func saveCartToUserDefaults(_ cart: [ProductDetails]) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(cart) {
+            UserDefaults.standard.set(encoded, forKey: "user_cart")
+        }
+    }
+
+    private static func loadCartFromUserDefaults() -> [ProductDetails] {
+        if let data = UserDefaults.standard.data(forKey: "user_cart") {
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode([ProductDetails].self, from: data) {
+                return decoded
+            }
+        }
+        return []
+    }
+
     //TODO: -Farklı restorantdan ürün eklenmeyecek
     func addProduct(_ product: ProductDetails) {
         if let index = selectedProduct.firstIndex(where: { $0.product.productId == product.product.productId }) {
@@ -57,6 +82,7 @@ final class CartManager {
     
     func clearCart() {
         selectedProduct.removeAll()
+        UserDefaults.standard.removeObject(forKey: cartKey)
     }
 }
 

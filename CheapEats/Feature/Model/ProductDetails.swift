@@ -6,7 +6,7 @@
 //
 
 //Product and restaurant models joined in a struct
-struct ProductDetails {
+struct ProductDetails: Codable {
     let product: Product
     let restaurant: Restaurant
 }

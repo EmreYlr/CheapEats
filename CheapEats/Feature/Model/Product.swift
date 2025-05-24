@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-struct Product {
+struct Product: Codable {
     var productId: String
     var name: String
     var description: String
@@ -48,7 +48,7 @@ struct Product {
     }
 }
 
-enum Category: String, CaseIterable, CustomStringConvertible {
+enum Category: String, CaseIterable, CustomStringConvertible, Codable {
     case burger = "Burger"
     case doner = "Döner"
     case tatlı = "Tatlı"
@@ -67,7 +67,7 @@ enum Category: String, CaseIterable, CustomStringConvertible {
     }
 }
 
-enum DeliveryType: String {
+enum DeliveryType: String, Codable {
     case all = "Hepsi"
     case delivery = "Gel-Al"
     case takeout = "Kurye"
