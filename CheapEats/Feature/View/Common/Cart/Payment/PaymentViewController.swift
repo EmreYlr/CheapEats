@@ -11,7 +11,6 @@ import JVFloatLabeledTextField
 final class PaymentViewController: UIViewController {
     //MARK: -Variables
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var sectionView: UIView!
     @IBOutlet weak var checkOrderView: UIView!
     @IBOutlet weak var checkOrderImageView: UIImageView!
@@ -44,11 +43,13 @@ final class PaymentViewController: UIViewController {
     @IBOutlet weak var couponInfoLabel: UILabel!
     @IBOutlet weak var payDetailView: UIView!
     @IBOutlet weak var payDetailLabel: UILabel!
-    
     @IBOutlet weak var oldPriceLabel: UILabel!
     @IBOutlet weak var discountLabel: UILabel!
     @IBOutlet weak var newPriceLabel: UILabel!
     @IBOutlet weak var payDetailTotalLabel: UILabel!
+    @IBOutlet weak var takeoutLabel: UILabel!
+    
+    var couponCode : String = ""
     var isOpen = false
     private var dashedLines: [CAShapeLayer] = []
     var paymentViewModel: PaymentViewModelProtocol = PaymentViewModel() 
@@ -58,6 +59,7 @@ final class PaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initScreen()
+        initData()
         couponCodeTextField.addTarget(self, action: #selector(couponTextFieldDidChange(_:)), for: .editingChanged)
     }
     
@@ -77,90 +79,28 @@ final class PaymentViewController: UIViewController {
         }
     }
     
-    private func initScreen() {
-        paymentViewModel.delegate = self
+    private func initData() {
+        oldTotalLabel.text = "\(formatDouble(paymentViewModel.oldTotalAmount)) TL"
+        oldPriceLabel.text = "\(formatDouble(paymentViewModel.oldTotalAmount)) TL"
+        discountLabel.text = "\(formatDouble(paymentViewModel.totalAmount - paymentViewModel.oldTotalAmount)) TL"
+        newPriceLabel.text = "\(formatDouble(paymentViewModel.totalAmount)) TL"
         
-        deliveryView.layer.cornerRadius = deliveryView.frame.size.width / 2
-        paymentView.layer.cornerRadius = paymentView.frame.size.width / 2
-        checkOrderView.layer.cornerRadius = checkOrderView.frame.size.width / 2
-        checkOrderImageView.layer.masksToBounds = true
-        deliveryImageView.layer.masksToBounds = true
-        paymentImageView.layer.masksToBounds = true
-        checkOrderImageView.layer.cornerRadius = 5
-        deliveryImageView.layer.cornerRadius = 5
-        paymentImageView.layer.cornerRadius = 5
-        totalView.layer.cornerRadius = 5
-        setShadow(with: totalView.layer, shadowOffset: true)
-        okayButton.layer.cornerRadius = 5
-        cardInfoView.layer.cornerRadius = 5
-        couponView.layer.cornerRadius = 5
-        payDetailView.layer.cornerRadius = 5
-        setShadow(with: cardInfoView.layer, shadowOffset: true)
-        setShadow(with: couponView.layer, shadowOffset: true)
-        setShadow(with: payDetailView.layer, shadowOffset: true)
-        addHorizontalLine(toView: cardInfoView, belowView: changePayButton)
-        addHorizontalLine(toView: couponView, belowView: couponInfoLabel)
-        addHorizontalLine(toView: payDetailView, belowView: payDetailLabel)
-        addHorizontalLine(toView: payDetailView, belowView: newPriceLabel, horizontalPadding: 10)
-        couponButton.roundCorners(corners: [.topRight, .bottomRight], radius: 5)
+        if paymentViewModel.takeoutPrice > 0 {
+            takeoutLabel.isHidden = false
+            takeoutLabel.text = "(Kurye Ücreti: \(formatDouble(paymentViewModel.takeoutPrice)) TL)"
+            payDetailTotalLabel.text = "\(formatDouble(paymentViewModel.totalAmount + paymentViewModel.takeoutPrice)) TL"
+            totalLabel.text = "\(formatDouble(paymentViewModel.totalAmount + paymentViewModel.takeoutPrice)) TL"
+        } else {
+            takeoutLabel.isHidden = true
+            payDetailTotalLabel.text = "\(formatDouble(paymentViewModel.totalAmount)) TL"
+            totalLabel.text = "\(formatDouble(paymentViewModel.totalAmount)) TL"
+            
+        }
         
-        registeredCardView.layer.cornerRadius = 5
-        setBorder(with: registeredCardView.layer)
-        
-    }
-    
-    private func addStaticDashedLines() {
-        guard let checkImage = checkOrderView, let deliveryImage = deliveryView, let paymentImage = paymentView else { return }
-        let imageViews = [checkImage, deliveryImage, paymentImage]
-        
-        dashedLines = DashedLineManager.shared.createNonAnimatedDashedLinesBetweenImages(
-            imageViews: imageViews,
-            in: sectionView,
-            selectedIndices: [0,1,2],
-            lineWidth: 2.0,
-            dashPattern: [6, 3],
-            defaultColor: .lightGray,
-            selectedColor: .button,
-            padding: 8
-        )
-    }
- 
-    private func frontCardView() {
-        self.isOpen = false
-        self.cardOwnerNameTextField.isHidden = false
-        self.cardNoTextField.isHidden = false
-        self.cardCVVTextField.isHidden = false
-        self.cardYearTextField.isHidden = false
-        self.cardMonthTextField.isHidden = false
-        self.saveCardSwitch.isHidden = false
-        self.switchLabel.isHidden = false
-    }
-    
-    private func firstFrontCardView() {
-        self.registeredCardView.isHidden = true
-        self.registeredCardLabel.isHidden = true
-    }
-    
-    private func backCardView() {
-        self.isOpen = true
-        self.registeredCardView.isHidden = false
-        self.registeredCardLabel.isHidden = false
-    }
-    
-    private func firstBackCardView() {
-        self.cardOwnerNameTextField.isHidden = true
-        self.cardNoTextField.isHidden = true
-        self.cardCVVTextField.isHidden = true
-        self.cardNameTextField.isHidden = true
-        self.cardYearTextField.isHidden = true
-        self.cardMonthTextField.isHidden = true
-        self.saveCardSwitch.isHidden = true
-        self.switchLabel.isHidden = true
     }
 }
 
 //MARK: -BUTTON
-
 extension PaymentViewController {
     @IBAction func okayButtonClicked(_ sender: UIButton) {
         
@@ -230,7 +170,7 @@ extension PaymentViewController {
     }
     
     @IBAction func couponButtonClicked(_ sender: UIButton) {
-        
+        paymentViewModel.fetchCoupon(code: couponCode)
     }
     
     @objc func couponTextFieldDidChange(_ textField: UITextField) {
@@ -239,6 +179,89 @@ extension PaymentViewController {
         } else {
             couponButton.isEnabled = false
         }
+        couponCode = textField.text ?? ""
+    }
+}
+//MARK: -UI
+extension PaymentViewController {
+    private func initScreen() {
+        paymentViewModel.delegate = self
+        
+        deliveryView.layer.cornerRadius = deliveryView.frame.size.width / 2
+        paymentView.layer.cornerRadius = paymentView.frame.size.width / 2
+        checkOrderView.layer.cornerRadius = checkOrderView.frame.size.width / 2
+        checkOrderImageView.layer.masksToBounds = true
+        deliveryImageView.layer.masksToBounds = true
+        paymentImageView.layer.masksToBounds = true
+        checkOrderImageView.layer.cornerRadius = 5
+        deliveryImageView.layer.cornerRadius = 5
+        paymentImageView.layer.cornerRadius = 5
+        totalView.layer.cornerRadius = 5
+        setShadow(with: totalView.layer, shadowOffset: true)
+        okayButton.layer.cornerRadius = 5
+        cardInfoView.layer.cornerRadius = 5
+        couponView.layer.cornerRadius = 5
+        payDetailView.layer.cornerRadius = 5
+        setShadow(with: cardInfoView.layer, shadowOffset: true)
+        setShadow(with: couponView.layer, shadowOffset: true)
+        setShadow(with: payDetailView.layer, shadowOffset: true)
+        addHorizontalLine(toView: cardInfoView, belowView: changePayButton)
+        addHorizontalLine(toView: couponView, belowView: couponInfoLabel)
+        addHorizontalLine(toView: payDetailView, belowView: payDetailLabel)
+        addHorizontalLine(toView: payDetailView, belowView: newPriceLabel, horizontalPadding: 10)
+        couponButton.roundCorners(corners: [.topRight, .bottomRight], radius: 5)
+        
+        registeredCardView.layer.cornerRadius = 5
+        setBorder(with: registeredCardView.layer)
+    }
+    
+    private func addStaticDashedLines() {
+        guard let checkImage = checkOrderView, let deliveryImage = deliveryView, let paymentImage = paymentView else { return }
+        let imageViews = [checkImage, deliveryImage, paymentImage]
+        
+        dashedLines = DashedLineManager.shared.createNonAnimatedDashedLinesBetweenImages(
+            imageViews: imageViews,
+            in: sectionView,
+            selectedIndices: [0,1,2],
+            lineWidth: 2.0,
+            dashPattern: [6, 3],
+            defaultColor: .lightGray,
+            selectedColor: .button,
+            padding: 8
+        )
+    }
+ 
+    private func frontCardView() {
+        self.isOpen = false
+        self.cardOwnerNameTextField.isHidden = false
+        self.cardNoTextField.isHidden = false
+        self.cardCVVTextField.isHidden = false
+        self.cardYearTextField.isHidden = false
+        self.cardMonthTextField.isHidden = false
+        self.saveCardSwitch.isHidden = false
+        self.switchLabel.isHidden = false
+    }
+    
+    private func firstFrontCardView() {
+        self.registeredCardView.isHidden = true
+        self.registeredCardLabel.isHidden = true
+    }
+    
+    private func backCardView() {
+        self.isOpen = true
+        self.registeredCardView.isHidden = false
+        self.registeredCardLabel.isHidden = false
+    }
+    
+    private func firstBackCardView() {
+        self.cardOwnerNameTextField.isHidden = true
+        self.cardNoTextField.isHidden = true
+        self.cardCVVTextField.isHidden = true
+        self.cardNameTextField.isHidden = true
+        self.cardYearTextField.isHidden = true
+        self.cardMonthTextField.isHidden = true
+        self.saveCardSwitch.isHidden = true
+        self.switchLabel.isHidden = true
     }
 }
 

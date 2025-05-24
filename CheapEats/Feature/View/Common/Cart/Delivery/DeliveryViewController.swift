@@ -158,6 +158,10 @@ extension DeliveryViewController: DeliveryViewModelOutputProtocol {
         let SB = UIStoryboard(name: "Main", bundle: nil)
         let paymentVC = SB.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
         paymentVC.paymentViewModel.orderDetail = deliveryViewModel.orderDetail
+        paymentVC.paymentViewModel.cartItems = deliveryViewModel.cartItems
+        paymentVC.paymentViewModel.totalAmount = deliveryViewModel.totalAmount
+        paymentVC.paymentViewModel.oldTotalAmount = deliveryViewModel.oldTotalAmount
+        paymentVC.paymentViewModel.takeoutPrice = deliveryViewModel.takeoutPrice
         navigationController?.pushViewController(paymentVC, animated: true)
     }
     

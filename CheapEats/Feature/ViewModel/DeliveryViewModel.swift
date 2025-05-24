@@ -13,6 +13,7 @@ protocol DeliveryViewModelProtocol {
     var cartItems: [ProductDetails] { get set }
     var totalAmount: Double { get set }
     var oldTotalAmount: Double { get set }
+    var takeoutPrice: Double { get set }
     var orderDetail: OrderDetail? { get set }
     
     func distanceCalculate(completion: @escaping (String) -> ())
@@ -35,6 +36,7 @@ final class DeliveryViewModel {
     var cartItems: [ProductDetails] = []
     var totalAmount: Double = 0.0
     var oldTotalAmount: Double = 0.0
+    var takeoutPrice: Double = 0.0
     var orderDetail: OrderDetail?
     
     func distanceCalculate(completion: @escaping (String) -> ()) {
@@ -141,8 +143,10 @@ final class DeliveryViewModel {
         switch index {
         case 0:
             selectedDeliveryType = .takeout
+            takeoutPrice = 20.0
         case 1:
             selectedDeliveryType = .delivery
+            takeoutPrice = 0.0
         default:
             delegate?.error()
         }

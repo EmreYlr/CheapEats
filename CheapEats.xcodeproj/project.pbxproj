@@ -82,6 +82,7 @@
 		C3969FD52D786E3F00CA68FE /* MapCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3969FD42D786E3F00CA68FE /* MapCollectionViewCell.xib */; };
 		C3969FD62D786E3F00CA68FE /* MapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3969FD32D786E3F00CA68FE /* MapCollectionViewCell.swift */; };
 		C3986A062CFA60640085521A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3986A052CFA60640085521A /* DetailViewController.swift */; };
+		C39F959A2DE213DF003549E1 /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39F95992DE213DD003549E1 /* Coupon.swift */; };
 		C3A8D2CC2D8ECA12001E55DB /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8D2CB2D8ECA12001E55DB /* DeliveryViewController.swift */; };
 		C3A8D2CE2D8ECA3D001E55DB /* DeliveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8D2CD2D8ECA37001E55DB /* DeliveryViewModel.swift */; };
 		C3A8D2D02D8EFC26001E55DB /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8D2CF2D8EFC17001E55DB /* CustomSegmentControl.swift */; };
@@ -195,6 +196,7 @@
 		C3969FD32D786E3F00CA68FE /* MapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionViewCell.swift; sourceTree = "<group>"; };
 		C3969FD42D786E3F00CA68FE /* MapCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCollectionViewCell.xib; sourceTree = "<group>"; };
 		C3986A052CFA60640085521A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C39F95992DE213DD003549E1 /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		C3A8D2CB2D8ECA12001E55DB /* DeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		C3A8D2CD2D8ECA37001E55DB /* DeliveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryViewModel.swift; sourceTree = "<group>"; };
 		C3A8D2CF2D8EFC17001E55DB /* CustomSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 		C36D3EB62CF34ACF008FE62B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C39F95992DE213DD003549E1 /* Coupon.swift */,
 				C3395A812D6B3A6E00461A5E /* UserCreditCards.swift */,
 				7E65B2252CFCF8C800A57E67 /* OrderDetail.swift */,
 				C3FFDE502D65EA8500FF6296 /* UserOrder.swift */,
@@ -790,6 +793,7 @@
 				C345DE6E2D8CB61800EE6323 /* CartTableViewCell.swift in Sources */,
 				7E65B2262CFCF8C800A57E67 /* OrderDetail.swift in Sources */,
 				C3B21C8E2CF9ECCA005878F9 /* MoreViewController+TableView.swift in Sources */,
+				C39F959A2DE213DF003549E1 /* Coupon.swift in Sources */,
 				C32CBEF82CF89C990016F444 /* UIView+Extension.swift in Sources */,
 				C3A8D2D22D8F0CBB001E55DB /* DeliveryViewController+MapView.swift in Sources */,
 				C36C1B0C2CF657A3007A96B4 /* OrderCollectionViewCell.swift in Sources */,

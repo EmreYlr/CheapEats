@@ -242,4 +242,31 @@ extension NetworkManager {
             }
         }
     }
+    
+    //MARK: -Coupon
+    func fetchCoupon(byCode code: String, completion: @escaping (Result<Coupon, Error>) -> Void) {
+        db.collection("coupon")
+            .whereField("code", isEqualTo: code)
+            .limit(to: 1)
+            .getDocuments { snapshot, error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+
+                guard let document = snapshot?.documents.first else {
+                    let notFoundError = NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "Kupon bulunamadı."])
+                    completion(.failure(notFoundError))
+                    return
+                }
+
+                if let coupon = Coupon(dictionary: document.data(), documentId: document.documentID) {
+                    completion(.success(coupon))
+                } else {
+                    let parseError = NSError(domain: "", code: 500, userInfo: [NSLocalizedDescriptionKey: "Kupon verisi parse edilemedi."])
+                    completion(.failure(parseError))
+                }
+            }
+    }
+
 }
