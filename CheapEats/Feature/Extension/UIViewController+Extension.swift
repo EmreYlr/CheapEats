@@ -29,15 +29,17 @@ extension UIViewController {
         thickness: CGFloat = 1,
         horizontalPadding: CGFloat = 0
     ) {
-        let lineLayer = CALayer()
-        lineLayer.backgroundColor = color.cgColor
-        lineLayer.frame = CGRect(
-            x: horizontalPadding,
-            y: belowView.frame.maxY + padding,
-            width: containerView.frame.width - (2 * horizontalPadding),
-            height: thickness
-        )
-        
-        containerView.layer.addSublayer(lineLayer)
+        let lineView = UIView()
+        lineView.backgroundColor = color
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(lineView)
+
+        NSLayoutConstraint.activate([
+            lineView.topAnchor.constraint(equalTo: belowView.bottomAnchor, constant: padding),
+            lineView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: horizontalPadding),
+            lineView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -horizontalPadding),
+            lineView.heightAnchor.constraint(equalToConstant: thickness)
+        ])
     }
+
 }

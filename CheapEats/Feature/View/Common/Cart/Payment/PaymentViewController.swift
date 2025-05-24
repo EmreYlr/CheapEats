@@ -48,8 +48,10 @@ final class PaymentViewController: UIViewController {
     @IBOutlet weak var newPriceLabel: UILabel!
     @IBOutlet weak var payDetailTotalLabel: UILabel!
     @IBOutlet weak var takeoutLabel: UILabel!
+    @IBOutlet weak var couponLabel: UILabel!
+    @IBOutlet weak var couponPriceLabel: UILabel!
+    @IBOutlet weak var paymentStackView: UIStackView!
     
-    var couponCode : String = ""
     var isOpen = false
     private var dashedLines: [CAShapeLayer] = []
     var paymentViewModel: PaymentViewModelProtocol = PaymentViewModel() 
@@ -170,7 +172,21 @@ extension PaymentViewController {
     }
     
     @IBAction func couponButtonClicked(_ sender: UIButton) {
-        paymentViewModel.fetchCoupon(code: couponCode)
+        if sender.backgroundColor == .cut {
+            couponCodeTextField.text = ""
+            couponButton.titleLabel?.text = "Kuponu Kodunu Onayla"
+            couponButton.backgroundColor = .button
+            UIView.animate(withDuration: 0.3) {
+                self.couponLabel.isHidden = true
+                self.couponPriceLabel.isHidden = true
+            }
+            payDetailTotalLabel.text = "\(formatDouble(paymentViewModel.totalAmount)) TL"
+            totalLabel.text = "\(formatDouble(paymentViewModel.totalAmount )) TL"
+            sender.isEnabled = false
+        } else {
+            paymentViewModel.fetchCoupon(code: couponCodeTextField.text ?? "")
+        }
+        
     }
     
     @objc func couponTextFieldDidChange(_ textField: UITextField) {
@@ -179,7 +195,6 @@ extension PaymentViewController {
         } else {
             couponButton.isEnabled = false
         }
-        couponCode = textField.text ?? ""
     }
 }
 //MARK: -UI
@@ -208,7 +223,7 @@ extension PaymentViewController {
         addHorizontalLine(toView: cardInfoView, belowView: changePayButton)
         addHorizontalLine(toView: couponView, belowView: couponInfoLabel)
         addHorizontalLine(toView: payDetailView, belowView: payDetailLabel)
-        addHorizontalLine(toView: payDetailView, belowView: newPriceLabel, horizontalPadding: 10)
+        addHorizontalLine(toView: payDetailView, belowView: paymentStackView, horizontalPadding: 10)
         couponButton.roundCorners(corners: [.topRight, .bottomRight], radius: 5)
         
         registeredCardView.layer.cornerRadius = 5
@@ -270,8 +285,28 @@ extension PaymentViewController: PaymentViewModelOutputProtocol {
         print("update")
     }
     
+    func updateCoupon() {
+        if let coupon = paymentViewModel.coupon {
+            couponPriceLabel.text = "-\(coupon.discountValue) TL"
+            payDetailTotalLabel.text = "\(formatDouble(paymentViewModel.totalAmount - Double(coupon.discountValue))) TL"
+            totalLabel.text = "\(formatDouble(paymentViewModel.totalAmount - Double(coupon.discountValue))) TL"
+            
+            UIView.animate(withDuration: 0.3) {
+                self.couponLabel.isHidden = false
+                self.couponPriceLabel.isHidden = false
+            }
+            
+            couponButton.titleLabel?.text = "Kuponu Kaldır"
+            couponButton.backgroundColor = .cut
+        }
+    }
+    
     func error() {
         print("error")
+    }
+    
+    func errorCoupon() {
+        showOneButtonAlert(title: "Hata", message: "Girmiş olduğunuz kupon kodu hatalı")
     }
     
     func startLoading() {

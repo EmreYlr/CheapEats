@@ -12,12 +12,15 @@ protocol PaymentViewModelProtocol {
     var totalAmount: Double { get set }
     var oldTotalAmount: Double { get set }
     var takeoutPrice: Double { get set }
+    var coupon: Coupon? { get set }
     func fetchCoupon(code: String)
 }
 
 protocol PaymentViewModelOutputProtocol: AnyObject {
     func update()
     func error()
+    func updateCoupon()
+    func errorCoupon()
     func startLoading()
     func stopLoading()
 }
@@ -26,17 +29,21 @@ final class PaymentViewModel {
     weak var delegate: PaymentViewModelOutputProtocol?
     var orderDetail: OrderDetail?
     var cartItems: [ProductDetails] = []
+    var coupon: Coupon?
     var totalAmount: Double = 0.0
     var oldTotalAmount: Double = 0.0
     var takeoutPrice: Double  = 0.0
+    var couponStatus: Bool = false
     
     func fetchCoupon(code: String) {
         NetworkManager.shared.fetchCoupon(byCode: code) { result in
             switch result {
             case .success(let coupon):
-                print("Kupon bulundu:", coupon)
+                self.coupon = coupon
+                self.delegate?.updateCoupon()
             case .failure(let error):
                 print("Hata:", error.localizedDescription)
+                self.delegate?.errorCoupon()
             }
         }
     }
