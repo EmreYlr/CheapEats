@@ -11,7 +11,7 @@ import Firebase
 struct UserCreditCards {
     var cardId: String
     let userId: String
-    let cardName: String
+    var cardName: String
     let cardOwnerName: String
     let cardNo: String
     let cardMonth: Int
@@ -38,10 +38,10 @@ struct UserCreditCards {
         }
     }
     
-    init(userId: String, cardName: String, cardOwnerName: String, cardNo: String,
+    init(cardName: String, cardOwnerName: String, cardNo: String,
          cardMonth: Int, cardYear: Int, CVV: Int, cardType: CardType) {
         self.cardId = ""
-        self.userId = userId
+        self.userId = UserManager.shared.getUserId()
         self.cardName = cardName
         self.cardOwnerName = cardOwnerName
         self.cardNo = cardNo

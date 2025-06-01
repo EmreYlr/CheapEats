@@ -17,6 +17,8 @@ struct UserOrder {
     var userId: String
     var cardInfo: String
     var selectedDeliveryType: DeliveryType
+    var couponId: String?
+    var quantity: Int
     
     init?(dictionary: [String: Any], documentId: String) {
         self.orderId = documentId
@@ -33,6 +35,8 @@ struct UserOrder {
         self.userId = dictionary["userId"] as? String ?? ""
         let selectedDeliveryTypeString = dictionary["selectedDeliveryType"] as? String ?? DeliveryType.delivery.rawValue
         self.selectedDeliveryType = DeliveryType(rawValue: selectedDeliveryTypeString) ?? .delivery
+        self.couponId = dictionary["couponId"] as? String ?? ""
+        self.quantity = dictionary["quantity"] as? Int ?? 1
     }
     
     init(productId: String, userId: String, selectedDeliveryType: DeliveryType) {
@@ -44,6 +48,27 @@ struct UserOrder {
         self.userId = userId
         self.cardInfo = ""
         self.selectedDeliveryType = selectedDeliveryType
+        self.couponId = ""
+        self.quantity = 0
+    }
+    
+    func toDictionary() -> [String: Any] {
+        var dict: [String: Any] = [
+            "orderDate": Timestamp(date: self.orderDate),
+            "orderNo": self.orderNo,
+            "productId": self.productId,
+            "status": self.status.rawValue,
+            "userId": self.userId,
+            "cardInfo": self.cardInfo,
+            "selectedDeliveryType": self.selectedDeliveryType.rawValue,
+            "quantity": self.quantity,
+        ]
+        
+        if let couponId = self.couponId, !couponId.isEmpty {
+            dict["couponId"] = couponId
+        }
+        
+        return dict
     }
 }
 

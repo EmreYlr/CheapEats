@@ -13,7 +13,9 @@ protocol PaymentViewModelProtocol {
     var oldTotalAmount: Double { get set }
     var takeoutPrice: Double { get set }
     var coupon: Coupon? { get set }
+    var creditCart: UserCreditCards? { get set } 
     func fetchCoupon(code: String)
+    func setOrder(isSaveCard: Bool, cardName: String)
 }
 
 protocol PaymentViewModelOutputProtocol: AnyObject {
@@ -30,6 +32,7 @@ final class PaymentViewModel {
     var orderDetail: OrderDetail?
     var cartItems: [ProductDetails] = []
     var coupon: Coupon?
+    var creditCart: UserCreditCards?
     var totalAmount: Double = 0.0
     var oldTotalAmount: Double = 0.0
     var takeoutPrice: Double  = 0.0
@@ -46,6 +49,61 @@ final class PaymentViewModel {
                 self.delegate?.errorCoupon()
             }
         }
+    }
+    
+    func setOrder(isSaveCard: Bool, cardName: String = "") {
+        setOrderDetail()
+        
+        guard let order = orderDetail?.userOrder else {
+            self.delegate?.error()
+            return
+        }
+        if isSaveCard {
+            saveCard(cardName: cardName)
+        }
+
+        NetworkManager.shared.addOrder(order: order) { result in
+            switch result {
+            case .success:
+                print("Success")
+                self.delegate?.update()
+            case.failure:
+                self.delegate?.error()
+            }
+        }
+    }
+    
+    private func saveCard(cardName: String) {
+        guard var card = creditCart else {
+            delegate?.error()
+            return
+        }
+        card.cardName = cardName
+        NetworkManager.shared.addUserCreditCard(card: card) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success:
+                print("Kart Kaydedildi")
+            case .failure:
+                print("Kart kaydedilerken hata oldu")
+                self.delegate?.error()
+            }
+        }
+    }
+    
+    private func setOrderDetail() {
+        guard let cardInfo = creditCart else {
+            print("Kart Atanamadı")
+            delegate?.error()
+            return
+        }
+        
+        if let quantity = orderDetail?.productDetail.product.selectedCount {
+            orderDetail?.userOrder.quantity = quantity
+        }
+        
+        self.orderDetail?.userOrder.cardInfo = "**** **** **** \(cardInfo.cardNo.suffix(4))"
+        self.orderDetail?.userOrder.couponId = coupon?.couponId ?? ""
     }
 }
 

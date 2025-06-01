@@ -8,7 +8,7 @@
 import Foundation
 
 struct OrderDetail {
-    let userOrder: UserOrder
-    let productDetail: ProductDetails
+    var userOrder: UserOrder
+    var productDetail: ProductDetails
 }
 

@@ -268,5 +268,22 @@ extension NetworkManager {
                 }
             }
     }
+    
+    //MARK: -Order
+    func addOrder(order: UserOrder, completion: @escaping (Result<String, Error>) -> Void) {
+        let db = Firestore.firestore()
+        let orderRef = db.collection("orders").document()
+        
+        var newOrder = order
+        newOrder.orderId = orderRef.documentID
+        
+        orderRef.setData(newOrder.toDictionary()) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(orderRef.documentID))
+            }
+        }
+    }
 
 }

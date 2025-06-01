@@ -56,3 +56,4 @@ extension CreditCardSettings {
 }
 
 extension AddCardViewController: CreditCardSettings {}
+extension PaymentViewController: CreditCardSettings {}

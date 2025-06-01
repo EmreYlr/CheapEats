@@ -1550,9 +1550,6 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="applyButtonClicked:" destination="dco-cR-H8G" eventType="touchUpInside" id="fn8-3h-9X4"/>
-                                    <action selector="nextButtonClicked:" destination="Dev-h1-P9L" eventType="touchUpInside" id="1bT-cD-yTz"/>
-                                    <action selector="nextButtonClicked:" destination="4df-YL-qGx" eventType="touchUpInside" id="Rt0-qX-AxL"/>
                                     <action selector="okayButtonClicked:" destination="PtE-2i-GAy" eventType="touchUpInside" id="8Q6-CZ-7JD"/>
                                 </connections>
                             </button>
@@ -1799,11 +1796,7 @@
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="applyButtonClicked:" destination="dco-cR-H8G" eventType="touchUpInside" id="55b-Ye-xJI"/>
                                                             <action selector="couponButtonClicked:" destination="PtE-2i-GAy" eventType="touchUpInside" id="Wd0-x5-uR0"/>
-                                                            <action selector="nextButtonClicked:" destination="Dev-h1-P9L" eventType="touchUpInside" id="DgI-AF-Xaa"/>
-                                                            <action selector="nextButtonClicked:" destination="4df-YL-qGx" eventType="touchUpInside" id="xqn-YN-B4B"/>
-                                                            <action selector="okayButtonClicked:" destination="PtE-2i-GAy" eventType="touchUpInside" id="Vjz-1g-HEf"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

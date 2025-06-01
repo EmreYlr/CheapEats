@@ -70,10 +70,10 @@ final class AddCardViewController: UIViewController{
             showOneButtonAlert(title: "Hata", message: "Girmiş olduğunuz kart numarası geçersiz.")
             return
         }
-        if let userId = UserManager.shared.user?.uid {
-            let userCreditCard = UserCreditCards(userId: userId, cardName: cardNameTextField.text ?? "", cardOwnerName: cardOwnerNameTextField.text ?? "", cardNo: cardNoTextField.text ?? "", cardMonth: Int(monthTextField.text ?? "") ?? 0, cardYear: Int(yearTextField.text ?? "") ?? 0, CVV: Int(CVVTextField.text ?? "") ?? 0, cardType: determineCardType(cardNumber: cardNoTextField.text ?? ""))
-            addcardViewModel.addCard(userCreditCart: userCreditCard)
-        }
+         
+        let userCreditCard = UserCreditCards(cardName: cardNameTextField.text ?? "", cardOwnerName: cardOwnerNameTextField.text ?? "", cardNo: cardNoTextField.text ?? "", cardMonth: Int(monthTextField.text ?? "") ?? 0, cardYear: Int(yearTextField.text ?? "") ?? 0, CVV: Int(CVVTextField.text ?? "") ?? 0, cardType: determineCardType(cardNumber: cardNoTextField.text ?? ""))
+        addcardViewModel.addCard(userCreditCart: userCreditCard)
+        
     }
     
     private func setupGradient(with color: UIColor, status: Bool = true) {

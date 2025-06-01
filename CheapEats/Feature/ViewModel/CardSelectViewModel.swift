@@ -30,7 +30,7 @@ final class CardSelectViewModel {
     var userCreditCards: [UserCreditCards] = []
     
     func getSelectedCard() -> UserCreditCards {
-        guard let selectedCard = selectedCard else { return UserCreditCards(userId: "", cardName: "", cardOwnerName: "", cardNo: "", cardMonth: 0, cardYear: 0, CVV: 0, cardType: .visa) }
+        guard let selectedCard = selectedCard else { return UserCreditCards(cardName: "", cardOwnerName: "", cardNo: "", cardMonth: 0, cardYear: 0, CVV: 0, cardType: .visa) }
         return selectedCard
     }
     
