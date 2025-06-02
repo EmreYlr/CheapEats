@@ -2027,11 +2027,34 @@
                         <outlet property="totalLabel" destination="a6J-DF-dni" id="Ttx-2K-G4y"/>
                         <outlet property="totalView" destination="0rV-4i-yhd" id="j9j-Wu-j3b"/>
                         <segue destination="edi-f3-31e" kind="showDetail" identifier="cardSeque" id="1Ra-6O-mKS"/>
+                        <segue destination="xnT-TT-Hd4" kind="show" identifier="resultSeque" id="ETo-aL-0iT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mdg-yh-5O9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7536.6412213740459" y="3.5211267605633805"/>
+        </scene>
+        <!--Success-->
+        <scene sceneID="3Fx-Y5-Q6d">
+            <objects>
+                <viewController storyboardIdentifier="SuccessViewController" id="xnT-TT-Hd4" customClass="SuccessViewController" customModule="CheapEats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZCR-0a-Z8T">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bill" translatesAutoresizingMaskIntoConstraints="NO" id="Ab2-0w-KQg">
+                                <rect key="frame" x="37" y="193" width="319" height="541"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hof-8O-ySx"/>
+                        <color key="backgroundColor" name="BGColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Success" id="uWg-xP-I6v"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vYe-1R-V7s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8522.9007633587789" y="3.5211267605633805"/>
         </scene>
         <!--More-->
         <scene sceneID="Cx6-eG-U3q">
@@ -4528,6 +4551,7 @@
         <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
         <image name="basket" catalog="system" width="128" height="108"/>
         <image name="basket.fill" catalog="system" width="128" height="108"/>
+        <image name="bill" width="301" height="571"/>
         <image name="car.fill" catalog="system" width="128" height="95"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="checkmark.rectangle.portrait" catalog="system" width="115" height="128"/>

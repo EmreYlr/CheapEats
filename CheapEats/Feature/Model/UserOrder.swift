@@ -17,7 +17,7 @@ struct UserOrder {
     var userId: String
     var cardInfo: String
     var selectedDeliveryType: DeliveryType
-    var couponId: String?
+    var couponId: String
     var quantity: Int
     
     init?(dictionary: [String: Any], documentId: String) {
@@ -61,13 +61,10 @@ struct UserOrder {
             "userId": self.userId,
             "cardInfo": self.cardInfo,
             "selectedDeliveryType": self.selectedDeliveryType.rawValue,
+            "couponId": couponId,
             "quantity": self.quantity,
         ]
-        
-        if let couponId = self.couponId, !couponId.isEmpty {
-            dict["couponId"] = couponId
-        }
-        
+
         return dict
     }
 }

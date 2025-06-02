@@ -32,6 +32,8 @@
 		C32CBEFC2CF8AB880016F444 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32CBEFB2CF8AB880016F444 /* UserManager.swift */; };
 		C32D6C432D50F55D002CD677 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32D6C422D50F54F002CD677 /* Restaurant.swift */; };
 		C32D6C462D510B0B002CD677 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32D6C452D510B06002CD677 /* CustomError.swift */; };
+		C32E61182DEDFA3500BC2F9B /* SuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E61172DEDFA2F00BC2F9B /* SuccessViewModel.swift */; };
+		C32E611A2DEDFB2000BC2F9B /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32E61192DEDFB2000BC2F9B /* SuccessViewController.swift */; };
 		C3395A822D6B3A7400461A5E /* UserCreditCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3395A812D6B3A6E00461A5E /* UserCreditCards.swift */; };
 		C3395A842D6B408800461A5E /* CreditCardValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3395A832D6B407E00461A5E /* CreditCardValidation.swift */; };
 		C3395A882D6B4B4E00461A5E /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3395A872D6B4B4E00461A5E /* AddCardViewController.swift */; };
@@ -151,6 +153,8 @@
 		C32CBEFB2CF8AB880016F444 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		C32D6C422D50F54F002CD677 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		C32D6C452D510B06002CD677 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		C32E61172DEDFA2F00BC2F9B /* SuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewModel.swift; sourceTree = "<group>"; };
+		C32E61192DEDFB2000BC2F9B /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		C3395A812D6B3A6E00461A5E /* UserCreditCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreditCards.swift; sourceTree = "<group>"; };
 		C3395A832D6B407E00461A5E /* CreditCardValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardValidation.swift; sourceTree = "<group>"; };
 		C3395A872D6B4B4E00461A5E /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
@@ -463,6 +467,7 @@
 				C3A8D2CD2D8ECA37001E55DB /* DeliveryViewModel.swift */,
 				C3CE935D2D900B1F00C333E3 /* PaymentViewModel.swift */,
 				C37136D02D909F7F00745A9F /* CardSelectViewModel.swift */,
+				C32E61172DEDFA2F00BC2F9B /* SuccessViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 				C3CE935B2D900B0300C333E3 /* PaymentViewController.swift */,
 				C37136CE2D909ED700745A9F /* CardSelectViewController.swift */,
 				C37136D22D90A24D00745A9F /* CardSelectViewController+TableView.swift */,
+				C32E61192DEDFB2000BC2F9B /* SuccessViewController.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -813,10 +819,12 @@
 				C3969FD62D786E3F00CA68FE /* MapCollectionViewCell.swift in Sources */,
 				C35A4E0C2D751A0900C95440 /* HiddenPassword+UITextField.swift in Sources */,
 				C3969FD02D786D3000CA68FE /* MapscreenViewContoller+CollectionView.swift in Sources */,
+				C32E61182DEDFA3500BC2F9B /* SuccessViewModel.swift in Sources */,
 				C3A8D2D02D8EFC26001E55DB /* CustomSegmentControl.swift in Sources */,
 				C3ADE97F2D53A14D00278990 /* DetailViewController+MapView.swift in Sources */,
 				C3FFDE4F2D64B24D00FF6296 /* FormatDouble.swift in Sources */,
 				C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */,
+				C32E611A2DEDFB2000BC2F9B /* SuccessViewController.swift in Sources */,
 				C32D6C462D510B0B002CD677 /* CustomError.swift in Sources */,
 				C37136D32D90A25700745A9F /* CardSelectViewController+TableView.swift in Sources */,
 				C36D3F022CF3629E008FE62B /* PassResViewModel.swift in Sources */,

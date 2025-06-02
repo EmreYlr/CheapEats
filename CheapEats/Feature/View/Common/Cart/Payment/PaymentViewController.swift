@@ -105,44 +105,47 @@ final class PaymentViewController: UIViewController {
 //MARK: -BUTTON
 extension PaymentViewController {
     @IBAction func okayButtonClicked(_ sender: UIButton) {
+        let SB = UIStoryboard(name: "Main", bundle: nil)
+        let successVC = SB.instantiateViewController(withIdentifier: "SuccessViewController") as! SuccessViewController
+        navigationController?.pushViewController(successVC, animated: true)
         
-        guard !isOpen else {
-            paymentViewModel.setOrder(isSaveCard: false, cardName: "")
-            return
-        }
-        
-        guard
-            let cardOwner = cardOwnerNameTextField.text, !cardOwner.isEmpty,
-            let cardNumber = cardNoTextField.text, !cardNumber.isEmpty,
-            let cardMonthText = cardMonthTextField.text, let cardMonth = Int(cardMonthText),
-            let cardYearText = cardYearTextField.text, let cardYear = Int(cardYearText),
-            let cardCVVText = cardCVVTextField.text, let cardCVV = Int(cardCVVText)
-        else {
-            showOneButtonAlert(title: "Hata", message: "Lütfen tüm kart bilgilerini doğru formatta doldurun.")
-            return
-        }
-
-        let creditCard = UserCreditCards(
-            cardName: "",
-            cardOwnerName: cardOwner,
-            cardNo: cardNumber,
-            cardMonth: cardMonth,
-            cardYear: cardYear,
-            CVV: cardCVV,
-            cardType: determineCardType(cardNumber: cardNumber)
-        )
-
-        paymentViewModel.creditCart = creditCard
-
-        if saveCardSwitch.isOn {
-            guard let cardName = cardNameTextField.text, !cardName.isEmpty else {
-                showOneButtonAlert(title: "Hata", message: "Lütfen kartı kayıt etmek için kart ismi giriniz.")
-                return
-            }
-            paymentViewModel.setOrder(isSaveCard: true, cardName: cardName)
-        } else {
-            paymentViewModel.setOrder(isSaveCard: false, cardName: "")
-        }        
+//        guard !isOpen else {
+//            paymentViewModel.setOrder(isSaveCard: false, cardName: "")
+//            return
+//        }
+//        
+//        guard
+//            let cardOwner = cardOwnerNameTextField.text, !cardOwner.isEmpty,
+//            let cardNumber = cardNoTextField.text, !cardNumber.isEmpty,
+//            let cardMonthText = cardMonthTextField.text, let cardMonth = Int(cardMonthText),
+//            let cardYearText = cardYearTextField.text, let cardYear = Int(cardYearText),
+//            let cardCVVText = cardCVVTextField.text, let cardCVV = Int(cardCVVText)
+//        else {
+//            showOneButtonAlert(title: "Hata", message: "Lütfen tüm kart bilgilerini doğru formatta doldurun.")
+//            return
+//        }
+//
+//        let creditCard = UserCreditCards(
+//            cardName: "",
+//            cardOwnerName: cardOwner,
+//            cardNo: cardNumber,
+//            cardMonth: cardMonth,
+//            cardYear: cardYear,
+//            CVV: cardCVV,
+//            cardType: determineCardType(cardNumber: cardNumber)
+//        )
+//
+//        paymentViewModel.creditCart = creditCard
+//
+//        if saveCardSwitch.isOn {
+//            guard let cardName = cardNameTextField.text, !cardName.isEmpty else {
+//                showOneButtonAlert(title: "Hata", message: "Lütfen kartı kayıt etmek için kart ismi giriniz.")
+//                return
+//            }
+//            paymentViewModel.setOrder(isSaveCard: true, cardName: cardName)
+//        } else {
+//            paymentViewModel.setOrder(isSaveCard: false, cardName: "")
+//        }        
     }
     
     @IBAction func changePayButton(_ sender: UIButton) {

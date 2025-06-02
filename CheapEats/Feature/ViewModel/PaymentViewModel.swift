@@ -102,7 +102,7 @@ final class PaymentViewModel {
             orderDetail?.userOrder.quantity = quantity
         }
         
-        self.orderDetail?.userOrder.cardInfo = "**** **** **** \(cardInfo.cardNo.suffix(4))"
+        self.orderDetail?.userOrder.cardInfo = "\(cardInfo.cardNo.suffix(4))"
         self.orderDetail?.userOrder.couponId = coupon?.couponId ?? ""
     }
 }
