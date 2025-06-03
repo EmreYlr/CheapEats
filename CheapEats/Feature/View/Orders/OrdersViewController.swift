@@ -23,7 +23,6 @@ final class OrdersViewController: UIViewController {
         setupLoadingIndicator()
         ordersViewModel.delegate = self
         print("OrdersViewController")
-        ordersViewModel.fetchData()
     }
     
     func initTableView() {
@@ -36,6 +35,11 @@ final class OrdersViewController: UIViewController {
     
     private func setupLoadingIndicator() {
         loadIndicator = createLoadingIndicator(in: waitView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        ordersViewModel.fetchData()
     }
 }
 

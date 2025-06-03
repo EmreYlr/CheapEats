@@ -273,15 +273,17 @@ extension NetworkManager {
     func addOrder(order: UserOrder, completion: @escaping (Result<String, Error>) -> Void) {
         let db = Firestore.firestore()
         let orderRef = db.collection("orders").document()
-        
+        let orderNo = String(Int.random(in: 100000...999999))
         var newOrder = order
+        
         newOrder.orderId = orderRef.documentID
+        newOrder.orderNo = orderNo
         
         orderRef.setData(newOrder.toDictionary()) { error in
             if let error = error {
                 completion(.failure(error))
             } else {
-                completion(.success(orderRef.documentID))
+                completion(.success(orderNo))
             }
         }
     }

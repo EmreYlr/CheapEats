@@ -47,6 +47,8 @@ final class SuccessViewController: UIViewController {
     }
     
     private func initLoad() {
+        successViewModel.delegate = self
+        successViewModel.updateCart()
         backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         locationButton.layer.cornerRadius = 8
         ordersButton.layer.cornerRadius = 8
@@ -71,8 +73,28 @@ final class SuccessViewController: UIViewController {
     }
     
     @IBAction func locationButtonClicked(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+            homeVC.navigationItem.hidesBackButton = true
+            navigationController?.pushViewController(homeVC, animated: true)
+        }
+        successViewModel.goLocation()
     }
     
     @IBAction func ordersButtonClicked(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let ordersVC = storyboard.instantiateViewController(withIdentifier: "OrdersViewController") as? OrdersViewController {
+            navigationController?.pushViewController(ordersVC, animated: true)
+        }
+    }
+}
+
+extension SuccessViewController: SuccessViewModelOutputProtocol {
+    func update() {
+        print("update")
+    }
+    
+    func error() {
+        print("error")
     }
 }

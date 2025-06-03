@@ -37,6 +37,7 @@ final class OrdersViewModel {
         products?.removeAll()
         productDetailsList.removeAll()
         restaurants?.removeAll()
+        orderDetailsList.removeAll()
         dispatchGroup.enter()
         fetchOrders()
         dispatchGroup.notify(queue: .main) { [weak self] in

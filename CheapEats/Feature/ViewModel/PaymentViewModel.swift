@@ -64,8 +64,9 @@ final class PaymentViewModel {
 
         NetworkManager.shared.addOrder(order: order) { result in
             switch result {
-            case .success:
+            case .success(let orderNo):
                 print("Success")
+                self.orderDetail?.userOrder.orderNo = orderNo
                 self.delegate?.update()
             case.failure:
                 self.delegate?.error()
