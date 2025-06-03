@@ -7,6 +7,7 @@
 
 protocol SuccessViewModelProtocol {
     var delegate: SuccessViewModelOutputProtocol? {get set}
+    var orderDetail: OrderDetail? { get set }
 }
 
 protocol SuccessViewModelOutputProtocol: AnyObject {
@@ -16,7 +17,7 @@ protocol SuccessViewModelOutputProtocol: AnyObject {
 
 final class SuccessViewModel {
     weak var delegate: SuccessViewModelOutputProtocol?
-
+    var orderDetail: OrderDetail? 
 }
 
 extension SuccessViewModel: SuccessViewModelProtocol {}

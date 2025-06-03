@@ -107,6 +107,7 @@ extension PaymentViewController {
     @IBAction func okayButtonClicked(_ sender: UIButton) {
         let SB = UIStoryboard(name: "Main", bundle: nil)
         let successVC = SB.instantiateViewController(withIdentifier: "SuccessViewController") as! SuccessViewController
+        successVC.successViewModel.orderDetail = paymentViewModel.orderDetail
         navigationController?.pushViewController(successVC, animated: true)
         
 //        guard !isOpen else {
