@@ -14,10 +14,12 @@ protocol DetailViewModelProtocol {
     func getRoutuerDistance(completion: @escaping(String) -> Void)
     func mapViewCenterCoordinate(mapView: MKMapView)
     func addCart()
+    func updateCart()
 }
 protocol DetailViewModelOutputProtocol: AnyObject {
     func update()
     func error()
+    func cartError()
     func startLoading()
     func stopLoading()
 }
@@ -68,8 +70,20 @@ final class DetailViewModel {
             delegate?.error()
             return
         }
-        CartManager.shared.addProduct(productDetail)
-        delegate?.update()
+        let result = CartManager.shared.addProduct(productDetail)
+        switch result {
+        case .success:
+            delegate?.update()
+        case .outOfStock:
+            delegate?.update()
+        case .differentProductExists:
+            delegate?.cartError()
+        }
+    }
+    
+    func updateCart() {
+        CartManager.shared.clearCart()
+        addCart()
     }
 }
 

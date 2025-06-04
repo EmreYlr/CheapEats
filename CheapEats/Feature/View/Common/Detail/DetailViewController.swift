@@ -140,6 +140,12 @@ extension DetailViewController: DetailViewModelOutputProtocol {
         print("error")
     }
     
+    func cartError() {
+        showTwoButtonAlert(title: "Uyarı!", message: "Sepetinizde zaten mevcut ürün var. Mevcut olan ürün yerine bu ürünü değiştirmek ister misiniz?", firstButtonTitle: "Değiştir", firstButtonHandler: { _ in
+            self.detailViewModel.updateCart()
+        }, secondButtonTitle: "İptal", secondButtonHandler: nil)
+    }
+    
     func startLoading() {
         waitView.isHidden = false
         loadIndicator.isHidden = false

@@ -37,24 +37,48 @@ final class CartManager {
         }
         return []
     }
+    
+    func isProductAlreadySelected(_ product: ProductDetails) -> Bool {
+        return selectedProduct.contains(where: { $0.product.productId == product.product.productId })
+    }
 
-    //TODO: -Farklı restorantdan ürün eklenmeyecek
-    func addProduct(_ product: ProductDetails) {
+    func isProductInStock(_ product: ProductDetails) -> Bool {
         if let index = selectedProduct.firstIndex(where: { $0.product.productId == product.product.productId }) {
-            if selectedProduct[index].product.selectedCount < selectedProduct[index].product.quantity {
-                var updatedProduct = selectedProduct[index].product
-                updatedProduct.selectedCount += 1
-                selectedProduct[index] = ProductDetails(product: updatedProduct, restaurant: product.restaurant)
-            }
-        } else {
+            return selectedProduct[index].product.selectedCount < selectedProduct[index].product.quantity
+        }
+        return false
+    }
+
+    
+    func addProduct(_ product: ProductDetails) -> AddProductResult {
+        if selectedProduct.isEmpty {
             if product.product.quantity > 0 {
                 var updatedProduct = product.product
                 updatedProduct.selectedCount = 1
                 let newProductDetails = ProductDetails(product: updatedProduct, restaurant: product.restaurant)
                 selectedProduct.append(newProductDetails)
+                return .success
+            } else {
+                return .outOfStock
             }
         }
+
+        if let index = selectedProduct.firstIndex(where: { $0.product.productId == product.product.productId }) {
+            if selectedProduct[index].product.selectedCount < selectedProduct[index].product.quantity {
+                var updatedProduct = selectedProduct[index].product
+                updatedProduct.selectedCount += 1
+                selectedProduct[index] = ProductDetails(product: updatedProduct, restaurant: product.restaurant)
+                return .success
+            } else {
+                return .outOfStock
+            }
+        } else {
+            return .differentProductExists
+        }
     }
+
+
+
     
     func updateProduct(_ product: ProductDetails) {
         if let index = selectedProduct.firstIndex(where: { $0.product.productId == product.product.productId }) {
@@ -86,3 +110,8 @@ final class CartManager {
     }
 }
 
+enum AddProductResult {
+    case success
+    case outOfStock
+    case differentProductExists
+}
