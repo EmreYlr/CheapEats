@@ -92,6 +92,7 @@ final class PaymentViewController: UIViewController {
             takeoutLabel.text = "(Kurye Ücreti: \(formatDouble(paymentViewModel.takeoutPrice)) TL)"
             payDetailTotalLabel.text = "\(formatDouble(paymentViewModel.totalAmount + paymentViewModel.takeoutPrice)) TL"
             totalLabel.text = "\(formatDouble(paymentViewModel.totalAmount + paymentViewModel.takeoutPrice)) TL"
+            paymentViewModel.totalAmount = paymentViewModel.totalAmount + paymentViewModel.takeoutPrice
         } else {
             takeoutLabel.isHidden = true
             payDetailTotalLabel.text = "\(formatDouble(paymentViewModel.totalAmount)) TL"
