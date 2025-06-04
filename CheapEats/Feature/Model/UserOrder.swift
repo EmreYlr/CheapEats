@@ -53,7 +53,7 @@ struct UserOrder {
     }
     
     func toDictionary() -> [String: Any] {
-        var dict: [String: Any] = [
+        let dict: [String: Any] = [
             "orderDate": Timestamp(date: self.orderDate),
             "orderNo": self.orderNo,
             "productId": self.productId,

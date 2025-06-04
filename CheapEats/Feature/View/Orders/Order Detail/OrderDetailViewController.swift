@@ -21,11 +21,14 @@ final class OrderDetailViewController: UIViewController{
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var orderStatusLabel: UILabel!
     @IBOutlet weak var cardNumberLabel: UILabel!
+    @IBOutlet weak var couponStateLabel: UILabel!
     @IBOutlet weak var paymentDetailView: CustomLineView!
     @IBOutlet weak var oldAmountLabel: UILabel!
     @IBOutlet weak var discountLabel: UILabel!
+    @IBOutlet weak var couponLabel: UILabel!
     @IBOutlet weak var newAmountLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var deliveryLabel: UILabel!
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var orderNo: UILabel!
     @IBOutlet weak var adressLabel: UILabel!
@@ -39,6 +42,8 @@ final class OrderDetailViewController: UIViewController{
         print("OrdersDetailViewController ")
         initConfigureView()
         initScreen()
+        orderDetailViewModel.getCoupon()
+        checkDeliveryType()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -84,6 +89,7 @@ final class OrderDetailViewController: UIViewController{
     }
     
     private func initScreen() {
+        orderDetailViewModel.delegate = self
         let saveAsPdfButton = UIBarButtonItem(title: "Save as PDF", style: .plain, target: self, action: #selector(savePdfButtonTapped))
         navigationItem.rightBarButtonItem = saveAsPdfButton
         
@@ -120,9 +126,36 @@ final class OrderDetailViewController: UIViewController{
         orderDetailViewModel.viewLocated()
     }
     
+    func checkDeliveryType() {
+        if orderDetailViewModel.checkDeliveryType() {
+            deliveryLabel.text = "(Kurye Ücreti: 20 TL)"
+            deliveryLabel.isHidden = false
+            totalLabel.text = "\(formatDouble(orderDetailViewModel.totalAmount)) TL"
+        } else {
+            deliveryLabel.isHidden = true
+        }
+    }
 }
 
 extension OrderDetailViewController: OrderDetailViewModelOutputProtocol {
+    func couponUpdated() {
+        guard let couponId = orderDetailViewModel.coupon else {
+            couponLabel.isHidden = true
+            couponStateLabel.isHidden = true
+            return
+        }
+        couponLabel.isHidden = false
+        couponStateLabel.isHidden = false
+        couponLabel.text = "\(couponId.discountValue) TL"
+        totalLabel.text = "\(formatDouble(orderDetailViewModel.totalAmount)) TL"
+        
+    }
+    
+    func errorCoupon() {
+        couponLabel.isHidden = true
+        couponStateLabel.isHidden = true
+    }
+    
     func update() {
         print("update")
     }
