@@ -35,6 +35,7 @@ final class OrderDetailViewController: UIViewController{
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var pickupLocationButton: UIButton!
     
+    @IBOutlet weak var deliveryTypeLabel: UILabel!
     var orderDetailViewModel: OrderDetailViewModelProtocol = OrderDetailViewModel()
     
     override func viewDidLoad() {
@@ -130,9 +131,11 @@ final class OrderDetailViewController: UIViewController{
         if orderDetailViewModel.checkDeliveryType() {
             deliveryLabel.text = "(Kurye Ücreti: 20 TL)"
             deliveryLabel.isHidden = false
+            deliveryTypeLabel.text = "Kurye"
             totalLabel.text = "\(formatDouble(orderDetailViewModel.totalAmount)) TL"
         } else {
             deliveryLabel.isHidden = true
+            deliveryTypeLabel.text = "Gel-Al"
         }
     }
 }
@@ -146,6 +149,7 @@ extension OrderDetailViewController: OrderDetailViewModelOutputProtocol {
         }
         couponLabel.isHidden = false
         couponStateLabel.isHidden = false
+        couponStateLabel.text = "Kupon(\(couponId.code))"
         couponLabel.text = "\(couponId.discountValue) TL"
         totalLabel.text = "\(formatDouble(orderDetailViewModel.totalAmount)) TL"
         
