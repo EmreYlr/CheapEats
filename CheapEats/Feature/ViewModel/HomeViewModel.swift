@@ -134,7 +134,7 @@ final class HomeViewModel {
         endlingProductsSort()
         
         recommendedProduct = productDetailsList
-        //TODO: -Recommended kısmını AI yap(olmazsa etiket yap)
+        recommendedProductsSort()
         
         closeProduct = productDetailsList
         closeProductSort()
@@ -171,6 +171,12 @@ final class HomeViewModel {
     private func endlingProductsSort() {
         endlingProduct.sort {
             $0.product.createdAt > $1.product.createdAt
+        }
+    }
+    
+    private func recommendedProductsSort() {
+        recommendedProduct.sort {
+            $0.product.newPrice < $1.product.newPrice
         }
     }
     
