@@ -15,6 +15,7 @@ struct UserOrder {
     var productId: String
     var status: OrderStatus
     var userId: String
+    var restaurantId: String
     var cardInfo: String
     var selectedDeliveryType: DeliveryType
     var couponId: String
@@ -33,19 +34,21 @@ struct UserOrder {
         let statusString = dictionary["status"] as? String ?? OrderStatus.delivered.rawValue
         self.status = OrderStatus(rawValue: statusString) ?? .preparing
         self.userId = dictionary["userId"] as? String ?? ""
+        self.restaurantId = dictionary["restaurantId"] as? String ?? ""
         let selectedDeliveryTypeString = dictionary["selectedDeliveryType"] as? String ?? DeliveryType.delivery.rawValue
         self.selectedDeliveryType = DeliveryType(rawValue: selectedDeliveryTypeString) ?? .delivery
         self.couponId = dictionary["couponId"] as? String ?? ""
         self.quantity = dictionary["quantity"] as? Int ?? 1
     }
     
-    init(productId: String, userId: String, selectedDeliveryType: DeliveryType) {
+    init(productId: String, userId: String, restaurantId: String,  selectedDeliveryType: DeliveryType) {
         self.orderId = ""
         self.orderDate = Date()
         self.orderNo = ""
         self.productId = productId
         self.status = .preparing
         self.userId = userId
+        self.restaurantId = restaurantId
         self.cardInfo = ""
         self.selectedDeliveryType = selectedDeliveryType
         self.couponId = ""
@@ -59,6 +62,7 @@ struct UserOrder {
             "productId": self.productId,
             "status": self.status.rawValue,
             "userId": self.userId,
+            "restaurantId": self.restaurantId,
             "cardInfo": self.cardInfo,
             "selectedDeliveryType": self.selectedDeliveryType.rawValue,
             "couponId": couponId,

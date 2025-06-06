@@ -150,7 +150,7 @@ extension OrderDetailViewController: OrderDetailViewModelOutputProtocol {
         couponLabel.isHidden = false
         couponStateLabel.isHidden = false
         couponStateLabel.text = "Kupon(\(couponId.code))"
-        couponLabel.text = "\(couponId.discountValue) TL"
+        couponLabel.text = "-\(couponId.discountValue) TL"
         totalLabel.text = "\(formatDouble(orderDetailViewModel.totalAmount)) TL"
         
     }

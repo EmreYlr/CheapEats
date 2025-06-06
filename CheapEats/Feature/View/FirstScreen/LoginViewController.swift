@@ -7,11 +7,12 @@
 
 import UIKit
 import NVActivityIndicatorView
+import JVFloatLabeledTextField
 
 final class LoginViewController: UIViewController {
     //MARK: -Variables
-    @IBOutlet weak var emailLayer: UITextField!
-    @IBOutlet weak var passwordLayer: UITextField!
+    @IBOutlet weak var emailLayer: JVFloatLabeledTextField!
+    @IBOutlet weak var passwordLayer: JVFloatLabeledTextField!
     @IBOutlet weak var waitView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     

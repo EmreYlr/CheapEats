@@ -15,6 +15,7 @@ protocol PaymentViewModelProtocol {
     var coupon: Coupon? { get set }
     var creditCart: UserCreditCards? { get set } 
     func fetchCoupon(code: String)
+    func clearCoupon()
     func setOrder(isSaveCard: Bool, cardName: String)
 }
 
@@ -39,25 +40,34 @@ final class PaymentViewModel {
     var couponStatus: Bool = false
     
     func fetchCoupon(code: String) {
-        NetworkManager.shared.fetchCoupon(byCode: code) { result in
+        delegate?.startLoading()
+        NetworkManager.shared.fetchCoupon(byCode: code) { [weak self] result in
             switch result {
             case .success(let coupon):
-                self.coupon = coupon
-                self.delegate?.updateCoupon()
+                self?.coupon = coupon
+                self?.delegate?.updateCoupon()
             case .failure(let error):
                 print("Hata:", error.localizedDescription)
-                self.delegate?.errorCoupon()
+                self?.delegate?.errorCoupon()
             }
+            self?.delegate?.stopLoading()
         }
     }
     
+    func clearCoupon() {
+        coupon = nil
+    }
+    
     func setOrder(isSaveCard: Bool, cardName: String = "") {
+        delegate?.startLoading()
         setOrderDetail()
         
         guard let order = orderDetail?.userOrder else {
             self.delegate?.error()
+            delegate?.stopLoading()
             return
         }
+        
         if isSaveCard {
             saveCard(cardName: cardName)
         }
@@ -71,6 +81,7 @@ final class PaymentViewModel {
             case.failure:
                 self.delegate?.error()
             }
+            self.delegate?.stopLoading()
         }
     }
     

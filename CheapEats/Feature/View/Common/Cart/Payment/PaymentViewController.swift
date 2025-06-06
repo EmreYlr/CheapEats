@@ -7,6 +7,7 @@
 
 import UIKit
 import JVFloatLabeledTextField
+import NVActivityIndicatorView
 
 final class PaymentViewController: UIViewController {
     //MARK: -Variables
@@ -51,7 +52,9 @@ final class PaymentViewController: UIViewController {
     @IBOutlet weak var couponLabel: UILabel!
     @IBOutlet weak var couponPriceLabel: UILabel!
     @IBOutlet weak var paymentStackView: UIStackView!
+    @IBOutlet weak var waitView: UIView!
     
+    private var loadIndicator: NVActivityIndicatorView!
     var isOpen = false
     private var dashedLines: [CAShapeLayer] = []
     var paymentViewModel: PaymentViewModelProtocol = PaymentViewModel() 
@@ -62,6 +65,7 @@ final class PaymentViewController: UIViewController {
         super.viewDidLoad()
         initScreen()
         initData()
+        setupLoadingIndicator()
         couponCodeTextField.addTarget(self, action: #selector(couponTextFieldDidChange(_:)), for: .editingChanged)
     }
     
@@ -99,7 +103,10 @@ final class PaymentViewController: UIViewController {
             totalLabel.text = "\(formatDouble(paymentViewModel.totalAmount)) TL"
             
         }
-        
+    }
+    
+    private func setupLoadingIndicator() {
+        loadIndicator = createLoadingIndicator(in: waitView)
     }
 }
 
@@ -210,7 +217,9 @@ extension PaymentViewController {
     
     @IBAction func couponButtonClicked(_ sender: UIButton) {
         if sender.backgroundColor == .cut {
+            paymentViewModel.clearCoupon()
             couponCodeTextField.text = ""
+            
             couponButton.titleLabel?.text = "Kuponu Kodunu Onayla"
             couponButton.backgroundColor = .button
             UIView.animate(withDuration: 0.3) {
@@ -323,6 +332,7 @@ extension PaymentViewController: PaymentViewModelOutputProtocol {
         let SB = UIStoryboard(name: "Main", bundle: nil)
         let successVC = SB.instantiateViewController(withIdentifier: "SuccessViewController") as! SuccessViewController
         successVC.successViewModel.orderDetail = paymentViewModel.orderDetail
+        successVC.successViewModel.coupon = paymentViewModel.coupon
         navigationController?.pushViewController(successVC, animated: true)
     }
     
@@ -351,11 +361,16 @@ extension PaymentViewController: PaymentViewModelOutputProtocol {
     }
     
     func startLoading() {
-        print("startLoading")
+        waitView.isHidden = false
+        waitView.alpha = 0.4
+        loadIndicator.isHidden = false
+        loadIndicator.startAnimating()
     }
     
     func stopLoading() {
-        print("stopLoading")
+        waitView.isHidden = true
+        loadIndicator.isHidden = true
+        loadIndicator.stopAnimating()
     }
 }
 

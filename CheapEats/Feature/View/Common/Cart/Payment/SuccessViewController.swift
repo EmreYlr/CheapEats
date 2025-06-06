@@ -13,7 +13,6 @@ final class SuccessViewController: UIViewController {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var ordersButton: UIButton!
-    
     @IBOutlet weak var orderNoLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var restaurantNameLabel: UILabel!
@@ -22,7 +21,10 @@ final class SuccessViewController: UIViewController {
     @IBOutlet weak var oldPriceLabel: UILabel!
     @IBOutlet weak var discountLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
-
+    @IBOutlet weak var couponTextLabel: UILabel!
+    @IBOutlet weak var couponLabel: UILabel!
+    @IBOutlet weak var deliveryLabel: UILabel!
+    
     var successViewModel: SuccessViewModelProtocol = SuccessViewModel()
     
     override func viewDidLoad() {
@@ -59,17 +61,30 @@ final class SuccessViewController: UIViewController {
     }
     
     private func setOrderDetail() {
-        guard let orderDetail = successViewModel.orderDetail else { return }
-        
+        guard let orderDetail = successViewModel.orderDetail else {
+            return
+        }
+
         orderNoLabel.text = "Order No: #\(orderDetail.userOrder.orderNo)"
         dateLabel.text = dateFormatter(with: orderDetail.userOrder.orderDate)
         restaurantNameLabel.text = orderDetail.productDetail.restaurant.companyName
         addressLabel.text = orderDetail.productDetail.restaurant.address
         telNoLabel.text = orderDetail.productDetail.restaurant.phone
         
+        couponTextLabel.isHidden = successViewModel.isCouponAvailable()
+        couponLabel.isHidden = successViewModel.isCouponAvailable()
+        couponLabel.text = successViewModel.getCoupon()
+        
+        if successViewModel.checkDeliveryType() {
+            deliveryLabel.isHidden = false
+        } else {
+            deliveryLabel.isHidden = true
+        }
+        
         oldPriceLabel.text = "\(formatDouble(orderDetail.productDetail.product.oldPrice)) TL"
         discountLabel.text = "\(formatDouble(orderDetail.productDetail.product.newPrice - orderDetail.productDetail.product.oldPrice)) TL"
-        totalLabel.text = "\(formatDouble(orderDetail.productDetail.product.newPrice)) TL"
+        totalLabel.text = "\(formatDouble(successViewModel.totalAmount)) TL"
+
     }
     
     @IBAction func locationButtonClicked(_ sender: UIButton) {
@@ -84,6 +99,7 @@ final class SuccessViewController: UIViewController {
     @IBAction func ordersButtonClicked(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let ordersVC = storyboard.instantiateViewController(withIdentifier: "OrdersViewController") as? OrdersViewController {
+            ordersVC.navigationItem.hidesBackButton = true
             navigationController?.pushViewController(ordersVC, animated: true)
         }
     }

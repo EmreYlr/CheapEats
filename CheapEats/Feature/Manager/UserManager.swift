@@ -15,6 +15,6 @@ final class UserManager {
         user = nil
     }
     func getUserId() -> String {
-        return user?.uid ?? ""
+        return user?.uid ?? "oiDMcITkunZm4MsJ4IpAB8mbwfz1"
     }
 }

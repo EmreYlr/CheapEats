@@ -153,7 +153,7 @@ final class DeliveryViewModel {
         
         let userId = UserManager.shared.getUserId()
         //TODO: -productID array gidecek
-        let userOrder = UserOrder(productId: cartItems.first!.product.productId, userId: userId, selectedDeliveryType: selectedDeliveryType)
+        let userOrder = UserOrder(productId: cartItems.first!.product.productId, userId: userId, restaurantId: cartItems.first!.restaurant.restaurantId, selectedDeliveryType: selectedDeliveryType)
         
         //TODO: -productDetail array gidecek
         let orderDetail = OrderDetail(userOrder: userOrder, productDetail: cartItems.first!)

@@ -6,16 +6,24 @@
 //
 
 import UIKit
+import JVFloatLabeledTextField
 
 final class PassResViewController: UIViewController {
     //MARK: -Variables
-    @IBOutlet weak var emailLayer: UITextField!
+    @IBOutlet weak var emailLayer: JVFloatLabeledTextField!
     var passResViewModel: PassResViewModelProtocol = PassResViewModel()
     @IBOutlet weak var passResButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initScreen()
+    }
+    
+    private func initScreen() {
         passResViewModel.delegate = self
         passResButton.layer.cornerRadius = 10
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.tintColor = UIColor(named: "ButtonColor")
     }
     
     @IBAction func passResButtonClicked(_ sender: Any) {

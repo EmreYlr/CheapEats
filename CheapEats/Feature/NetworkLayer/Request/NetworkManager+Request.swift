@@ -12,7 +12,7 @@ import FirebaseFirestore
 
 extension NetworkManager {
     //MARK: - UserRequest
-    func registerUser(email: String, password: String, firstName: String, lastName: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    func registerUser(email: String, telNo: String, password: String, firstName: String, lastName: String, completion: @escaping (Result<Void, Error>) -> Void) {
         DispatchQueue.main.async {
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 if let user = result?.user {
@@ -21,6 +21,8 @@ extension NetworkManager {
                         "firstName": firstName,
                         "lastName": lastName,
                         "email": email,
+                        "phoneNumber": telNo,
+                        "updateAt": Timestamp(date: Date()),
                         "createdAt": Timestamp(date: Date())
                     ]
                     self.saveUserInfo(uid: user.uid, userInfo: userInfo)
@@ -144,7 +146,7 @@ extension NetworkManager {
     }
     
     func fetchOrders(completion: @escaping (Result<[UserOrder], CustomError>) -> Void) {
-        let userId = UserManager.shared.user?.uid ?? "oiDMcITkunZm4MsJ4IpAB8mbwfz1"
+        let userId = UserManager.shared.getUserId()
         db.collection("orders").whereField("userId", isEqualTo: userId).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(.networkError(error)))
@@ -193,7 +195,7 @@ extension NetworkManager {
     }
     
     func fetchUserCreditCards(completion: @escaping (Result<[UserCreditCards], CustomError>) -> Void) {
-        let userId = UserManager.shared.user?.uid ?? "oiDMcITkunZm4MsJ4IpAB8mbwfz1"
+        let userId = UserManager.shared.getUserId()
         db.collection("userCreditCard").whereField("userId", isEqualTo: userId).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(.networkError(error)))
