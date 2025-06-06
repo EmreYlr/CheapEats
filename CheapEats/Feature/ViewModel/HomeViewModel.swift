@@ -27,6 +27,7 @@ protocol HomeViewModelProtocol {
 protocol HomeViewModelOutputProtocol: AnyObject{
     func update()
     func updateCollection()
+    func updateCloseProduct()
     func error()
     func startLoading()
     func stopLoading()
@@ -50,8 +51,8 @@ final class HomeViewModel {
     func refreshUserData() {
         self.user = UserManager.shared.user
     }
-
-
+    
+    
     func checkLocationPermission(with locationManager: CLLocationManager) -> Bool{
         let status = locationManager.authorizationStatus
         switch status {
@@ -128,12 +129,16 @@ final class HomeViewModel {
     
     func collectionLoad() {
         combineProductAndRestaurantDetails()
+        
         endlingProduct = productDetailsList
-        //endlingProduct = productDetailsList.filter { $0.product.createdAt > Date().addingTimeInterval(-86400) }
+        endlingProductsSort()
+        
         recommendedProduct = productDetailsList
-        //recommendedProduct = productDetailsList.filter { $0.product.rating > 4.0 }
+        //TODO: -Recommended kısmını AI yap(olmazsa etiket yap)
+        
         closeProduct = productDetailsList
-        //closeProduct = productDetailsList.filter { $0.restaurant.distance < 5.0 }
+        closeProductSort()
+        
         NotificationCenter.default.post(name: NSNotification.Name("closeProductUpdated"), object: closeProduct)
         self.delegate?.updateCollection()
     }
@@ -160,6 +165,53 @@ final class HomeViewModel {
             cartButton.image = UIImage(systemName: "cart.fill")
             let count = CartManager.shared.getProduct().count
             BadgeManager.shared.updateBadge(on: cartButton, count: count)
+        }
+    }
+    
+    private func endlingProductsSort() {
+        endlingProduct.sort {
+            $0.product.createdAt > $1.product.createdAt
+        }
+    }
+    
+    private func closeProductSort() {
+        distanceCalculate(with: endlingProduct) { [weak self] result in
+            self?.closeProduct = result
+                .sorted { $0.1 < $1.1 }
+                .map { $0.0 }
+            
+            self?.delegate?.updateCloseProduct()
+        }
+        
+    }
+    
+    private func distanceCalculate(with productDetails: [ProductDetails], completion: @escaping ([(ProductDetails, Double)]) -> Void) {
+        var results: [(ProductDetails, Double)] = []
+        var completedCount = 0
+        
+        guard let userLat = LocationManager.shared.currentLatitude,
+              let userLon = LocationManager.shared.currentLongitude else {
+            completion([])
+            return
+        }
+        
+        let totalCount = productDetails.count
+        guard totalCount > 0 else {
+            completion([])
+            return
+        }
+        
+        for detail in productDetails {
+            getRouteDistance(userLat: userLat, userLon: userLon,
+                             destLat: detail.restaurant.location.latitude,
+                             destLon: detail.restaurant.location.longitude) { distance in
+                results.append((detail, distance))
+                completedCount += 1
+                
+                if completedCount == totalCount {
+                    completion(results)
+                }
+            }
         }
     }
 }

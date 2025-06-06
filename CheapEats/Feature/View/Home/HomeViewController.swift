@@ -167,7 +167,10 @@ extension HomeViewController : HomeViewModelOutputProtocol {
         closeCollectionView.reloadData()
         endlingCollectionView.reloadData()
         recommendedCollectionView.reloadData()
-        print("Update Collection")
+    }
+    
+    func updateCloseProduct() {
+        closeCollectionView.reloadData()
     }
     
     func error() {

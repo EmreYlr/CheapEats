@@ -40,21 +40,26 @@ final class RegisterViewController: UIViewController {
     }
     
     @IBAction func registerButtonClicked(_ sender: Any) {
-        guard let name = nameLabel.text, let lastname = lastnameLabel.text, let email = emailLabel.text, let password = passwordLabel.text, let tel = telNoLabel.text else { return }
+        guard let name = nameLabel.text, let lastname = lastnameLabel.text, let email = emailLabel.text, let password = passwordLabel.text, let tel = telNoLabel.text else {
+            
+            showOneButtonAlert(title: "Hata", message: "Lütfen tüm alanları doldurun!", buttonTitle: "Tamam")
+            return
+        }
+        
         registerViewModel.registerUser(email: email,telNo: tel ,password: password, firstName: name, lastName: lastname)
+        
     }
 }
 
 extension RegisterViewController: RegisterViewModelOutputProtocol {
     func update() {
-        //TODO: -ALERT YAPILACAK
+        showOneButtonAlert(title: "Başarılı", message: "Kullanıcı kaydı başarılı!", buttonTitle: "Tamam")
         stopLoading()
         navigationController?.popViewController(animated: true)
-        print("User registered successfully!")
     }
     
     func error() {
-        print("Error registering user!")
+        showOneButtonAlert(title: "Hata", message: "Kullanıcı kaydı başarısız!", buttonTitle: "Tamam")
         stopLoading()
     }
     

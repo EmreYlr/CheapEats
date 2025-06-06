@@ -77,7 +77,6 @@ final class DetailViewController: UIViewController {
         scrollView.delegate = self
         detailViewModel.delegate = self
         distanceImageIcon.image = UIImage(systemName: "point.filled.topleft.down.curvedto.point.bottomright.up")
-        imageView.layer.cornerRadius = 10
         distanceView.layer.cornerRadius = 5
         foodView.layer.cornerRadius = 5
         foodImageIcon.layer.cornerRadius = 3
