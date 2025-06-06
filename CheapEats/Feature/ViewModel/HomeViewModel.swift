@@ -36,7 +36,6 @@ protocol HomeViewModelOutputProtocol: AnyObject{
 final class HomeViewModel {
     weak var delegate: HomeViewModelOutputProtocol?
     var user: Users?
-    //TODO: -Sadece product çek sonrasında filtreleme işlemlerini yap.
     var products: [Product]?
     var restaurants: [Restaurant]?
     var productDetailsList: [ProductDetails] = []
@@ -138,8 +137,7 @@ final class HomeViewModel {
         
         closeProduct = productDetailsList
         closeProductSort()
-        
-        NotificationCenter.default.post(name: NSNotification.Name("closeProductUpdated"), object: closeProduct)
+                
         self.delegate?.updateCollection()
     }
     
@@ -187,6 +185,8 @@ final class HomeViewModel {
                 .map { $0.0 }
             
             self?.delegate?.updateCloseProduct()
+            
+            NotificationCenter.default.post(name: NSNotification.Name("closeProductUpdated"), object: self?.closeProduct)
         }
         
     }
