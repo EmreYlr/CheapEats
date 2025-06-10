@@ -44,10 +44,18 @@ class OrdersTableViewCell: UITableViewCell {
         orderDeliveryStatusLbl.text = status.rawValue
         orderNoLabel.text = "#\(ordersDetail.userOrder.orderNo)"
         switch status {
+        case .pending:
+            orderDeliveryStatusLbl.textColor = .systemGray
+            orderColorStatus.tintColor = .systemGray
+            orderColorStatus.image = UIImage(systemName: "ellipsis")
         case .delivered:
             orderDeliveryStatusLbl.textColor = .button
             orderColorStatus.tintColor = .button
             orderColorStatus.image = UIImage(systemName: "checkmark")
+        case .ready:
+            orderDeliveryStatusLbl.textColor = .title
+            orderColorStatus.tintColor = .title
+            orderColorStatus.image = UIImage(systemName: "checkmark.circle.fill")
         case .preparing:
             orderDeliveryStatusLbl.textColor = .systemOrange
             orderColorStatus.tintColor = .systemOrange

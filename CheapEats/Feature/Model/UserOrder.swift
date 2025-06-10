@@ -32,7 +32,7 @@ struct UserOrder {
         self.cardInfo = dictionary["cardInfo"] as? String ?? ""
         self.productId = dictionary["productId"] as? String ?? ""
         let statusString = dictionary["status"] as? String ?? OrderStatus.delivered.rawValue
-        self.status = OrderStatus(rawValue: statusString) ?? .preparing
+        self.status = OrderStatus(rawValue: statusString) ?? .pending
         self.userId = dictionary["userId"] as? String ?? ""
         self.restaurantId = dictionary["restaurantId"] as? String ?? ""
         let selectedDeliveryTypeString = dictionary["selectedDeliveryType"] as? String ?? DeliveryType.delivery.rawValue
@@ -74,7 +74,9 @@ struct UserOrder {
 }
 
 enum OrderStatus: String, CaseIterable, CustomStringConvertible {
+    case pending = "Sipariş Alındı"
     case preparing = "Hazırlanıyor"
+    case ready = "Hazır"
     case delivered = "Teslim Edildi"
     case canceled = "İptal Edildi"
     

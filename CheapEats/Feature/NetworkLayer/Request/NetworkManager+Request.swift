@@ -296,21 +296,64 @@ extension NetworkManager {
     
     //MARK: -Order
     func addOrder(order: UserOrder, completion: @escaping (Result<String, Error>) -> Void) {
-        let db = Firestore.firestore()
         let orderRef = db.collection("orders").document()
         let orderNo = String(Int.random(in: 100000...999999))
         var newOrder = order
         
         newOrder.orderId = orderRef.documentID
         newOrder.orderNo = orderNo
-        
-        orderRef.setData(newOrder.toDictionary()) { error in
-            if let error = error {
+
+        setDescreaseQuantity(productId: order.productId, selectedCount: order.quantity) { result in
+            switch result {
+            case .success:
+                orderRef.setData(newOrder.toDictionary()) { error in
+                    if let error = error {
+                        completion(.failure(error))
+                    } else {
+                        completion(.success(orderNo))
+                    }
+                }
+            case .failure(let error):
                 completion(.failure(error))
-            } else {
-                completion(.success(orderNo))
             }
         }
     }
+
+    func setDescreaseQuantity(productId: String, selectedCount: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+        let productRef = db.collection("products").document(productId)
+        
+        productRef.getDocument { snapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = snapshot?.data(),
+                  let currentQuantity = data["quantity"] as? Int else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Quantity not found"])))
+                return
+            }
+            
+            let newQuantity = currentQuantity - selectedCount
+            if newQuantity < 0 {
+                completion(.failure(NSError(domain: "", code: -2, userInfo: [NSLocalizedDescriptionKey: "Not enough stock"])))
+                return
+            }
+
+            var updateData: [String: Any] = ["quantity": newQuantity]
+            if newQuantity == 0 {
+                updateData["status"] = true
+            }
+
+            productRef.updateData(updateData) { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        }
+    }
+
 
 }

@@ -104,8 +104,12 @@ final class OrderDetailViewController: UIViewController{
             dateLabel.text = "\(dateFormatter(with: order.userOrder.orderDate))"
             orderStatusLabel.text = "\(order.userOrder.status)"
             switch order.userOrder.status {
+            case .pending:
+                orderStatusLabel.textColor = .systemGray
             case .preparing:
                 orderStatusLabel.textColor = .systemOrange
+            case .ready:
+                orderStatusLabel.textColor = .title
             case .delivered:
                 orderStatusLabel.textColor = .button
             case .canceled:

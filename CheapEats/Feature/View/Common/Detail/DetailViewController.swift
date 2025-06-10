@@ -93,7 +93,7 @@ final class DetailViewController: UIViewController {
             imageView.kf.indicatorType = .activity
             imageView.kf.setImage(with: URL(string: productDetail.product.imageUrl))
             foodNameLabel.text = productDetail.product.name
-            foodLabel.text = String(describing: productDetail.product.category.first!)
+            foodLabel.text = String(describing: productDetail.product.category.first ?? Category.doner)
             companyNameLabel.text = productDetail.restaurant.companyName
             dateLabel.text = dateFormatter(with: productDetail.product.createdAt)
             oldAmountLabel.text = "\(formatDouble(productDetail.product.oldPrice)) TL"
