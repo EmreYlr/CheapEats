@@ -27,6 +27,9 @@ extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSourc
             cell.configureCell(productDetail: product)
             
         } else if collectionView == closeCollectionView {
+            if indexPath.row >= homeViewModel.closeProduct.count {
+                return UICollectionViewCell()
+            }
             let product = homeViewModel.closeProduct[indexPath.row]
                 cell.configureCell(productDetail: product)
             

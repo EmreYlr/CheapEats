@@ -1,5 +1,5 @@
 {
-  "originHash" : "a11f9ad1e11036b6560602f94f81d018f39ad9dd870df2b88d645ab3ffc2acd9",
+  "originHash" : "ebdfb7c6cce541d331ec366723b20eb710727946bb4652a5811aa13ee12e8c2c",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -143,6 +143,15 @@
       "state" : {
         "revision" : "d72aed98f8253ec1aa9ea1141e28150f408cf17f",
         "version" : "1.29.0"
+      }
+    },
+    {
+      "identity" : "swiftentrykit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/huri000/SwiftEntryKit",
+      "state" : {
+        "revision" : "5ad36cccf0c4b9fea32f4e9b17a8e38f07563ef0",
+        "version" : "2.0.0"
       }
     }
   ],

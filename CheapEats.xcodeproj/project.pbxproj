@@ -122,6 +122,8 @@
 		C3EAD8462D4E708000CD49CE /* MapScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAD8452D4E708000CD49CE /* MapScreenViewModel.swift */; };
 		C3EAD8482D4E732F00CD49CE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAD8472D4E732C00CD49CE /* LocationManager.swift */; };
 		C3EDEE922D8E159400337540 /* BadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EDEE912D8E158F00337540 /* BadgeManager.swift */; };
+		C3F2DB812DF99A69008AC493 /* ShowBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F2DB802DF99A66008AC493 /* ShowBanner.swift */; };
+		C3F2DB842DF99B5B008AC493 /* SwiftEntryKit in Frameworks */ = {isa = PBXBuildFile; productRef = C3F2DB832DF99B5B008AC493 /* SwiftEntryKit */; };
 		C3FDC2C42CF7A5F0001BD056 /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FDC2C32CF7A5F0001BD056 /* HomeViewController+CollectionView.swift */; };
 		C3FE32D62D849E4B00F16777 /* DashedLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FE32D52D849E4500F16777 /* DashedLine.swift */; };
 		C3FFDE4F2D64B24D00FF6296 /* FormatDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFDE4E2D64B24800FF6296 /* FormatDouble.swift */; };
@@ -237,6 +239,7 @@
 		C3EAD8452D4E708000CD49CE /* MapScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewModel.swift; sourceTree = "<group>"; };
 		C3EAD8472D4E732C00CD49CE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C3EDEE912D8E158F00337540 /* BadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeManager.swift; sourceTree = "<group>"; };
+		C3F2DB802DF99A66008AC493 /* ShowBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBanner.swift; sourceTree = "<group>"; };
 		C3FDC2C32CF7A5F0001BD056 /* HomeViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		C3FE32D52D849E4500F16777 /* DashedLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLine.swift; sourceTree = "<group>"; };
 		C3FFDE4E2D64B24800FF6296 /* FormatDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDouble.swift; sourceTree = "<group>"; };
@@ -250,6 +253,7 @@
 			files = (
 				C328A0742D7DC33000E5172A /* NVActivityIndicatorViewExtended in Frameworks */,
 				C3BB4BE32D4D2B3400A1057E /* Kingfisher in Frameworks */,
+				C3F2DB842DF99B5B008AC493 /* SwiftEntryKit in Frameworks */,
 				C3395A912D6BA76900461A5E /* JVFloatLabeledTextField in Frameworks */,
 				C3657B6A2D4D258E0003918D /* FirebaseDatabase in Frameworks */,
 				C35F6B762D5506CC00DBB7EA /* NVActivityIndicatorView in Frameworks */,
@@ -323,6 +327,7 @@
 		C32CBEF62CF89C860016F444 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C3F2DB802DF99A66008AC493 /* ShowBanner.swift */,
 				C328A07F2D7DE3E600E5172A /* MapDesignCategories.swift */,
 				C3395A832D6B407E00461A5E /* CreditCardValidation.swift */,
 				C3B394C22D6A2E85007CD437 /* Alert.swift */,
@@ -663,6 +668,7 @@
 				C35F6B752D5506CC00DBB7EA /* NVActivityIndicatorView */,
 				C35F6B772D5506CC00DBB7EA /* NVActivityIndicatorViewExtended */,
 				C3395A902D6BA76900461A5E /* JVFloatLabeledTextField */,
+				C3F2DB832DF99B5B008AC493 /* SwiftEntryKit */,
 			);
 			productName = CheapEats;
 			productReference = C36D3E9D2CF34534008FE62B /* CheapEats.app */;
@@ -697,6 +703,7 @@
 				C3BB4BE12D4D2B3400A1057E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C35F6B742D5506CB00DBB7EA /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				C3395A8F2D6BA76900461A5E /* XCRemoteSwiftPackageReference "JVFloatLabeledTextField" */,
+				C3F2DB822DF99B5B008AC493 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */,
 			);
 			productRefGroup = C36D3E9E2CF34534008FE62B /* Products */;
 			projectDirPath = "";
@@ -823,6 +830,7 @@
 				C3A8D2D02D8EFC26001E55DB /* CustomSegmentControl.swift in Sources */,
 				C3ADE97F2D53A14D00278990 /* DetailViewController+MapView.swift in Sources */,
 				C3FFDE4F2D64B24D00FF6296 /* FormatDouble.swift in Sources */,
+				C3F2DB812DF99A69008AC493 /* ShowBanner.swift in Sources */,
 				C3B21C912CF9ED3B005878F9 /* FoodTableViewCell.swift in Sources */,
 				C32E611A2DEDFB2000BC2F9B /* SuccessViewController.swift in Sources */,
 				C32D6C462D510B0B002CD677 /* CustomError.swift in Sources */,
@@ -1088,6 +1096,14 @@
 				minimumVersion = 8.1.4;
 			};
 		};
+		C3F2DB822DF99B5B008AC493 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huri000/SwiftEntryKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1135,6 +1151,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C3BB4BE12D4D2B3400A1057E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		C3F2DB832DF99B5B008AC493 /* SwiftEntryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C3F2DB822DF99B5B008AC493 /* XCRemoteSwiftPackageReference "SwiftEntryKit" */;
+			productName = SwiftEntryKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -31,14 +31,13 @@ final class HomeViewController: UIViewController{
     let refreshControl = UIRefreshControl()
     let locationManager = CLLocationManager()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLoadingIndicator()
         initLoad()
         initScreen()
         updateUserInfo()
+        homeViewModel.listenOrderStatus()
         NotificationCenter.default.addObserver(self, selector: #selector(userProfileUpdated), name: NSNotification.Name("UserProfileUpdated"), object: nil)
     }
     
@@ -171,6 +170,10 @@ extension HomeViewController : HomeViewModelOutputProtocol {
     
     func updateCloseProduct() {
         closeCollectionView.reloadData()
+    }
+    
+    func changedOrder(orderId: String, newStatus: OrderStatus) {
+        print("Order with ID \(orderId) changed to status: \(newStatus.rawValue)")
     }
     
     func error() {

@@ -201,17 +201,17 @@ extension NetworkManager {
                 completion(.failure(.networkError(error)))
                 return
             }
-
+            
             guard let documents = snapshot?.documents else {
                 completion(.failure(.noData))
                 return
             }
-
+            
             let creditCards = documents.compactMap { (document) -> UserCreditCards? in
                 let data = document.data()
                 return UserCreditCards(dictionary: data, documentId: document.documentID)
             }
-
+            
             if creditCards.isEmpty {
                 completion(.failure(.noData))
             } else {
@@ -255,13 +255,13 @@ extension NetworkManager {
                     completion(.failure(error))
                     return
                 }
-
+                
                 guard let document = snapshot?.documents.first else {
                     let notFoundError = NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "Kupon bulunamadı."])
                     completion(.failure(notFoundError))
                     return
                 }
-
+                
                 if let coupon = Coupon(dictionary: document.data(), documentId: document.documentID) {
                     completion(.success(coupon))
                 } else {
@@ -277,13 +277,13 @@ extension NetworkManager {
                 completion(.failure(error))
                 return
             }
-
+            
             guard let document = document, document.exists, let data = document.data() else {
                 let notFoundError = NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "Kupon bulunamadı."])
                 completion(.failure(notFoundError))
                 return
             }
-
+            
             if let coupon = Coupon(dictionary: data, documentId: document.documentID) {
                 completion(.success(coupon))
             } else {
@@ -292,7 +292,7 @@ extension NetworkManager {
             }
         }
     }
-
+    
     
     //MARK: -Order
     func addOrder(order: UserOrder, completion: @escaping (Result<String, Error>) -> Void) {
@@ -302,7 +302,7 @@ extension NetworkManager {
         
         newOrder.orderId = orderRef.documentID
         newOrder.orderNo = orderNo
-
+        
         setDescreaseQuantity(productId: order.productId, selectedCount: order.quantity) { result in
             switch result {
             case .success:
@@ -318,7 +318,7 @@ extension NetworkManager {
             }
         }
     }
-
+    
     func setDescreaseQuantity(productId: String, selectedCount: Int, completion: @escaping (Result<Void, Error>) -> Void) {
         let productRef = db.collection("products").document(productId)
         
@@ -339,12 +339,12 @@ extension NetworkManager {
                 completion(.failure(NSError(domain: "", code: -2, userInfo: [NSLocalizedDescriptionKey: "Not enough stock"])))
                 return
             }
-
+            
             var updateData: [String: Any] = ["quantity": newQuantity]
             if newQuantity == 0 {
                 updateData["status"] = true
             }
-
+            
             productRef.updateData(updateData) { error in
                 if let error = error {
                     completion(.failure(error))
@@ -354,6 +354,29 @@ extension NetworkManager {
             }
         }
     }
-
-
+    
+    func listenOrderStatus(onStatusChanged: @escaping (UserOrder) -> Void) -> ListenerRegistration? {
+        let userId = UserManager.shared.getUserId()
+        
+        let listener = db.collection("orders")
+            .whereField("userId", isEqualTo: userId)
+            .addSnapshotListener { snapshot, error in
+                if let error = error {
+                    print("Order status dinlenirken hata oluştu: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let snapshot = snapshot else { return }
+                
+                for diff in snapshot.documentChanges {
+                    if diff.type == .modified {
+                        if let changedOrder = UserOrder(dictionary: diff.document.data(), documentId: diff.document.documentID) {
+                            onStatusChanged(changedOrder)
+                        }
+                    }
+                }
+            }
+        return listener
+    }
+    
 }

@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 import UIKit
+import Firebase
 
 protocol HomeViewModelProtocol {
     var delegate: HomeViewModelOutputProtocol? { get set }
@@ -22,12 +23,14 @@ protocol HomeViewModelProtocol {
     func collectionLoad()
     func checkLocationPermission(with locationManager: CLLocationManager) -> Bool
     func isCartEmpty(with cartButton: UIBarButtonItem)
+    func listenOrderStatus()
 }
 
 protocol HomeViewModelOutputProtocol: AnyObject{
     func update()
     func updateCollection()
     func updateCloseProduct()
+    func changedOrder(orderId: String, newStatus: OrderStatus)
     func error()
     func startLoading()
     func stopLoading()
@@ -43,6 +46,7 @@ final class HomeViewModel {
     var recommendedProduct: [ProductDetails] = []
     var closeProduct: [ProductDetails] = []
     private let dispatchGroup = DispatchGroup()
+    private var orderListener: ListenerRegistration?
     
     init() {
         self.user = UserManager.shared.user
@@ -219,6 +223,14 @@ final class HomeViewModel {
                 }
             }
         }
+    }
+
+    func listenOrderStatus() {
+        orderListener = NetworkManager.shared.listenOrderStatus(onStatusChanged: { [weak self] changedOrder in
+            guard let self = self else { return }
+            showOrderNotificationBanner(orderNo: changedOrder.orderNo, status: changedOrder.status)
+            delegate?.changedOrder(orderId: changedOrder.orderNo, newStatus: changedOrder.status)
+        })
     }
 }
 

@@ -116,6 +116,9 @@ final class OrdersViewModel {
                 orderDetailsList.append(orderDetail)
             }
         }
+        orderDetailsList.sort {
+            $0.userOrder.orderDate > $1.userOrder.orderDate
+        }
     }
     
     func loadData() {

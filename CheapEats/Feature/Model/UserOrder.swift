@@ -46,7 +46,7 @@ struct UserOrder {
         self.orderDate = Date()
         self.orderNo = ""
         self.productId = productId
-        self.status = .preparing
+        self.status = .pending
         self.userId = userId
         self.restaurantId = restaurantId
         self.cardInfo = ""
