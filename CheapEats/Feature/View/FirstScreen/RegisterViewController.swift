@@ -53,9 +53,11 @@ final class RegisterViewController: UIViewController {
 
 extension RegisterViewController: RegisterViewModelOutputProtocol {
     func update() {
-        showOneButtonAlert(title: "Başarılı", message: "Kullanıcı kaydı başarılı!", buttonTitle: "Tamam")
+        showOneButtonAlert(title: "Başarılı", message: "Kullanıcı kaydı başarılı!", buttonTitle: "Tamam") { _ in
+            self.stopLoading()
+            self.navigationController?.popViewController(animated: true)
+        }
         stopLoading()
-        navigationController?.popViewController(animated: true)
     }
     
     func error() {

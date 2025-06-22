@@ -113,7 +113,7 @@ final class HomeViewController: UIViewController{
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         collectionView.register(UINib(nibName: "OrderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
     }
-    
+    //TODO: -Quantitiy ile çarp fiyatı
 }
 //MARK: -Button Actions
 extension HomeViewController {

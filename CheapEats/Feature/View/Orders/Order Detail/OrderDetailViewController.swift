@@ -118,10 +118,10 @@ final class OrderDetailViewController: UIViewController{
             cardNumberLabel.text = "**** **** **** \(order.userOrder.cardInfo)"
             let oldAmount = Double(order.productDetail.product.oldPrice)
             let newAmount = Double(order.productDetail.product.newPrice)
-            oldAmountLabel.text = "\(formatDouble(order.productDetail.product.oldPrice)) TL"
-            discountLabel.text = "-\(formatDouble(oldAmount - newAmount)) TL"
-            newAmountLabel.text = "\(formatDouble(order.productDetail.product.newPrice)) TL"
-            totalLabel.text = "\(formatDouble(newAmount)) TL"
+            oldAmountLabel.text = "\(formatDouble((Double(order.userOrder.quantity) * order.productDetail.product.oldPrice))) TL"
+            discountLabel.text = "-\(formatDouble((Double(order.userOrder.quantity) * (oldAmount - newAmount)))) TL"
+            newAmountLabel.text = "\( (formatDouble(Double(order.userOrder.quantity) * order.productDetail.product.newPrice))) TL"
+            totalLabel.text = "\(formatDouble((Double(order.userOrder.quantity) * newAmount))) TL"
             adressLabel.text = "Adres: \(order.productDetail.restaurant.address)"
             phoneNumberLabel.text = "\(order.productDetail.restaurant.phone)"
         }
@@ -132,11 +132,12 @@ final class OrderDetailViewController: UIViewController{
     }
     
     func checkDeliveryType() {
+        guard let order = orderDetailViewModel.order else {return}
         if orderDetailViewModel.checkDeliveryType() {
             deliveryLabel.text = "(Kurye Ücreti: 20 TL)"
             deliveryLabel.isHidden = false
             deliveryTypeLabel.text = "Kurye"
-            totalLabel.text = "\(formatDouble(orderDetailViewModel.totalAmount)) TL"
+            totalLabel.text = "\(formatDouble((Double(order.userOrder.quantity) * orderDetailViewModel.totalAmount))) TL"
         } else {
             deliveryLabel.isHidden = true
             deliveryTypeLabel.text = "Gel-Al"

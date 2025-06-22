@@ -26,8 +26,6 @@ final class LoginViewController: UIViewController {
     }
     
     private func initScreen() {
-        emailLayer.text = "yeleremre@hotmail.com"
-        passwordLayer.text = "123456"
         loginViewModel.delegate = self
         loginButton.layer.cornerRadius = 10
     }

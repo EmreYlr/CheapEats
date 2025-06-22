@@ -72,6 +72,7 @@ final class OrderDetailViewModel {
             switch result {
             case .success(let coupon):
                 self.coupon = coupon
+                self.totalAmount *= Double(self.order?.userOrder.quantity ?? 1)
                 self.totalAmount -= Double(coupon.discountValue)
                 self.delegate?.couponUpdated()
             case .failure(_):

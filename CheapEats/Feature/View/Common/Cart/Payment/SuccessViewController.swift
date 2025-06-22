@@ -73,7 +73,7 @@ final class SuccessViewController: UIViewController {
         
         couponTextLabel.isHidden = successViewModel.isCouponAvailable()
         couponLabel.isHidden = successViewModel.isCouponAvailable()
-        couponLabel.text = successViewModel.getCoupon()
+        couponLabel.text = "-\(successViewModel.getCoupon())"
         
         if successViewModel.checkDeliveryType() {
             deliveryLabel.isHidden = false
@@ -81,8 +81,8 @@ final class SuccessViewController: UIViewController {
             deliveryLabel.isHidden = true
         }
         
-        oldPriceLabel.text = "\(formatDouble(orderDetail.productDetail.product.oldPrice)) TL"
-        discountLabel.text = "\(formatDouble(orderDetail.productDetail.product.newPrice - orderDetail.productDetail.product.oldPrice)) TL"
+        oldPriceLabel.text = "\(formatDouble((Double(orderDetail.userOrder.quantity) * orderDetail.productDetail.product.oldPrice))) TL"
+        discountLabel.text = "\(formatDouble((Double(orderDetail.userOrder.quantity) * (orderDetail.productDetail.product.newPrice - orderDetail.productDetail.product.oldPrice)))) TL"
         totalLabel.text = "\(formatDouble(successViewModel.totalAmount)) TL"
 
     }

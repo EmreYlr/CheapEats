@@ -32,6 +32,7 @@ final class SuccessViewModel {
     func getCoupon() -> String {
         totalAmount = orderDetail?.productDetail.product.newPrice ?? 0.0
         if let coupon = coupon {
+            totalAmount *= Double(self.orderDetail?.userOrder.quantity ?? 1)
             totalAmount -= Double(coupon.discountValue)
             return "\(coupon.discountValue) TL"
         } else {
