@@ -39,6 +39,7 @@
 		C3395A882D6B4B4E00461A5E /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3395A872D6B4B4E00461A5E /* AddCardViewController.swift */; };
 		C3395A8B2D6B4B8800461A5E /* AddCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3395A8A2D6B4B8700461A5E /* AddCardViewModel.swift */; };
 		C3395A912D6BA76900461A5E /* JVFloatLabeledTextField in Frameworks */ = {isa = PBXBuildFile; productRef = C3395A902D6BA76900461A5E /* JVFloatLabeledTextField */; };
+		C34070D32E096777006B8A33 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C34070D22E096777006B8A33 /* GoogleService-Info.plist */; };
 		C345DE6B2D8CB57200EE6323 /* CartViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345DE6A2D8CB56E00EE6323 /* CartViewController+TableView.swift */; };
 		C345DE6E2D8CB61800EE6323 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345DE6C2D8CB61800EE6323 /* CartTableViewCell.swift */; };
 		C345DE6F2D8CB61800EE6323 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C345DE6D2D8CB61800EE6323 /* CartTableViewCell.xib */; };
@@ -63,7 +64,6 @@
 		C36D3EC22CF34C4A008FE62B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EC12CF34C4A008FE62B /* HomeViewModel.swift */; };
 		C36D3EC52CF353E3008FE62B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EC42CF353E3008FE62B /* LoginViewController.swift */; };
 		C36D3EC92CF3540B008FE62B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EC82CF3540B008FE62B /* LoginViewModel.swift */; };
-		C36D3ECE2CF356ED008FE62B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C36D3ECD2CF356ED008FE62B /* GoogleService-Info.plist */; };
 		C36D3EF92CF36251008FE62B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EF82CF36251008FE62B /* RegisterViewController.swift */; };
 		C36D3EFC2CF36267008FE62B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EFB2CF36267008FE62B /* RegisterViewModel.swift */; };
 		C36D3EFF2CF36286008FE62B /* PassResViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D3EFE2CF36286008FE62B /* PassResViewController.swift */; };
@@ -91,6 +91,12 @@
 		C3A8D2D22D8F0CBB001E55DB /* DeliveryViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A8D2D12D8F0CB4001E55DB /* DeliveryViewController+MapView.swift */; };
 		C3ADE97F2D53A14D00278990 /* DetailViewController+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */; };
 		C3ADE9812D53B68200278990 /* RouterDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE9802D53B67500278990 /* RouterDistance.swift */; };
+		C3B0E82B2F6888A900ADA354 /* IMG_1.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B0E8262F6888A900ADA354 /* IMG_1.png */; };
+		C3B0E82C2F6888A900ADA354 /* IMG_2.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B0E8272F6888A900ADA354 /* IMG_2.png */; };
+		C3B0E82D2F6888A900ADA354 /* IMG_3.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B0E8282F6888A900ADA354 /* IMG_3.png */; };
+		C3B0E82E2F6888A900ADA354 /* IMG_4.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B0E8292F6888A900ADA354 /* IMG_4.png */; };
+		C3B0E82F2F6888A900ADA354 /* IMG_5.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B0E82A2F6888A900ADA354 /* IMG_5.png */; };
+		C3B0E8312F6888BB00ADA354 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B0E8302F6888BB00ADA354 /* logo.png */; };
 		C3B21C882CF9EAF8005878F9 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C872CF9EAF8005878F9 /* MoreViewController.swift */; };
 		C3B21C8A2CF9EB02005878F9 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C892CF9EB02005878F9 /* MoreViewModel.swift */; };
 		C3B21C8E2CF9ECCA005878F9 /* MoreViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */; };
@@ -161,6 +167,7 @@
 		C3395A832D6B407E00461A5E /* CreditCardValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardValidation.swift; sourceTree = "<group>"; };
 		C3395A872D6B4B4E00461A5E /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		C3395A8A2D6B4B8700461A5E /* AddCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewModel.swift; sourceTree = "<group>"; };
+		C34070D22E096777006B8A33 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C345DE6A2D8CB56E00EE6323 /* CartViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartViewController+TableView.swift"; sourceTree = "<group>"; };
 		C345DE6C2D8CB61800EE6323 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		C345DE6D2D8CB61800EE6323 /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
@@ -181,7 +188,6 @@
 		C36D3EC12CF34C4A008FE62B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C36D3EC42CF353E3008FE62B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C36D3EC82CF3540B008FE62B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		C36D3ECD2CF356ED008FE62B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C36D3EF82CF36251008FE62B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C36D3EFB2CF36267008FE62B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		C36D3EFE2CF36286008FE62B /* PassResViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassResViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +215,12 @@
 		C3A8D2D12D8F0CB4001E55DB /* DeliveryViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeliveryViewController+MapView.swift"; sourceTree = "<group>"; };
 		C3ADE97E2D53A14400278990 /* DetailViewController+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+MapView.swift"; sourceTree = "<group>"; };
 		C3ADE9802D53B67500278990 /* RouterDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDistance.swift; sourceTree = "<group>"; };
+		C3B0E8262F6888A900ADA354 /* IMG_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1.png; sourceTree = "<group>"; };
+		C3B0E8272F6888A900ADA354 /* IMG_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_2.png; sourceTree = "<group>"; };
+		C3B0E8282F6888A900ADA354 /* IMG_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_3.png; sourceTree = "<group>"; };
+		C3B0E8292F6888A900ADA354 /* IMG_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_4.png; sourceTree = "<group>"; };
+		C3B0E82A2F6888A900ADA354 /* IMG_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_5.png; sourceTree = "<group>"; };
+		C3B0E8302F6888BB00ADA354 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		C3B21C872CF9EAF8005878F9 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		C3B21C892CF9EB02005878F9 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
 		C3B21C8D2CF9ECCA005878F9 /* MoreViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreViewController+TableView.swift"; sourceTree = "<group>"; };
@@ -385,11 +397,12 @@
 		C36D3E9F2CF34534008FE62B /* CheapEats */ = {
 			isa = PBXGroup;
 			children = (
+				C3B0E8252F68878400ADA354 /* Screenshots */,
 				C36D3EB42CF34A75008FE62B /* Core */,
 				C36D3EB52CF34A7B008FE62B /* Feature */,
 				C36D3EA62CF34534008FE62B /* Main.storyboard */,
 				C36D3EAE2CF34535008FE62B /* Info.plist */,
-				C36D3ECD2CF356ED008FE62B /* GoogleService-Info.plist */,
+				C34070D22E096777006B8A33 /* GoogleService-Info.plist */,
 			);
 			path = CheapEats;
 			sourceTree = "<group>";
@@ -516,6 +529,19 @@
 				C3B394B22D69F361007CD437 /* DetailViewController+ScrollView.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		C3B0E8252F68878400ADA354 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				C3B0E8302F6888BB00ADA354 /* logo.png */,
+				C3B0E8262F6888A900ADA354 /* IMG_1.png */,
+				C3B0E8272F6888A900ADA354 /* IMG_2.png */,
+				C3B0E8282F6888A900ADA354 /* IMG_3.png */,
+				C3B0E8292F6888A900ADA354 /* IMG_4.png */,
+				C3B0E82A2F6888A900ADA354 /* IMG_5.png */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 		C3B21C8C2CF9EC98005878F9 /* More */ = {
@@ -721,15 +747,21 @@
 			files = (
 				C3766BF62D6A80F600E75ABE /* AddManageCardTableViewCell.xib in Resources */,
 				C36D3EAA2CF34535008FE62B /* Assets.xcassets in Resources */,
-				C36D3ECE2CF356ED008FE62B /* GoogleService-Info.plist in Resources */,
 				C3766BF02D6A6C2400E75ABE /* ManageCardTableViewCell.xib in Resources */,
 				C36D3EAD2CF34535008FE62B /* Base in Resources */,
 				C36D3EA82CF34534008FE62B /* Base in Resources */,
+				C3B0E8312F6888BB00ADA354 /* logo.png in Resources */,
 				7E8FB72D2CFB43EB005AA2E4 /* OrdersTableViewCell.xib in Resources */,
 				C345DE6F2D8CB61800EE6323 /* CartTableViewCell.xib in Resources */,
 				C3969FD52D786E3F00CA68FE /* MapCollectionViewCell.xib in Resources */,
+				C34070D32E096777006B8A33 /* GoogleService-Info.plist in Resources */,
 				C36C1B0D2CF657A3007A96B4 /* OrderCollectionViewCell.xib in Resources */,
 				C3B21C922CF9ED3B005878F9 /* FoodTableViewCell.xib in Resources */,
+				C3B0E82B2F6888A900ADA354 /* IMG_1.png in Resources */,
+				C3B0E82C2F6888A900ADA354 /* IMG_2.png in Resources */,
+				C3B0E82D2F6888A900ADA354 /* IMG_3.png in Resources */,
+				C3B0E82E2F6888A900ADA354 /* IMG_4.png in Resources */,
+				C3B0E82F2F6888A900ADA354 /* IMG_5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

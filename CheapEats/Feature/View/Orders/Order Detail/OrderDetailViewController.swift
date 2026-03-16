@@ -99,7 +99,7 @@ final class OrderDetailViewController: UIViewController{
             detailImageView.kf.setImage(with: URL(string: order.productDetail.product.imageUrl))
             companyLabel.text = "\(order.productDetail.restaurant.companyName)"
             foodLabel.text = "\(order.productDetail.product.name)"
-            totalPriceLabel.text = "\(formatDouble(order.productDetail.product.newPrice)) TL"
+            totalPriceLabel.text = "\(formatDouble((Double(order.userOrder.quantity) * order.productDetail.product.newPrice))) TL"
             orderNo.text = "#\(order.userOrder.orderNo)"
             dateLabel.text = "\(dateFormatter(with: order.userOrder.orderDate))"
             orderStatusLabel.text = "\(order.userOrder.status)"
